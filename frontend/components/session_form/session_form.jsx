@@ -36,10 +36,10 @@ class SessionForm extends React.Component {
         return (
             <div className="form-div">
                 <form className='signup-form' onSubmit={this.handleSubmit}>
-                    <h1 className="signup-title"><b>Join Medium.</b></h1>
+                    <h1 className="signup-title"><b>Join Meteor.</b></h1>
                     <p className="signup-description">Create an account to receive great stories in your inbox, personalize your homepage, and follow authors and topics that you love.</p>
                     <br />
-                    {/* {this.renderErrors()} */}
+                    {this.renderErrors()}
                     <label>
                         <input
                             className="input-forms"
