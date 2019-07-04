@@ -1,0 +1,33 @@
+.navBar {
+    display: flex;
+    padding: 0 200px;
+    height: 65px;
+    align-items: center;
+}
+
+.logo {
+    font-size: 31px;
+    font-weight: bold;
+}
+
+.login-signup{
+    color: #02A87C;
+    margin-left: auto;
+}
+
+.navbar-signin {
+    margin: 0 16px 0 0;
+    font-size: 16px;
+}
+
+.navbar-signup {
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0 16px;
+    height: 37px;
+    line-height: 37px;
+    border-top: 1px solid #02A87C;
+    border-right: 1px solid #02A87C;
+    border-bottom: 1px solid #02A87C;
+    border-left: 1px solid #02A87C;
+}

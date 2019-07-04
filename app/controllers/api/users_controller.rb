@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
             render 'api/users/show' 
             # Render the feed page
         else
-            render json: ["Invalid sign up credentials; Username and password requried"], status: 422
+            render json: @user.errors.full_messages, status: 422
         end
     end
 

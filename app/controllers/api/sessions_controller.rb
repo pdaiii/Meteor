@@ -21,7 +21,8 @@ class Api::SessionsController < ApplicationController
             render 'api/users/show'
             # Render feed page
         else
-            render status: 404
+            # If someone directly navigated to the logout form...
+            render json: ['Nobody signed in'], status: 404
         end
     end
 end

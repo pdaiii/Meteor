@@ -7,9 +7,10 @@ import LoginFormContainer from './session_form/login_form_container';
 import {AuthRoute} from '../util/route_util';
 
 const App = () => (
+
     <div>
-        <header id="navBar">
-            <Link to='/'><h1>Meteor</h1></Link>
+        <header className="navBar">
+            <Link to='/'><h1 className="logo">Meteor</h1></Link>
             <NavBarContainer />
         </header>
 

@@ -9,9 +9,9 @@ class navBar extends React.Component {
     render() {
         const sessionLinks = () => (
             <nav className="login-signup">
-                <Link to="/login">Sign In</Link>
+                <Link to="/login" className="navbar-signin">Sign in</Link>
                 &nbsp;
-                <button><Link to="/signup">Get Started</Link></button>
+                <button className="navbar-signup"><Link to="/signup">Get Started</Link></button>
             </nav>
         );
 

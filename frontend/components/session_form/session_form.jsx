@@ -34,30 +34,37 @@ class SessionForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                Please {this.props.formType} or {this.props.navLink}
-                <br/>
-                {/* {this.renderErrors()} */}
-                <label>
-                    Username: 
-                    <input 
-                        type="text" 
-                        value={this.state.username} 
-                        onChange={this.update('username')}
-                    />
-                </label>
-                <br/>
-                <label>
-                    Password: 
-                    <input 
-                        type="password" 
-                        value={this.state.password} 
-                        onChange={this.update('password')}
-                    />
-                </label>
-                <br/>
-                <input type="submit" value={this.props.formType}/>
-            </form>
+            <div className="form-div">
+                <form className='signup-form' onSubmit={this.handleSubmit}>
+                    <h1 className="signup-title"><b>Join Medium.</b></h1>
+                    <p className="signup-description">Create an account to receive great stories in your inbox, personalize your homepage, and follow authors and topics that you love.</p>
+                    <br />
+                    {/* {this.renderErrors()} */}
+                    <label>
+                        <input
+                            className="input-forms"
+                            type="text"
+                            value={this.state.username}
+                            onChange={this.update('username')}
+                            placeholder='Username'
+                        />
+                    </label>
+                    <br />
+                    <label>
+                        <input
+                            className="input-forms"
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                            placeholder='Password'
+                        />
+                    </label>
+                    <br/>
+                    <input className="submit-button" type="submit" value={this.props.formType} />
+                    <p className="already-have-account">Already have an account? {this.props.navLink}</p>
+                    <p>To make Medium work, we log user data and share it with service providers. Click “Sign in” above to accept Medium’s <a>Terms of Service</a> & <a>Privacy Policy.</a></p>
+                </form>
+            </div> 
         );
     }
 }
