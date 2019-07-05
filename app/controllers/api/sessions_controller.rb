@@ -8,7 +8,6 @@ class Api::SessionsController < ApplicationController
         if @user
             login(@user)
             render 'api/users/show'
-            # Render feed page
         else
             render json: ['Invalid credentials'], status: 401
         end
@@ -19,7 +18,6 @@ class Api::SessionsController < ApplicationController
         if @user
             logout
             render 'api/users/show'
-            # Render feed page
         else
             # If someone directly navigated to the logout form...
             render json: ['Nobody signed in'], status: 404

@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 import {signup, login, logout} from './actions/session_actions';
+import * as AJAX from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -24,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatch = store.dispatch;
 
     // User Auth Testing Tools
-    window.signup = signup;
-    window.login = login;
-    window.logout = logout;
+    // window.signup = signup;
+    // window.login = login;
+    // window.logout = logout;
+    window.signup = AJAX.signup;
 
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);

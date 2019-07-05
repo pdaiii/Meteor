@@ -2,27 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class navBar extends React.Component {
-    constructor(props){
-        super(props);
-    }
+  constructor(props){
+      super(props);
+  }
     
-    render() {
-        const sessionLinks = () => (
-            <nav className="login-signup">
-                <Link to="/login" className="navbar-signin">Sign in</Link>
-                &nbsp;
-                <button className="navbar-signup"><Link to="/signup">Get Started</Link></button>
-            </nav>
-        );
+  render() {
+    const sessionLinks = () => (
+      <nav className="login-signup">
+        <button className="navbar-signin" onClick={() => this.props.openModal('Sign in')}>Sign in</button>
+        &nbsp;
+        <button className="navbar-signup" onClick={() => this.props.openModal('Sign up')}>Get Started</button>
+      </nav>
+    );
 
-        const personalGreeting = () => (
-            <hgroup className="header-group">
-                <h2 className="header-name">Hi, {this.props.currentUser.username}!</h2>
-                <button className="header-button" onClick={() => this.props.logout()}>Log Out</button>
-            </hgroup>
-        );
-        return this.props.currentUser ? personalGreeting() : sessionLinks();
-    }
+    const personalGreeting = () => (
+      <hgroup className="logged-in-navbar">
+        <h2 className="navbar-name">{this.props.currentUser.username}</h2>
+
+        <Link to="/" className="navbar-profile">
+          <i className="fas fa-user-circle"></i>
+        </Link>
+
+        <Link to="/"><button className="logout-button" onClick={() => this.props.logout()}>
+          Log Out</button>
+        </Link>
+      </hgroup>
+    );
+    return this.props.currentUser ? personalGreeting() : sessionLinks();
+  }
 };
 
 export default navBar;
