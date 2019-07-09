@@ -2,10 +2,11 @@
 #
 # Table name: stories
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  title      :string           not null
 #  body       :string           not null
 #  author_id  :integer          not null
+#  image      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

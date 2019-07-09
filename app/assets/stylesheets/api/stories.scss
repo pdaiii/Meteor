@@ -1,3 +1,90 @@
 // Place all the styles related to the api/stories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Create Story
+.new-story-container {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+}
+
+.new-story-form {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-story-form-title {
+  display: flex;
+  width: 100%;
+  margin: 15px 0;
+  font-size: 45px;
+  height: 37px;
+  color: #b3b3b1;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.new-story-form-body {
+  height: 300px;
+  width: 100%;
+  font-size: 25px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  resize: none;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 16px;
+  height: 37px;
+  border-top: 1px solid #02A87C;
+  border-right: 1px solid #02A87C;
+  border-bottom: 1px solid #02A87C;
+  border-left: 1px solid #02A87C;
+  color: #02A87C;
+  margin: 10px 0px;
+}
+
+// Story Show
+
+// .story-show-navigation{
+//   width: 680px;
+// }
+
+.story-show-update-btn{
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 16px;
+  height: 37px;
+  border-top: 1px solid #02A87C;
+  border-right: 1px solid #02A87C;
+  border-bottom: 1px solid #02A87C;
+  border-left: 1px solid #02A87C;
+  color: #02A87C;
+  margin: 10px 0px;
+}
+
+.story-show-title{
+  font-size: 42px;
+}
+
+.story-show-profile-pic-icon{
+  font-size: 40px;
+  color: lightgrey;
+  margin: 10px 10px;
+}
+
+.story-show.author{
+  font-size: 16px;
+}
+
+// .story-show-img{
+
+// }

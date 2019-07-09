@@ -2,7 +2,7 @@
 #
 # Table name: responses
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  body       :string           not null
 #  story_id   :integer          not null
 #  author_id  :integer          not null

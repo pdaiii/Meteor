@@ -1,3 +1,104 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-page-container {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.user-profile-nav {
+  display: inline-block;
+  width: 680px;
+}
+
+.user-profile-username {
+  font-size: 40px;
+}
+
+.user-profile-follow-btn {
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 16px;
+  height: 37px;
+  border-top: 1px solid #02A87C;
+  border-right: 1px solid #02A87C;
+  border-bottom: 1px solid #02A87C;
+  border-left: 1px solid #02A87C;
+  color: #02A87C;
+  margin: 10px 0px;
+}
+
+.user-profile-pic-icon {
+  font-size: 50px;
+  color: lightgrey;
+}
+
+.user-profile-create-story-btn {
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 16px;
+  height: 37px;
+  border-top: 1px solid #02A87C;
+  border-right: 1px solid #02A87C;
+  border-bottom: 1px solid #02A87C;
+  border-left: 1px solid #02A87C;
+  color: #02A87C;
+  margin: 10px 0px;
+}
+
+.user-no-post-msg {
+  font-size: 20px;
+}
+
+// User Stories
+.user-story-container{
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+}
+
+.user-story{
+  border: 1px solid #e6e6e6;
+  margin: 15px 0px;
+  width: 680px;
+  height: 450px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px 15px;
+  border-radius: 4px;
+}
+
+.user-story-profile-pic{
+  font-size: 40px;
+  color: lightgrey;
+  margin: 10px 10px;
+}
+
+.user-story-buttons{
+  margin: 10px 10px;
+}
+
+.user-story-img{
+  height: 190px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.user-story-img > img{
+  width: 100%;
+}
+
+.user-story-title{
+  font-size: 34px;
+}
+
+.user-story-body{
+  font-size: 24px;
+  color: #757575;
+  overflow: hidden;
+  white-space: nowrap;
+  // text-overflow: ellipsis;
+  word-wrap: break-word;
+  margin: 10px;
+}

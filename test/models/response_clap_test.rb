@@ -2,7 +2,7 @@
 #
 # Table name: response_claps
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  response_id :integer          not null
 #  clapper_id  :integer          not null
 #  created_at  :datetime         not null

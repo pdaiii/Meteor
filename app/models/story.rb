@@ -2,18 +2,21 @@
 #
 # Table name: stories
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  title      :string           not null
 #  body       :string           not null
 #  author_id  :integer          not null
+#  image      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Story < ApplicationRecord
-    validates :title, :body, :author_id, presence: true
+    validates :title, :body, presence: true
 
-    belongs_to :user,
+    has_one_attached :image
+
+    belongs_to :author,
         primary_key: :id,
         foreign_key: :author_id,
         class_name: :User
