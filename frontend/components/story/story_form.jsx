@@ -54,7 +54,7 @@ class StoryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.story;
-    // this.update = this.update.bind(this);
+    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleImage = this.handleImage.bind(this);
   }
@@ -84,26 +84,14 @@ class StoryForm extends React.Component {
     this.setState({['image']: event.currentTarget.files[0]});
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   // const formData = new FormData();
-  //   // formData.append('story[title]', this.state.title);
-  //   // formData.append('story[body]', this.state.body);
-  //   // formData.append('story[photo]', this.state.photo);
-  //   // $.ajax({
-
-  //   // })
-  //   this.props.submitStory(this.state)
-  //     .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
-  // }
-
   handleSubmit(event) {
+    debugger
     event.preventDefault();
     const formData = new FormData();
     formData.append("story[title]", this.state.title);
     formData.append("story[body]", this.state.body);
     formData.append("story[image]", this.state.image);
-    this.props.submitStory(formData)
+    this.props.submitStory(formData, this.state.id)
       .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
   }
 

@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchStory: (id) => dispatch(fetchStory(id)),
-  submitStory: (story) => dispatch(updateStory(story))
+  submitStory: (story, story_id) => dispatch(updateStory(story, story_id))
 });
 
 class StoryEditForm extends React.Component {

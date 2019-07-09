@@ -42,9 +42,9 @@ export const createStory = (story) => {
   };
 };
 
-export const updateStory = (story) => {
+export const updateStory = (story, story_id) => {
   return dispatch => {
-    return APIStoryUtil.updateStory(story)
+    return APIStoryUtil.updateStory(story, story_id)
       .then(story => dispatch(receiveStory(story)))
   };
 };

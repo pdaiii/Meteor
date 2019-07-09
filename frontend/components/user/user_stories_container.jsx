@@ -25,11 +25,13 @@ class UserStoryPost extends React.Component {
       <div className="user-story-container">
         <div className="user-story">
           <nav className="user-story-nav">
-            <div className="user-story-profile-pic">
-              <i className="fas fa-user-circle"></i>
+            <div className="user-story-profile">
+              <div className="user-story-profile-pic">
+                <i className="fas fa-user-circle"></i>
+              </div>
+              <h2 className="user-story-author">{this.props.story.author}</h2>
             </div>
-            <h2>{this.props.story.author}</h2>
-            <div>
+            <div className="user-story-btns">
               <Link to={`/stories/${this.props.story.id}/edit`} className="user-story-buttons">
                 <i className="far fa-edit"></i>
               </Link>
@@ -39,10 +41,8 @@ class UserStoryPost extends React.Component {
             </div>
           </nav>
 
-          <Link to={`stories/${this.props.story.id}`}>
+          <Link to={`/stories/${this.props.story.id}`}>
             <div className="user-story-img">
-
-    
               <img src={`${this.props.story.image}`} />
             </div>
             <h1 className="user-story-title">{this.props.story.title}</h1>

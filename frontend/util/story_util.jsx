@@ -1,5 +1,4 @@
 export const fetchAllStories = () => {
-  debugger
   return $.ajax ({
     method: 'GET',
     url: '/api/stories'
@@ -23,7 +22,6 @@ export const fetchStory = (id) => {
 
 // Handle images
 export const createStory = (story) => {
-  debugger
   return $.ajax({
     method: 'POST',
     url: `/api/stories`,
@@ -33,11 +31,23 @@ export const createStory = (story) => {
   })
 };
 
-export const updateStory = (story) => {
+// export const updateStory = (story) => {
+//   debugger
+//   return $.ajax ({
+//     method: 'PATCH',
+//     url: `/api/stories/${story.id}`,
+//     data: {story}
+//   })
+// };
+
+export const updateStory = (story, story_id) => {
+  debugger
   return $.ajax ({
     method: 'PATCH',
-    url: `/api/stories/${story.id}`,
-    data: {story}
+    url: `/api/stories/${story_id}`,
+    data: story,
+    contentType: false,
+    processData: false
   })
 };
 

@@ -262,9 +262,9 @@ var createStory = function createStory(story) {
     });
   };
 };
-var updateStory = function updateStory(story) {
+var updateStory = function updateStory(story, story_id) {
   return function (dispatch) {
-    return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["updateStory"](story).then(function (story) {
+    return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["updateStory"](story, story_id).then(function (story) {
       return dispatch(receiveStory(story));
     });
   };
@@ -615,10 +615,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _session_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form */ "./frontend/components/session_form/session_form.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.jsx");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.jsx");
-
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.jsx");
 
 
 
@@ -636,19 +634,19 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["login"])(user));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     },
     clearErrors: function clearErrors() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["clearErrors"])());
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["clearErrors"])());
     },
     // otherForm instead of navLink with the modal
     otherForm: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
-        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])('Sign up'));
+        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])('Sign up'));
       }
     }, "Sign up"),
     closeModal: function closeModal() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["closeModal"])());
     }
   };
 };
@@ -948,8 +946,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchStory: function fetchStory(id) {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_2__["fetchStory"])(id));
     },
-    submitStory: function submitStory(story) {
-      return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_2__["updateStory"])(story));
+    submitStory: function submitStory(story, story_id) {
+      return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_2__["updateStory"])(story, story_id));
     }
   };
 };
@@ -1077,8 +1075,8 @@ function (_React$Component) {
     _classCallCheck(this, StoryForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(StoryForm).call(this, props));
-    _this.state = _this.props.story; // this.update = this.update.bind(this);
-
+    _this.state = _this.props.story;
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleImage = _this.handleImage.bind(_assertThisInitialized(_this));
     return _this;
@@ -1110,29 +1108,19 @@ function (_React$Component) {
     // }
     value: function handleImage(event) {
       this.setState(_defineProperty({}, 'image', event.currentTarget.files[0]));
-    } // handleSubmit(event) {
-    //   event.preventDefault();
-    //   // const formData = new FormData();
-    //   // formData.append('story[title]', this.state.title);
-    //   // formData.append('story[body]', this.state.body);
-    //   // formData.append('story[photo]', this.state.photo);
-    //   // $.ajax({
-    //   // })
-    //   this.props.submitStory(this.state)
-    //     .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
-    // }
-
+    }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
       var _this3 = this;
 
+      debugger;
       event.preventDefault();
       var formData = new FormData();
       formData.append("story[title]", this.state.title);
       formData.append("story[body]", this.state.body);
       formData.append("story[image]", this.state.image);
-      this.props.submitStory(formData).then(function () {
+      this.props.submitStory(formData, this.state.id).then(function () {
         return _this3.props.history.push("/users/".concat(_this3.props.currentUserId));
       });
     }
@@ -1225,32 +1213,37 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // Unsure
-      debugger; // this.props.fetchStory(this.props.match.params.storyId);
+      // this.props.fetchStory(this.props.match.params.storyId);
+      window.scroll(0, 0);
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "story-show-navigation"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "stories/".concat(this.props.story.id, "/edit")
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "story-show-update-btn"
-      }, "Update")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "story-show-position"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "story-show-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "story-show-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "story-show-title"
       }, this.props.story.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "story-show-author-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "story-show-author"
-      }, this.props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.story.author))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "".concat(this.props.story.image)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "story-show-body"
-      }, this.props.story.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Claps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Comments"));
+      }, this.props.story.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+        className: "story-show-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Claps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Responses"))));
     }
   }]);
 
@@ -1370,7 +1363,9 @@ function (_React$Component) {
       });
 
       if (userStories.length > 0) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Stories"), stories);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-show-stories-title"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Stories")), stories);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-no-post-msg"
@@ -1380,24 +1375,29 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-page-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "user-profile-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-profile-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-profile-user"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "user-profile-username"
       }, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "user-profile-follow-btn"
-      }, "Follow"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Follow")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-profile-create-story"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/stories/new"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "user-profile-create-story-btn"
-      }, "Create Story")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), this.getPosts()));
+      }, "Create Story"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), this.getPosts()));
     }
   }]);
 
@@ -1536,10 +1536,16 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "user-story-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-story-profile"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-story-profile-pic"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.story.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "user-story-author"
+      }, this.props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-story-btns"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/stories/".concat(this.props.story.id, "/edit"),
         className: "user-story-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1550,7 +1556,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-trash"
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "stories/".concat(this.props.story.id)
+        to: "/stories/".concat(this.props.story.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-story-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -2047,7 +2053,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStory", function() { return updateStory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteStory", function() { return deleteStory; });
 var fetchAllStories = function fetchAllStories() {
-  debugger;
   return $.ajax({
     method: 'GET',
     url: '/api/stories'
@@ -2068,7 +2073,6 @@ var fetchStory = function fetchStory(id) {
 // Handle images
 
 var createStory = function createStory(story) {
-  debugger;
   return $.ajax({
     method: 'POST',
     url: "/api/stories",
@@ -2076,14 +2080,23 @@ var createStory = function createStory(story) {
     contentType: false,
     processData: false
   });
-};
-var updateStory = function updateStory(story) {
+}; // export const updateStory = (story) => {
+//   debugger
+//   return $.ajax ({
+//     method: 'PATCH',
+//     url: `/api/stories/${story.id}`,
+//     data: {story}
+//   })
+// };
+
+var updateStory = function updateStory(story, story_id) {
+  debugger;
   return $.ajax({
     method: 'PATCH',
-    url: "/api/stories/".concat(story.id),
-    data: {
-      story: story
-    }
+    url: "/api/stories/".concat(story_id),
+    data: story,
+    contentType: false,
+    processData: false
   });
 };
 var deleteStory = function deleteStory(id) {

@@ -14,9 +14,9 @@ class UserShow extends React.Component {
       // if(this.props.user.story_ids.includes(story.id)){
       //   userStories.push(story);
       // }
-        if(this.props.user.id === story.author_id){
-          userStories.push(story);
-        }
+      if(this.props.user.id === story.author_id){
+        userStories.push(story);
+      }
     });
 
     let stories = userStories.map(story => {
@@ -31,7 +31,9 @@ class UserShow extends React.Component {
     if(userStories.length > 0) {
       return (
         <div>
-          <h3>Stories</h3>
+          <div className="user-show-stories-title">
+            <h3>Stories</h3>
+          </div>
           {stories}
         </div>
       )
@@ -41,27 +43,31 @@ class UserShow extends React.Component {
         <div className="user-no-post-msg">{this.props.user.username} has no posts currently.</div>
       )
     }
-
   }
 
   render() {
-    debugger
     return(
       <div>
         <div className="profile-page-container">
           <nav className="user-profile-nav">
-            <h1 className="user-profile-username">{this.props.user.username}</h1>
+            <div className="user-profile-info">
+              <div className="user-profile-user">
+                <h1 className="user-profile-username">{this.props.user.username}</h1>
+                <button className="user-profile-follow-btn">Follow</button>
+              </div>
 
-            <button className="user-profile-follow-btn">Follow</button>
+              <div className="user-profile-pic-icon">
+                <i className="fas fa-user-circle"></i>
+              </div>
 
-            <div className="user-profile-pic-icon">
-              <i className="fas fa-user-circle"></i>
             </div>
 
             {/* If user is logged in, can see Create Story button */}
-            <Link to="/stories/new">
-              <button className="user-profile-create-story-btn">Create Story</button>
-            </Link>
+            <div className="user-profile-create-story">
+              <Link to="/stories/new">
+                <button className="user-profile-create-story-btn">Create Story</button>
+              </Link>
+            </div>
             <hr />
           </nav>
           {this.getPosts()}

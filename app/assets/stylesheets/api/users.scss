@@ -12,26 +12,37 @@
   width: 680px;
 }
 
+.user-profile-info{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
 .user-profile-username {
   font-size: 40px;
+  font-weight: bold;
 }
 
 .user-profile-follow-btn {
-  border-radius: 4px;
-  font-size: 16px;
-  padding: 0 16px;
-  height: 37px;
+  border-radius: 2px;
+  font-size: 14px;
+  padding: 0 12px;
+  height: 20px;
   border-top: 1px solid #02A87C;
   border-right: 1px solid #02A87C;
   border-bottom: 1px solid #02A87C;
   border-left: 1px solid #02A87C;
   color: #02A87C;
-  margin: 10px 0px;
+  margin: 5px 0px;
 }
 
 .user-profile-pic-icon {
-  font-size: 50px;
+  font-size: 70px;
   color: lightgrey;
+}
+
+.user-profile-create-story{
+  display: inline-block;
 }
 
 .user-profile-create-story-btn {
@@ -61,17 +72,36 @@
 .user-story{
   border: 1px solid #e6e6e6;
   margin: 15px 0px;
-  width: 680px;
+  width: 650px;
   height: 450px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
-  padding: 15px 15px;
-  border-radius: 4px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  border-radius: 2px;
+}
+
+.user-story-nav{
+  display: flex;
+}
+
+.user-story-profile{
+  display: flex;
+  align-items: center;
 }
 
 .user-story-profile-pic{
   font-size: 40px;
   color: lightgrey;
-  margin: 10px 10px;
+  padding-right: 5px;
+}
+
+.user-story-author{
+  font-size: 16px;
+}
+
+.user-story-btns{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 .user-story-buttons{
@@ -79,10 +109,12 @@
 }
 
 .user-story-img{
-  height: 190px;
+  height: 250px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .user-story-img > img{
@@ -90,7 +122,7 @@
 }
 
 .user-story-title{
-  font-size: 34px;
+  font-size: 30px;
 }
 
 .user-story-body{
@@ -98,7 +130,13 @@
   color: #757575;
   overflow: hidden;
   white-space: nowrap;
-  // text-overflow: ellipsis;
   word-wrap: break-word;
-  margin: 10px;
+  margin: 10px auto;
+}
+
+.user-story-footer{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 10px;
 }
