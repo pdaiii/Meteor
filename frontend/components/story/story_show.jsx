@@ -31,7 +31,7 @@ class StoryShow extends React.Component {
           <h2 className="story-show-body">{this.props.story.body}</h2>
 
           <footer className="story-show-footer">
-            <p>Claps</p>
+            <p>&#128079;</p>
             <p>Responses</p>
           </footer>
         </div>

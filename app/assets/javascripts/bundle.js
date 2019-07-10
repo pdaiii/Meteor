@@ -1629,7 +1629,7 @@ function (_React$Component) {
         className: "story-show-body"
       }, this.props.story.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "story-show-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Claps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Responses"))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\uD83D\uDC4F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Responses"))));
     }
   }]);
 
