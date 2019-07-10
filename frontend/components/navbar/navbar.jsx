@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class navBar extends React.Component {
   constructor(props){
-      super(props);
+    super(props);
   }
     
   render() {

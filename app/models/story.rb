@@ -6,13 +6,12 @@
 #  title      :string           not null
 #  body       :string           not null
 #  author_id  :integer          not null
-#  image      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Story < ApplicationRecord
-    validates :title, :body, presence: true
+    validates :title, :body, :author_id, presence: true
 
     has_one_attached :image
 

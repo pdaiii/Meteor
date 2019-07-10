@@ -8,6 +8,7 @@ import { fetchUser } from './util/user_util';
 import { createStory} from './util/story_util';
 import { fetchAllStories, deleteStory } from './actions/story_actions';
 import * as AJAX from './util/session_api_util';
+import { createResponse } from './util/response_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -36,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchAllStories = fetchAllStories;
   window.createStory = createStory;
   window.deleteStory = deleteStory;
+
+  window.createResponse = createResponse;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
