@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropzone from 'react-dropzone';
+// import {Dropzone, useDropzone} from 'react-dropzone';
 // import styled from 'styled-components';
 
 // const getColor = (props) => {
@@ -39,7 +39,6 @@ import Dropzone from 'react-dropzone';
 //     isDragAccept,
 //     isDragReject
 //   } = useDropzone({ accept: 'image/jpeg, image/png' });
-//   debugger
 //   return (
 //     <div className="container">
 //       <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
@@ -65,19 +64,8 @@ class StoryForm extends React.Component {
     };
   };
 
-  // updateImage(acceptedFile) {
-  //   // const reader = new FileReader();
-  //   // let imageFile = reader.readAsBinaryString(file);
-  //   return () => this.setState({
-  //     ['image']: acceptedFile[0]
-  //   });
-  // };
-
-  // updateImage(acceptedFile) {
-  //   debugger
-  //   return () => this.setState({
-  //     photoFile: acceptedFile[0]
-  //   })
+  // handleImage(event) {
+  //   this.setState({['image']: event.acceptedFile[0]})
   // }
 
   handleImage(event) {
@@ -85,7 +73,6 @@ class StoryForm extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     event.preventDefault();
     const formData = new FormData();
     formData.append("story[title]", this.state.title);
@@ -96,6 +83,7 @@ class StoryForm extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="new-story-container">
         <form className="new-story-form" onSubmit={this.handleSubmit}>
@@ -105,7 +93,7 @@ class StoryForm extends React.Component {
             placeholder="Tell your story..."></textarea>
 
           {/* React Drop-zone */}
-          {/* <StyledDropzone className="image-drop-zone" value={this.state.image} onChange={this.update('image')}/> */}
+          {/* <StyledDropzone className="image-drop-zone" onDrop={this.handleImage}/> */}
 
           {/* <Dropzone onDrop={acceptedFile => this.updateImage(acceptedFile)}>
             {({ getRootProps, getInputProps }) => (

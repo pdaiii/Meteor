@@ -1,39 +1,39 @@
 .navBar {
-    display: flex;
-    padding: 0 200px;
-    height: 65px;
-    align-items: center;
-    box-shadow: 0px 0px 10px rgba(200,200,200,0.4);
-    justify-content: space-between;
+  display: flex;
+  padding: 0 200px;
+  height: 65px;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(200,200,200,0.4);
+  justify-content: space-between;
 }
 
 .logo {
-    font-size: 31px;
-    font-weight: bold;
+  font-size: 31px;
+  font-weight: bold;
 }
 
 .login-signup{
-    color: #02A87C;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
+  color: #02A87C;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-signin {
-    margin: 0 16px 0 0;
-    font-size: 16px;
+  margin: 0 16px 0 0;
+  font-size: 16px;
 }
 
 .navbar-signup {
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 0 16px;
-    height: 37px;
-    line-height: 37px;
-    border-top: 1px solid #02A87C;
-    border-right: 1px solid #02A87C;
-    border-bottom: 1px solid #02A87C;
-    border-left: 1px solid #02A87C;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 16px;
+  height: 37px;
+  line-height: 37px;
+  border-top: 1px solid #02A87C;
+  border-right: 1px solid #02A87C;
+  border-bottom: 1px solid #02A87C;
+  border-left: 1px solid #02A87C;
 }
 
 // Logged in nav
@@ -46,6 +46,7 @@
 
 .navbar-name {
   font-size: 20px;
+  font-weight: bold;
 }
 
 .navbar-profile {
@@ -53,6 +54,7 @@
   font-size: 35px;
   color: lightgrey;
   margin: auto 15px;
+  justify-content: center;
 }
 
 .logout-button {

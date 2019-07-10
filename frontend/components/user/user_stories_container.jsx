@@ -53,6 +53,7 @@ class UserStoryPost extends React.Component {
             <p>Claps</p>
             <p>Responses</p>
           </footer>
+
         </div>
       </div>
     )

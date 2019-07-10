@@ -1,21 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class StoryShow extends React.Component {
   componentDidMount() {
-    // Unsure
-    // this.props.fetchStory(this.props.match.params.storyId);
+    this.props.fetchStory(this.props.match.params.storyId);
     window.scroll(0, 0);
   }
 
   render() {
+    if(!this.props.story){
+      return null;
+    }
     return (
       <div className="story-show-position">
         <div className="story-show-container">
           <header className="story-show-header">
-            {/* <Link to={`stories/${this.props.story.id}/edit`}>
-              <button className="story-show-update-btn">Update</button>
-            </Link> */}
             <h1 className="story-show-title">{this.props.story.title}</h1>
 
             <div className="story-show-author-div">
@@ -38,10 +36,8 @@ class StoryShow extends React.Component {
           </footer>
         </div>
       </div>
-      
     );
   }
-
 }
 
 export default StoryShow;
