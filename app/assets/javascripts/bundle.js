@@ -740,8 +740,9 @@ function (_React$Component) {
       this.props.createResponse(this.state).then(function () {
         return _this3.props.history.push("/stories/".concat(_this3.props.story.id));
       });
-      var form = document.getElementsByClassName(response - form);
-      form.reset();
+      this.setState({
+        body: ''
+      });
     }
   }, {
     key: "render",
