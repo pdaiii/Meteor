@@ -20,8 +20,22 @@ class UserStoryPost extends React.Component {
   }
 
   render() {
+    let userStoryBtns;
+    if(this.props.user.id === this.props.currentUserId){
+      userStoryBtns =
+      <div className="user-story-btns">
+        <Link to={`/stories/${this.props.story.id}/edit`} className="user-story-buttons">
+          <i className="far fa-edit"></i>
+        </Link>
+        <button className="user-story-buttons" onClick={this.handleDelete()}>
+          <i className="fas fa-trash"></i>
+        </button>
+      </div>
+    }
+    else{
+      userStoryBtns = null;
+    }
     return (
-      
       <div className="user-story-container">
         <div className="user-story">
           <nav className="user-story-nav">
@@ -31,14 +45,7 @@ class UserStoryPost extends React.Component {
               </div>
               <h2 className="user-story-author">{this.props.story.author}</h2>
             </div>
-            <div className="user-story-btns">
-              <Link to={`/stories/${this.props.story.id}/edit`} className="user-story-buttons">
-                <i className="far fa-edit"></i>
-              </Link>
-              <button className="user-story-buttons" onClick={this.handleDelete()}>
-                <i className="fas fa-trash"></i>
-              </button>
-            </div>
+            {userStoryBtns}
           </nav>
 
           <Link to={`/stories/${this.props.story.id}`}>

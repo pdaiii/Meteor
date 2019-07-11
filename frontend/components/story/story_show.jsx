@@ -1,15 +1,33 @@
 import React from 'react';
+import ResponseContainer from '../responses/response_container';
+import ResponseItems from '../responses/response_items';
 
 class StoryShow extends React.Component {
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.storyId);
+    this.props.fetchAllResponses(this.props.match.params.storyId);
     window.scroll(0, 0);
   }
 
   render() {
+    let storyResponses;
+    let responses;
     if(!this.props.story){
       return null;
     }
+
+    // Get all of the responses for this story.
+    responses = Object.values(this.props.responses);
+    storyResponses = responses.map(response => {
+      if (response.story_id === this.props.story.id) {
+        return (
+          <ResponseItems
+            key={response.id}
+            response={response}
+          />
+        )
+      }
+    })
     return (
       <div className="story-show">
         <div className="story-show-position">
@@ -38,8 +56,10 @@ class StoryShow extends React.Component {
 
             <div className="story-show-response">
               <p className="responses-title">Responses</p>
-              <input type="text" className="story-show-write-response" placeholder="Write a response..."
-                onClick={() => this.props.openModal('Create Response')}/>
+              <ResponseContainer
+                story={this.props.story}
+              />
+              {storyResponses}
             </div>
           </div>
         </div>

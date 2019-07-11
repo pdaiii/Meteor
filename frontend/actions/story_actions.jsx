@@ -6,17 +6,17 @@ export const DESTROY_STORY = 'DESTROY_STORY';
 
 // Action Creators
 const receiveAllStories = (stories) => ({
-  type: 'RECEIVE_ALL_STORIES',
+  type: RECEIVE_ALL_STORIES,
   stories: stories
 });
 
 const receiveStory = (story) => ({
-  type: 'RECEIVE_STORY',
+  type: RECEIVE_STORY,
   story: story
 });
 
 const removeStory = (id) => ({
-  type: 'DESTROY_STORY',
+  type: DESTROY_STORY,
   id: id
 });
 

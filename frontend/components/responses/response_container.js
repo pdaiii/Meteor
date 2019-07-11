@@ -1,15 +1,21 @@
 import { connect } from 'react-redux';
-import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 import { createResponse } from '../../actions/response_actions';
+import { fetchStory } from '../../actions/story_actions';
 import Response from './response';
 
-const mapStateToProps = state => ({
-
-});
+// WHERE ARE OWN PROPS COMING FROM??
+const mapStateToProps = (state, ownProps) => {
+  return({
+    response: { body: '', story_id: ownProps.match.params.storyId},
+    story: state.entities.stories[ownProps.match.params.storyId]
+  });
+};
 
 const mapDispatchToProps = dispatch => ({
-  openModal: (modal) => dispatch(openModal(modal)),
+  fetchStory: (id) => dispatch(fetchStory(id)),
   createResponse: (response) => dispatch(createResponse(response))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Response);
+// Access to URL using withRouter
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Response));

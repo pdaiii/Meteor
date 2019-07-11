@@ -5,15 +5,13 @@ import UserStoriesContainer from './user_stories_container';
 class UserShow extends React.Component {
   componentDidMount() {
     this.props.fetchAllStories();
+    this.props.fetchUser(this.props.match.params.userId);
   }
 
   getPosts() {
     // Grab all posts in the db
     let userStories = [];
     Object.values(this.props.stories).forEach(story => {
-      // if(this.props.user.story_ids.includes(story.id)){
-      //   userStories.push(story);
-      // }
       if(this.props.user.id === story.author_id){
         userStories.push(story);
       }
@@ -24,6 +22,7 @@ class UserShow extends React.Component {
         <UserStoriesContainer 
           key={story.id}
           story={story}
+          user={this.props.user}
         />
       )
     });
@@ -46,6 +45,21 @@ class UserShow extends React.Component {
   }
 
   render() {
+    debugger
+    if(!this.props.user){
+      return null;
+    }
+    let createStory;
+    if(this.props.currentUserId === this.props.user.id){
+      createStory = <Link to="/stories/new">
+        <button className="user-profile-create-story-btn">Create Story</button>
+      </Link>;
+    }
+    else{
+      createStory = null;
+    }
+
+
     return(
       <div>
         <div className="profile-page-container">
@@ -64,9 +78,7 @@ class UserShow extends React.Component {
 
             {/* If user is logged in, can see Create Story button */}
             <div className="user-profile-create-story">
-              <Link to="/stories/new">
-                <button className="user-profile-create-story-btn">Create Story</button>
-              </Link>
+              {createStory}
             </div>
             <hr />
           </nav>

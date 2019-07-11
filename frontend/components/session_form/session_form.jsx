@@ -4,8 +4,8 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        username: "",
-        password: ""
+      username: "",
+      password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoUser = this.handleDemoUser.bind(this);
@@ -20,8 +20,8 @@ class SessionForm extends React.Component {
   handleDemoUser(event) {
     event.preventDefault();
     this.props.processForm({
-        username: "Guest User",
-        password: "password"
+      username: "Guest User",
+      password: "password"
     }).then(this.props.closeModal);
   }
     
@@ -35,14 +35,14 @@ class SessionForm extends React.Component {
     return (
       <ul>
         {this.props.errors.map( (error, idx) => (
-            <li key={`error-${idx}`}>{error}</li>
+          <li key={`error-${idx}`}>{error}</li>
         ))}
       </ul>
     )
   }
 
   componentWillUnmount() {
-      this.props.clearErrors();
+    this.props.clearErrors();
   }
 
   render() {

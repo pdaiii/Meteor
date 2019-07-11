@@ -1,3 +1,78 @@
 // Place all the styles related to the api/responses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/// Create Response Form ///
+.response-form-container{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.response-form{
+  position: relative;
+  overflow: hidden;
+}
+
+.response-form-input{
+  font-size: 18px;
+  width: 90%;
+  height: 40px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  border-radius: 2px;
+  -webkit-transition: height 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out;
+}
+
+.response-form-input:focus{
+  height: 200px;
+}
+
+.response-form-submit-btn{
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 16px;
+  height: 37px;
+  border-top: 1px solid #02A87C;
+  border-right: 1px solid #02A87C;
+  border-bottom: 1px solid #02A87C;
+  border-left: 1px solid #02A87C;
+  color: #02A87C;
+  margin: 10px 0px;
+  position: absolute;
+  bottom: 5px; 
+  left: 15px;
+}
+
+/// RESPONSE ITEMS ///
+.response-items-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.response-items{
+  border: 1px solid #e6e6e6;
+  margin: 15px 0px;
+  width: 650px;
+  height: 300px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.response-items-profile-pic-icon{
+
+}
+
+.response-items-author{
+  font-size: 16px;
+}
+
+.response-items-body{
+  font-size: 21px;
+}
