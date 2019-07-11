@@ -17,7 +17,8 @@ class StoryIndex extends React.Component {
     // Implement based on claps later.
     let popularStories;
     let mostPopularStories;
-    if(stories.length === 0) {
+    // Navigating from a show page. Or refreshing the splash page.
+    if(stories.length < 2) {
       return null;
     }else {
       numberOfPosts = stories.length;

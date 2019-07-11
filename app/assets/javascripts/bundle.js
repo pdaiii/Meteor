@@ -740,6 +740,8 @@ function (_React$Component) {
       this.props.createResponse(this.state).then(function () {
         return _this3.props.history.push("/stories/".concat(_this3.props.story.id));
       });
+      var form = document.getElementsByClassName(response - form);
+      form.reset();
     }
   }, {
     key: "render",
@@ -875,6 +877,20 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // Delete own comments 
+      var deleteOwnComments;
+
+      if (this.props.response.author_id === this.props.currentUserId) {
+        deleteOwnComments = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "response-items-delete",
+          onClick: this.handleDelete()
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-trash"
+        }));
+      } else {
+        deleteOwnComments = null;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "response-items-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -887,12 +903,7 @@ function (_React$Component) {
         className: "response-items-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "response-items-delete",
-        onClick: this.handleDelete()
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-trash"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      })), deleteOwnComments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "response-items-author"
       }, this.props.response.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "response-items-body"
@@ -1512,7 +1523,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "new-story-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1614,9 +1624,9 @@ function (_React$Component) {
       var numberOfPosts; // Implement based on claps later.
 
       var popularStories;
-      var mostPopularStories;
+      var mostPopularStories; // Navigating from a show page. Or refreshing the splash page.
 
-      if (stories.length === 0) {
+      if (stories.length < 2) {
         return null;
       } else {
         numberOfPosts = stories.length;
@@ -1932,11 +1942,21 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      var storyResponses;
+      var creatingResponses;
       var responses;
+      var storyResponses;
 
       if (!this.props.story) {
         return null;
+      } // Render the write response form for logged in users.
+
+
+      if (this.props.currentUserId) {
+        creatingResponses = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          story: this.props.story
+        });
+      } else {
+        creatingResponses = null;
       } // Get all of the responses for this story.
 
 
@@ -1946,7 +1966,8 @@ function (_React$Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
             key: response.id,
             response: response,
-            deleteResponse: _this.props.deleteResponse
+            deleteResponse: _this.props.deleteResponse,
+            currentUserId: _this.props.currentUserId
           });
         }
       });
@@ -1976,13 +1997,21 @@ function (_React$Component) {
         className: "story-show-body"
       }, this.props.story.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "story-show-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\uD83D\uDC4F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Responses")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "clap-icon"
+      }, "\uD83D\uDC4F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media-icons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-twitter"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-facebook-official"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-bookmark-o"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-response"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "responses-title"
-      }, "Responses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        story: this.props.story
-      }), storyResponses))));
+      }, "Responses"), creatingResponses, storyResponses))));
     }
   }]);
 
@@ -2122,8 +2151,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
-
       if (!this.props.user) {
         return null;
       }

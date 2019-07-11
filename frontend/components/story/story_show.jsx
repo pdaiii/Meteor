@@ -10,12 +10,23 @@ class StoryShow extends React.Component {
   }
 
   render() {
-    let storyResponses;
+    let creatingResponses;
     let responses;
+    let storyResponses;
     if(!this.props.story){
       return null;
     }
 
+    // Render the write response form for logged in users.
+    if(this.props.currentUserId){
+      creatingResponses = 
+      <ResponseContainer
+        story={this.props.story}
+      />
+    }
+    else{
+      creatingResponses = null;
+    }
     // Get all of the responses for this story.
     responses = Object.values(this.props.responses);
     storyResponses = responses.map(response => {
@@ -25,6 +36,7 @@ class StoryShow extends React.Component {
             key={response.id}
             response={response}
             deleteResponse={this.props.deleteResponse}
+            currentUserId={this.props.currentUserId}
           />
         )
       }
@@ -51,15 +63,17 @@ class StoryShow extends React.Component {
             <h2 className="story-show-body">{this.props.story.body}</h2>
 
             <footer className="story-show-footer">
-              <p>&#128079;</p>
-              <p>Responses</p>
+              <p className="clap-icon">&#128079;</p>
+              <div className="media-icons">
+                <i className="fa fa-twitter"></i>
+                <i className="fa fa-facebook-official"></i>
+                <i className="fa fa-bookmark-o"></i>
+              </div>
             </footer>
 
             <div className="story-show-response">
               <p className="responses-title">Responses</p>
-              <ResponseContainer
-                story={this.props.story}
-              />
+              {creatingResponses}
               {storyResponses}
             </div>
           </div>

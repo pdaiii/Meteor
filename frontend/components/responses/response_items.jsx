@@ -10,6 +10,18 @@ class ResponseItems extends React.Component {
   }
 
   render() {
+    // Delete own comments 
+    let deleteOwnComments;
+    if(this.props.response.author_id === this.props.currentUserId){
+      deleteOwnComments =
+      <button className="response-items-delete" onClick={this.handleDelete()}>
+        <i className="fas fa-trash"></i>
+      </button>
+    }
+    else{
+      deleteOwnComments = null;
+    }
+
     return (
       <div className="response-items-container">
         <div className="response-items">
@@ -18,11 +30,8 @@ class ResponseItems extends React.Component {
               <div className="response-items-profile-pic-icon">
                 <i className="fas fa-user-circle"></i>
               </div>
-              <button className="response-items-delete" onClick={this.handleDelete()}>
-                <i className="fas fa-trash"></i>
-              </button>
+              {deleteOwnComments}
             </nav>
-
             <h1 className="response-items-author">{this.props.response.author}</h1>
           </Link>
           <h2 className="response-items-body">{this.props.response.body}</h2>

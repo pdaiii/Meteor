@@ -83,7 +83,6 @@ class StoryForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="new-story-container">
         <form className="new-story-form" onSubmit={this.handleSubmit}>

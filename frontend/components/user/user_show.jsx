@@ -45,7 +45,6 @@ class UserShow extends React.Component {
   }
 
   render() {
-    debugger
     if(!this.props.user){
       return null;
     }
