@@ -24,10 +24,6 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Story
 
-  # has_many :story_ids,
-  #   through: :stories,
-  #   source: :id
-
   has_many :story_claps,
     primary_key: :id,
     foreign_key: :clapper_id,

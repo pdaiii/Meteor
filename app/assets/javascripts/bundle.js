@@ -119,19 +119,22 @@ var closeModal = function closeModal() {
 /*!***********************************************!*\
   !*** ./frontend/actions/response_actions.jsx ***!
   \***********************************************/
-/*! exports provided: RECEIVE_ALL_RESPONSES, RECEIVE_RESPONSE, fetchAllResponses, createResponse */
+/*! exports provided: RECEIVE_ALL_RESPONSES, RECEIVE_RESPONSE, DESTROY_RESPONSE, fetchAllResponses, createResponse, deleteResponse */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_RESPONSES", function() { return RECEIVE_ALL_RESPONSES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_RESPONSE", function() { return RECEIVE_RESPONSE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DESTROY_RESPONSE", function() { return DESTROY_RESPONSE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllResponses", function() { return fetchAllResponses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createResponse", function() { return createResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteResponse", function() { return deleteResponse; });
 /* harmony import */ var _util_response_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/response_util */ "./frontend/util/response_util.js");
 
 var RECEIVE_ALL_RESPONSES = 'RECEIVE_ALL_RESPONSES';
 var RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
+var DESTROY_RESPONSE = 'DESTROY_RESPONSE';
 
 var receiveAllResponses = function receiveAllResponses(responses) {
   return {
@@ -147,6 +150,13 @@ var receiveResponse = function receiveResponse(response) {
   };
 };
 
+var destroyResponse = function destroyResponse(id) {
+  return {
+    type: DESTROY_RESPONSE,
+    id: id
+  };
+};
+
 var fetchAllResponses = function fetchAllResponses(story_id) {
   return function (dispatch) {
     return _util_response_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllResponses"](story_id).then(function (responses) {
@@ -158,6 +168,13 @@ var createResponse = function createResponse(response) {
   return function (dispatch) {
     return _util_response_util__WEBPACK_IMPORTED_MODULE_0__["createResponse"](response).then(function (response) {
       return dispatch(receiveResponse(response));
+    });
+  };
+};
+var deleteResponse = function deleteResponse(id) {
+  return function (dispatch) {
+    return _util_response_util__WEBPACK_IMPORTED_MODULE_0__["deleteResponse"](id).then(function () {
+      return dispatch(destroyResponse(id));
     });
   };
 };
@@ -812,26 +829,79 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
-var ResponseItems = function ResponseItems(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "response-items-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "response-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/users/".concat(props.response.author_id)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "response-items-profile-pic-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-user-circle"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "response-items-author"
-  }, props.response.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    className: "response-items-body"
-  }, props.response.body)));
-};
+
+var ResponseItems =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ResponseItems, _React$Component);
+
+  function ResponseItems() {
+    _classCallCheck(this, ResponseItems);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ResponseItems).apply(this, arguments));
+  }
+
+  _createClass(ResponseItems, [{
+    key: "handleDelete",
+    value: function handleDelete() {
+      var _this = this;
+
+      return function (event) {
+        event.preventDefault();
+
+        _this.props.deleteResponse(_this.props.response.id);
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "response-items-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "response-items"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/users/".concat(this.props.response.author_id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "response-items-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "response-items-profile-pic-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-user-circle"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "response-items-delete",
+        onClick: this.handleDelete()
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-trash"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "response-items-author"
+      }, this.props.response.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "response-items-body"
+      }, this.props.response.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\uD83D\uDC4F")));
+    }
+  }]);
+
+  return ResponseItems;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (ResponseItems);
 
@@ -1875,7 +1945,8 @@ function (_React$Component) {
         if (response.story_id === _this.props.story.id) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
             key: response.id,
-            response: response
+            response: response,
+            deleteResponse: _this.props.deleteResponse
           });
         }
       });
@@ -1955,6 +2026,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchAllResponses: function fetchAllResponses(story_id) {
       return dispatch(Object(_actions_response_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllResponses"])(story_id));
+    },
+    deleteResponse: function deleteResponse(response_id) {
+      return dispatch(Object(_actions_response_actions__WEBPACK_IMPORTED_MODULE_3__["deleteResponse"])(response_id));
     }
   };
 };
@@ -2454,6 +2528,11 @@ var ResponsesReducer = function ResponsesReducer() {
       newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.response.id, action.response));
       return newState;
 
+    case _actions_response_actions__WEBPACK_IMPORTED_MODULE_0__["DESTROY_RESPONSE"]:
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState);
+      delete newState[action.id];
+      return newState;
+
     default:
       return oldState;
   }
@@ -2702,13 +2781,14 @@ var configureStore = function configureStore() {
 /*!****************************************!*\
   !*** ./frontend/util/response_util.js ***!
   \****************************************/
-/*! exports provided: fetchAllResponses, createResponse */
+/*! exports provided: fetchAllResponses, createResponse, deleteResponse */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllResponses", function() { return fetchAllResponses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createResponse", function() { return createResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteResponse", function() { return deleteResponse; });
 var fetchAllResponses = function fetchAllResponses(story_id) {
   return $.ajax({
     method: 'GET',
@@ -2718,10 +2798,16 @@ var fetchAllResponses = function fetchAllResponses(story_id) {
 var createResponse = function createResponse(response) {
   return $.ajax({
     method: 'POST',
-    url: "api/stories/".concat(response.story_id, "/responses"),
+    url: "/api/stories/".concat(response.story_id, "/responses"),
     data: {
       response: response
     }
+  });
+};
+var deleteResponse = function deleteResponse(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/responses/".concat(id)
   });
 };
 

@@ -24,6 +24,7 @@ class StoryShow extends React.Component {
           <ResponseItems
             key={response.id}
             response={response}
+            deleteResponse={this.props.deleteResponse}
           />
         )
       }
