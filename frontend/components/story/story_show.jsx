@@ -17,6 +17,13 @@ class StoryShow extends React.Component {
       return null;
     }
 
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let dateTime;
+    let formattedDate;
+    dateTime = new Date(this.props.story.created_at);
+    formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", "
+      + dateTime.getFullYear(); 
+
     // Render the write response form for logged in users.
     if(this.props.currentUserId){
       creatingResponses = 
@@ -52,7 +59,10 @@ class StoryShow extends React.Component {
                 <div className="story-show-profile-pic-icon">
                   <i className="fas fa-user-circle"></i>
                 </div>
-                <h1 className="story-show-author">{this.props.story.author}</h1>
+                <div className="story-show-info">
+                  <h1 className="story-show-author">{this.props.story.author}</h1>
+                  <h2 className="story-show-create-date">{formattedDate}</h2>
+                </div>
               </div>
             </header>
 
@@ -63,11 +73,19 @@ class StoryShow extends React.Component {
             <h2 className="story-show-body">{this.props.story.body}</h2>
 
             <footer className="story-show-footer">
-              <p className="clap-icon">&#128079;</p>
+              <p className="clap-icon">
+                <i className='far fa-thumbs-up'></i>
+              </p>
               <div className="media-icons">
-                <i className="fa fa-twitter"></i>
-                <i className="fa fa-facebook-official"></i>
-                <i className="fa fa-bookmark-o"></i>
+                <div className="twitter-icon">
+                  <i className="fa fa-twitter"></i>
+                </div>
+                <div className="facebook-icon">
+                  <i className="fa fa-facebook-official"></i>
+                </div>
+                <div className="bookmark-icon">
+                  <i className="fa fa-bookmark-o"></i>
+                </div>
               </div>
             </footer>
 

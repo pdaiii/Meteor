@@ -72,7 +72,6 @@ class UserShow extends React.Component {
               <div className="user-profile-pic-icon">
                 <i className="fas fa-user-circle"></i>
               </div>
-
             </div>
 
             {/* If user is logged in, can see Create Story button */}

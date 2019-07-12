@@ -83,6 +83,7 @@
 
 .user-story-nav{
   display: flex;
+  // justify-content: center;
 }
 
 .user-story-profile{
@@ -96,8 +97,18 @@
   padding-right: 5px;
 }
 
+.user-story-info{
+  display: flex;
+  flex-direction: column;
+}
+
 .user-story-author{
   font-size: 16px;
+}
+
+.user-story-create-date{
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .user-story-btns{

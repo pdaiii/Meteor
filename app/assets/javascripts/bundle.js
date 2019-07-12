@@ -878,7 +878,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // Delete own comments 
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var dateTime;
+      var formattedDate;
+      dateTime = new Date(this.props.response.created_at);
+      formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", " + dateTime.getFullYear(); // Delete own comments 
+
       var deleteOwnComments;
 
       if (this.props.response.author_id === this.props.currentUserId) {
@@ -901,14 +906,22 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "response-items-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "response-items-profile"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "response-items-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
-      })), deleteOwnComments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "response-items-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "response-items-author"
-      }, this.props.response.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, this.props.response.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "response-items-create-date"
+      }, formattedDate))), deleteOwnComments)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "response-items-body"
-      }, this.props.response.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\uD83D\uDC4F")));
+      }, this.props.response.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-thumbs-up"
+      }))));
     }
   }]);
 
@@ -1343,6 +1356,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PopularStories = function PopularStories(props) {
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var dateTime1 = new Date(props.stories[0].created_at);
+  var dateTime2 = new Date(props.stories[1].created_at);
+  var dateTime3 = new Date(props.stories[2].created_at);
+  var dateTime4 = new Date(props.stories[3].created_at);
+  var formattedDate1 = months[dateTime1.getMonth()] + " " + dateTime1.getDate() + ", " + dateTime1.getFullYear();
+  var formattedDate2 = months[dateTime2.getMonth()] + " " + dateTime2.getDate() + ", " + dateTime2.getFullYear();
+  var formattedDate3 = months[dateTime3.getMonth()] + " " + dateTime3.getDate() + ", " + dateTime3.getFullYear();
+  var formattedDate4 = months[dateTime4.getMonth()] + " " + dateTime4.getDate() + ", " + dateTime4.getFullYear();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-stories-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -1352,42 +1374,58 @@ var PopularStories = function PopularStories(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "popular-story-num"
   }, "01"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "popular-story-links"
+    className: "popular-story-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[0].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[0].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[0].author))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[0].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "popular-story-create-dates"
+  }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "popular-story-num"
   }, "02"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "popular-story-links"
+    className: "popular-story-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[1].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[1].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[1].author))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[1].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "popular-story-create-dates"
+  }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "popular-story-num"
   }, "03"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "popular-story-links"
+    className: "popular-story-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[2].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[2].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[2].author))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[2].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "popular-story-create-dates"
+  }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "popular-story-num"
   }, "04"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "popular-story-links"
+    className: "popular-story-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[3].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[3].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[3].author))));
+  }, props.stories[3].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "popular-story-create-dates"
+  }, formattedDate1)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PopularStories);
@@ -1733,6 +1771,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var StoryIndexHero = function StoryIndexHero(props) {
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var dateTime1 = new Date(props.stories[0].created_at);
+  var dateTime2 = new Date(props.stories[1].created_at);
+  var dateTime3 = new Date(props.stories[2].created_at);
+  var dateTime4 = new Date(props.stories[3].created_at);
+  var dateTime5 = new Date(props.stories[4].created_at);
+  var formattedDate1 = months[dateTime1.getMonth()] + " " + dateTime1.getDate() + ", " + dateTime1.getFullYear();
+  var formattedDate2 = months[dateTime2.getMonth()] + " " + dateTime2.getDate() + ", " + dateTime2.getFullYear();
+  var formattedDate3 = months[dateTime3.getMonth()] + " " + dateTime3.getDate() + ", " + dateTime3.getFullYear();
+  var formattedDate4 = months[dateTime4.getMonth()] + " " + dateTime4.getDate() + ", " + dateTime4.getFullYear();
+  var formattedDate5 = months[dateTime5.getMonth()] + " " + dateTime4.getDate() + ", " + dateTime4.getFullYear();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-hero-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1752,11 +1801,15 @@ var StoryIndexHero = function StoryIndexHero(props) {
     className: "left-story-title"
   }, props.stories[0].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "left-story-body"
-  }, props.stories[0].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.stories[0].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "left-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "users/".concat(props.stories[0].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "left-story-author"
-  }, props.stories[0].author))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[0].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "left-story-create-date"
+  }, formattedDate1))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-hero-middle-stories"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-containers"
@@ -1771,13 +1824,19 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "stories/".concat(props.stories[1].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "middle-story-title"
-  }, props.stories[1].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[1].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "stories/".concat(props.stories[1].id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "middle-story-body"
-  }, props.stories[1].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.stories[1].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "middle-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "users/".concat(props.stories[1].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "middle-story-author"
-  }, props.stories[1].author)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[1].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "middle-story-create-date"
+  }, formattedDate2)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-containers"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "stories/".concat(props.stories[2].id)
@@ -1790,13 +1849,19 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "stories/".concat(props.stories[2].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "middle-story-title"
-  }, props.stories[2].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[2].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "stories/".concat(props.stories[2].id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "middle-story-body"
-  }, props.stories[2].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.stories[2].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "middle-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "users/".concat(props.stories[2].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "middle-story-author"
-  }, props.stories[2].author)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[2].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "middle-story-create-date"
+  }, formattedDate3)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-containers"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "stories/".concat(props.stories[3].id)
@@ -1809,13 +1874,19 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "stories/".concat(props.stories[3].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "middle-story-title"
-  }, props.stories[3].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[3].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "stories/".concat(props.stories[3].id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "middle-story-body"
-  }, props.stories[3].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.stories[3].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "middle-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "users/".concat(props.stories[3].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "middle-story-author"
-  }, props.stories[3].author))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[3].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "middle-story-create-date"
+  }, formattedDate4))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-hero-right-story"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-story-container"
@@ -1830,13 +1901,19 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "stories/".concat(props.stories[4].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "right-story-title"
-  }, props.stories[4].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[4].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "stories/".concat(props.stories[4].id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "right-story-body"
-  }, props.stories[4].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.stories[4].body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "right-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "users/".concat(props.stories[4].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "right-story-author"
-  }, props.stories[4].author))))));
+  }, props.stories[4].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "right-story-create-date"
+  }, formattedDate5))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (StoryIndexHero);
@@ -1859,6 +1936,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var StoryIndexItems = function StoryIndexItems(props) {
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var dateTime;
+  var formattedDate;
+  dateTime = new Date(props.story.created_at);
+  formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", " + dateTime.getFullYear();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-item-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1869,11 +1951,15 @@ var StoryIndexItems = function StoryIndexItems(props) {
     className: "story-index-item-title"
   }, props.story.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "story-index-item-body"
-  }, props.story.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, props.story.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "story-index-item-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "story-index-item-author"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(props.story.author_id)
-  }, props.story.author))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "story-index-item-create-date"
+  }, formattedDate))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/stories/".concat(props.story.id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "".concat(props.story.image),
@@ -1949,8 +2035,13 @@ function (_React$Component) {
 
       if (!this.props.story) {
         return null;
-      } // Render the write response form for logged in users.
+      }
 
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var dateTime;
+      var formattedDate;
+      dateTime = new Date(this.props.story.created_at);
+      formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", " + dateTime.getFullYear(); // Render the write response form for logged in users.
 
       if (this.props.currentUserId) {
         creatingResponses = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1988,9 +2079,13 @@ function (_React$Component) {
         className: "story-show-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "story-show-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "story-show-author"
-      }, this.props.story.author))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.story.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "story-show-create-date"
+      }, formattedDate)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "".concat(this.props.story.image)
@@ -2000,15 +2095,23 @@ function (_React$Component) {
         className: "story-show-footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "clap-icon"
-      }, "\uD83D\uDC4F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-thumbs-up"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "media-icons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "twitter-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-twitter"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "facebook-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-facebook-official"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bookmark-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-bookmark-o"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-response"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "responses-title"
@@ -2316,6 +2419,11 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var dateTime;
+      var formattedDate;
+      dateTime = new Date(this.props.story.created_at);
+      formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", " + dateTime.getFullYear();
       var userStoryBtns;
 
       if (this.props.user.id === this.props.currentUserId) {
@@ -2348,9 +2456,13 @@ function (_React$Component) {
         className: "user-story-profile-pic"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-story-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "user-story-author"
-      }, this.props.story.author)), userStoryBtns), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, this.props.story.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "user-story-create-date"
+      }, formattedDate))), userStoryBtns), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/stories/".concat(this.props.story.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-story-img"
@@ -2362,7 +2474,9 @@ function (_React$Component) {
         className: "user-story-body"
       }, this.props.story.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "user-story-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Claps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Responses"))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-thumbs-up"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.story.response_ids.length, " responses"))));
     }
   }]);
 
@@ -2750,14 +2864,18 @@ var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.jsx");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.jsx");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
- // import merge from 'lodash/merge';
+
+
 
 var usersReducer = function usersReducer() {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  var newState;
   Object.freeze(oldState);
 
   switch (action.type) {
@@ -2765,8 +2883,8 @@ var usersReducer = function usersReducer() {
       return Object.assign({}, _defineProperty({}, action.user.id, action.user));
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
-      return Object.assign({}, _defineProperty({}, action.user.id, action.user));
-    // return merge({}, oldState, {[action.user.id]: action.user});
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, oldState, _defineProperty({}, action.user.id, action.user));
+      return newState;
 
     default:
       return oldState;

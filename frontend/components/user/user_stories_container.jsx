@@ -20,6 +20,13 @@ class UserStoryPost extends React.Component {
   }
 
   render() {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let dateTime;
+    let formattedDate;
+    dateTime = new Date(this.props.story.created_at);
+    formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", "
+      + dateTime.getFullYear(); 
+
     let userStoryBtns;
     if(this.props.user.id === this.props.currentUserId){
       userStoryBtns =
@@ -43,7 +50,10 @@ class UserStoryPost extends React.Component {
               <div className="user-story-profile-pic">
                 <i className="fas fa-user-circle"></i>
               </div>
-              <h2 className="user-story-author">{this.props.story.author}</h2>
+              <div className="user-story-info">
+                <h2 className="user-story-author">{this.props.story.author}</h2>
+                <h2 className="user-story-create-date">{formattedDate}</h2>
+              </div>
             </div>
             {userStoryBtns}
           </nav>
@@ -57,10 +67,9 @@ class UserStoryPost extends React.Component {
           </Link>
 
           <footer className="user-story-footer">
-            <p>Claps</p>
-            <p>Responses</p>
+            <p><i className='far fa-thumbs-up'></i></p>
+            <p>{this.props.story.response_ids.length} responses</p>
           </footer>
-
         </div>
       </div>
     )
