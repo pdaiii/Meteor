@@ -67,7 +67,7 @@ class UserStoryPost extends React.Component {
           </Link>
 
           <footer className="user-story-footer">
-            <p><i className='far fa-thumbs-up'></i></p>
+            <button><i className='far fa-thumbs-up'></i></button>
             <p>{this.props.story.response_ids.length} responses</p>
           </footer>
         </div>

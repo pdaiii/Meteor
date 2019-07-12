@@ -53,7 +53,9 @@ class StoryShow extends React.Component {
 
               <div className="story-show-author-div">
                 <div className="story-show-profile-pic-icon">
-                  <i className="fas fa-user-circle"></i>
+                  <Link to={`/users/${this.props.story.author_id}`}>
+                    <i className="fas fa-user-circle"></i>
+                  </Link>
                 </div>
                 <div className="story-show-info">
                   <Link to={`/users/${this.props.story.author_id}`}>
@@ -75,17 +77,17 @@ class StoryShow extends React.Component {
 
             <footer className="story-show-footer">
               <p className="clap-icon">
-                <i className='far fa-thumbs-up'></i>
+                <button><i className='far fa-thumbs-up'></i></button>
               </p>
               <div className="media-icons">
                 <div className="twitter-icon">
-                  <i className="fa fa-twitter"></i>
+                  <button><i className="fa fa-twitter"></i></button>
                 </div>
                 <div className="facebook-icon">
-                  <i className="fa fa-facebook-official"></i>
+                  <button><i className="fa fa-facebook-official"></i></button>
                 </div>
                 <div className="bookmark-icon">
-                  <i className="fa fa-bookmark-o"></i>
+                  <button><i className="fa fa-bookmark-o"></i></button>
                 </div>
               </div>
             </footer>

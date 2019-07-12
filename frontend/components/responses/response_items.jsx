@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { monthDay } from '../../util/month_day_util';
+import { timeToRead } from '../../util/time_to_read_util';
 
 class ResponseItems extends React.Component {
   handleDelete(){
@@ -10,13 +12,7 @@ class ResponseItems extends React.Component {
   }
 
   render() {
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let dateTime;
-    let formattedDate;
-    dateTime = new Date(this.props.response.created_at);
-    formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", "
-      + dateTime.getFullYear();  
-
+    let formattedDate = monthDay(this.props.response.created_at);
 
     // Delete own comments 
     let deleteOwnComments;
@@ -41,7 +37,10 @@ class ResponseItems extends React.Component {
                 </div>
                 <div className="response-items-info">
                   <h1 className="response-items-author">{this.props.response.author}</h1>
-                  <h2 className="response-items-create-date">{formattedDate}</h2>
+                  <div className="response-items-date-time">
+                    <h2>{formattedDate} &#183;&nbsp;</h2>
+                    <h2>{timeToRead(`${this.props.response.body}`)} min read</h2>
+                  </div>
                 </div>
               </div>
               {deleteOwnComments}
@@ -50,7 +49,7 @@ class ResponseItems extends React.Component {
           </Link>
           <h2 className="response-items-body">{this.props.response.body}</h2>
           <p>
-            <i className='far fa-thumbs-up'></i>
+            <button><i className='far fa-thumbs-up'></i></button>
           </p>
         </div>
       </div>
