@@ -78,7 +78,7 @@ const StoryIndexHero = (props) => {
                 <p className="middle-story-author">{props.stories[2].author}</p>
               </Link>
               <div className="middle-story-date-time">
-                <h2>{formattedDate2} &#183;&nbsp;</h2>
+                <h2>{formattedDate3} &#183;&nbsp;</h2>
                 <h2>{timeToRead(`${props.stories[2].body}`)} min read</h2>
               </div>
             </div>
@@ -102,7 +102,7 @@ const StoryIndexHero = (props) => {
                 <p className="middle-story-author">{props.stories[3].author}</p>
               </Link>
               <div className="middle-story-date-time">
-                <h2>{formattedDate3} &#183;&nbsp;</h2>
+                <h2>{formattedDate4} &#183;&nbsp;</h2>
                 <h2>{timeToRead(`${props.stories[3].body}`)} min read</h2>
               </div>
             </div>
@@ -129,7 +129,7 @@ const StoryIndexHero = (props) => {
                 <p className="right-story-author">{props.stories[4].author}</p>
               </Link>
               <div className="right-story-date-time">
-                <h2>{formattedDate4} &#183;&nbsp;</h2>
+                <h2>{formattedDate5} &#183;&nbsp;</h2>
                 <h2>{timeToRead(`${props.stories[4].body}`)} min read</h2>
               </div>
             </div>

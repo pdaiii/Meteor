@@ -1583,6 +1583,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _story_index_hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./story_index_hero */ "./frontend/components/story/story_index_hero.jsx");
 /* harmony import */ var _story_index_items__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./story_index_items */ "./frontend/components/story/story_index_items.jsx");
 /* harmony import */ var _popular_stories__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./popular_stories */ "./frontend/components/story/popular_stories.jsx");
+/* harmony import */ var _util_compare_responses_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/compare_responses_util */ "./frontend/util/compare_responses_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1600,6 +1601,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1628,8 +1630,7 @@ function (_React$Component) {
       var stories = Object.values(this.props.stories);
       var storyIndexHero;
       var heroStories;
-      var storyIndexItems;
-      var numberOfPosts; // Implement based on claps later.
+      var storyIndexItems; // Implement based on claps later. Based on responses now.
 
       var popularStories;
       var mostPopularStories; // Navigating from a show page. Or refreshing the splash page.
@@ -1637,18 +1638,18 @@ function (_React$Component) {
       if (stories.length < 2) {
         return null;
       } else {
-        numberOfPosts = stories.length;
-        heroStories = stories.slice(0, 5);
-        popularStories = stories.slice(-4);
+        heroStories = stories.reverse().slice(0, 5);
         storyIndexHero = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_story_index_hero__WEBPACK_IMPORTED_MODULE_1__["default"], {
           stories: heroStories
         });
-        storyIndexItems = stories.slice(5).map(function (story) {
+        storyIndexItems = stories.reverse().map(function (story) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_story_index_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
             key: story.id,
             story: story
           });
         });
+        var sortedStories = stories.sort(_util_compare_responses_util__WEBPACK_IMPORTED_MODULE_4__["compare"]);
+        popularStories = sortedStories.slice(0, 4);
         mostPopularStories = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_popular_stories__WEBPACK_IMPORTED_MODULE_3__["default"], {
           stories: popularStories
         });
@@ -1810,7 +1811,7 @@ var StoryIndexHero = function StoryIndexHero(props) {
     className: "middle-story-author"
   }, props.stories[2].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-date-time"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate2, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[2].body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate3, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[2].body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-containers"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "stories/".concat(props.stories[3].id)
@@ -1835,7 +1836,7 @@ var StoryIndexHero = function StoryIndexHero(props) {
     className: "middle-story-author"
   }, props.stories[3].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-date-time"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate3, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[3].body)), " min read")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate4, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[3].body)), " min read")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-hero-right-story"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-story-container"
@@ -1862,7 +1863,7 @@ var StoryIndexHero = function StoryIndexHero(props) {
     className: "right-story-author"
   }, props.stories[4].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-story-date-time"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate4, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[4].body)), " min read")))))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate5, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[4].body)), " min read")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (StoryIndexHero);
@@ -2874,6 +2875,32 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/compare_responses_util.js":
+/*!*************************************************!*\
+  !*** ./frontend/util/compare_responses_util.js ***!
+  \*************************************************/
+/*! exports provided: compare */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compare", function() { return compare; });
+var compare = function compare(a, b) {
+  var comparison = 0;
+  var responseLength1 = a['response_ids'].length;
+  var responseLength2 = b['response_ids'].length; // Longest response length stories in the front
+
+  if (responseLength1 < responseLength2) {
+    comparison = 1;
+  } else if (responseLength1 > responseLength2) {
+    comparison = -1;
+  }
+
+  return comparison;
+};
 
 /***/ }),
 

@@ -2,6 +2,7 @@ import React from 'react';
 import StoryIndexHero from './story_index_hero';
 import StoryIndexItems from './story_index_items';
 import PopularStories from './popular_stories';
+import { compare } from '../../util/compare_responses_util';
 
 class StoryIndex extends React.Component {
   componentDidMount() {
@@ -13,19 +14,16 @@ class StoryIndex extends React.Component {
     let storyIndexHero;
     let heroStories;
     let storyIndexItems;
-    let numberOfPosts;
-    // Implement based on claps later.
+    // Implement based on claps later. Based on responses now.
     let popularStories;
     let mostPopularStories;
     // Navigating from a show page. Or refreshing the splash page.
     if(stories.length < 2) {
       return null;
     }else {
-      numberOfPosts = stories.length;
-      heroStories = stories.slice(0, 5);
-      popularStories = stories.slice(-4);
+      heroStories = stories.reverse().slice(0, 5);
       storyIndexHero = <StoryIndexHero stories={heroStories} />
-      storyIndexItems = stories.slice(5).map(story => {
+      storyIndexItems = stories.reverse().map(story => {
         return (
           <StoryIndexItems
             key={story.id}
@@ -33,6 +31,8 @@ class StoryIndex extends React.Component {
           />
         )
       });
+      let sortedStories = stories.sort(compare);
+      popularStories = sortedStories.slice(0,4);
       mostPopularStories = <PopularStories stories={popularStories} />
     }
 
