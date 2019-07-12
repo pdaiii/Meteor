@@ -46,7 +46,7 @@ class StoryIndex extends React.Component {
           </div>
           {mostPopularStories}
         </div>
-        <hr/>
+        {/* <hr/>
         <footer className="main-footer">
           <a href="">Help</a>
           <a href="">Status</a>
@@ -56,7 +56,7 @@ class StoryIndex extends React.Component {
           <a href="">Privacy</a>
           <a href="">Terms</a>
           <a href="">About</a>
-        </footer>
+        </footer> */}
       </div>
     )
   };

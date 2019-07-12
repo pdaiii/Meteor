@@ -1353,6 +1353,8 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 var PopularStories = function PopularStories(props) {
@@ -1375,13 +1377,17 @@ var PopularStories = function PopularStories(props) {
     className: "popular-story-num"
   }, "01"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/stories/".concat(props.stories[0].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[0].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[0].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(props.stories[0].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[0].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  }, props.stories[0].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "popular-story-create-dates"
   }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
@@ -1389,13 +1395,17 @@ var PopularStories = function PopularStories(props) {
     className: "popular-story-num"
   }, "02"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/stories/".concat(props.stories[1].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[1].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[1].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(props.stories[1].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[1].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  }, props.stories[1].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "popular-story-create-dates"
   }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
@@ -1403,13 +1413,17 @@ var PopularStories = function PopularStories(props) {
     className: "popular-story-num"
   }, "03"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/stories/".concat(props.stories[2].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[2].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[2].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(props.stories[2].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[2].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  }, props.stories[2].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "popular-story-create-dates"
   }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
@@ -1417,13 +1431,17 @@ var PopularStories = function PopularStories(props) {
     className: "popular-story-num"
   }, "04"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/stories/".concat(props.stories[3].id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "popular-story-titles"
-  }, props.stories[3].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[3].title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-story-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(props.stories[3].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[3].author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  }, props.stories[3].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "popular-story-create-dates"
   }, formattedDate1)))));
 };
@@ -1691,25 +1709,7 @@ function (_React$Component) {
         className: "story-index-main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-index"
-      }, storyIndexItems), mostPopularStories), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
-        className: "main-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Help"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Status"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Writers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Blog"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Careers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Privacy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Terms"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "About")));
+      }, storyIndexItems), mostPopularStories));
     }
   }]);
 
@@ -1984,6 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _responses_response_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../responses/response_container */ "./frontend/components/responses/response_container.js");
 /* harmony import */ var _responses_response_items__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../responses/response_items */ "./frontend/components/responses/response_items.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2001,6 +2002,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2081,9 +2083,11 @@ function (_React$Component) {
         className: "fas fa-user-circle"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "/users/".concat(this.props.story.author_id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "story-show-author"
-      }, this.props.story.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, this.props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "story-show-create-date"
       }, formattedDate)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-img"

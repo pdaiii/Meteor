@@ -1,6 +1,7 @@
 import React from 'react';
 import ResponseContainer from '../responses/response_container';
 import ResponseItems from '../responses/response_items';
+import { Link } from 'react-router-dom';
 
 class StoryShow extends React.Component {
   componentDidMount() {
@@ -60,7 +61,9 @@ class StoryShow extends React.Component {
                   <i className="fas fa-user-circle"></i>
                 </div>
                 <div className="story-show-info">
-                  <h1 className="story-show-author">{this.props.story.author}</h1>
+                  <Link to={`/users/${this.props.story.author_id}`}>
+                    <h1 className="story-show-author">{this.props.story.author}</h1>
+                  </Link>
                   <h2 className="story-show-create-date">{formattedDate}</h2>
                 </div>
               </div>

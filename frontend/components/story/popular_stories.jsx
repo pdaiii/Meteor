@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PopularStories = (props) => {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -21,9 +22,13 @@ const PopularStories = (props) => {
       <div className="articles">
         <p className="popular-story-num">01</p>
         <div className="popular-story-content">
-          <h1 className="popular-story-titles">{props.stories[0].title}</h1>
+          <Link to={`/stories/${props.stories[0].id}`}>
+            <h1 className="popular-story-titles">{props.stories[0].title}</h1>
+          </Link>
           <div className="popular-story-info">
-            <h2 className="popular-story-authors">{props.stories[0].author}</h2>
+            <Link to={`/users/${props.stories[0].author_id}`}>
+              <h2 className="popular-story-authors">{props.stories[0].author}</h2>
+            </Link>
             <h3 className="popular-story-create-dates">{formattedDate1}</h3>
           </div>
         </div>
@@ -31,9 +36,13 @@ const PopularStories = (props) => {
       <div className="articles">
         <p className="popular-story-num">02</p>
         <div className="popular-story-content">
-          <h1 className="popular-story-titles">{props.stories[1].title}</h1>
+          <Link to={`/stories/${props.stories[1].id}`}>
+            <h1 className="popular-story-titles">{props.stories[1].title}</h1>
+          </Link>
           <div className="popular-story-info">
-            <h2 className="popular-story-authors">{props.stories[1].author}</h2>
+            <Link to={`/users/${props.stories[1].author_id}`}>
+              <h2 className="popular-story-authors">{props.stories[1].author}</h2>
+            </Link>
             <h3 className="popular-story-create-dates">{formattedDate1}</h3>
           </div>
         </div>
@@ -41,9 +50,13 @@ const PopularStories = (props) => {
       <div className="articles">
         <p className="popular-story-num">03</p>
         <div className="popular-story-content">
-          <h1 className="popular-story-titles">{props.stories[2].title}</h1>
+          <Link to={`/stories/${props.stories[2].id}`}>
+            <h1 className="popular-story-titles">{props.stories[2].title}</h1>
+          </Link>
           <div className="popular-story-info">
-            <h2 className="popular-story-authors">{props.stories[2].author}</h2>
+            <Link to={`/users/${props.stories[2].author_id}`}>
+              <h2 className="popular-story-authors">{props.stories[2].author}</h2>
+            </Link>
             <h3 className="popular-story-create-dates">{formattedDate1}</h3>
           </div>
         </div>
@@ -51,9 +64,13 @@ const PopularStories = (props) => {
       <div className="articles">
         <p className="popular-story-num">04</p>
         <div className="popular-story-content">
-          <h1 className="popular-story-titles">{props.stories[3].title}</h1>
+          <Link to={`/stories/${props.stories[3].id}`}>
+            <h1 className="popular-story-titles">{props.stories[3].title}</h1>
+          </Link>
           <div className="popular-story-info">
-            <h2 className="popular-story-authors">{props.stories[3].author}</h2>
+            <Link to={`/users/${props.stories[3].author_id}`}>
+              <h2 className="popular-story-authors">{props.stories[3].author}</h2>
+            </Link>
             <h3 className="popular-story-create-dates">{formattedDate1}</h3>
           </div>
         </div>
