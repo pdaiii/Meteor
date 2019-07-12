@@ -23,33 +23,9 @@ function Modal (props) {
     case 'Sign up':
       component = <SignupFormContainer/>;
       break;
-      // return (
-      //   <div className="modal-background" onClick={props.closeModal}>
-      //     <div className="modal-child" onClick={(e) => e.stopPropagation()}>
-      //       <SignupFormContainer/>
-      //     </div>
-      //   </div>
-      // );
     case 'Sign in':
       component = <LoginFormContainer/>;
       break;
-      // return (
-      //   <div className="modal-background" onClick={props.closeModal}>
-      //     <div className="modal-child" onClick={(e) => e.stopPropagation()}>
-      //       <LoginFormContainer />
-      //     </div>
-      //   </div>
-      // );
-    // case 'Create Response':
-    //   // component = <ResponseContainer/>;
-    //   // break;
-    //   return (
-    //     <div className="modal-create-response-background" onClick={props.closeModal}>
-    //       <div className="modal-create-response-child" onClick={(e) => e.stopPropagation()}>
-    //         <ResponseContainer />
-    //       </div>
-    //     </div>
-    //   );
     default:
       return null;
   }

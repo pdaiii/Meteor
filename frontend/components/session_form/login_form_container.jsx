@@ -12,11 +12,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
     processForm: (user) => dispatch(login(user)),
     clearErrors: () => dispatch(clearErrors()),
-    // otherForm instead of navLink with the modal
     otherForm: (
-        <button onClick={() => dispatch(openModal('Sign up'))}>
-            Sign up
-        </button>
+      <button onClick={() => dispatch(openModal('Sign up'))}>
+          Sign up
+      </button>
     ),
     closeModal: () => dispatch(closeModal())
 });

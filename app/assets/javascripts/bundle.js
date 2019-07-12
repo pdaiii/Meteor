@@ -485,34 +485,10 @@ function Modal(props) {
     case 'Sign up':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], null);
       break;
-    // return (
-    //   <div className="modal-background" onClick={props.closeModal}>
-    //     <div className="modal-child" onClick={(e) => e.stopPropagation()}>
-    //       <SignupFormContainer/>
-    //     </div>
-    //   </div>
-    // );
 
     case 'Sign in':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
       break;
-    // return (
-    //   <div className="modal-background" onClick={props.closeModal}>
-    //     <div className="modal-child" onClick={(e) => e.stopPropagation()}>
-    //       <LoginFormContainer />
-    //     </div>
-    //   </div>
-    // );
-    // case 'Create Response':
-    //   // component = <ResponseContainer/>;
-    //   // break;
-    //   return (
-    //     <div className="modal-create-response-background" onClick={props.closeModal}>
-    //       <div className="modal-create-response-child" onClick={(e) => e.stopPropagation()}>
-    //         <ResponseContainer />
-    //       </div>
-    //     </div>
-    //   );
 
     default:
       return null;
@@ -998,7 +974,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     clearErrors: function clearErrors() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["clearErrors"])());
     },
-    // otherForm instead of navLink with the modal
     otherForm: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
         return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])('Sign up'));
@@ -1149,7 +1124,7 @@ function (_React$Component) {
         className: "switch-account-access"
       }, "No account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleDemoUser
-      }, "Demo login"), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To make Medium work, we log user data and share it with service providers. Click \u201C", this.props.formType, "\u201D above to accept Medium\u2019s ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Terms of Service"), " & ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Privacy Policy."))));
+      }, "Demo login"), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To make Meteor work, we log user data and share it with service providers. Click \u201C", this.props.formType, "\u201D above to accept Meteor\u2019s ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Terms of Service"), " & ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Privacy Policy."))));
     }
   }]);
 
@@ -1173,10 +1148,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _session_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form */ "./frontend/components/session_form/session_form.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.jsx");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.jsx");
-
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.jsx");
 
 
 
@@ -1193,19 +1166,18 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["signup"])(user));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"])(user));
     },
     clearErrors: function clearErrors() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["clearErrors"])());
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["clearErrors"])());
     },
-    // otherForm instead of navLink with the modal
     otherForm: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
-        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])('Sign in'));
+        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])('Sign in'));
       }
     }, "Sign in"),
     closeModal: function closeModal() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["closeModal"])());
     }
   };
 };
@@ -2287,7 +2259,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchUser: function fetchUser(id) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(id));
     },
-    // fetchStory: (id) => dispatch(fetchStory(id)),
     fetchAllStories: function fetchAllStories() {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllStories"])());
     }

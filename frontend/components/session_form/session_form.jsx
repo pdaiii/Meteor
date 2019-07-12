@@ -86,7 +86,7 @@ class SessionForm extends React.Component {
               ? <p className="switch-account-access">Already have an account? {this.props.otherForm}</p>
               : <p className="switch-account-access">No account? <button onClick={this.handleDemoUser}>Demo login</button> </p>}
           </div>
-          <p>To make Medium work, we log user data and share it with service providers. Click “{this.props.formType}” above to accept Medium’s <a>Terms of Service</a> & <a>Privacy Policy.</a></p>
+          <p>To make Meteor work, we log user data and share it with service providers. Click “{this.props.formType}” above to accept Meteor’s <a>Terms of Service</a> & <a>Privacy Policy.</a></p>
         </form>
       </div> 
     );
