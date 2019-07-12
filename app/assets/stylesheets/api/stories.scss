@@ -112,7 +112,8 @@
   font-size: 16px;
 }
 
-.story-show-create-date{
+.story-show-date-time{
+  display: flex;
   font-size: 15px;
   color: rgba(0,0,0,.54);
 }
@@ -273,10 +274,10 @@
   text-rendering: optimizeLegibility;
 }
 
-.left-story-create-date{
+.left-story-date-time{
+  display: flex;
   font-size: 13px;
   color: rgba(0,0,0,.54);
-  margin: 0;
 }
 
 // MIDDLE STORY //
@@ -333,10 +334,10 @@
   font-size: 14px;
 }
 
-.middle-story-create-date{
+.middle-story-date-time{
+  display: flex;
   font-size: 13px;
-  color:rgba(0,0,0,.54);
-  margin: 0;
+  color: rgba(0,0,0,.54);
 }
 
 // RIGHT STORY //
@@ -396,6 +397,12 @@
 
 .right-story-author{
   font-size: 14px;
+}
+
+.right-story-date-time{
+  display: flex;
+  font-size: 13px;
+  color: rgba(0,0,0,.54);
 }
 
 .right-story-create-date{
@@ -463,7 +470,8 @@
   font-size: 14px;
 }
 
-.story-index-item-create-date{
+.story-index-item-show-date-time{
+  display: flex;
   font-size: 13px;
   color: rgba(0,0,0,.54);
 }
@@ -535,12 +543,12 @@
 
 .popular-story-authors{
   font-size: 14px;
+  color: rgba(0,0,0,.84);
   width: fit-content;
 }
 
-.popular-story-create-dates{
-  color: rgba(0,0,0,.54);
+.popular-story-date-time{
+  display: flex;
   font-size: 13px;
-  font-weight: 0;
-  margin: 0;
+  color: rgba(0,0,0,.54);
 }

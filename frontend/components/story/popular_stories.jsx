@@ -1,20 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { monthDay } from '../../util/month_day_util';
+import { timeToRead } from '../../util/time_to_read_util';
+
 
 const PopularStories = (props) => {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  let dateTime1 = new Date(props.stories[0].created_at);
-  let dateTime2 = new Date(props.stories[1].created_at);
-  let dateTime3 = new Date(props.stories[2].created_at);
-  let dateTime4 = new Date(props.stories[3].created_at);
-  let formattedDate1 = months[dateTime1.getMonth()] + " " + dateTime1.getDate() + ", "
-    + dateTime1.getFullYear(); 
-  let formattedDate2 = months[dateTime2.getMonth()] + " " + dateTime2.getDate() + ", "
-    + dateTime2.getFullYear(); 
-  let formattedDate3 = months[dateTime3.getMonth()] + " " + dateTime3.getDate() + ", "
-    + dateTime3.getFullYear(); 
-  let formattedDate4 = months[dateTime4.getMonth()] + " " + dateTime4.getDate() + ", "
-    + dateTime4.getFullYear(); 
+  let formattedDate1 = monthDay(props.stories[0].created_at);
+  let formattedDate2 = monthDay(props.stories[1].created_at);
+  let formattedDate3 = monthDay(props.stories[2].created_at);
+  let formattedDate4 = monthDay(props.stories[3].created_at);
 
   return(
     <div className="popular-stories-container">
@@ -29,7 +23,10 @@ const PopularStories = (props) => {
             <Link to={`/users/${props.stories[0].author_id}`}>
               <h2 className="popular-story-authors">{props.stories[0].author}</h2>
             </Link>
-            <h3 className="popular-story-create-dates">{formattedDate1}</h3>
+            <div className="popular-story-date-time">
+              <h2>{formattedDate1} &#183;&nbsp;</h2>
+              <h2>{timeToRead(`${props.stories[0].body}`)} min read</h2>
+            </div>
           </div>
         </div>
       </div>
@@ -43,7 +40,10 @@ const PopularStories = (props) => {
             <Link to={`/users/${props.stories[1].author_id}`}>
               <h2 className="popular-story-authors">{props.stories[1].author}</h2>
             </Link>
-            <h3 className="popular-story-create-dates">{formattedDate1}</h3>
+            <div className="popular-story-date-time">
+              <h2>{formattedDate2} &#183;&nbsp;</h2>
+              <h2>{timeToRead(`${props.stories[1].body}`)} min read</h2>
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +57,10 @@ const PopularStories = (props) => {
             <Link to={`/users/${props.stories[2].author_id}`}>
               <h2 className="popular-story-authors">{props.stories[2].author}</h2>
             </Link>
-            <h3 className="popular-story-create-dates">{formattedDate1}</h3>
+            <div className="popular-story-date-time">
+              <h2>{formattedDate3} &#183;&nbsp;</h2>
+              <h2>{timeToRead(`${props.stories[2].body}`)} min read</h2>
+            </div>
           </div>
         </div>
       </div>
@@ -71,7 +74,10 @@ const PopularStories = (props) => {
             <Link to={`/users/${props.stories[3].author_id}`}>
               <h2 className="popular-story-authors">{props.stories[3].author}</h2>
             </Link>
-            <h3 className="popular-story-create-dates">{formattedDate1}</h3>
+            <div className="popular-story-date-time">
+              <h2>{formattedDate4} &#183;&nbsp;</h2>
+              <h2>{timeToRead(`${props.stories[3].body}`)} min read</h2>
+            </div>
           </div>
         </div>
       </div>

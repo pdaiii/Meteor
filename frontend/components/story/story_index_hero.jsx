@@ -1,23 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { monthDay } from '../../util/month_day_util';
+import { timeToRead } from '../../util/time_to_read_util';
 
 const StoryIndexHero = (props) => { 
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  let dateTime1 = new Date(props.stories[0].created_at);
-  let dateTime2 = new Date(props.stories[1].created_at);
-  let dateTime3 = new Date(props.stories[2].created_at);
-  let dateTime4 = new Date(props.stories[3].created_at);
-  let dateTime5 = new Date(props.stories[4].created_at);
-  let formattedDate1 = months[dateTime1.getMonth()] + " " + dateTime1.getDate() + ", "
-    + dateTime1.getFullYear();
-  let formattedDate2 = months[dateTime2.getMonth()] + " " + dateTime2.getDate() + ", "
-    + dateTime2.getFullYear();
-  let formattedDate3 = months[dateTime3.getMonth()] + " " + dateTime3.getDate() + ", "
-    + dateTime3.getFullYear();
-  let formattedDate4 = months[dateTime4.getMonth()] + " " + dateTime4.getDate() + ", "
-    + dateTime4.getFullYear();
-  let formattedDate5 = months[dateTime5.getMonth()] + " " + dateTime4.getDate() + ", "
-    + dateTime4.getFullYear();
+  let formattedDate1 = monthDay(props.stories[0].created_at);
+  let formattedDate2 = monthDay(props.stories[1].created_at);
+  let formattedDate3 = monthDay(props.stories[2].created_at);
+  let formattedDate4 = monthDay(props.stories[3].created_at);
+  let formattedDate5 = monthDay(props.stories[4].created_at);
 
   return (
     <div className="story-index-hero-container">
@@ -35,7 +26,10 @@ const StoryIndexHero = (props) => {
               <Link to={`users/${props.stories[0].author_id}`}>
                 <p className="left-story-author">{props.stories[0].author}</p>
               </Link>
-              <p className="left-story-create-date">{formattedDate1}</p>
+              <div className="left-story-date-time">
+                <h2>{formattedDate1} &#183;&nbsp;</h2>
+                <h2>{timeToRead(`${props.stories[0].body}`)} min read</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -59,7 +53,10 @@ const StoryIndexHero = (props) => {
               <Link to={`users/${props.stories[1].author_id}`}>
                 <p className="middle-story-author">{props.stories[1].author}</p>
               </Link>
-              <p className="middle-story-create-date">{formattedDate2}</p>
+              <div className="middle-story-date-time">
+                <h2>{formattedDate2} &#183;&nbsp;</h2>
+                <h2>{timeToRead(`${props.stories[1].body}`)} min read</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -80,7 +77,10 @@ const StoryIndexHero = (props) => {
               <Link to={`users/${props.stories[2].author_id}`}>
                 <p className="middle-story-author">{props.stories[2].author}</p>
               </Link>
-              <p className="middle-story-create-date">{formattedDate3}</p>
+              <div className="middle-story-date-time">
+                <h2>{formattedDate2} &#183;&nbsp;</h2>
+                <h2>{timeToRead(`${props.stories[2].body}`)} min read</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -101,7 +101,10 @@ const StoryIndexHero = (props) => {
               <Link to={`users/${props.stories[3].author_id}`}>
                 <p className="middle-story-author">{props.stories[3].author}</p>
               </Link>
-              <p className="middle-story-create-date">{formattedDate4}</p>
+              <div className="middle-story-date-time">
+                <h2>{formattedDate3} &#183;&nbsp;</h2>
+                <h2>{timeToRead(`${props.stories[3].body}`)} min read</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -125,7 +128,10 @@ const StoryIndexHero = (props) => {
               <Link to={`users/${props.stories[4].author_id}`}>
                 <p className="right-story-author">{props.stories[4].author}</p>
               </Link>
-              <p className="right-story-create-date">{formattedDate5}</p>
+              <div className="right-story-date-time">
+                <h2>{formattedDate4} &#183;&nbsp;</h2>
+                <h2>{timeToRead(`${props.stories[4].body}`)} min read</h2>
+              </div>
             </div>
           </div>
         </div>

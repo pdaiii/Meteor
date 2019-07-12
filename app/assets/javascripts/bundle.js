@@ -1354,19 +1354,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_month_day_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/month_day_util */ "./frontend/util/month_day_util.js");
+/* harmony import */ var _util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/time_to_read_util */ "./frontend/util/time_to_read_util.js");
+
+
 
 
 
 var PopularStories = function PopularStories(props) {
-  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var dateTime1 = new Date(props.stories[0].created_at);
-  var dateTime2 = new Date(props.stories[1].created_at);
-  var dateTime3 = new Date(props.stories[2].created_at);
-  var dateTime4 = new Date(props.stories[3].created_at);
-  var formattedDate1 = months[dateTime1.getMonth()] + " " + dateTime1.getDate() + ", " + dateTime1.getFullYear();
-  var formattedDate2 = months[dateTime2.getMonth()] + " " + dateTime2.getDate() + ", " + dateTime2.getFullYear();
-  var formattedDate3 = months[dateTime3.getMonth()] + " " + dateTime3.getDate() + ", " + dateTime3.getFullYear();
-  var formattedDate4 = months[dateTime4.getMonth()] + " " + dateTime4.getDate() + ", " + dateTime4.getFullYear();
+  var formattedDate1 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[0].created_at);
+  var formattedDate2 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[1].created_at);
+  var formattedDate3 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[2].created_at);
+  var formattedDate4 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[3].created_at);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "popular-stories-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -1387,9 +1386,9 @@ var PopularStories = function PopularStories(props) {
     to: "/users/".concat(props.stories[0].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[0].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: "popular-story-create-dates"
-  }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[0].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate1, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[0].body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "popular-story-num"
@@ -1405,9 +1404,9 @@ var PopularStories = function PopularStories(props) {
     to: "/users/".concat(props.stories[1].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[1].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: "popular-story-create-dates"
-  }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[1].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate2, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[1].body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "popular-story-num"
@@ -1423,9 +1422,9 @@ var PopularStories = function PopularStories(props) {
     to: "/users/".concat(props.stories[2].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[2].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: "popular-story-create-dates"
-  }, formattedDate1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[2].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate3, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[2].body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "articles"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "popular-story-num"
@@ -1441,9 +1440,9 @@ var PopularStories = function PopularStories(props) {
     to: "/users/".concat(props.stories[3].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "popular-story-authors"
-  }, props.stories[3].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: "popular-story-create-dates"
-  }, formattedDate1)))));
+  }, props.stories[3].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "popular-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate4, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[3].body)), " min read"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PopularStories);
@@ -1481,52 +1480,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
- // import {Dropzone, useDropzone} from 'react-dropzone';
-// import styled from 'styled-components';
-// const getColor = (props) => {
-//   if (props.isDragAccept) {
-//     return '#00e676';
-//   }
-//   if (props.isDragReject) {
-//     return '#ff1744';
-//   }
-//   if (props.isDragActive) {
-//     return '#2196f3';
-//   }
-//   return '#eeeeee';
-// }
-// const Container = styled.div`
-//   flex: 1;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: 20px;
-//   border-width: 2px;
-//   border-radius: 2px;
-//   border-color: ${props => getColor(props)};
-//   border-style: dashed;
-//   background-color: #fafafa;
-//   color: #bdbdbd;
-//   outline: none;
-//   transition: border .24s ease-in-out;
-// `;
-// function StyledDropzone(props) {
-//   const {
-//     getRootProps,
-//     getInputProps,
-//     isDragActive,
-//     isDragAccept,
-//     isDragReject
-//   } = useDropzone({ accept: 'image/jpeg, image/png' });
-//   return (
-//     <div className="container">
-//       <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
-//         <input {...getInputProps()} />
-//         <p>Drag 'n' drop some files here, or click to select files</p>
-//       </Container>
-//     </div>
-//   );
-// }
+
 
 var StoryForm =
 /*#__PURE__*/
@@ -1557,9 +1511,6 @@ function (_React$Component) {
     }
   }, {
     key: "handleImage",
-    // handleImage(event) {
-    //   this.setState({['image']: event.acceptedFile[0]})
-    // }
     value: function handleImage(event) {
       this.setState(_defineProperty({}, 'image', event.currentTarget.files[0]));
     }
@@ -1767,21 +1718,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_month_day_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/month_day_util */ "./frontend/util/month_day_util.js");
+/* harmony import */ var _util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/time_to_read_util */ "./frontend/util/time_to_read_util.js");
+
+
 
 
 
 var StoryIndexHero = function StoryIndexHero(props) {
-  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var dateTime1 = new Date(props.stories[0].created_at);
-  var dateTime2 = new Date(props.stories[1].created_at);
-  var dateTime3 = new Date(props.stories[2].created_at);
-  var dateTime4 = new Date(props.stories[3].created_at);
-  var dateTime5 = new Date(props.stories[4].created_at);
-  var formattedDate1 = months[dateTime1.getMonth()] + " " + dateTime1.getDate() + ", " + dateTime1.getFullYear();
-  var formattedDate2 = months[dateTime2.getMonth()] + " " + dateTime2.getDate() + ", " + dateTime2.getFullYear();
-  var formattedDate3 = months[dateTime3.getMonth()] + " " + dateTime3.getDate() + ", " + dateTime3.getFullYear();
-  var formattedDate4 = months[dateTime4.getMonth()] + " " + dateTime4.getDate() + ", " + dateTime4.getFullYear();
-  var formattedDate5 = months[dateTime5.getMonth()] + " " + dateTime4.getDate() + ", " + dateTime4.getFullYear();
+  var formattedDate1 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[0].created_at);
+  var formattedDate2 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[1].created_at);
+  var formattedDate3 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[2].created_at);
+  var formattedDate4 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[3].created_at);
+  var formattedDate5 = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.stories[4].created_at);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-hero-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1807,9 +1756,9 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "users/".concat(props.stories[0].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "left-story-author"
-  }, props.stories[0].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "left-story-create-date"
-  }, formattedDate1))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[0].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "left-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate1, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[0].body)), " min read")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-hero-middle-stories"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-containers"
@@ -1834,9 +1783,9 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "users/".concat(props.stories[1].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "middle-story-author"
-  }, props.stories[1].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "middle-story-create-date"
-  }, formattedDate2)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[1].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "middle-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate2, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[1].body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-containers"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "stories/".concat(props.stories[2].id)
@@ -1859,9 +1808,9 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "users/".concat(props.stories[2].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "middle-story-author"
-  }, props.stories[2].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "middle-story-create-date"
-  }, formattedDate3)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[2].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "middle-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate2, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[2].body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "middle-story-containers"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "stories/".concat(props.stories[3].id)
@@ -1884,9 +1833,9 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "users/".concat(props.stories[3].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "middle-story-author"
-  }, props.stories[3].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "middle-story-create-date"
-  }, formattedDate4))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.stories[3].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "middle-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate3, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[3].body)), " min read")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-hero-right-story"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right-story-container"
@@ -1911,9 +1860,9 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "users/".concat(props.stories[4].author_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "right-story-author"
-  }, props.stories[4].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "right-story-create-date"
-  }, formattedDate5))))));
+  }, props.stories[4].author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "right-story-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate4, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.stories[4].body)), " min read")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (StoryIndexHero);
@@ -1932,15 +1881,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_month_day_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/month_day_util */ "./frontend/util/month_day_util.js");
+/* harmony import */ var _util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/time_to_read_util */ "./frontend/util/time_to_read_util.js");
+
+
 
 
 
 var StoryIndexItems = function StoryIndexItems(props) {
-  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var dateTime;
-  var formattedDate;
-  dateTime = new Date(props.story.created_at);
-  formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", " + dateTime.getFullYear();
+  var formattedDate = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(props.story.created_at);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-item-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1957,9 +1906,9 @@ var StoryIndexItems = function StoryIndexItems(props) {
     className: "story-index-item-author"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/users/".concat(props.story.author_id)
-  }, props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "story-index-item-create-date"
-  }, formattedDate))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "story-index-item-show-date-time"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(props.story.body)), " min read")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/stories/".concat(props.story.id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "".concat(props.story.image),
@@ -1985,6 +1934,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _responses_response_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../responses/response_container */ "./frontend/components/responses/response_container.js");
 /* harmony import */ var _responses_response_items__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../responses/response_items */ "./frontend/components/responses/response_items.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_month_day_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/month_day_util */ "./frontend/util/month_day_util.js");
+/* harmony import */ var _util_time_to_read_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../util/time_to_read_util */ "./frontend/util/time_to_read_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2002,6 +1953,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -2037,13 +1990,8 @@ function (_React$Component) {
 
       if (!this.props.story) {
         return null;
-      }
+      } // Render the write response form for logged in users.
 
-      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      var dateTime;
-      var formattedDate;
-      dateTime = new Date(this.props.story.created_at);
-      formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", " + dateTime.getFullYear(); // Render the write response form for logged in users.
 
       if (this.props.currentUserId) {
         creatingResponses = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -2087,9 +2035,9 @@ function (_React$Component) {
         to: "/users/".concat(this.props.story.author_id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "story-show-author"
-      }, this.props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "story-show-create-date"
-      }, formattedDate)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.story.author)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "story-show-date-time"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_4__["monthDay"])(this.props.story.created_at), " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_5__["timeToRead"])("".concat(this.props.story.body)), " min read"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "".concat(this.props.story.image)
@@ -2927,6 +2875,27 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/util/month_day_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/month_day_util.js ***!
+  \*****************************************/
+/*! exports provided: monthDay */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "monthDay", function() { return monthDay; });
+var monthDay = function monthDay(creationTime) {
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var dateTime;
+  var formattedDate;
+  dateTime = new Date(creationTime);
+  formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate();
+  return formattedDate;
+};
+
+/***/ }),
+
 /***/ "./frontend/util/response_util.js":
 /*!****************************************!*\
   !*** ./frontend/util/response_util.js ***!
@@ -3110,6 +3079,38 @@ var deleteStory = function deleteStory(id) {
     method: 'DELETE',
     url: "/api/stories/".concat(id)
   });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/time_to_read_util.js":
+/*!********************************************!*\
+  !*** ./frontend/util/time_to_read_util.js ***!
+  \********************************************/
+/*! exports provided: timeToRead */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "timeToRead", function() { return timeToRead; });
+var timeToRead = function timeToRead(text) {
+  var words = 0;
+  var timeInSeconds, timeInMinutes;
+  var wordsPerSecond = 3.5;
+
+  for (var i = 0; i < text.length; i++) {
+    if (text[i] === " ") {
+      // if a space is found in str
+      words += 1; // add 1 to total so far
+    }
+  }
+
+  words += 1; // add 1 to totalsoFar to account for extra space since 1 space = 2 words
+
+  timeInSeconds = words / wordsPerSecond;
+  timeInMinutes = Math.floor(timeInSeconds / 60);
+  if (timeInMinutes < 1) return 1;
+  return timeInMinutes;
 };
 
 /***/ }),

@@ -2,6 +2,8 @@ import React from 'react';
 import ResponseContainer from '../responses/response_container';
 import ResponseItems from '../responses/response_items';
 import { Link } from 'react-router-dom';
+import { monthDay } from '../../util/month_day_util';
+import { timeToRead } from '../../util/time_to_read_util';
 
 class StoryShow extends React.Component {
   componentDidMount() {
@@ -17,13 +19,6 @@ class StoryShow extends React.Component {
     if(!this.props.story){
       return null;
     }
-
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let dateTime;
-    let formattedDate;
-    dateTime = new Date(this.props.story.created_at);
-    formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", "
-      + dateTime.getFullYear(); 
 
     // Render the write response form for logged in users.
     if(this.props.currentUserId){
@@ -64,7 +59,10 @@ class StoryShow extends React.Component {
                   <Link to={`/users/${this.props.story.author_id}`}>
                     <h1 className="story-show-author">{this.props.story.author}</h1>
                   </Link>
-                  <h2 className="story-show-create-date">{formattedDate}</h2>
+                  <div className="story-show-date-time">
+                    <h2>{monthDay(this.props.story.created_at)} &#183;&nbsp;</h2>
+                    <h2>{timeToRead(`${this.props.story.body}`)} min read</h2>
+                  </div>
                 </div>
               </div>
             </header>

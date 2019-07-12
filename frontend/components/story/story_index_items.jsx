@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { monthDay } from '../../util/month_day_util';
+import { timeToRead } from '../../util/time_to_read_util';
 
 const StoryIndexItems = (props) => {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  let dateTime;
-  let formattedDate;
-  dateTime = new Date(props.story.created_at);
-  formattedDate = months[dateTime.getMonth()] + " " + dateTime.getDate() + ", "
-    + dateTime.getFullYear(); 
+  let formattedDate = monthDay(props.story.created_at);
 
   return (
     <div className="story-index-item-container">
@@ -21,7 +18,10 @@ const StoryIndexItems = (props) => {
           <p className="story-index-item-author">
             <Link to={`/users/${props.story.author_id}`}>{props.story.author}</Link>
           </p>
-          <p className="story-index-item-create-date">{formattedDate}</p>
+          <div className="story-index-item-show-date-time">
+            <h2>{formattedDate} &#183;&nbsp;</h2>
+            <h2>{timeToRead(`${props.story.body}`)} min read</h2>
+          </div>
         </div>
 
       </div>
