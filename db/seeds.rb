@@ -31,6 +31,21 @@ ApplicationRecord.transaction do
     password: 'password'
   )
 
+  user5 = User.create!(
+    username: 'Jack Baer',
+    password: 'password'
+  )
+
+  user6 = User.create!(
+    username: 'Lila Bromberg',
+    password: 'password'
+  )
+
+  user7 = User.create!(
+    username: 'Jim Cavan',
+    password: 'password'
+  )
+
   file1 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/The+Ultimate+Lottery+Jackpot%E2%80%93Medium.jpeg')
   story1 = Story.create!(
     title: 'The Ultimate Lottery Jackpot?',
@@ -62,7 +77,7 @@ ApplicationRecord.transaction do
       “Look, this business is complicated,” Colangelo said. “Health and injuries are complicated. Roster building is complicated. Everything we do in this business, in this profession, obviously presents a challenge. A rebuilding team in a market that’s gone through a fairly highly visible process of reorganization and restructuring and change, that’s where we are right now. As I’ve always said, the process never ends. Everything is a process. Life is a process. Team building is a process. We are moving forward as an organization. Whatever has happened in the past is all in the past.
       “This is all about us moving forward. We’re looking forward to a positive season in a number of respects. The business is doing very well. We are virtually in a sold-out situation. We want to deliver on expectations what this marketplace has. Some of those are realistic. Some of them may be unrealistic.
       “I would tell you that we are really happy and pleased with where we are. Feels like we’re at a real true jumping-off point and have the ability to take a next step as an organization and the excitement around the organization amongst the players, in the back of house, with the fan base. It’s something that you don’t see very often, but it’s all built to this moment. Thus, we have a mantra. Our marketing slogan is ‘Welcome to the moment.’ It’s upon us. We need to act on it.”',
-    author_id: 2
+    author_id: user2.id
   )
   story1.image.attach(io: file1, filename: 'story1.jpg')
 
@@ -99,7 +114,7 @@ ApplicationRecord.transaction do
       Atkinson said that the distance provided by the GM role allows Marks to talk him “off the cliff” after games.
       While rumors persist that Prokhorov intends to sell the team, and no guarantee exists that a new owner will afford Atkinson and Marks the requisite time to wait out the transaction calamity that got the Nets here, they’ll continue the small-bore work of improving the team to achieve what Marks called “those small wins along the way.”
       “I think we’re so involved in—this sounds so cliché—the process, and just trying to find our little wins every day in every area of this organization, every corner of this facility,” Atkinson said. “When we go from Barclays Center we’re never like, ‘Hey man, could you imagine when we’re in the playoffs?’ There’s none of that talk.”',
-      author_id: 2
+      author_id: user2.id
   )
   story2.image.attach(io: file2, filename: 'story2.jpg')
 
@@ -189,9 +204,33 @@ ApplicationRecord.transaction do
       There’s a third thing that’s true — Milwaukee is now locked into this roster for a long time. Middleton will be there at least four years. BroLo is signed for four. Bledsoe is, too. This is the team. This is the core. Except you know who’s not signed for four years? Giannis Antetokounmpo.
       Giannis is under contract just two more years. What happens when the Bucks don’t win 60 games again next season? What if they don’t even make the Eastern Conference Finals? What happens when Giannis looks around and sees teammates that aren’t good enough again and sees an ownership group he now knows isn’t willing to go all-in to give him the best chance to win?
       Two years from today, Giannis Antetokounmpo is a free agent. And the clock just started ticking. Loudly. ■',
-      author_id: 3
+      author_id: user3.id
   )
   story3.image.attach(io: file3, filename: 'story3.jpg')
+
+  response1 = Response.create!(
+    body: 'Go Warriors!!!',
+    story_id: story3.id,
+    author_id: user1.id
+  )
+
+  response2 = Response.create!(
+    body: 'Go Bucks!!!',
+    story_id: story3.id,
+    author_id: user2.id
+  )
+
+  response3 = Response.create!(
+    body: 'Go Rockets!!!',
+    story_id: story3.id,
+    author_id: user3.id
+  )
+
+  response4 = Response.create!(
+    body: 'Go Sixers!!!',
+    story_id: story3.id,
+    author_id: user4.id
+  )
 
   file4 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/paul_george_saved_okc.jpg')
   story4 = Story.create!(
@@ -264,9 +303,33 @@ ApplicationRecord.transaction do
       It’s a staggering 12 first-round picks, a couple monster trade-ups, and a possible franchise point guard in Shai Gilgeous-Alexander, all of it in exchange for a roster that was going absolutely nowhere as the 6- or 7-seed out West the next few years. Maybe this PG trade will someday turn into the PG-13 trade — as in, PG for 13 first-round picks. Are we really going back to the same movie-ratings joke twice in one column? Yes, yes we R.
       You hear a lot of talk these days about “blowing it up,” every NBA fan’s dream when a team gets locked into that treadmill of mediocrity. The Thunder were just getting onto the treadmill, or maybe they’ve already been there a couple years. Things were going to get ugly in OKC. Think Washington Wizards or Charlotte Hornets ugly. Think can-this-team-even-survive-in-a-small-market-with-a-huge-tax-bill-and-no-talent-omg-are-they-headed-back-to-Seattle ugly.
       Instead, with one overnight masterstroke, Sam Presti has set the rebuild forward a full five years and sent this team zooming into the future.',
-      author_id: 3
+      author_id: user3.id
   )
   story4.image.attach(io: file4, filename: 'story4.jpg')
+
+  response5 = Response.create!(
+    body: 'NOOOOOOOOOO',
+    story_id: story4.id,
+    author_id: user1.id
+  )
+
+  response6 = Response.create!(
+    body: 'YESSSSSSSS',
+    story_id: story4.id,
+    author_id: user2.id
+  )
+
+  response7 = Response.create!(
+    body: 'YAAAAAAAAAAAA',
+    story_id: story4.id,
+    author_id: user3.id
+  )
+
+  response8 = Response.create!(
+    body: 'WE DID ITTTTTTT',
+    story_id: story4.id,
+    author_id: user4.id
+  )
 
   file5 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-clippers-nba-free-agency.jpg')
   story5 = Story.create!(
@@ -362,9 +425,33 @@ ApplicationRecord.transaction do
       The third star is coming. Can I interest you in Bradley Beal or Jrue Holiday? How about a big man like Clint Capela, Steven Adams, Derrick Favors, or Myles Turner? All easily targetable adds for this team. They could go out and get Kyle Lowry or Marc Gasol at the trade deadline. Heck, they might even be able to get one of those two and then clear enough expiring salary to sign a frustrated Anthony Davis next summer. Okay, it probably won’t be Davis — though you have to admit, that’d be hilarious schaudenfreude — but there’s a third star out there coming, and they’ll be on this roster before the playoffs.
       Even without that star, the Clippers are already bigger favorites than you think. Once the other shoe drops, it will be lights out for the rest of the NBA.
       So much for an era without any superteams. The next one is already being formed right under out noses.',
-    author_id: 3
+    author_id: user3.id
   )
   story5.image.attach(io: file5, filename: 'story5.jpg')
+
+  response9 = Response.create!(
+    body: 'WHAT IT DOOOO BAYBEEEEE',
+    story_id: story5.id,
+    author_id: user1.id
+  )
+
+  response10 = Response.create!(
+    body: 'CLIPPERS ARE TAKING THE CHIP THIS YEAR',
+    story_id: story5.id,
+    author_id: user2.id
+  )
+
+  response11 = Response.create!(
+    body: 'LOL RAPTORS',
+    story_id: story5.id,
+    author_id: user5.id
+  )
+
+  response12 = Response.create!(
+    body: 'Poor Raptors',
+    story_id: story5.id,
+    author_id: user4.id
+  )
 
   file6 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/2019_summer_league.jpg')
   story6 = Story.create!(
@@ -553,9 +640,27 @@ ApplicationRecord.transaction do
       The 10 Biggest Takeaways from a Wild NBA Free Agency
       The NBA has turned upside down. Let’s break it all down.
       ',
-    author_id: 3
+    author_id: user3.id
   )
   story6.image.attach(io: file6, filename: 'story6.jpg')
+
+  response13 = Response.create!(
+    body: 'Zion is a BUSTTTTTT',
+    story_id: story6.id,
+    author_id: user1.id
+  )
+
+  response14 = Response.create!(
+    body: 'Did Zion just get injured?!?',
+    story_id: story6.id,
+    author_id: user2.id
+  )
+
+  response15 = Response.create!(
+    body: 'RJ BARRRETETTETTETE',
+    story_id: story6.id,
+    author_id: user5.id
+  )
 
   file7 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kd-kyrie-free-agency.jpg')
   story7 = Story.create!(
@@ -612,9 +717,15 @@ ApplicationRecord.transaction do
       Fair value — 4 years $105 million
       Prediction — Full 4-year max $117 million
       Verdict — Probably worth the risk, with big potential surplus value',
-    author_id: 3
+    author_id: user3.id
   )
   story7.image.attach(io: file7, filename: 'story7.jpg')
+
+  response15 = Response.create!(
+    body: 'IS DLO GOING BACK TO THE LAKERS?!?@',
+    story_id: story7.id,
+    author_id: user5.id
+  )
 
   file8 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/early_christmas.jpeg')
   story8 = Story.create!(
@@ -735,19 +846,20 @@ ApplicationRecord.transaction do
       2015 — Stephen Curry and Klay Thompson basically reinvent basketball percentages. What used to be a one-in-a-generation fluke becomes the new rule of thumb. Andre Iguodala guards, slowing down a superhuman LeBron James enough to win the Finals MVP.
       2016 — LeBron James and Kyrie Irving combine to make 14 of 26 three pointers to win games 5 and 6 and tie the series. They finally win a title for Cleveland as LeBron makes the signature play of the Finals on one end, blocking Iguodala’s breakaway layup, and Kyrie hits a game winning 25-foot three pointer on the other end. The Warriors miss 9 out of 10 three pointers in the 4th quarter.
       2017–2018 — Kevin Durant not only guards and outplays LeBron James, he hits game winning three pointers.
-      2019 — Kawhi Leonard is the dominant player, the Warriors are decimated by injuries, and it still might not have mattered without Fred VanVleet making 13 of 27 three pointers in the last four games of the Finals, and 17 of 25 three pointers in the last three games of the Conference Finals.
-      '
-    author_id: 4
+      2019 — Kawhi Leonard is the dominant player, the Warriors are decimated by injuries, and it still might not have mattered without Fred VanVleet making 13 of 27 three pointers in the last four games of the Finals, and 17 of 25 three pointers in the last three games of the Conference Finals.',
+    author_id: user4.id
   )
   story8.image.attach(io: file8, filename: 'story8.jpg')
 
-  user5 = User.create!(
-    username: 'Jack Baer',
-    password: 'password'
+  response16 = Response.create!(
+    body: 'WHERE IS KAWHI GOING?',
+    story_id: story8.id,
+    author_id: user3.id
   )
+
   file9 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
   story9 = Story.create!(
-    title: '',
+    title: 'Russell Westbrook Leaves OKC For Houston',
     body: 'Russell Westbrook’s 11-year tenure with the Oklahoma City Thunder came to an end on Thursday, as the former MVP was traded to the Houston Rockets in exchange for Chris Paul and draft capital.
       It’s truly the end of an era for Oklahoma City, and the news came with an unfortunate coincidence. At the time of Westbrook’s trade, the guard was hosting an actual comedy show in Tulsa.
       As you can imagine, some people had fun with that.
@@ -763,103 +875,1510 @@ ApplicationRecord.transaction do
       Westbrook has a been a member of the Thunder for as long as the team has been in Oklahoma, and he won one MVP, two scoring titles, two assists titles, eight All-NBA selections and a record three seasons in which he averaged a triple-double during his 11 years there.
 
       He only got as far as the NBA Finals when Kevin Durant and James Harden were on the team, but that is still quite a ride.',
-    author_id: 5
+    author_id: user5.id
   )
   story9.image.attach(io: file9, filename: 'story9.jpg')
 
-  file10 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
+  file10 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/anthony_davis_demarcus_cousins.jpg')
   story10 = Story.create!(
-    title: '',
+    title: 'DeMarcus Cousins and AD Will Be Reunited Again',
     body: 'DeMarcus Cousins and Anthony Davis are set to play together again. And its a pairing that adds up in many ways.
 
-Cousins agreed to a one-year deal withe Los Angeles Lakers Saturday, reuniting the duo that played on the New Orleans Pelicans together in 2017-18, as well as part of the prior season.
+      Cousins agreed to a one-year deal withe Los Angeles Lakers Saturday, reuniting the duo that played on the New Orleans Pelicans together in 2017-18, as well as part of the prior season.
 
-Up until Saturday’s deal, Cousins had been an afterthought in a hectic free agency period due to concerns over his health after only playing 30 regular-season games last season, as well as a lackluster postseason performance. But if there’s anyone for Cousins to play with to get back to his old self, it’s Davis. 
+      Up until Saturday’s deal, Cousins had been an afterthought in a hectic free agency period due to concerns over his health after only playing 30 regular-season games last season, as well as a lackluster postseason performance. But if there’s anyone for Cousins to play with to get back to his old self, it’s Davis. 
 
-When the pair played together in New Orleans, Cousins had one of the best years of his career. He averaged a career-high 12.9 rebounds and 5.4 assists, as well as 25.2 points a game. He also had his highest effective field goal percentage that season at 53.0. 
+      When the pair played together in New Orleans, Cousins had one of the best years of his career. He averaged a career-high 12.9 rebounds and 5.4 assists, as well as 25.2 points a game. He also had his highest effective field goal percentage that season at 53.0. 
 
-Davis had a stellar season in 2017-18 as well, scoring 28.1 points a game — the highest average of his career. He also recorded his highest three-point percentage at 34 percent. ',
-    author_id: 
+      Davis had a stellar season in 2017-18 as well, scoring 28.1 points a game — the highest average of his career. He also recorded his highest three-point percentage at 34 percent. 
+
+      The chemistry could benefit the Lakers immensely. New Orleans finished with a 48-34 record and made it to the Western Conference semifinals for the first time since 2007-08 that season. While Cousins had  a season-ending Achilles tear in January of 2018 and therefore wasn’t part of the postseason run, his play with Davis was crucial to setting up the team to get to the playoffs after missing the mark the past two seasons.
+
+      Rajon Rondo, who also signed with Los Angeles Saturday, was on that 2017-18 team as well — though his role was much smaller. 
+
+      Davis and Cousins have proved to be a dangerous frontcourt together, bringing out the best in each other. And now LeBron James will be in the mix as well. It’s not the big three the Lakers initially hoped for with Kawhi Leonard, but nonetheless they’ve still got three All-Star talents on the roster.',
+    author_id: 6
   )
   story10.image.attach(io: file10, filename: 'story10.jpg')
 
-  file11 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
+  response17 = Response.create!(
+    body: 'IS DEMARCUS COUSINS WASHED?',
+    story_id: story10.id,
+    author_id: user2.id
+  )
+
+  file11 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kobe_bryant.jpeg')
   story11= Story.create!(
-    title: '',
-    body: '',
-    author_id: 
+    title: 'Hey Basketball',
+    body: 'You all know by now. What most of you don’t know, however, is that The Cauldron almost pubbed Kobe Bryant’s retirement announcement*. Sadly, the draft was rejected. But then we decided to run it anyway. Sorry not sorry.
+      (*Really not really.)
+      Hey Basketball,
+      From the moment
+      I started stealing cash
+      Out of Pops’ duffel bag
+      And buying imitation
+      Jordans from a gypsy woman
+      In the alleys of Pistoria
+      Which is in Italy
+      Did you know I lived in Italy?
+      I can even speak the language:
+      Voglio sesso vostre orecchi
+      Which means
+      I love basketball
+      I think.
+      … Anyway
+      I knew one thing was for real:
+      I fell in love with you
+      … The game, not the gypsy
+      You, the gypsy, smelled like fish
+      And gasoline
+      All the time
+      You put a curse on me
+      Hissing through the rocks
+      You used for teeth
+      No.
+      I fell in love with basketball
+      A love so deep I bought my own ball — From a different gypsy
+      Who said she’d eat my soul If I didn’t bring the other 100 lira
+      By Tuesday Sometimes
+      To this day
+      Blood comes out of my ears
+      And I wonder …
+      As a six-year-old boy
+      Deeply in love with you
+      I never saw Byron Scott coming
+      Or Adam Morrison
+      And his mustache crabs I only saw myself
+      Shooting until
+      My arm floated away In a plume of smoke.
+      And so I shot.
+      I shot on every hoop.
+      Three hands in my face.
+      Five pump fakes from thirty feet.
+      Team up five with 12 seconds left.
+      Full cast on my right hand.
+      Trying to make it
+      In a game of lightning
+      Against tiny helpless children.
+      I gave you my heart
+      Even though it
+      Had become blackened
+      By Smush Parker
+      And his never-ending bulls___.
+      I played through wine hangovers and jock itch
+      Not because I wanted to
+      But because I was gambling on the Lakers
+      On the sly.
+      (To win
+      Obviously
+      Even though it doesn’t look like that now.)
+      I did everything for YOU
+      Because I may have
+      A borderline pathological obsession
+      That should be checked out.
+      Because that’s what you do
+      When someone makes you pee a little when
+      You think about them.
+      You gave a six-year-old boy his Hornets dream
+      And then ripped it away
+      Like a monster
+      And sent him to the Lakers instead.
+      That hurt.
+      Still
+      I’ll always love it.
+      Except Shaq
+      Who can f___ a bear trap
+      For all I care.
+      But I can’t chuck unconsciously for much longer.
+      These shameless knuckleballs
+      That careen into the crowd
+      Are all I have left to give.
+      That and maybe
+      Whipping Nick Young over the head
+      With a jump rope
+      As hard as I can.
+      My heart can take the pounding
+      My mind can handle the grind
+      My knees can always be fixed
+      By shady German doctors
+      Named Franz and Gerbert
+      Whose “licenses”
+      Were written quickly on napkins
+      Using a pencil
+      With a Mickey Mouse eraser at the end of it
+      And who probably gave me
+      Blood parasites
+      Without knowing it.
+      But my shooting hand knows it’s time
+      To say goodbye.
+      And that’s OK.
+      My arm is so shot
+      I can barely beat an egg.
+      I’m ready to let you go.
+      I want you to know now
+      So we can both savor every moment we have left together
+      Because the distraction
+      Will inevitably help the Lakers
+      Keep that protected first.
+      The good and the bad.
+      The 81 and the 
+      1-of-14.
+      The Zen Master and
+      Whatever Byron Scott is.
+      The five rings
+      That probably could’ve been six
+      If Derek Fisher
+      Was even fat Baron Davis.
+      We have given each other
+      All that we have
+      Though you probably took
+      No fewer than 30 years
+      Off my life.
+      And we both know, no matter what I do next
+      I’ll always be that kid
+      With the Gypsy Nike knockoffs
+      Garbage can in the corner
+      :19 seconds on the shot clock
+      Ball in my hands
+      19 … 18 …
+      F___ it.
+      Let ‘er rip.
+      I’ll most likely come out of retirement at some point,
+      ',
+    author_id: user7.id
   )
   story11.image.attach(io: file11, filename: 'story11.jpg')
 
-  file12 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
-  story12 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
+  response18 = Response.create!(
+    body: 'KOBE the GOAT',
+    story_id: story11.id,
+    author_id: user1.id
+  )
+
+  response19 = Response.create!(
+    body: 'GOAT',
+    story_id: story11.id,
+    author_id: user2.id
+  )
+
+  file12 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kobe_bryant.jpeg')
+  story12= Story.create!(
+    title: 'Hey Basketball',
+    body: 'You all know by now. What most of you don’t know, however, is that The Cauldron almost pubbed Kobe Bryant’s retirement announcement*. Sadly, the draft was rejected. But then we decided to run it anyway. Sorry not sorry.
+      (*Really not really.)
+      Hey Basketball,
+      From the moment
+      I started stealing cash
+      Out of Pops’ duffel bag
+      And buying imitation
+      Jordans from a gypsy woman
+      In the alleys of Pistoria
+      Which is in Italy
+      Did you know I lived in Italy?
+      I can even speak the language:
+      Voglio sesso vostre orecchi
+      Which means
+      I love basketball
+      I think.
+      … Anyway
+      I knew one thing was for real:
+      I fell in love with you
+      … The game, not the gypsy
+      You, the gypsy, smelled like fish
+      And gasoline
+      All the time
+      You put a curse on me
+      Hissing through the rocks
+      You used for teeth
+      No.
+      I fell in love with basketball
+      A love so deep I bought my own ball — From a different gypsy
+      Who said she’d eat my soul If I didn’t bring the other 100 lira
+      By Tuesday Sometimes
+      To this day
+      Blood comes out of my ears
+      And I wonder …
+      As a six-year-old boy
+      Deeply in love with you
+      I never saw Byron Scott coming
+      Or Adam Morrison
+      And his mustache crabs I only saw myself
+      Shooting until
+      My arm floated away In a plume of smoke.
+      And so I shot.
+      I shot on every hoop.
+      Three hands in my face.
+      Five pump fakes from thirty feet.
+      Team up five with 12 seconds left.
+      Full cast on my right hand.
+      Trying to make it
+      In a game of lightning
+      Against tiny helpless children.
+      I gave you my heart
+      Even though it
+      Had become blackened
+      By Smush Parker
+      And his never-ending bulls___.
+      I played through wine hangovers and jock itch
+      Not because I wanted to
+      But because I was gambling on the Lakers
+      On the sly.
+      (To win
+      Obviously
+      Even though it doesn’t look like that now.)
+      I did everything for YOU
+      Because I may have
+      A borderline pathological obsession
+      That should be checked out.
+      Because that’s what you do
+      When someone makes you pee a little when
+      You think about them.
+      You gave a six-year-old boy his Hornets dream
+      And then ripped it away
+      Like a monster
+      And sent him to the Lakers instead.
+      That hurt.
+      Still
+      I’ll always love it.
+      Except Shaq
+      Who can f___ a bear trap
+      For all I care.
+      But I can’t chuck unconsciously for much longer.
+      These shameless knuckleballs
+      That careen into the crowd
+      Are all I have left to give.
+      That and maybe
+      Whipping Nick Young over the head
+      With a jump rope
+      As hard as I can.
+      My heart can take the pounding
+      My mind can handle the grind
+      My knees can always be fixed
+      By shady German doctors
+      Named Franz and Gerbert
+      Whose “licenses”
+      Were written quickly on napkins
+      Using a pencil
+      With a Mickey Mouse eraser at the end of it
+      And who probably gave me
+      Blood parasites
+      Without knowing it.
+      But my shooting hand knows it’s time
+      To say goodbye.
+      And that’s OK.
+      My arm is so shot
+      I can barely beat an egg.
+      I’m ready to let you go.
+      I want you to know now
+      So we can both savor every moment we have left together
+      Because the distraction
+      Will inevitably help the Lakers
+      Keep that protected first.
+      The good and the bad.
+      The 81 and the 
+      1-of-14.
+      The Zen Master and
+      Whatever Byron Scott is.
+      The five rings
+      That probably could’ve been six
+      If Derek Fisher
+      Was even fat Baron Davis.
+      We have given each other
+      All that we have
+      Though you probably took
+      No fewer than 30 years
+      Off my life.
+      And we both know, no matter what I do next
+      I’ll always be that kid
+      With the Gypsy Nike knockoffs
+      Garbage can in the corner
+      :19 seconds on the shot clock
+      Ball in my hands
+      19 … 18 …
+      F___ it.
+      Let ‘er rip.
+      I’ll most likely come out of retirement at some point,
+      ',
+    author_id: user7.id
   )
   story12.image.attach(io: file12, filename: 'story12.jpg')
 
-  file13 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
-  story13 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
+  file13 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kobe_bryant.jpeg')
+  story13= Story.create!(
+    title: 'Hey Basketball',
+    body: 'You all know by now. What most of you don’t know, however, is that The Cauldron almost pubbed Kobe Bryant’s retirement announcement*. Sadly, the draft was rejected. But then we decided to run it anyway. Sorry not sorry.
+      (*Really not really.)
+      Hey Basketball,
+      From the moment
+      I started stealing cash
+      Out of Pops’ duffel bag
+      And buying imitation
+      Jordans from a gypsy woman
+      In the alleys of Pistoria
+      Which is in Italy
+      Did you know I lived in Italy?
+      I can even speak the language:
+      Voglio sesso vostre orecchi
+      Which means
+      I love basketball
+      I think.
+      … Anyway
+      I knew one thing was for real:
+      I fell in love with you
+      … The game, not the gypsy
+      You, the gypsy, smelled like fish
+      And gasoline
+      All the time
+      You put a curse on me
+      Hissing through the rocks
+      You used for teeth
+      No.
+      I fell in love with basketball
+      A love so deep I bought my own ball — From a different gypsy
+      Who said she’d eat my soul If I didn’t bring the other 100 lira
+      By Tuesday Sometimes
+      To this day
+      Blood comes out of my ears
+      And I wonder …
+      As a six-year-old boy
+      Deeply in love with you
+      I never saw Byron Scott coming
+      Or Adam Morrison
+      And his mustache crabs I only saw myself
+      Shooting until
+      My arm floated away In a plume of smoke.
+      And so I shot.
+      I shot on every hoop.
+      Three hands in my face.
+      Five pump fakes from thirty feet.
+      Team up five with 12 seconds left.
+      Full cast on my right hand.
+      Trying to make it
+      In a game of lightning
+      Against tiny helpless children.
+      I gave you my heart
+      Even though it
+      Had become blackened
+      By Smush Parker
+      And his never-ending bulls___.
+      I played through wine hangovers and jock itch
+      Not because I wanted to
+      But because I was gambling on the Lakers
+      On the sly.
+      (To win
+      Obviously
+      Even though it doesn’t look like that now.)
+      I did everything for YOU
+      Because I may have
+      A borderline pathological obsession
+      That should be checked out.
+      Because that’s what you do
+      When someone makes you pee a little when
+      You think about them.
+      You gave a six-year-old boy his Hornets dream
+      And then ripped it away
+      Like a monster
+      And sent him to the Lakers instead.
+      That hurt.
+      Still
+      I’ll always love it.
+      Except Shaq
+      Who can f___ a bear trap
+      For all I care.
+      But I can’t chuck unconsciously for much longer.
+      These shameless knuckleballs
+      That careen into the crowd
+      Are all I have left to give.
+      That and maybe
+      Whipping Nick Young over the head
+      With a jump rope
+      As hard as I can.
+      My heart can take the pounding
+      My mind can handle the grind
+      My knees can always be fixed
+      By shady German doctors
+      Named Franz and Gerbert
+      Whose “licenses”
+      Were written quickly on napkins
+      Using a pencil
+      With a Mickey Mouse eraser at the end of it
+      And who probably gave me
+      Blood parasites
+      Without knowing it.
+      But my shooting hand knows it’s time
+      To say goodbye.
+      And that’s OK.
+      My arm is so shot
+      I can barely beat an egg.
+      I’m ready to let you go.
+      I want you to know now
+      So we can both savor every moment we have left together
+      Because the distraction
+      Will inevitably help the Lakers
+      Keep that protected first.
+      The good and the bad.
+      The 81 and the 
+      1-of-14.
+      The Zen Master and
+      Whatever Byron Scott is.
+      The five rings
+      That probably could’ve been six
+      If Derek Fisher
+      Was even fat Baron Davis.
+      We have given each other
+      All that we have
+      Though you probably took
+      No fewer than 30 years
+      Off my life.
+      And we both know, no matter what I do next
+      I’ll always be that kid
+      With the Gypsy Nike knockoffs
+      Garbage can in the corner
+      :19 seconds on the shot clock
+      Ball in my hands
+      19 … 18 …
+      F___ it.
+      Let ‘er rip.
+      I’ll most likely come out of retirement at some point,
+      ',
+    author_id: user7.id
   )
   story13.image.attach(io: file13, filename: 'story13.jpg')
 
-  file14 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
-  story14 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
-  )  
+  file14 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kobe_bryant.jpeg')
+  story14= Story.create!(
+    title: 'Hey Basketball',
+    body: 'You all know by now. What most of you don’t know, however, is that The Cauldron almost pubbed Kobe Bryant’s retirement announcement*. Sadly, the draft was rejected. But then we decided to run it anyway. Sorry not sorry.
+      (*Really not really.)
+      Hey Basketball,
+      From the moment
+      I started stealing cash
+      Out of Pops’ duffel bag
+      And buying imitation
+      Jordans from a gypsy woman
+      In the alleys of Pistoria
+      Which is in Italy
+      Did you know I lived in Italy?
+      I can even speak the language:
+      Voglio sesso vostre orecchi
+      Which means
+      I love basketball
+      I think.
+      … Anyway
+      I knew one thing was for real:
+      I fell in love with you
+      … The game, not the gypsy
+      You, the gypsy, smelled like fish
+      And gasoline
+      All the time
+      You put a curse on me
+      Hissing through the rocks
+      You used for teeth
+      No.
+      I fell in love with basketball
+      A love so deep I bought my own ball — From a different gypsy
+      Who said she’d eat my soul If I didn’t bring the other 100 lira
+      By Tuesday Sometimes
+      To this day
+      Blood comes out of my ears
+      And I wonder …
+      As a six-year-old boy
+      Deeply in love with you
+      I never saw Byron Scott coming
+      Or Adam Morrison
+      And his mustache crabs I only saw myself
+      Shooting until
+      My arm floated away In a plume of smoke.
+      And so I shot.
+      I shot on every hoop.
+      Three hands in my face.
+      Five pump fakes from thirty feet.
+      Team up five with 12 seconds left.
+      Full cast on my right hand.
+      Trying to make it
+      In a game of lightning
+      Against tiny helpless children.
+      I gave you my heart
+      Even though it
+      Had become blackened
+      By Smush Parker
+      And his never-ending bulls___.
+      I played through wine hangovers and jock itch
+      Not because I wanted to
+      But because I was gambling on the Lakers
+      On the sly.
+      (To win
+      Obviously
+      Even though it doesn’t look like that now.)
+      I did everything for YOU
+      Because I may have
+      A borderline pathological obsession
+      That should be checked out.
+      Because that’s what you do
+      When someone makes you pee a little when
+      You think about them.
+      You gave a six-year-old boy his Hornets dream
+      And then ripped it away
+      Like a monster
+      And sent him to the Lakers instead.
+      That hurt.
+      Still
+      I’ll always love it.
+      Except Shaq
+      Who can f___ a bear trap
+      For all I care.
+      But I can’t chuck unconsciously for much longer.
+      These shameless knuckleballs
+      That careen into the crowd
+      Are all I have left to give.
+      That and maybe
+      Whipping Nick Young over the head
+      With a jump rope
+      As hard as I can.
+      My heart can take the pounding
+      My mind can handle the grind
+      My knees can always be fixed
+      By shady German doctors
+      Named Franz and Gerbert
+      Whose “licenses”
+      Were written quickly on napkins
+      Using a pencil
+      With a Mickey Mouse eraser at the end of it
+      And who probably gave me
+      Blood parasites
+      Without knowing it.
+      But my shooting hand knows it’s time
+      To say goodbye.
+      And that’s OK.
+      My arm is so shot
+      I can barely beat an egg.
+      I’m ready to let you go.
+      I want you to know now
+      So we can both savor every moment we have left together
+      Because the distraction
+      Will inevitably help the Lakers
+      Keep that protected first.
+      The good and the bad.
+      The 81 and the 
+      1-of-14.
+      The Zen Master and
+      Whatever Byron Scott is.
+      The five rings
+      That probably could’ve been six
+      If Derek Fisher
+      Was even fat Baron Davis.
+      We have given each other
+      All that we have
+      Though you probably took
+      No fewer than 30 years
+      Off my life.
+      And we both know, no matter what I do next
+      I’ll always be that kid
+      With the Gypsy Nike knockoffs
+      Garbage can in the corner
+      :19 seconds on the shot clock
+      Ball in my hands
+      19 … 18 …
+      F___ it.
+      Let ‘er rip.
+      I’ll most likely come out of retirement at some point,
+      ',
+    author_id: user7.id
+  )
   story14.image.attach(io: file14, filename: 'story14.jpg')
 
-  file15 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
-  story15 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
-  )  
+  file15 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kobe_bryant.jpeg')
+  story15= Story.create!(
+    title: 'Hey Basketball',
+    body: 'You all know by now. What most of you don’t know, however, is that The Cauldron almost pubbed Kobe Bryant’s retirement announcement*. Sadly, the draft was rejected. But then we decided to run it anyway. Sorry not sorry.
+      (*Really not really.)
+      Hey Basketball,
+      From the moment
+      I started stealing cash
+      Out of Pops’ duffel bag
+      And buying imitation
+      Jordans from a gypsy woman
+      In the alleys of Pistoria
+      Which is in Italy
+      Did you know I lived in Italy?
+      I can even speak the language:
+      Voglio sesso vostre orecchi
+      Which means
+      I love basketball
+      I think.
+      … Anyway
+      I knew one thing was for real:
+      I fell in love with you
+      … The game, not the gypsy
+      You, the gypsy, smelled like fish
+      And gasoline
+      All the time
+      You put a curse on me
+      Hissing through the rocks
+      You used for teeth
+      No.
+      I fell in love with basketball
+      A love so deep I bought my own ball — From a different gypsy
+      Who said she’d eat my soul If I didn’t bring the other 100 lira
+      By Tuesday Sometimes
+      To this day
+      Blood comes out of my ears
+      And I wonder …
+      As a six-year-old boy
+      Deeply in love with you
+      I never saw Byron Scott coming
+      Or Adam Morrison
+      And his mustache crabs I only saw myself
+      Shooting until
+      My arm floated away In a plume of smoke.
+      And so I shot.
+      I shot on every hoop.
+      Three hands in my face.
+      Five pump fakes from thirty feet.
+      Team up five with 12 seconds left.
+      Full cast on my right hand.
+      Trying to make it
+      In a game of lightning
+      Against tiny helpless children.
+      I gave you my heart
+      Even though it
+      Had become blackened
+      By Smush Parker
+      And his never-ending bulls___.
+      I played through wine hangovers and jock itch
+      Not because I wanted to
+      But because I was gambling on the Lakers
+      On the sly.
+      (To win
+      Obviously
+      Even though it doesn’t look like that now.)
+      I did everything for YOU
+      Because I may have
+      A borderline pathological obsession
+      That should be checked out.
+      Because that’s what you do
+      When someone makes you pee a little when
+      You think about them.
+      You gave a six-year-old boy his Hornets dream
+      And then ripped it away
+      Like a monster
+      And sent him to the Lakers instead.
+      That hurt.
+      Still
+      I’ll always love it.
+      Except Shaq
+      Who can f___ a bear trap
+      For all I care.
+      But I can’t chuck unconsciously for much longer.
+      These shameless knuckleballs
+      That careen into the crowd
+      Are all I have left to give.
+      That and maybe
+      Whipping Nick Young over the head
+      With a jump rope
+      As hard as I can.
+      My heart can take the pounding
+      My mind can handle the grind
+      My knees can always be fixed
+      By shady German doctors
+      Named Franz and Gerbert
+      Whose “licenses”
+      Were written quickly on napkins
+      Using a pencil
+      With a Mickey Mouse eraser at the end of it
+      And who probably gave me
+      Blood parasites
+      Without knowing it.
+      But my shooting hand knows it’s time
+      To say goodbye.
+      And that’s OK.
+      My arm is so shot
+      I can barely beat an egg.
+      I’m ready to let you go.
+      I want you to know now
+      So we can both savor every moment we have left together
+      Because the distraction
+      Will inevitably help the Lakers
+      Keep that protected first.
+      The good and the bad.
+      The 81 and the 
+      1-of-14.
+      The Zen Master and
+      Whatever Byron Scott is.
+      The five rings
+      That probably could’ve been six
+      If Derek Fisher
+      Was even fat Baron Davis.
+      We have given each other
+      All that we have
+      Though you probably took
+      No fewer than 30 years
+      Off my life.
+      And we both know, no matter what I do next
+      I’ll always be that kid
+      With the Gypsy Nike knockoffs
+      Garbage can in the corner
+      :19 seconds on the shot clock
+      Ball in my hands
+      19 … 18 …
+      F___ it.
+      Let ‘er rip.
+      I’ll most likely come out of retirement at some point,
+      ',
+    author_id: user7.id
+  )
   story15.image.attach(io: file15, filename: 'story15.jpg')
 
-  file16 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
+  file16 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kevin-durant-kyrie-irving.jpg')
   story16 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
-  )  
+    title: 'The 10 Biggest Takeaways from a Wild Opening Day of NBA Free Agency',
+    body: 'WELL, HOLY CRAP! 2019 NBA FREE AGENCY CAME IN LIKE A LION and roared for eight hours straight until darn near every free agent was signed before midnight struck and turned to the new league fiscal year. Kevin Durant and Kyrie Irving are Nets. Kemba Walker is a Celtic. Jimmy Butler is in Miami. Al Horford’s in Philly. And just about no one is in New York or L.A.
+      It was one of the wildest days in NBA history, and the entire league looks different on July 1 than it did just one month ago. Almost everyone has signed other than the big kahuna, Kawhi Leonard, and even the minor characters are mostly gone. The NBA saw over $3 billion in contracts agreed to in its first 24 hours of free agency, which technically aren’t even over yet.
+      Let’s bounce around the league and look at the 10 biggest takeaways of a wild opening day of 2019 NBA free agency…
+      7 Remaining NBA Free Agents Still Worth Pursuing
+      Under the radar signings like RHJ, WCS, and Delon Wright could be some of the summer’s biggest bargains
+      Which 2019 NBA free agents are really worth a max contract?
+      The NBA silly season is here, but which free agents are really worth the max deal, and which ones will kill their…
+      1. The Brooklyn Nets won free agency
+      Kyrie Irving and Kevin Durant are Nets. That is a real thing. It’s crazy how much of a footnote it felt by the end of the day since the Kyrie news was on lock for weeks and the Durant announcement was one of the first of the day. But it’s by far the biggest news of the day.
+      In my free agency preview, I deemed only three veterans worthy of a full max contract. The Nets just got two of them, and they got them for less than the max too, since Kyrie and KD are apparently giving up some cash so their very fortunate buddy DeAndre Jordan can tag along in the least big Big Three yet.
+      The best NBA duos are now Lakers and Nets, and Brooklyn’s duo have both proven it on the biggest stage. Don’t underestimate how good the Nets already are. If Kevin Durant were healthy, this would be the immediate championship favorite. Everyone had fun smack talking Kyrie Irving but he remains one of the top 10 or 12 players in the league — Giannis, Kawhi, LeBron, Steph, and Harden in some order, followed by some mix of Dame, Brow, Jokic, Kyrie, Embiid, Butler, plus Durant somewhere along the way.
+      Healthy KD and Kyrie are really good, like just as good as LeBron/Brow, like just as good as LeBron/Wade. Like championship-caliber good. And it’s not just those guys. DeAndre Jordan, Jarrett Allen, and Nic Claxton are good bigs. Caris LeVert was breaking out before his injury. Spencer Dinwiddie might have been their best player in 2018–19. Garrett Temple, Joe Harris, Taurean Waller-Prince, and Rodions Kurucs are quality, versatile rotation pieces.
+      Now the Nets just need to get Kyrie and KD healthy. There’s a faint whiff of early 2000s Orlando Magic here, when Tracy McGrady and Grant Hill never got healthy on the same page, never made their run. Durant won’t be healthy this year, if he plays at all. Kyrie misses 15 or 20 games a season and has missed two playoff runs.
+      If the Brooklyn Nets ever get to April healthy, they may be the title favorite. But they might also get only one or two chances, if they get one at all.
+      It’s a risk they had to take, certainly. But the team that wins free agency isn’t always the one that wins in June.
+
+      2. The Warriors as we know them are dead.
+      It wasn’t supposed to happen this way.
+      Boogie’s quad. Durant’s Achilles. Klay’s ACL. There are no asterisks in sports, but we all know the playoffs would have played out differently with a full Warriors roster. Golden State never lost a playoff series with Steph, Klay, Draymond, and Durant healthy. And now they never will.
+      Durant leaving was one thing. We knew all year that might be coming. But then, at the end of a wild night, the Warriors shocked the NBA by completing a sign-and-trade for D’Angelo Russell. His incoming max contract means the Ws are hard capped and immediately led to another move, with Golden State paying a mostly unprotected first to send Andre Iguodala to Memphis to clear salary. Shaun Livingston will be next, one way or another. Kevon Looney won’t be back. Boogie is gone. Even names like Quinn Cook and Jordan Bell will be elsewhere this fall.
+      The Warriors as we know them are dead. They’ll enter this season with a three-man team of Curry, Draymond, and… D’Angelo Russell? It’s still so jarring. They’ll get Klay eventually, at which point they’ll have over $100 million committed to three guards that can’t play together. DLo wants the ball in his hands and is used to being the star, pretty much the antithesis of what made Warriors basketball so beautiful. Around those three it’ll be youngsters Jacob Evans, Jordan Poole, and Eric Paschall plus a new cast of veterans. That’s a 2.5-man team with little support in a deep, retooled West. Golden State might not even make the playoffs next season. And that’s not even taking into account the two first-round picks Golden State paid to do this or the max deal they’re giving to a guy that isn’t worth it right now.
+      Losing Durant stings, but Iggy’s departure is the real death of these Warriors. His tenacity, leadership, intelligence, and defense was a key part of the best the Warriors had to offer in this run. He was part of every great Ws lineup. There’s no more Hamptons Five. No more Death Lineup. It’s over.
+      The Warriors will reload. Maybe they’ll flip DLo as an asset play once Klay returns. They’re not dead. But they are dead as we know them. RIP.
+      The NBA Franchise HOPE Rankings
+      Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?
+      3. The Lakers are ALL in on Kawhi Leonard.
+      The Lakers never seem to have a Plan B. Lakers exceptionalism at its finest.
+      So it’s all in on Kawhi Leonard.
+      Kawhi is the only one of this summer’s 12 marquee free agents standing — and reportedly hasn’t even taken a meeting yet. The Raptors, Clippers, and Lakers are waiting. Toronto either keeps him and runs it back or plays things out without him. The Clips either get him or run it back with a fun, young roster and plenty of avenues going forward. But the Lakers have a three-man team, a bunch of cap room they moved heaven and earth to drum up, and exactly one man left worth spending it on.
+      We wondered if the Lakers might sign Kyrie or Kemba to play with LeBron and Anthony Davis. We thought it might be Butler or a run at DLo, or that they might split their cap room between veterans like Patrick Beverley, Cory Joseph, Rodney Hood, or Jeremy Lamb. Nope, nope, nope, and nope. Every one of those names is off the board.
+      There is no Plan B. There’s no Plan C or D or E. If Kawhi doesn’t come, the Lakers might literally have to bring back Rajon Rondo and Kentavious Caldwell-Pope. They might have to absorb someone like Jeff Teague or Goran Dragic or themselves into Austin Rivers or Iman Shumpert. And this is their starting back court!! We haven’t even thought about building depth. And some of those names will probably be signed by the time you read this, too.
+      L.A. didn’t even pony up to keep Reggie Bullock, their presumed de facto two, now gone to New York. Heck, even if Kawhi signs, the Lakers STILL don’t have any guards. They’ll have Kawhi, Bron, and Brow and it probably won’t matter, but still. They’re out of options.
+      I don’t think it’s hit everyone just how bad this is all going to look for the Lakers if Kawhi doesn’t come and they strike out finding a star to play with LeBron a second straight summer in a wide open year.
+      4. Kawhi Leonard is the kingmaker.
+      The Nets are a year away. The Warriors are dead. The Lakers are incomplete. The Bucks got worse. The Sixers reset. The Rockets hate each other. The league remains wide open, even with every free agent in their new home.
+      And that means Kawhi Leonard is the kingmaker. Whoever gets Kawhi is the new favorite. If it’s the Lakers, duh. If it’s the Raptors, it means Danny Green too and running back a championship roster. Even if it’s the Clippers, it’s fair to like their chances now that we’ve seen what Kawhi can do with a strong supporting cast.
+      The world is your oyster, Kawhi. We wait.
+      The 20 Worst Contracts in the NBA
+      Some players get injured. Some underperform. Some just get old. These are the worst 20 contracts in the NBA right now…
+      5. The 76ers are zigging with everyone zagging.
+      Goodbye Jimmy Butler and J.J. Redick. Hello Al Horford and Josh Richardson. And get paid, Tobias Harris.
+      I love the Horford contract and hate the Harris one, and I’d rather have Richardson on his current contract than Butler on a max. The Sixers remixed their lineup again, with an even bigger, more defensive starting five of Ben Simmons, JRich, Tobias, Horford, and Joel Embiid.
+      And I like it.
+      I like that Philly is doing something different when the league is increasingly going smaller, focusing on offense and spacing. This is interesting! Horford and Richardson are 37% shooters and add more spacing overall than Redick and Butler — two shooters are more than one, and Butler made under one 3 per game in Philadelphia. This also means more shots for Harris, who ought to be taking the most shots in Philly now. And it means more time with the ball for Simmons and a possible Giannis role driving into more space with four willing shooters around him.
+      It just feels like everyone fits better. Richardson is the willing role-playing defender Butler once deigned himself to be. Horford will be a great high-low option with Embiid. Redick isn’t there to be hunted on defense anymore; now the weakest defensive link is Harris, a much bigger, more versatile defender. The offense will be more egalitarian. The defense will be more versatile.
+      This is interesting!
+      Philly is back to being a wildcard. And they’re back to being fun now, too.
+
+      6. The East is wide open.
+      Who’s your pick to win the East right now?
+      The Bucks got worse, losing Malcolm Brogdon and Nikola Mirotic. The Celtics downgraded from Kyrie to Kemba and have no Horford replacement. The Pacers added Brogdon and get Oladipo back in January. The Heat got Heatier with the addition of Jimmy Butler. The Nets might be the 2021 favorite but not until we know KD is back. The Raptors are dependent on Kawhi. And the Sixers are on their umpteenth iteration in the last few seasons.
+      Those are the seven teams. One of them will be in next year’s Finals. But your guess is as good as mine on which of the seven it’ll be.
+      For the record, my pick right now is Philadelphia… at least until Kawhi and Danny re-sign in Toronto.
+      Ranking the 2019 NBA Draft Outcomes for All 30 Teams
+      A look at the process behind all 30 NBA teams’ draft nights, ranking the outcomes from 30 to 1…
+      7. The New York Knicks remain a laughingstock.
+      The more things change, the more they stay the same.
+      The Knicks traded Porzingis. They waived and stretched Joakim Noah. They cleared cap room and tanked all season for Zion, Kyrie, and Durant. But they didn’t win the draft lottery, and then they didn’t win the Kyrie or KD lottery either and, according to Ramon Shelburne, weren’t even willing to give Durant the full max.
+      Listen, I literally wrote a whole article about the risk of signing KD off his Achilles injury. The risk is very real. But you’re the Knicks! You haven’t been relevant in 20 years!! Sometimes risk is good. Kevin Durant risk is good.
+      Instead, New York “played it safe,” dropping $21 million a year on 6th-man, Julius Randle, then signing a bunch of 1+1 team-option vets in Bobby Portis, Taj Gibson, Reggie Bullock, Wayne Ellington, and Elfrid Payton. Those guys are all nice and will probably net New York some second-round picks at the deadline, and that’s fine. But not one move helps the team in any meaningful big picture way. If they weren’t going to give KD the max, at least use all that cap room to stockpile draft picks eating Andre Iguodala, Allen Crabbe, Goran Dragic, and other contracts teams. That’s four first-round picks right there the Knicks left on the table to sign a bunch of veterans just good enough to knock New York out of pole position for next #1 pick next summer.
+      New York Knickerbockers forever.
+
+      8. The Mavericks and Timberwolves were quiet free agency losers.
+      Dallas thought they had a deal lined up with Miami in the Jimmy Butler sign-and-trade. Minnesota thought they were landing D’Angelo Russell and getting off one or two of their awful contracts. Then the music stopped and both were left holding their collective jockstraps.
+      Dallas is one of the few teams with a bunch of cap room, even after giving out a quietly dangerous max with no team protections to Kristaps Porzingis. But they didn’t even get a sniff from any of the big free agents and now, like the Lakers, have nothing to spend it on. Minnesota fans got hopes up for life after Wiggins and KAT spent all summer recruiting DLo. Instead it looks like another year with Wiggins, Gorgui Dieng, and Jeff Teague.
+      Both teams thought they had a big move lined up. Instead they got nothing while everyone around them got better. The Pelicans added J.J. Redick and Derrick Favors and look like a real playoff threat. So too the Kings, who added Trevor Ariza, Cory Joseph, and Dewayne Dedmon to their talented young core. The Clippers re-signed Patrick Beverley and might still get Kawhi. The Spurs are the Spurs. The Warriors, Thunder, Blazers, Lakers, Rockets, Nuggets, and Jazz are all clearly better. Minnesota and Dallas might be fighting for the West 12-seed, ahead of only the Suns and Grizzlies. Ouch.
+      The Official 2018-19 NBA Awards
+      Giannis or Harden for MVP? Trae or Luka for Rookie of the Year? Time to look back and give out some awards…
+      9. Free agency is over before it even began.
+      And just like that, free agency is essentially over. In just a few hours, the entire NBA landscape changed. And there’s almost nothing left to figure out.
+      We’re still awaiting Kawhi’s decision, and Danny Green’s will follow. But the free agent pool dried up real fast after that. Boogie Cousins could still get a big short-term deal. There are other quality bigs like Kevon Looney, Kenneth Faried, and Willie Cauley-Stein. There’s a few intriguing restricted free agents like Delon Wright, Maxi Kleber, and Khem Birch. This is where we’re at already. It’s July 1st, and we’re already in talk-yourself-into-Jeff-Green range.
+      NEVER talk yourself into Jeff Green.
+
+      10. We might look back on June 30, 2019, as the beginning of the end of the Giannis Antetokounmpo era in Milwaukee.
+      All we think about right now is the present.
+      What’s happening with Kawhi? Who will the Lakers sign? Did the 76ers get better? How good will the Nets be? Are the Jazz really the best starting five in the NBA, and did this dude really just write a 3000-word column on free agency without even mentioning them?
+      But one year from now, I wonder if we will ultimately look back on June 30, 2019, as the beginning of the end for the Giannis Antetokounmpo era in Milwaukee.
+      The Bucks got definitively worse. Malcolm Brogdon was really good for them, and though he’s now overpaid and netted a future first, he’s a big loss. Brogdon was Milwaukee’s second best player in the ECF. He’s the only Bucks player that does a little bit of everything, a 50/40/90 guy that played off ball and shot the lights out. Milwaukee also lost Nikola Mirotic to Spain, and they used a first-round pick to give away a solid rotation wing in Tony Snell for cap savings they ended up not using to keep their guys.
+      Milwaukee did pay to keep Khris Middleton… and paid way too much, like $100 million too much, a contract that is immediately one of the worst in the NBA. They kept Brook Lopez and George Hill, who was mostly out of the rotation until they had no other options. They already paid for Eric Bledsoe, a worse fit than Brogdon, glaringly so in the playoffs. They’ll have those four and Giannis, plus very little off the bench unless you’re a big believer in Pat Connaughton, Sterling Brown, Robin Lopez, or Ersan Ilyasova.
+      Two things are undeniably true. The Bucks were not good enough this year. And they just got noticeably worse.
+      There’s a third thing that’s true — Milwaukee is now locked into this roster for a long time. Middleton will be there at least four years. BroLo is signed for four. Bledsoe is, too. This is the team. This is the core. Except you know who’s not signed for four years? Giannis Antetokounmpo.
+      Giannis is under contract just two more years. What happens when the Bucks don’t win 60 games again next season? What if they don’t even make the Eastern Conference Finals? What happens when Giannis looks around and sees teammates that aren’t good enough again and sees an ownership group he now knows isn’t willing to go all-in to give him the best chance to win?
+      Two years from today, Giannis Antetokounmpo is a free agent. And the clock just started ticking. Loudly. ■',
+      author_id: user3.id
+  )
   story16.image.attach(io: file16, filename: 'story16.jpg')
 
-  file17 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
+  file17 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kevin-durant-kyrie-irving.jpg')
   story17 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
-  )  
+    title: 'The 10 Biggest Takeaways from a Wild Opening Day of NBA Free Agency',
+    body: 'WELL, HOLY CRAP! 2019 NBA FREE AGENCY CAME IN LIKE A LION and roared for eight hours straight until darn near every free agent was signed before midnight struck and turned to the new league fiscal year. Kevin Durant and Kyrie Irving are Nets. Kemba Walker is a Celtic. Jimmy Butler is in Miami. Al Horford’s in Philly. And just about no one is in New York or L.A.
+      It was one of the wildest days in NBA history, and the entire league looks different on July 1 than it did just one month ago. Almost everyone has signed other than the big kahuna, Kawhi Leonard, and even the minor characters are mostly gone. The NBA saw over $3 billion in contracts agreed to in its first 24 hours of free agency, which technically aren’t even over yet.
+      Let’s bounce around the league and look at the 10 biggest takeaways of a wild opening day of 2019 NBA free agency…
+      7 Remaining NBA Free Agents Still Worth Pursuing
+      Under the radar signings like RHJ, WCS, and Delon Wright could be some of the summer’s biggest bargains
+      Which 2019 NBA free agents are really worth a max contract?
+      The NBA silly season is here, but which free agents are really worth the max deal, and which ones will kill their…
+      1. The Brooklyn Nets won free agency
+      Kyrie Irving and Kevin Durant are Nets. That is a real thing. It’s crazy how much of a footnote it felt by the end of the day since the Kyrie news was on lock for weeks and the Durant announcement was one of the first of the day. But it’s by far the biggest news of the day.
+      In my free agency preview, I deemed only three veterans worthy of a full max contract. The Nets just got two of them, and they got them for less than the max too, since Kyrie and KD are apparently giving up some cash so their very fortunate buddy DeAndre Jordan can tag along in the least big Big Three yet.
+      The best NBA duos are now Lakers and Nets, and Brooklyn’s duo have both proven it on the biggest stage. Don’t underestimate how good the Nets already are. If Kevin Durant were healthy, this would be the immediate championship favorite. Everyone had fun smack talking Kyrie Irving but he remains one of the top 10 or 12 players in the league — Giannis, Kawhi, LeBron, Steph, and Harden in some order, followed by some mix of Dame, Brow, Jokic, Kyrie, Embiid, Butler, plus Durant somewhere along the way.
+      Healthy KD and Kyrie are really good, like just as good as LeBron/Brow, like just as good as LeBron/Wade. Like championship-caliber good. And it’s not just those guys. DeAndre Jordan, Jarrett Allen, and Nic Claxton are good bigs. Caris LeVert was breaking out before his injury. Spencer Dinwiddie might have been their best player in 2018–19. Garrett Temple, Joe Harris, Taurean Waller-Prince, and Rodions Kurucs are quality, versatile rotation pieces.
+      Now the Nets just need to get Kyrie and KD healthy. There’s a faint whiff of early 2000s Orlando Magic here, when Tracy McGrady and Grant Hill never got healthy on the same page, never made their run. Durant won’t be healthy this year, if he plays at all. Kyrie misses 15 or 20 games a season and has missed two playoff runs.
+      If the Brooklyn Nets ever get to April healthy, they may be the title favorite. But they might also get only one or two chances, if they get one at all.
+      It’s a risk they had to take, certainly. But the team that wins free agency isn’t always the one that wins in June.
+
+      2. The Warriors as we know them are dead.
+      It wasn’t supposed to happen this way.
+      Boogie’s quad. Durant’s Achilles. Klay’s ACL. There are no asterisks in sports, but we all know the playoffs would have played out differently with a full Warriors roster. Golden State never lost a playoff series with Steph, Klay, Draymond, and Durant healthy. And now they never will.
+      Durant leaving was one thing. We knew all year that might be coming. But then, at the end of a wild night, the Warriors shocked the NBA by completing a sign-and-trade for D’Angelo Russell. His incoming max contract means the Ws are hard capped and immediately led to another move, with Golden State paying a mostly unprotected first to send Andre Iguodala to Memphis to clear salary. Shaun Livingston will be next, one way or another. Kevon Looney won’t be back. Boogie is gone. Even names like Quinn Cook and Jordan Bell will be elsewhere this fall.
+      The Warriors as we know them are dead. They’ll enter this season with a three-man team of Curry, Draymond, and… D’Angelo Russell? It’s still so jarring. They’ll get Klay eventually, at which point they’ll have over $100 million committed to three guards that can’t play together. DLo wants the ball in his hands and is used to being the star, pretty much the antithesis of what made Warriors basketball so beautiful. Around those three it’ll be youngsters Jacob Evans, Jordan Poole, and Eric Paschall plus a new cast of veterans. That’s a 2.5-man team with little support in a deep, retooled West. Golden State might not even make the playoffs next season. And that’s not even taking into account the two first-round picks Golden State paid to do this or the max deal they’re giving to a guy that isn’t worth it right now.
+      Losing Durant stings, but Iggy’s departure is the real death of these Warriors. His tenacity, leadership, intelligence, and defense was a key part of the best the Warriors had to offer in this run. He was part of every great Ws lineup. There’s no more Hamptons Five. No more Death Lineup. It’s over.
+      The Warriors will reload. Maybe they’ll flip DLo as an asset play once Klay returns. They’re not dead. But they are dead as we know them. RIP.
+      The NBA Franchise HOPE Rankings
+      Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?
+      3. The Lakers are ALL in on Kawhi Leonard.
+      The Lakers never seem to have a Plan B. Lakers exceptionalism at its finest.
+      So it’s all in on Kawhi Leonard.
+      Kawhi is the only one of this summer’s 12 marquee free agents standing — and reportedly hasn’t even taken a meeting yet. The Raptors, Clippers, and Lakers are waiting. Toronto either keeps him and runs it back or plays things out without him. The Clips either get him or run it back with a fun, young roster and plenty of avenues going forward. But the Lakers have a three-man team, a bunch of cap room they moved heaven and earth to drum up, and exactly one man left worth spending it on.
+      We wondered if the Lakers might sign Kyrie or Kemba to play with LeBron and Anthony Davis. We thought it might be Butler or a run at DLo, or that they might split their cap room between veterans like Patrick Beverley, Cory Joseph, Rodney Hood, or Jeremy Lamb. Nope, nope, nope, and nope. Every one of those names is off the board.
+      There is no Plan B. There’s no Plan C or D or E. If Kawhi doesn’t come, the Lakers might literally have to bring back Rajon Rondo and Kentavious Caldwell-Pope. They might have to absorb someone like Jeff Teague or Goran Dragic or themselves into Austin Rivers or Iman Shumpert. And this is their starting back court!! We haven’t even thought about building depth. And some of those names will probably be signed by the time you read this, too.
+      L.A. didn’t even pony up to keep Reggie Bullock, their presumed de facto two, now gone to New York. Heck, even if Kawhi signs, the Lakers STILL don’t have any guards. They’ll have Kawhi, Bron, and Brow and it probably won’t matter, but still. They’re out of options.
+      I don’t think it’s hit everyone just how bad this is all going to look for the Lakers if Kawhi doesn’t come and they strike out finding a star to play with LeBron a second straight summer in a wide open year.
+      4. Kawhi Leonard is the kingmaker.
+      The Nets are a year away. The Warriors are dead. The Lakers are incomplete. The Bucks got worse. The Sixers reset. The Rockets hate each other. The league remains wide open, even with every free agent in their new home.
+      And that means Kawhi Leonard is the kingmaker. Whoever gets Kawhi is the new favorite. If it’s the Lakers, duh. If it’s the Raptors, it means Danny Green too and running back a championship roster. Even if it’s the Clippers, it’s fair to like their chances now that we’ve seen what Kawhi can do with a strong supporting cast.
+      The world is your oyster, Kawhi. We wait.
+      The 20 Worst Contracts in the NBA
+      Some players get injured. Some underperform. Some just get old. These are the worst 20 contracts in the NBA right now…
+      5. The 76ers are zigging with everyone zagging.
+      Goodbye Jimmy Butler and J.J. Redick. Hello Al Horford and Josh Richardson. And get paid, Tobias Harris.
+      I love the Horford contract and hate the Harris one, and I’d rather have Richardson on his current contract than Butler on a max. The Sixers remixed their lineup again, with an even bigger, more defensive starting five of Ben Simmons, JRich, Tobias, Horford, and Joel Embiid.
+      And I like it.
+      I like that Philly is doing something different when the league is increasingly going smaller, focusing on offense and spacing. This is interesting! Horford and Richardson are 37% shooters and add more spacing overall than Redick and Butler — two shooters are more than one, and Butler made under one 3 per game in Philadelphia. This also means more shots for Harris, who ought to be taking the most shots in Philly now. And it means more time with the ball for Simmons and a possible Giannis role driving into more space with four willing shooters around him.
+      It just feels like everyone fits better. Richardson is the willing role-playing defender Butler once deigned himself to be. Horford will be a great high-low option with Embiid. Redick isn’t there to be hunted on defense anymore; now the weakest defensive link is Harris, a much bigger, more versatile defender. The offense will be more egalitarian. The defense will be more versatile.
+      This is interesting!
+      Philly is back to being a wildcard. And they’re back to being fun now, too.
+
+      6. The East is wide open.
+      Who’s your pick to win the East right now?
+      The Bucks got worse, losing Malcolm Brogdon and Nikola Mirotic. The Celtics downgraded from Kyrie to Kemba and have no Horford replacement. The Pacers added Brogdon and get Oladipo back in January. The Heat got Heatier with the addition of Jimmy Butler. The Nets might be the 2021 favorite but not until we know KD is back. The Raptors are dependent on Kawhi. And the Sixers are on their umpteenth iteration in the last few seasons.
+      Those are the seven teams. One of them will be in next year’s Finals. But your guess is as good as mine on which of the seven it’ll be.
+      For the record, my pick right now is Philadelphia… at least until Kawhi and Danny re-sign in Toronto.
+      Ranking the 2019 NBA Draft Outcomes for All 30 Teams
+      A look at the process behind all 30 NBA teams’ draft nights, ranking the outcomes from 30 to 1…
+      7. The New York Knicks remain a laughingstock.
+      The more things change, the more they stay the same.
+      The Knicks traded Porzingis. They waived and stretched Joakim Noah. They cleared cap room and tanked all season for Zion, Kyrie, and Durant. But they didn’t win the draft lottery, and then they didn’t win the Kyrie or KD lottery either and, according to Ramon Shelburne, weren’t even willing to give Durant the full max.
+      Listen, I literally wrote a whole article about the risk of signing KD off his Achilles injury. The risk is very real. But you’re the Knicks! You haven’t been relevant in 20 years!! Sometimes risk is good. Kevin Durant risk is good.
+      Instead, New York “played it safe,” dropping $21 million a year on 6th-man, Julius Randle, then signing a bunch of 1+1 team-option vets in Bobby Portis, Taj Gibson, Reggie Bullock, Wayne Ellington, and Elfrid Payton. Those guys are all nice and will probably net New York some second-round picks at the deadline, and that’s fine. But not one move helps the team in any meaningful big picture way. If they weren’t going to give KD the max, at least use all that cap room to stockpile draft picks eating Andre Iguodala, Allen Crabbe, Goran Dragic, and other contracts teams. That’s four first-round picks right there the Knicks left on the table to sign a bunch of veterans just good enough to knock New York out of pole position for next #1 pick next summer.
+      New York Knickerbockers forever.
+
+      8. The Mavericks and Timberwolves were quiet free agency losers.
+      Dallas thought they had a deal lined up with Miami in the Jimmy Butler sign-and-trade. Minnesota thought they were landing D’Angelo Russell and getting off one or two of their awful contracts. Then the music stopped and both were left holding their collective jockstraps.
+      Dallas is one of the few teams with a bunch of cap room, even after giving out a quietly dangerous max with no team protections to Kristaps Porzingis. But they didn’t even get a sniff from any of the big free agents and now, like the Lakers, have nothing to spend it on. Minnesota fans got hopes up for life after Wiggins and KAT spent all summer recruiting DLo. Instead it looks like another year with Wiggins, Gorgui Dieng, and Jeff Teague.
+      Both teams thought they had a big move lined up. Instead they got nothing while everyone around them got better. The Pelicans added J.J. Redick and Derrick Favors and look like a real playoff threat. So too the Kings, who added Trevor Ariza, Cory Joseph, and Dewayne Dedmon to their talented young core. The Clippers re-signed Patrick Beverley and might still get Kawhi. The Spurs are the Spurs. The Warriors, Thunder, Blazers, Lakers, Rockets, Nuggets, and Jazz are all clearly better. Minnesota and Dallas might be fighting for the West 12-seed, ahead of only the Suns and Grizzlies. Ouch.
+      The Official 2018-19 NBA Awards
+      Giannis or Harden for MVP? Trae or Luka for Rookie of the Year? Time to look back and give out some awards…
+      9. Free agency is over before it even began.
+      And just like that, free agency is essentially over. In just a few hours, the entire NBA landscape changed. And there’s almost nothing left to figure out.
+      We’re still awaiting Kawhi’s decision, and Danny Green’s will follow. But the free agent pool dried up real fast after that. Boogie Cousins could still get a big short-term deal. There are other quality bigs like Kevon Looney, Kenneth Faried, and Willie Cauley-Stein. There’s a few intriguing restricted free agents like Delon Wright, Maxi Kleber, and Khem Birch. This is where we’re at already. It’s July 1st, and we’re already in talk-yourself-into-Jeff-Green range.
+      NEVER talk yourself into Jeff Green.
+
+      10. We might look back on June 30, 2019, as the beginning of the end of the Giannis Antetokounmpo era in Milwaukee.
+      All we think about right now is the present.
+      What’s happening with Kawhi? Who will the Lakers sign? Did the 76ers get better? How good will the Nets be? Are the Jazz really the best starting five in the NBA, and did this dude really just write a 3000-word column on free agency without even mentioning them?
+      But one year from now, I wonder if we will ultimately look back on June 30, 2019, as the beginning of the end for the Giannis Antetokounmpo era in Milwaukee.
+      The Bucks got definitively worse. Malcolm Brogdon was really good for them, and though he’s now overpaid and netted a future first, he’s a big loss. Brogdon was Milwaukee’s second best player in the ECF. He’s the only Bucks player that does a little bit of everything, a 50/40/90 guy that played off ball and shot the lights out. Milwaukee also lost Nikola Mirotic to Spain, and they used a first-round pick to give away a solid rotation wing in Tony Snell for cap savings they ended up not using to keep their guys.
+      Milwaukee did pay to keep Khris Middleton… and paid way too much, like $100 million too much, a contract that is immediately one of the worst in the NBA. They kept Brook Lopez and George Hill, who was mostly out of the rotation until they had no other options. They already paid for Eric Bledsoe, a worse fit than Brogdon, glaringly so in the playoffs. They’ll have those four and Giannis, plus very little off the bench unless you’re a big believer in Pat Connaughton, Sterling Brown, Robin Lopez, or Ersan Ilyasova.
+      Two things are undeniably true. The Bucks were not good enough this year. And they just got noticeably worse.
+      There’s a third thing that’s true — Milwaukee is now locked into this roster for a long time. Middleton will be there at least four years. BroLo is signed for four. Bledsoe is, too. This is the team. This is the core. Except you know who’s not signed for four years? Giannis Antetokounmpo.
+      Giannis is under contract just two more years. What happens when the Bucks don’t win 60 games again next season? What if they don’t even make the Eastern Conference Finals? What happens when Giannis looks around and sees teammates that aren’t good enough again and sees an ownership group he now knows isn’t willing to go all-in to give him the best chance to win?
+      Two years from today, Giannis Antetokounmpo is a free agent. And the clock just started ticking. Loudly. ■',
+      author_id: user3.id
+  )
   story17.image.attach(io: file17, filename: 'story17.jpg')
 
-  file18 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
+  file18 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/2019_summer_league.jpg')
   story18 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
-  )  
+    title: '2019 NBA Vegas Summer League Blowout Preview',
+    body: 'WELCOME TO THE DOG DAYS OF JULY! THE HOT DOGS ARE EATEN, the summer of soccer is nearly a wrap, even baseball is on a break. Enter NBA Summer League, which has caught on in a huge way the last few years. Every team is at Vegas Summer League (SL) again, and they’ll each play at least five games and, eventually, the NBA’s only knockout tournament.
+      You don’t have time to watch all 95 games, but you might hop in for a few. But what exactly should you be watching for? Some general SL rules of thumb:
+      DO watch for:
+      Process over results
+      Players that pop or stand out athletically (or struggle)
+      Flashes, talents, moments
+      Development of new skills
+      Who’s too good for SL? Who doesn’t look like they belong?
+      DON’T watch for:
+      Game scores or individual play results
+      Mistakes, as teams often purposely stretch players in unfamiliar roles
+      Defense, especially team defense
+      Scorers or energy bigs, always over-inflated in this setting
+      Raw shooting and scoring numbers on a small sample
+      Team chemistry in a me-first make-myself-look-good setting
+      When in doubt, always focus on process over results. Summer League doesn’t always tell us who can play, but it often shows us who can’t. Look past the highlights and the shooting numbers. What actual skills do you see?
+      Below I rank every team’s watchability from 1 to 5 stars and give you a few players and skills on each team to watch for. Keep this page bookmarked to reference as we work through NBA summer school, and check the bottom of the article for 10 games to set your DVR for. Class is now in session…
+      Ranking the 2019 NBA Draft Outcomes for All 30 Teams
+      The process behind all 30 NBA teams’ draft nights, ranking the outcomes from 30 to 1…
+      Everything you need to know on NBA Draft Day 2019
+      Upside & floor rankings, best fits, arbitrage plays, and best worst value plays…
+      Summer League Watchability Rankings Cheat Sheet
+      ★★★★★
+      Boston, Cleveland, New Orleans
+      ★★★★
+      Detroit, Memphis, Minnesota, New York, Philadelphia
+      ★★★
+      Atlanta, Charlotte, Chicago, Golden State, Indiana, Oklahoma City, Portland, San Antonio, Washington
+      ★★
+      Brooklyn, Denver, Houston, Miami, Orlando, Phoenix, Sacramento, Utah
+      ★
+      Dallas, L.A. Clippers, L.A. Lakers, Milwaukee, Toronto
+      Atlanta Hawks ★★★
+      Most of the interesting Hawks will sit this out. Trae Young, Kevin Huerter, and John Collins are too good for SL, and Cam Reddish is sidelined with a muscle injury. That one’s especially disappointing as he would’ve been one of the more interesting players to watch in a new setting.
+      Omari Spellman is the headliner for now. Last year’s third first-round pick struggled out of Villanova and spent most of the year in the G League. Has he cut weight and looks like more of an NBA athlete? What can he do other than shoot? Does he look ready for real NBA minutes?
+      De’Andre Hunter and Bruno Fernando should play eventually, once trades clear. Fernando should dominate physically in this setting, but hopefully we’ll get to see him shoot a bit. With Hunter, watch for him to have the ball in his hands a lot. How does he do against higher level athletes? Can he get to the rim? SL is not an ideal setting for Hunter.
+      Boston Celtics ★★★★★
+      The Celtics should be one of the top summer watches with a ton of interesting rookies and young prospects.
+      Carsen Edwards was made to dominate a setting like this. He’s going to get a lot of shots off and melt the internet some night. Let’s see how well he can get his shot off against bigger, more athletic dudes. Ditto Tremont Waters. How well can either facilitate the offense?
+      Unleash the Grant Williams hype train. We already know what he can do. How does Boston use him? How many touches is he getting? Is he in the screen and roll? Who is he defending?
+      What does Romeo Langford’s shot form look like? Has he learned to use both hands yet? What sort of energy does he play with and how does he fit into more of a team setting with real teammates?
+      Robert Williams is in line for a much bigger role, and his archetype dominates SL with energy and athleticism. Is the Timelord ready?
+      Tacko Fall and Guerschon Yabusele are more novelties than NBA players at this point, but they’ll make a great buddy cop duo.
+      Brooklyn Nets ★★
+      Jarrett Allen and Rodions Kurucs are on the roster, but don’t expect them to play much. Both are too good for SL.
+      Dzanan Musa could be showcased for a possible trade with Brooklyn needing cap room and roster space.
+      Nic Claxton is the developmental project. He’ll surely spend the year in the G League with Allen and DeAndre Jordan around. Claxton is raw but super talented and didn’t have much help at Georgia. How far away is he?
+      The case against drafting rim runners
+      Why rim runner is the least valuable center archetype and why Jaxson Hayes and Nic Claxton might be overrated on draft night…
+      Charlotte Hornets ★★★
+      This is essentially the entire Hornets roster at this point, though Malik Monk will not play. Charlotte has built their roster around grown-up players that won a lot, so they should fare well in a setting like this.
+      Expect Miles Bridges to play sparingly. This isn’t his best setting and he’s too good for SL anyway. Watch his shot and dribble progression.
+      P.J. Washington should dominate. How does his range extend to NBA 3? What can he do with the ball in his hands on the perimeter or dribbling? UPDATE: P.J. may not play due to his continuing foot injury.
+      Devonte’ Graham has a big opportunity with Kemba and Parker gone. He was awful as a rookie and is probably playing for his NBA life. He’s competing with veteran Gonzaga PG Josh Perkins for the backup Hornets point guard role behind Terry Rozier.
+      What do Cody Martin and Jalen McDaniels look like outside the Mountain West against real NBA athletes? Can either create space and get to their spot off the bounce? How do they integrate into team play?
+      Dwayne Bacon, Kerwin Roach, and Arnoldas Kubolka could all have an opportunity for playing time in Charlotte this year with a good showing.
+      Chicago Bulls ★★★
+      Coby White is the headliner, and he should look great with all the summer space and pace. We already know he can run in transition and hit the pull-up. What does he do to improve his teammates? What’s he look like in a half-court NBA offense? Can he get to the rim? How’s his finishing?
+      Can Daniel Gafford do anything besides block shots and finish alley oops?
+      How far along is the Chandler Hutchison project? Is there anything to the Adam Mokoka buzz? Can Tyler Hall score with the big boys? Do not get excited about Antonio Blakeney. Classic AAAA Summer League All-Star.
+      Unfortunately Wendell Carter Jr. will not play after summer surgery.
+      Cleveland Cavaliers ★★★★★
+      The five stars here are for Darius Garland and Kevin Porter Jr., the two most exciting rookies you’ve literally never seen play. It looks doubtful Garland plays, so that sucks. KPJ is supposed to play, but that was true all year too, so we’ll see. Can he actually play on a team? Will he show any effort on transition or defense? Porter will have best dribble and slither you see at SL, but we already know that. He can get to any spot any time. What can he do once he gets there? Has he adjusted the wonky shot form? How does he respond to coaching and mistakes?
+      Speaking of which, coaching shout out to John Beilein, the rare head coach that will make his pro debut at SL. Last summer Lloyd Pierce meshed out of the gates with the Hawks and gave us some clues to how they’d use Trae Young and play going ahead. What can we learn from Beilein? How different will he look from college?
+      Dylan Windler and Yovel Zoosman are interesting watches, but both will be supporting NBA players that are better on good teams. How do they look against NBA athletes? Does Zoosman look ready to come over?
+      No Collin Sexton either, so with him and Garland out, if KPJ sits out a game too, knock the Cavs down to two stars for that game.
+      The Pelicans, Grizzlies, and Hawks are each building something special
+      New Orleans, Memphis, and Atlanta walked away from the 2019 NBA Draft with a plan and a much brighter future
+      Dallas Mavericks ★
+      Second rounder Isaiah Roby was one of my favorite draft sleepers, but we didn’t get to see him around real talent at Nebraska and won’t here either. Can Roby show more consistency? He’s a freak athlete that will have a couple huge highlights, but what’s he look like on the possessions in between? Does he stay engaged and play like the best player on the team?
+      Josh Reaves was a sleeper favorite for some. His defense won’t translate much on this stage, but what else can he do?
+      Denver Nuggets ★★
+      We were finally going to get to see Michael Porter Jr. play basketball, and then he got injured *again* on the eve of Summer League and looks like he won’t play. MPJ was legitimately the #1 summer attraction. His absence dropped Denver from 5 stars to 2 stars. I don’t want to talk about it.
+      Bol Bol will not play either. Get used to hearing that. We should get some looks at rebounding machine Jarred Vanderbilt plus Vlatko Cancar, another Slovenian prospect. Terence Davis is an intriguing UDFA. But it’ll be really hard to see any of these guys crack a deep Denver rotation.
+      Detroit Pistons ★★★★
+      For most viewers, this is a first look at Sekou Doumbouya and Deividas Sirvydis. I didn’t grade either as a first rounder, but you never know how international talent will translate. The door is open for Sekou to contribute right away if he’s ready, but as the youngest player in the draft, don’t be shocked if he struggles. Has Doumbouya’s moon shot settled down and does it look more natural? How’s his decision making coming along? How many years away is he from being 2 years away?
+      Bruce Brown and Khyri Thomas have a path to real playing time for a playoff team. Brown was the best Pistons wing last year, which is damning with the faintest praise. Detroit will hope either or both of these guys look way too good for SL and get shut down early.
+      Louis King has a big opportunity here too. There’s no reason he can’t beat out everyone on this list above for playing time with his raw talent. Detroit needs wing help so badly. Who will make their case?
+      Finally, Henry Ellenson is gone. Praise the Lord.
+      Golden State Warriors ★★★
+      The Warriors roster is so thin all these guys have to play legit minutes next year. Golden State will start Steph, DLo, and Draymond, and they have plenty of centers. One of these guys might start at the three, and the rest could play serious bench roles.
+      Jacob Evans was supposed to be NBA-ready out of Cincinnati last year but was so bad he couldn’t even get a few minutes when half the roster was injured in the playoffs. He has supposedly transitioned to point guard and is the Livingston replacement. Can he shoot? Dribble? Pass? Actually stay on a court? What did the G League teach him?
+      Jordan Poole and Eric Paschall will be expected to contribute right away. We already know Poole can shoot from range. Can he dribble or create for anyone else? What can Paschall do besides jump? Can he finish against NBA athletes? Does the shot translate at all? How’s his foot speed look?
+      Alen Smailagic was a G League stash and he’s too young to make an impact this year or probably with this iteration of the Warriors. But NBA Twitter loves him, so let’s see what the kid can do.
+      There’s a real opportunity for Ky Bowman and Davon Reed, two guys I’ve long had my eye on, with a wide open roster. Bowman is signed on a 2–way. Reed is good enough to beat out Evans for a starting 3+D role.
+      The NBA Franchise HOPE Rankings
+      Which teams have the best outlook, and who faces only despair and gloom?
+      Houston Rockets ★★
+      Draft Twitter loves Shamorie Ponds. I never bought in, but Houston liked him enough to give him a three-year deal. Ponds is a combo scoring guard and could stick in the rotation if his well-rounded game translates.
+      Vince Edwards and Isaiah Hartenstein could also vie for some rotation minutes on a thin roster, though neither has shown much at a pro level.
+      Indiana Pacers ★★★
+      A first look for many at Goga Bitadze! Goga looks ready for immediate minutes and will be the third Pacers big man. He improved by leaps and bounds this year. How does his improved foot speed and lateral ability look against better athletes? How is his touch and how far does his shooting extend? Does the rim protection translate?
+      Aaron Holiday should step into a bigger role with Collison and Joseph gone, though the T.J. McConnell signing muddies the waters. Can Holiday use his quickness to offset his size deficiency? Has he learned how to finish anywhere near the rim? How’s his team creation and decision making?
+      Brian Bowen returns from Australia, so it’s also a first look at him on the wing. Bowen, Alize Johnson, and Edmund Sumner could all play rotation minutes for Indiana, who plays a deep rotation and doesn’t have any real bench outside of T.J. Warren and these SL guys.
+      Los Angeles Clippers ★
+      This is an easy team to avoid unless you’re a Florida State fan and just can’t get enough Mfiondu Kabengele or Terance Mann. Neither is a real rotation threat this year.
+      Last year’s lottery pick Jerome Robinson is the one real name to watch. He’s fighting for his future with Beverley, Shai, and Shamet all firmly ahead of him in the rotation at this point. What can he show?
+      Los Angeles Lakers ★
+      The Lakers need bodies but won’t find them on this roster. Talen Horton-Tucker will sit out injured, and there’s little else to get excited for.
+      Zach Norvell is the best bet. He can really shoot and has some passing acumen, so he could have a shot at some time. Jordan Caroline and Aric Holman could garner some attention, but LeBron teams tend to play past-their-prime veterans, not these guys.
+      Memphis Grizzlies ★★★★
+      No Ja Morant or Jaren Jackson Jr., unfortunately, so we’ll have to wait to see Draft Twitter’s most exciting team play together.
+      Brandon Clarke should join after his trade is completed July 6. He’ll be stretched in an uncomfortable role, with more ball in his hands than he’ll get on a real team. Can he do more with his dribble? Any move other than the spin? How’s the jumper look? If he hits a few NBA threes, NBA Twitter will melt down. And whose lives will he end with a ferocious block?
+      John Konchar is 23, the adult in the room, my favorite UDFA. He’s not a scorer but does a little bit of everything else and looks like a possible glue guy at the next level. Let’s see how he hangs outside the Summit League.
+      We’ll see if new Grizz DeAnthony Melton and Josh Jackson play SL. Melton was one of my favorite watches last summer, an absolute pest defensively. Jackson is also a human being that ostensibly plays basketball.
+      Grayson Allen will also join July 6. Yay.
+      Brandon Clarke’s defense alone is worth a top-5 NBA Draft pick
+      Clarke’s athleticism and feel for the game give him superstar upside…
+      Is Ja Morant really worth the #2 pick?
+      Morant looks like a worthy #2 pick, but will his game translate to a winning NBA style?
+      Miami Heat ★★
+      Tyler Herro is the only name of note, and he’s already playing in Sacto, so get to the Heat early and cross them off your list. Miami does a great job building their summer around expanding one key player’s game, so look for Herro to play a lot like Trae Young, with a lot of the ball in his hands, plenty of decision making, and a plethora of pull-up jumpers. Expect him to look uncomfortable with mixed results, but it’ll be good for his long-term development.
+      KZ Okpala should join eventually, but expect him to look very raw. He’ll be an interesting long-term Miami project. Duncan Robinson, Yante Maten, and Charles Cooke are worth a stray eye. Miami is among the league’s best at development, so these guys could get there eventually.
+      Milwaukee Bucks ★
+      Sterling Brown and D.J. Wilson are on the team but played legit minutes this season so don’t expect them to see much time. Wilson has come a long way in two years, and it’d be nice to see him featured a few games.
+      Enjoy Fletcher Magee bombing threes. Otherwise there’s no real reason to tune in unless you’re a Notre Dame fan desperate to see Bonzie Colson and Matt Farrell play again.
+      Minnesota Timberwolves ★★★★
+      The new regime is prioritizing youth and development, a novel concept, and the Wolves have a bunch of interesting guys on the SL roster. Last year’s rookies Josh Okogie and Keita Bates-Diop are here but shouldn’t get a ton of time and should look very good if they do.
+      Jarrett Culver is the marquee name, after July 6. Culver had a disappointing finish to his NCAA tournament. Does his athletic ability pop at all on this stage? Can he finish at the rim or through contact? Is his shot more confident, and does it fall?
+      Jaylen Nowell will get buckets. Naz Reid will tantalize and frustrate. Barry Brown, Tyus Battle, and Jordan Murphy all have potential. There’s a lot of intrigue on this roster. Who stands out?
+      Jarrett Culver is already good. Can he be great?
+      Culver has it all — defense, creation, the mental game, and the intangibles. Does he have what it takes to be a star?
+      New Orleans Pelicans ★★★★★
+      ZION!! Need I say more? Zion plays R.J. Barrett in the Pelicans SL opener, and tickets are going for over $1000. Seriously.
+      Jaxson Hayes and Nickeil Alexander-Walker will join this talented young core after July 6. Hayes is super raw. How quickly will he use up his 10 fouls? How are his instincts and reaction time? Has he added strength on the boards or screens? What does NAW look like with the ball in his hands making decisions? How’s his range look from the NBA arc?
+      Frank Jackson is supposedly healthy again. We’ll see how that goes. He’s talented but another injury or two away from finding himself out of the league, and he could struggle to stick on a suddenly deep roster, but he also has some breakout potential.
+      Zylan Cheatham, Christian Wood, Kenrich Williams, Tony Carr, and Trevon Bluiett all have varying NBA potential. We’ll see what sticks.
+      New York Knicks ★★★★
+      The Knicks are going to be awful, but at least they’ll be interesting.
+      R.J. Barrett is the headliner. He should have some monster performances. Watch the decision making, the shooting, and the half-court offense.
+      Kevin Knox should look good since SL isn’t actually real basketball. He and Barrett are going to make Knicks fans’ heads explode in an open no-defense not-actually-basketball game. Over/under 1.5 games before Knicks fans say they never wanted KD and Kyrie anyway cuz they have Knox and R.J. now?
+      Mitchell Robinson is way too good for SL. He’s going to posterize some fools. And when he sits down, Kenny Wooten will pick up where he left off.
+      Iggy Brazdeikis will be a fan favorite. He plays with chutzpah at all times. Can he do more with the ball in his hands? Can he create a shot?
+      Minus one star for rostering Henry Ellenson. Sigh.
+      Why I’m out on R.J. Barrett as an elite NBA prospect
+      Barrett is one of the most naturally gifted players in the draft, so why is it so hard to see him as a star?
+      Oklahoma City Thunder ★★★
+      The guy to watch here is Darius Bazley, who we literally haven’t seen against NBA or even college talent yet. Bazley is a raw bundle of talent who dominated with athleticism in high school. How does he hold up physically? How is his decision making? Does he get pushed around or lost on defense? How far away does he look?
+      Hamidou Diallo could intrigue. He surprised last year after a raw career at Kentucky, so what improvements has he made this summer? Can he play offense, like at all? On a scale of awful to cover your eyes, how far along is the shot? You won’t believe this, but the Thunder still need an NBA shooting guard.
+      Luguentz Dort and Jawun Evans are the same non-NBA player with a good drive and unable to finish at the rim once they get there. Deonte Burton feels like a AAAA player.
+      Orlando Magic ★★
+      Mo Bamba has added significant muscle and is expected to play. How much stronger is he on the boards and setting screens? Do we get to see him shoot much? How are the defensive instincts (and fouls) coming along? Bamba could be a trade target now that the Magic have invested so heavily in Nikola Vucevic. Expect to see him sparingly.
+      There’s not much else to see. Chuma Okeke obviously won’t play as he rehabs his knee. DaQuan Jeffries was a first rounder on my board and gets his shot here as a UDFA. I’m not optimistic on one of the worst developing teams in the NBA.
+      Philadelphia 76ers ★★★
+      You know how college football teams recruit stud athletes that don’t really have a position and call them “weapons”? Welcome to the Philadelphia Weapons, Zhaire Smith and Matisse Thybulle. We have no idea if these guys are NBA players or what position they’ll play, but they’re crazy fun to watch. Thybulle was one of my favorite 2019 draft sleepers and absolutely wreaks havoc on defense. Zhaire is a nuclear athlete with great instincts and was my favorite 2018 draft sleeper. Has either of them even remotely learned how to shoot or do stuff on offense? Philly has a paper thin bench and needs both of them to play a real rotation role this season.
+      Philly needs shooters. Shake Milton and Marial Shayok do a lot of that.
+      Christ Koumadje is really tall.
+      Phoenix Suns ★★
+      Normally you’d get excited for a team with two first-round rookies, but normally first-round rookies aren’t as old as your grandfather when you combine their ages. We pretty much know what Cam Johnson and Ty Jerome are at this point. So that’s something, I suppose.
+      Elie Okobo and Jalen Lecque are extremely raw point guards vying for a developmental PG role on this team behind Rubio, Tyler Johnson, and Jerome. Jevon Carter could be in the mix now too. All three could be competing for one roster spot. Okobo has a pretty jumper. Lecque is a great athlete. Carter is a pit bull on defense. Can any of them do anything else?
+      Deandre Ayton and Mikal Bridges are apparently too good to play SL minutes. You know what? Let’s give the Suns this one.
+      DeAnthony Melton and Josh Jackson won’t be playing in Phoenix either, since they traded two picks to offload them in a salary dump for the cheapskate ownership groups. Bad teams stay bad for a reason.
+      Zion Williamson is already a top-10 NBA asset
+      Some NBA team is about to win a literal lottery…
+      Portland Trail Blazers ★★★
+      The Blazers SL team is always pretty competitive. Nassir Little headlines this year’s squad. He should excel in this wide-open format where he can freelance and play outside of UNC’s structure. How does Little’s physique and quickness compare to college? What’s the shot look like? How quick are his decisions? What happens when the game slows down?
+      Anfernee Simons and Gary Trent are last year’s rookies. Can Trent do anything more than shoot yet? How has Simons grown his game after a strong finish to the season? How’s the pull-up jumper looking? We know he can score; can he create anything for teammates yet?
+      Skal Labissiere and Jaylen Hoard are raw undersized big men Spiderman memes of each other. Mike Daum is literally the exact opposite, a record-breaking scorer from South Dakota State. Can Daum hang athletically? How far away are Skal and Hoard?
+      Sacramento Kings ★★
+      The Kings finally aren’t a marquee SL team. Marvin Bagley is on the roster but is not expected to play, and Harry Giles isn’t even on the roster. Is this team finally growing up?
+      Frank Mason may barely be holding onto his roster spot at this point. He’ll be fighting off second rounders Kyle Guy and Justin James. What else can Mason show that he didn’t do at Kansas? There’s just not much there. We’ll see if that’s true of Guy too, who has overcome his size at every level. Justin James is also a player that was taken with a second-round pick.
+      Minus points for having Semaj Christon, Wenyen Gabriel, and Caleb Swanigan on the roster. Nobody needs to see those guys ball ever again.
+      San Antonio Spurs ★★★
+      The Spurs are legendary at player development. Rest assured one or two of the guys growing up before your eyes on this roster will make an impact for San Antonio next spring. They’re always an interesting SL watch.
+      One breakout candidate is Lonnie Walker, who didn’t do much as a rookie after struggling with injuries. Walker is athletic but what basketball skills has he learned in his year off? Has he added some passing and dribble creation? Have the Spurs convinced him to play defense? And does he show any natural intuition or feel for the game yet?
+      My vote goes to Keldon Johnson, a frustrating player to scout at Kentucky, who might have been pigeonholed into a role he didn’t fit. What sort of role will KJ have with the Spurs? What’s he look like with the ball in his hands? Has he quickened the shot release? Does he still disappear for large stretches of the game, or can he put his stamp on the game?
+      Luka Samanic was the more surprising, higher draft pick. Samanic is a Euro four that traded the usual shooting and instincts in for athletic pop. Does he have any feel for the game or will it move too fast for him?
+      Quinndary Weatherspoon is another guy to keep an eye on. Q was a second-round pick and former top-100 recruit and brings a well-rounded profile without an elite talent, similar to Keldon Johnson.
+      Toronto Raptors ★
+      You found the single least watchable SL team. There’s nothing here. Pull up some championship highlights and check your Kawhi watch instead.
+      If you insist, I hope you liked blocked shots. Sagaba Konate, Dewan Hernandez, and Chris Boucher should throw quite a block party.
+      Utah Jazz ★★
+      In classic Jazz form, Utah has some intriguing deep prospects that will delight basketball nerds. But as loaded as the Jazz are now, these guys won’t be cracking the rotation anytime soon.
+      Tony Bradley is a former first rounder who was always going to take a few years to develop. How close does he look? Has his body filled out so he can bang physically and hold his own on the boards and in the post?
+      Justin Wright-Foreman got a lot of buckets at Hofstra. Can he get buckets at SL too? He has a path to backup PG minutes with only Mudiay and Exum in his path. Miye Oni and Jarrell Brantley are intriguing second rounders on the wing, smart developmental projects.
+      Washington Wizards ★★★
+      Who’s the second best Wizards player asset? Cuz unless you’re a believer in John Wall, the only other options are playing on this team.
+      Rui Hachimura comes with pedigree. This year’s #9 pick represents the biggest difference between the eye test and analytics. Hachimura has a great mid-range game in an old school 90s way, but can he pass or make his teammates better? Can he play defense? We may not find out at SL.
+      Troy Brown was one of the youngest and rawest draft picks last summer. He showed some passing acumen and is supposed to be a point forward. Where’s he at on the development curve?
+      Admiral Schofield has some real admirers, though I wonder if they’d like him as much if his name was John Jackson. Is there anything there?
+      Washington needs some help at guard. Justin Robinson and Corey Davis are intriguing UDFA that could be ready for low-end NBA minutes.
+      The 10 Biggest Takeaways from a Wild NBA Free Agency
+      The NBA has turned upside down. Let’s break it all down.
+      ',
+    author_id: user3.id
+  )
   story18.image.attach(io: file18, filename: 'story18.jpg')
 
-  file19 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
+  file19 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/2019_summer_league.jpg')
   story19 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
-  )  
+    title: '2019 NBA Vegas Summer League Blowout Preview',
+    body: 'WELCOME TO THE DOG DAYS OF JULY! THE HOT DOGS ARE EATEN, the summer of soccer is nearly a wrap, even baseball is on a break. Enter NBA Summer League, which has caught on in a huge way the last few years. Every team is at Vegas Summer League (SL) again, and they’ll each play at least five games and, eventually, the NBA’s only knockout tournament.
+      You don’t have time to watch all 95 games, but you might hop in for a few. But what exactly should you be watching for? Some general SL rules of thumb:
+      DO watch for:
+      Process over results
+      Players that pop or stand out athletically (or struggle)
+      Flashes, talents, moments
+      Development of new skills
+      Who’s too good for SL? Who doesn’t look like they belong?
+      DON’T watch for:
+      Game scores or individual play results
+      Mistakes, as teams often purposely stretch players in unfamiliar roles
+      Defense, especially team defense
+      Scorers or energy bigs, always over-inflated in this setting
+      Raw shooting and scoring numbers on a small sample
+      Team chemistry in a me-first make-myself-look-good setting
+      When in doubt, always focus on process over results. Summer League doesn’t always tell us who can play, but it often shows us who can’t. Look past the highlights and the shooting numbers. What actual skills do you see?
+      Below I rank every team’s watchability from 1 to 5 stars and give you a few players and skills on each team to watch for. Keep this page bookmarked to reference as we work through NBA summer school, and check the bottom of the article for 10 games to set your DVR for. Class is now in session…
+      Ranking the 2019 NBA Draft Outcomes for All 30 Teams
+      The process behind all 30 NBA teams’ draft nights, ranking the outcomes from 30 to 1…
+      Everything you need to know on NBA Draft Day 2019
+      Upside & floor rankings, best fits, arbitrage plays, and best worst value plays…
+      Summer League Watchability Rankings Cheat Sheet
+      ★★★★★
+      Boston, Cleveland, New Orleans
+      ★★★★
+      Detroit, Memphis, Minnesota, New York, Philadelphia
+      ★★★
+      Atlanta, Charlotte, Chicago, Golden State, Indiana, Oklahoma City, Portland, San Antonio, Washington
+      ★★
+      Brooklyn, Denver, Houston, Miami, Orlando, Phoenix, Sacramento, Utah
+      ★
+      Dallas, L.A. Clippers, L.A. Lakers, Milwaukee, Toronto
+      Atlanta Hawks ★★★
+      Most of the interesting Hawks will sit this out. Trae Young, Kevin Huerter, and John Collins are too good for SL, and Cam Reddish is sidelined with a muscle injury. That one’s especially disappointing as he would’ve been one of the more interesting players to watch in a new setting.
+      Omari Spellman is the headliner for now. Last year’s third first-round pick struggled out of Villanova and spent most of the year in the G League. Has he cut weight and looks like more of an NBA athlete? What can he do other than shoot? Does he look ready for real NBA minutes?
+      De’Andre Hunter and Bruno Fernando should play eventually, once trades clear. Fernando should dominate physically in this setting, but hopefully we’ll get to see him shoot a bit. With Hunter, watch for him to have the ball in his hands a lot. How does he do against higher level athletes? Can he get to the rim? SL is not an ideal setting for Hunter.
+      Boston Celtics ★★★★★
+      The Celtics should be one of the top summer watches with a ton of interesting rookies and young prospects.
+      Carsen Edwards was made to dominate a setting like this. He’s going to get a lot of shots off and melt the internet some night. Let’s see how well he can get his shot off against bigger, more athletic dudes. Ditto Tremont Waters. How well can either facilitate the offense?
+      Unleash the Grant Williams hype train. We already know what he can do. How does Boston use him? How many touches is he getting? Is he in the screen and roll? Who is he defending?
+      What does Romeo Langford’s shot form look like? Has he learned to use both hands yet? What sort of energy does he play with and how does he fit into more of a team setting with real teammates?
+      Robert Williams is in line for a much bigger role, and his archetype dominates SL with energy and athleticism. Is the Timelord ready?
+      Tacko Fall and Guerschon Yabusele are more novelties than NBA players at this point, but they’ll make a great buddy cop duo.
+      Brooklyn Nets ★★
+      Jarrett Allen and Rodions Kurucs are on the roster, but don’t expect them to play much. Both are too good for SL.
+      Dzanan Musa could be showcased for a possible trade with Brooklyn needing cap room and roster space.
+      Nic Claxton is the developmental project. He’ll surely spend the year in the G League with Allen and DeAndre Jordan around. Claxton is raw but super talented and didn’t have much help at Georgia. How far away is he?
+      The case against drafting rim runners
+      Why rim runner is the least valuable center archetype and why Jaxson Hayes and Nic Claxton might be overrated on draft night…
+      Charlotte Hornets ★★★
+      This is essentially the entire Hornets roster at this point, though Malik Monk will not play. Charlotte has built their roster around grown-up players that won a lot, so they should fare well in a setting like this.
+      Expect Miles Bridges to play sparingly. This isn’t his best setting and he’s too good for SL anyway. Watch his shot and dribble progression.
+      P.J. Washington should dominate. How does his range extend to NBA 3? What can he do with the ball in his hands on the perimeter or dribbling? UPDATE: P.J. may not play due to his continuing foot injury.
+      Devonte’ Graham has a big opportunity with Kemba and Parker gone. He was awful as a rookie and is probably playing for his NBA life. He’s competing with veteran Gonzaga PG Josh Perkins for the backup Hornets point guard role behind Terry Rozier.
+      What do Cody Martin and Jalen McDaniels look like outside the Mountain West against real NBA athletes? Can either create space and get to their spot off the bounce? How do they integrate into team play?
+      Dwayne Bacon, Kerwin Roach, and Arnoldas Kubolka could all have an opportunity for playing time in Charlotte this year with a good showing.
+      Chicago Bulls ★★★
+      Coby White is the headliner, and he should look great with all the summer space and pace. We already know he can run in transition and hit the pull-up. What does he do to improve his teammates? What’s he look like in a half-court NBA offense? Can he get to the rim? How’s his finishing?
+      Can Daniel Gafford do anything besides block shots and finish alley oops?
+      How far along is the Chandler Hutchison project? Is there anything to the Adam Mokoka buzz? Can Tyler Hall score with the big boys? Do not get excited about Antonio Blakeney. Classic AAAA Summer League All-Star.
+      Unfortunately Wendell Carter Jr. will not play after summer surgery.
+      Cleveland Cavaliers ★★★★★
+      The five stars here are for Darius Garland and Kevin Porter Jr., the two most exciting rookies you’ve literally never seen play. It looks doubtful Garland plays, so that sucks. KPJ is supposed to play, but that was true all year too, so we’ll see. Can he actually play on a team? Will he show any effort on transition or defense? Porter will have best dribble and slither you see at SL, but we already know that. He can get to any spot any time. What can he do once he gets there? Has he adjusted the wonky shot form? How does he respond to coaching and mistakes?
+      Speaking of which, coaching shout out to John Beilein, the rare head coach that will make his pro debut at SL. Last summer Lloyd Pierce meshed out of the gates with the Hawks and gave us some clues to how they’d use Trae Young and play going ahead. What can we learn from Beilein? How different will he look from college?
+      Dylan Windler and Yovel Zoosman are interesting watches, but both will be supporting NBA players that are better on good teams. How do they look against NBA athletes? Does Zoosman look ready to come over?
+      No Collin Sexton either, so with him and Garland out, if KPJ sits out a game too, knock the Cavs down to two stars for that game.
+      The Pelicans, Grizzlies, and Hawks are each building something special
+      New Orleans, Memphis, and Atlanta walked away from the 2019 NBA Draft with a plan and a much brighter future
+      Dallas Mavericks ★
+      Second rounder Isaiah Roby was one of my favorite draft sleepers, but we didn’t get to see him around real talent at Nebraska and won’t here either. Can Roby show more consistency? He’s a freak athlete that will have a couple huge highlights, but what’s he look like on the possessions in between? Does he stay engaged and play like the best player on the team?
+      Josh Reaves was a sleeper favorite for some. His defense won’t translate much on this stage, but what else can he do?
+      Denver Nuggets ★★
+      We were finally going to get to see Michael Porter Jr. play basketball, and then he got injured *again* on the eve of Summer League and looks like he won’t play. MPJ was legitimately the #1 summer attraction. His absence dropped Denver from 5 stars to 2 stars. I don’t want to talk about it.
+      Bol Bol will not play either. Get used to hearing that. We should get some looks at rebounding machine Jarred Vanderbilt plus Vlatko Cancar, another Slovenian prospect. Terence Davis is an intriguing UDFA. But it’ll be really hard to see any of these guys crack a deep Denver rotation.
+      Detroit Pistons ★★★★
+      For most viewers, this is a first look at Sekou Doumbouya and Deividas Sirvydis. I didn’t grade either as a first rounder, but you never know how international talent will translate. The door is open for Sekou to contribute right away if he’s ready, but as the youngest player in the draft, don’t be shocked if he struggles. Has Doumbouya’s moon shot settled down and does it look more natural? How’s his decision making coming along? How many years away is he from being 2 years away?
+      Bruce Brown and Khyri Thomas have a path to real playing time for a playoff team. Brown was the best Pistons wing last year, which is damning with the faintest praise. Detroit will hope either or both of these guys look way too good for SL and get shut down early.
+      Louis King has a big opportunity here too. There’s no reason he can’t beat out everyone on this list above for playing time with his raw talent. Detroit needs wing help so badly. Who will make their case?
+      Finally, Henry Ellenson is gone. Praise the Lord.
+      Golden State Warriors ★★★
+      The Warriors roster is so thin all these guys have to play legit minutes next year. Golden State will start Steph, DLo, and Draymond, and they have plenty of centers. One of these guys might start at the three, and the rest could play serious bench roles.
+      Jacob Evans was supposed to be NBA-ready out of Cincinnati last year but was so bad he couldn’t even get a few minutes when half the roster was injured in the playoffs. He has supposedly transitioned to point guard and is the Livingston replacement. Can he shoot? Dribble? Pass? Actually stay on a court? What did the G League teach him?
+      Jordan Poole and Eric Paschall will be expected to contribute right away. We already know Poole can shoot from range. Can he dribble or create for anyone else? What can Paschall do besides jump? Can he finish against NBA athletes? Does the shot translate at all? How’s his foot speed look?
+      Alen Smailagic was a G League stash and he’s too young to make an impact this year or probably with this iteration of the Warriors. But NBA Twitter loves him, so let’s see what the kid can do.
+      There’s a real opportunity for Ky Bowman and Davon Reed, two guys I’ve long had my eye on, with a wide open roster. Bowman is signed on a 2–way. Reed is good enough to beat out Evans for a starting 3+D role.
+      The NBA Franchise HOPE Rankings
+      Which teams have the best outlook, and who faces only despair and gloom?
+      Houston Rockets ★★
+      Draft Twitter loves Shamorie Ponds. I never bought in, but Houston liked him enough to give him a three-year deal. Ponds is a combo scoring guard and could stick in the rotation if his well-rounded game translates.
+      Vince Edwards and Isaiah Hartenstein could also vie for some rotation minutes on a thin roster, though neither has shown much at a pro level.
+      Indiana Pacers ★★★
+      A first look for many at Goga Bitadze! Goga looks ready for immediate minutes and will be the third Pacers big man. He improved by leaps and bounds this year. How does his improved foot speed and lateral ability look against better athletes? How is his touch and how far does his shooting extend? Does the rim protection translate?
+      Aaron Holiday should step into a bigger role with Collison and Joseph gone, though the T.J. McConnell signing muddies the waters. Can Holiday use his quickness to offset his size deficiency? Has he learned how to finish anywhere near the rim? How’s his team creation and decision making?
+      Brian Bowen returns from Australia, so it’s also a first look at him on the wing. Bowen, Alize Johnson, and Edmund Sumner could all play rotation minutes for Indiana, who plays a deep rotation and doesn’t have any real bench outside of T.J. Warren and these SL guys.
+      Los Angeles Clippers ★
+      This is an easy team to avoid unless you’re a Florida State fan and just can’t get enough Mfiondu Kabengele or Terance Mann. Neither is a real rotation threat this year.
+      Last year’s lottery pick Jerome Robinson is the one real name to watch. He’s fighting for his future with Beverley, Shai, and Shamet all firmly ahead of him in the rotation at this point. What can he show?
+      Los Angeles Lakers ★
+      The Lakers need bodies but won’t find them on this roster. Talen Horton-Tucker will sit out injured, and there’s little else to get excited for.
+      Zach Norvell is the best bet. He can really shoot and has some passing acumen, so he could have a shot at some time. Jordan Caroline and Aric Holman could garner some attention, but LeBron teams tend to play past-their-prime veterans, not these guys.
+      Memphis Grizzlies ★★★★
+      No Ja Morant or Jaren Jackson Jr., unfortunately, so we’ll have to wait to see Draft Twitter’s most exciting team play together.
+      Brandon Clarke should join after his trade is completed July 6. He’ll be stretched in an uncomfortable role, with more ball in his hands than he’ll get on a real team. Can he do more with his dribble? Any move other than the spin? How’s the jumper look? If he hits a few NBA threes, NBA Twitter will melt down. And whose lives will he end with a ferocious block?
+      John Konchar is 23, the adult in the room, my favorite UDFA. He’s not a scorer but does a little bit of everything else and looks like a possible glue guy at the next level. Let’s see how he hangs outside the Summit League.
+      We’ll see if new Grizz DeAnthony Melton and Josh Jackson play SL. Melton was one of my favorite watches last summer, an absolute pest defensively. Jackson is also a human being that ostensibly plays basketball.
+      Grayson Allen will also join July 6. Yay.
+      Brandon Clarke’s defense alone is worth a top-5 NBA Draft pick
+      Clarke’s athleticism and feel for the game give him superstar upside…
+      Is Ja Morant really worth the #2 pick?
+      Morant looks like a worthy #2 pick, but will his game translate to a winning NBA style?
+      Miami Heat ★★
+      Tyler Herro is the only name of note, and he’s already playing in Sacto, so get to the Heat early and cross them off your list. Miami does a great job building their summer around expanding one key player’s game, so look for Herro to play a lot like Trae Young, with a lot of the ball in his hands, plenty of decision making, and a plethora of pull-up jumpers. Expect him to look uncomfortable with mixed results, but it’ll be good for his long-term development.
+      KZ Okpala should join eventually, but expect him to look very raw. He’ll be an interesting long-term Miami project. Duncan Robinson, Yante Maten, and Charles Cooke are worth a stray eye. Miami is among the league’s best at development, so these guys could get there eventually.
+      Milwaukee Bucks ★
+      Sterling Brown and D.J. Wilson are on the team but played legit minutes this season so don’t expect them to see much time. Wilson has come a long way in two years, and it’d be nice to see him featured a few games.
+      Enjoy Fletcher Magee bombing threes. Otherwise there’s no real reason to tune in unless you’re a Notre Dame fan desperate to see Bonzie Colson and Matt Farrell play again.
+      Minnesota Timberwolves ★★★★
+      The new regime is prioritizing youth and development, a novel concept, and the Wolves have a bunch of interesting guys on the SL roster. Last year’s rookies Josh Okogie and Keita Bates-Diop are here but shouldn’t get a ton of time and should look very good if they do.
+      Jarrett Culver is the marquee name, after July 6. Culver had a disappointing finish to his NCAA tournament. Does his athletic ability pop at all on this stage? Can he finish at the rim or through contact? Is his shot more confident, and does it fall?
+      Jaylen Nowell will get buckets. Naz Reid will tantalize and frustrate. Barry Brown, Tyus Battle, and Jordan Murphy all have potential. There’s a lot of intrigue on this roster. Who stands out?
+      Jarrett Culver is already good. Can he be great?
+      Culver has it all — defense, creation, the mental game, and the intangibles. Does he have what it takes to be a star?
+      New Orleans Pelicans ★★★★★
+      ZION!! Need I say more? Zion plays R.J. Barrett in the Pelicans SL opener, and tickets are going for over $1000. Seriously.
+      Jaxson Hayes and Nickeil Alexander-Walker will join this talented young core after July 6. Hayes is super raw. How quickly will he use up his 10 fouls? How are his instincts and reaction time? Has he added strength on the boards or screens? What does NAW look like with the ball in his hands making decisions? How’s his range look from the NBA arc?
+      Frank Jackson is supposedly healthy again. We’ll see how that goes. He’s talented but another injury or two away from finding himself out of the league, and he could struggle to stick on a suddenly deep roster, but he also has some breakout potential.
+      Zylan Cheatham, Christian Wood, Kenrich Williams, Tony Carr, and Trevon Bluiett all have varying NBA potential. We’ll see what sticks.
+      New York Knicks ★★★★
+      The Knicks are going to be awful, but at least they’ll be interesting.
+      R.J. Barrett is the headliner. He should have some monster performances. Watch the decision making, the shooting, and the half-court offense.
+      Kevin Knox should look good since SL isn’t actually real basketball. He and Barrett are going to make Knicks fans’ heads explode in an open no-defense not-actually-basketball game. Over/under 1.5 games before Knicks fans say they never wanted KD and Kyrie anyway cuz they have Knox and R.J. now?
+      Mitchell Robinson is way too good for SL. He’s going to posterize some fools. And when he sits down, Kenny Wooten will pick up where he left off.
+      Iggy Brazdeikis will be a fan favorite. He plays with chutzpah at all times. Can he do more with the ball in his hands? Can he create a shot?
+      Minus one star for rostering Henry Ellenson. Sigh.
+      Why I’m out on R.J. Barrett as an elite NBA prospect
+      Barrett is one of the most naturally gifted players in the draft, so why is it so hard to see him as a star?
+      Oklahoma City Thunder ★★★
+      The guy to watch here is Darius Bazley, who we literally haven’t seen against NBA or even college talent yet. Bazley is a raw bundle of talent who dominated with athleticism in high school. How does he hold up physically? How is his decision making? Does he get pushed around or lost on defense? How far away does he look?
+      Hamidou Diallo could intrigue. He surprised last year after a raw career at Kentucky, so what improvements has he made this summer? Can he play offense, like at all? On a scale of awful to cover your eyes, how far along is the shot? You won’t believe this, but the Thunder still need an NBA shooting guard.
+      Luguentz Dort and Jawun Evans are the same non-NBA player with a good drive and unable to finish at the rim once they get there. Deonte Burton feels like a AAAA player.
+      Orlando Magic ★★
+      Mo Bamba has added significant muscle and is expected to play. How much stronger is he on the boards and setting screens? Do we get to see him shoot much? How are the defensive instincts (and fouls) coming along? Bamba could be a trade target now that the Magic have invested so heavily in Nikola Vucevic. Expect to see him sparingly.
+      There’s not much else to see. Chuma Okeke obviously won’t play as he rehabs his knee. DaQuan Jeffries was a first rounder on my board and gets his shot here as a UDFA. I’m not optimistic on one of the worst developing teams in the NBA.
+      Philadelphia 76ers ★★★
+      You know how college football teams recruit stud athletes that don’t really have a position and call them “weapons”? Welcome to the Philadelphia Weapons, Zhaire Smith and Matisse Thybulle. We have no idea if these guys are NBA players or what position they’ll play, but they’re crazy fun to watch. Thybulle was one of my favorite 2019 draft sleepers and absolutely wreaks havoc on defense. Zhaire is a nuclear athlete with great instincts and was my favorite 2018 draft sleeper. Has either of them even remotely learned how to shoot or do stuff on offense? Philly has a paper thin bench and needs both of them to play a real rotation role this season.
+      Philly needs shooters. Shake Milton and Marial Shayok do a lot of that.
+      Christ Koumadje is really tall.
+      Phoenix Suns ★★
+      Normally you’d get excited for a team with two first-round rookies, but normally first-round rookies aren’t as old as your grandfather when you combine their ages. We pretty much know what Cam Johnson and Ty Jerome are at this point. So that’s something, I suppose.
+      Elie Okobo and Jalen Lecque are extremely raw point guards vying for a developmental PG role on this team behind Rubio, Tyler Johnson, and Jerome. Jevon Carter could be in the mix now too. All three could be competing for one roster spot. Okobo has a pretty jumper. Lecque is a great athlete. Carter is a pit bull on defense. Can any of them do anything else?
+      Deandre Ayton and Mikal Bridges are apparently too good to play SL minutes. You know what? Let’s give the Suns this one.
+      DeAnthony Melton and Josh Jackson won’t be playing in Phoenix either, since they traded two picks to offload them in a salary dump for the cheapskate ownership groups. Bad teams stay bad for a reason.
+      Zion Williamson is already a top-10 NBA asset
+      Some NBA team is about to win a literal lottery…
+      Portland Trail Blazers ★★★
+      The Blazers SL team is always pretty competitive. Nassir Little headlines this year’s squad. He should excel in this wide-open format where he can freelance and play outside of UNC’s structure. How does Little’s physique and quickness compare to college? What’s the shot look like? How quick are his decisions? What happens when the game slows down?
+      Anfernee Simons and Gary Trent are last year’s rookies. Can Trent do anything more than shoot yet? How has Simons grown his game after a strong finish to the season? How’s the pull-up jumper looking? We know he can score; can he create anything for teammates yet?
+      Skal Labissiere and Jaylen Hoard are raw undersized big men Spiderman memes of each other. Mike Daum is literally the exact opposite, a record-breaking scorer from South Dakota State. Can Daum hang athletically? How far away are Skal and Hoard?
+      Sacramento Kings ★★
+      The Kings finally aren’t a marquee SL team. Marvin Bagley is on the roster but is not expected to play, and Harry Giles isn’t even on the roster. Is this team finally growing up?
+      Frank Mason may barely be holding onto his roster spot at this point. He’ll be fighting off second rounders Kyle Guy and Justin James. What else can Mason show that he didn’t do at Kansas? There’s just not much there. We’ll see if that’s true of Guy too, who has overcome his size at every level. Justin James is also a player that was taken with a second-round pick.
+      Minus points for having Semaj Christon, Wenyen Gabriel, and Caleb Swanigan on the roster. Nobody needs to see those guys ball ever again.
+      San Antonio Spurs ★★★
+      The Spurs are legendary at player development. Rest assured one or two of the guys growing up before your eyes on this roster will make an impact for San Antonio next spring. They’re always an interesting SL watch.
+      One breakout candidate is Lonnie Walker, who didn’t do much as a rookie after struggling with injuries. Walker is athletic but what basketball skills has he learned in his year off? Has he added some passing and dribble creation? Have the Spurs convinced him to play defense? And does he show any natural intuition or feel for the game yet?
+      My vote goes to Keldon Johnson, a frustrating player to scout at Kentucky, who might have been pigeonholed into a role he didn’t fit. What sort of role will KJ have with the Spurs? What’s he look like with the ball in his hands? Has he quickened the shot release? Does he still disappear for large stretches of the game, or can he put his stamp on the game?
+      Luka Samanic was the more surprising, higher draft pick. Samanic is a Euro four that traded the usual shooting and instincts in for athletic pop. Does he have any feel for the game or will it move too fast for him?
+      Quinndary Weatherspoon is another guy to keep an eye on. Q was a second-round pick and former top-100 recruit and brings a well-rounded profile without an elite talent, similar to Keldon Johnson.
+      Toronto Raptors ★
+      You found the single least watchable SL team. There’s nothing here. Pull up some championship highlights and check your Kawhi watch instead.
+      If you insist, I hope you liked blocked shots. Sagaba Konate, Dewan Hernandez, and Chris Boucher should throw quite a block party.
+      Utah Jazz ★★
+      In classic Jazz form, Utah has some intriguing deep prospects that will delight basketball nerds. But as loaded as the Jazz are now, these guys won’t be cracking the rotation anytime soon.
+      Tony Bradley is a former first rounder who was always going to take a few years to develop. How close does he look? Has his body filled out so he can bang physically and hold his own on the boards and in the post?
+      Justin Wright-Foreman got a lot of buckets at Hofstra. Can he get buckets at SL too? He has a path to backup PG minutes with only Mudiay and Exum in his path. Miye Oni and Jarrell Brantley are intriguing second rounders on the wing, smart developmental projects.
+      Washington Wizards ★★★
+      Who’s the second best Wizards player asset? Cuz unless you’re a believer in John Wall, the only other options are playing on this team.
+      Rui Hachimura comes with pedigree. This year’s #9 pick represents the biggest difference between the eye test and analytics. Hachimura has a great mid-range game in an old school 90s way, but can he pass or make his teammates better? Can he play defense? We may not find out at SL.
+      Troy Brown was one of the youngest and rawest draft picks last summer. He showed some passing acumen and is supposed to be a point forward. Where’s he at on the development curve?
+      Admiral Schofield has some real admirers, though I wonder if they’d like him as much if his name was John Jackson. Is there anything there?
+      Washington needs some help at guard. Justin Robinson and Corey Davis are intriguing UDFA that could be ready for low-end NBA minutes.
+      The 10 Biggest Takeaways from a Wild NBA Free Agency
+      The NBA has turned upside down. Let’s break it all down.
+      ',
+    author_id: user3.id
+  )
   story19.image.attach(io: file19, filename: 'story19.jpg')
 
-  file20 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
+  file20 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/2019_summer_league.jpg')
   story20 = Story.create!(
-    title: '',
-    body: '',
-    author_id: 
-  )  
+    title: '2019 NBA Vegas Summer League Blowout Preview',
+    body: 'WELCOME TO THE DOG DAYS OF JULY! THE HOT DOGS ARE EATEN, the summer of soccer is nearly a wrap, even baseball is on a break. Enter NBA Summer League, which has caught on in a huge way the last few years. Every team is at Vegas Summer League (SL) again, and they’ll each play at least five games and, eventually, the NBA’s only knockout tournament.
+      You don’t have time to watch all 95 games, but you might hop in for a few. But what exactly should you be watching for? Some general SL rules of thumb:
+      DO watch for:
+      Process over results
+      Players that pop or stand out athletically (or struggle)
+      Flashes, talents, moments
+      Development of new skills
+      Who’s too good for SL? Who doesn’t look like they belong?
+      DON’T watch for:
+      Game scores or individual play results
+      Mistakes, as teams often purposely stretch players in unfamiliar roles
+      Defense, especially team defense
+      Scorers or energy bigs, always over-inflated in this setting
+      Raw shooting and scoring numbers on a small sample
+      Team chemistry in a me-first make-myself-look-good setting
+      When in doubt, always focus on process over results. Summer League doesn’t always tell us who can play, but it often shows us who can’t. Look past the highlights and the shooting numbers. What actual skills do you see?
+      Below I rank every team’s watchability from 1 to 5 stars and give you a few players and skills on each team to watch for. Keep this page bookmarked to reference as we work through NBA summer school, and check the bottom of the article for 10 games to set your DVR for. Class is now in session…
+      Ranking the 2019 NBA Draft Outcomes for All 30 Teams
+      The process behind all 30 NBA teams’ draft nights, ranking the outcomes from 30 to 1…
+      Everything you need to know on NBA Draft Day 2019
+      Upside & floor rankings, best fits, arbitrage plays, and best worst value plays…
+      Summer League Watchability Rankings Cheat Sheet
+      ★★★★★
+      Boston, Cleveland, New Orleans
+      ★★★★
+      Detroit, Memphis, Minnesota, New York, Philadelphia
+      ★★★
+      Atlanta, Charlotte, Chicago, Golden State, Indiana, Oklahoma City, Portland, San Antonio, Washington
+      ★★
+      Brooklyn, Denver, Houston, Miami, Orlando, Phoenix, Sacramento, Utah
+      ★
+      Dallas, L.A. Clippers, L.A. Lakers, Milwaukee, Toronto
+      Atlanta Hawks ★★★
+      Most of the interesting Hawks will sit this out. Trae Young, Kevin Huerter, and John Collins are too good for SL, and Cam Reddish is sidelined with a muscle injury. That one’s especially disappointing as he would’ve been one of the more interesting players to watch in a new setting.
+      Omari Spellman is the headliner for now. Last year’s third first-round pick struggled out of Villanova and spent most of the year in the G League. Has he cut weight and looks like more of an NBA athlete? What can he do other than shoot? Does he look ready for real NBA minutes?
+      De’Andre Hunter and Bruno Fernando should play eventually, once trades clear. Fernando should dominate physically in this setting, but hopefully we’ll get to see him shoot a bit. With Hunter, watch for him to have the ball in his hands a lot. How does he do against higher level athletes? Can he get to the rim? SL is not an ideal setting for Hunter.
+      Boston Celtics ★★★★★
+      The Celtics should be one of the top summer watches with a ton of interesting rookies and young prospects.
+      Carsen Edwards was made to dominate a setting like this. He’s going to get a lot of shots off and melt the internet some night. Let’s see how well he can get his shot off against bigger, more athletic dudes. Ditto Tremont Waters. How well can either facilitate the offense?
+      Unleash the Grant Williams hype train. We already know what he can do. How does Boston use him? How many touches is he getting? Is he in the screen and roll? Who is he defending?
+      What does Romeo Langford’s shot form look like? Has he learned to use both hands yet? What sort of energy does he play with and how does he fit into more of a team setting with real teammates?
+      Robert Williams is in line for a much bigger role, and his archetype dominates SL with energy and athleticism. Is the Timelord ready?
+      Tacko Fall and Guerschon Yabusele are more novelties than NBA players at this point, but they’ll make a great buddy cop duo.
+      Brooklyn Nets ★★
+      Jarrett Allen and Rodions Kurucs are on the roster, but don’t expect them to play much. Both are too good for SL.
+      Dzanan Musa could be showcased for a possible trade with Brooklyn needing cap room and roster space.
+      Nic Claxton is the developmental project. He’ll surely spend the year in the G League with Allen and DeAndre Jordan around. Claxton is raw but super talented and didn’t have much help at Georgia. How far away is he?
+      The case against drafting rim runners
+      Why rim runner is the least valuable center archetype and why Jaxson Hayes and Nic Claxton might be overrated on draft night…
+      Charlotte Hornets ★★★
+      This is essentially the entire Hornets roster at this point, though Malik Monk will not play. Charlotte has built their roster around grown-up players that won a lot, so they should fare well in a setting like this.
+      Expect Miles Bridges to play sparingly. This isn’t his best setting and he’s too good for SL anyway. Watch his shot and dribble progression.
+      P.J. Washington should dominate. How does his range extend to NBA 3? What can he do with the ball in his hands on the perimeter or dribbling? UPDATE: P.J. may not play due to his continuing foot injury.
+      Devonte’ Graham has a big opportunity with Kemba and Parker gone. He was awful as a rookie and is probably playing for his NBA life. He’s competing with veteran Gonzaga PG Josh Perkins for the backup Hornets point guard role behind Terry Rozier.
+      What do Cody Martin and Jalen McDaniels look like outside the Mountain West against real NBA athletes? Can either create space and get to their spot off the bounce? How do they integrate into team play?
+      Dwayne Bacon, Kerwin Roach, and Arnoldas Kubolka could all have an opportunity for playing time in Charlotte this year with a good showing.
+      Chicago Bulls ★★★
+      Coby White is the headliner, and he should look great with all the summer space and pace. We already know he can run in transition and hit the pull-up. What does he do to improve his teammates? What’s he look like in a half-court NBA offense? Can he get to the rim? How’s his finishing?
+      Can Daniel Gafford do anything besides block shots and finish alley oops?
+      How far along is the Chandler Hutchison project? Is there anything to the Adam Mokoka buzz? Can Tyler Hall score with the big boys? Do not get excited about Antonio Blakeney. Classic AAAA Summer League All-Star.
+      Unfortunately Wendell Carter Jr. will not play after summer surgery.
+      Cleveland Cavaliers ★★★★★
+      The five stars here are for Darius Garland and Kevin Porter Jr., the two most exciting rookies you’ve literally never seen play. It looks doubtful Garland plays, so that sucks. KPJ is supposed to play, but that was true all year too, so we’ll see. Can he actually play on a team? Will he show any effort on transition or defense? Porter will have best dribble and slither you see at SL, but we already know that. He can get to any spot any time. What can he do once he gets there? Has he adjusted the wonky shot form? How does he respond to coaching and mistakes?
+      Speaking of which, coaching shout out to John Beilein, the rare head coach that will make his pro debut at SL. Last summer Lloyd Pierce meshed out of the gates with the Hawks and gave us some clues to how they’d use Trae Young and play going ahead. What can we learn from Beilein? How different will he look from college?
+      Dylan Windler and Yovel Zoosman are interesting watches, but both will be supporting NBA players that are better on good teams. How do they look against NBA athletes? Does Zoosman look ready to come over?
+      No Collin Sexton either, so with him and Garland out, if KPJ sits out a game too, knock the Cavs down to two stars for that game.
+      The Pelicans, Grizzlies, and Hawks are each building something special
+      New Orleans, Memphis, and Atlanta walked away from the 2019 NBA Draft with a plan and a much brighter future
+      Dallas Mavericks ★
+      Second rounder Isaiah Roby was one of my favorite draft sleepers, but we didn’t get to see him around real talent at Nebraska and won’t here either. Can Roby show more consistency? He’s a freak athlete that will have a couple huge highlights, but what’s he look like on the possessions in between? Does he stay engaged and play like the best player on the team?
+      Josh Reaves was a sleeper favorite for some. His defense won’t translate much on this stage, but what else can he do?
+      Denver Nuggets ★★
+      We were finally going to get to see Michael Porter Jr. play basketball, and then he got injured *again* on the eve of Summer League and looks like he won’t play. MPJ was legitimately the #1 summer attraction. His absence dropped Denver from 5 stars to 2 stars. I don’t want to talk about it.
+      Bol Bol will not play either. Get used to hearing that. We should get some looks at rebounding machine Jarred Vanderbilt plus Vlatko Cancar, another Slovenian prospect. Terence Davis is an intriguing UDFA. But it’ll be really hard to see any of these guys crack a deep Denver rotation.
+      Detroit Pistons ★★★★
+      For most viewers, this is a first look at Sekou Doumbouya and Deividas Sirvydis. I didn’t grade either as a first rounder, but you never know how international talent will translate. The door is open for Sekou to contribute right away if he’s ready, but as the youngest player in the draft, don’t be shocked if he struggles. Has Doumbouya’s moon shot settled down and does it look more natural? How’s his decision making coming along? How many years away is he from being 2 years away?
+      Bruce Brown and Khyri Thomas have a path to real playing time for a playoff team. Brown was the best Pistons wing last year, which is damning with the faintest praise. Detroit will hope either or both of these guys look way too good for SL and get shut down early.
+      Louis King has a big opportunity here too. There’s no reason he can’t beat out everyone on this list above for playing time with his raw talent. Detroit needs wing help so badly. Who will make their case?
+      Finally, Henry Ellenson is gone. Praise the Lord.
+      Golden State Warriors ★★★
+      The Warriors roster is so thin all these guys have to play legit minutes next year. Golden State will start Steph, DLo, and Draymond, and they have plenty of centers. One of these guys might start at the three, and the rest could play serious bench roles.
+      Jacob Evans was supposed to be NBA-ready out of Cincinnati last year but was so bad he couldn’t even get a few minutes when half the roster was injured in the playoffs. He has supposedly transitioned to point guard and is the Livingston replacement. Can he shoot? Dribble? Pass? Actually stay on a court? What did the G League teach him?
+      Jordan Poole and Eric Paschall will be expected to contribute right away. We already know Poole can shoot from range. Can he dribble or create for anyone else? What can Paschall do besides jump? Can he finish against NBA athletes? Does the shot translate at all? How’s his foot speed look?
+      Alen Smailagic was a G League stash and he’s too young to make an impact this year or probably with this iteration of the Warriors. But NBA Twitter loves him, so let’s see what the kid can do.
+      There’s a real opportunity for Ky Bowman and Davon Reed, two guys I’ve long had my eye on, with a wide open roster. Bowman is signed on a 2–way. Reed is good enough to beat out Evans for a starting 3+D role.
+      The NBA Franchise HOPE Rankings
+      Which teams have the best outlook, and who faces only despair and gloom?
+      Houston Rockets ★★
+      Draft Twitter loves Shamorie Ponds. I never bought in, but Houston liked him enough to give him a three-year deal. Ponds is a combo scoring guard and could stick in the rotation if his well-rounded game translates.
+      Vince Edwards and Isaiah Hartenstein could also vie for some rotation minutes on a thin roster, though neither has shown much at a pro level.
+      Indiana Pacers ★★★
+      A first look for many at Goga Bitadze! Goga looks ready for immediate minutes and will be the third Pacers big man. He improved by leaps and bounds this year. How does his improved foot speed and lateral ability look against better athletes? How is his touch and how far does his shooting extend? Does the rim protection translate?
+      Aaron Holiday should step into a bigger role with Collison and Joseph gone, though the T.J. McConnell signing muddies the waters. Can Holiday use his quickness to offset his size deficiency? Has he learned how to finish anywhere near the rim? How’s his team creation and decision making?
+      Brian Bowen returns from Australia, so it’s also a first look at him on the wing. Bowen, Alize Johnson, and Edmund Sumner could all play rotation minutes for Indiana, who plays a deep rotation and doesn’t have any real bench outside of T.J. Warren and these SL guys.
+      Los Angeles Clippers ★
+      This is an easy team to avoid unless you’re a Florida State fan and just can’t get enough Mfiondu Kabengele or Terance Mann. Neither is a real rotation threat this year.
+      Last year’s lottery pick Jerome Robinson is the one real name to watch. He’s fighting for his future with Beverley, Shai, and Shamet all firmly ahead of him in the rotation at this point. What can he show?
+      Los Angeles Lakers ★
+      The Lakers need bodies but won’t find them on this roster. Talen Horton-Tucker will sit out injured, and there’s little else to get excited for.
+      Zach Norvell is the best bet. He can really shoot and has some passing acumen, so he could have a shot at some time. Jordan Caroline and Aric Holman could garner some attention, but LeBron teams tend to play past-their-prime veterans, not these guys.
+      Memphis Grizzlies ★★★★
+      No Ja Morant or Jaren Jackson Jr., unfortunately, so we’ll have to wait to see Draft Twitter’s most exciting team play together.
+      Brandon Clarke should join after his trade is completed July 6. He’ll be stretched in an uncomfortable role, with more ball in his hands than he’ll get on a real team. Can he do more with his dribble? Any move other than the spin? How’s the jumper look? If he hits a few NBA threes, NBA Twitter will melt down. And whose lives will he end with a ferocious block?
+      John Konchar is 23, the adult in the room, my favorite UDFA. He’s not a scorer but does a little bit of everything else and looks like a possible glue guy at the next level. Let’s see how he hangs outside the Summit League.
+      We’ll see if new Grizz DeAnthony Melton and Josh Jackson play SL. Melton was one of my favorite watches last summer, an absolute pest defensively. Jackson is also a human being that ostensibly plays basketball.
+      Grayson Allen will also join July 6. Yay.
+      Brandon Clarke’s defense alone is worth a top-5 NBA Draft pick
+      Clarke’s athleticism and feel for the game give him superstar upside…
+      Is Ja Morant really worth the #2 pick?
+      Morant looks like a worthy #2 pick, but will his game translate to a winning NBA style?
+      Miami Heat ★★
+      Tyler Herro is the only name of note, and he’s already playing in Sacto, so get to the Heat early and cross them off your list. Miami does a great job building their summer around expanding one key player’s game, so look for Herro to play a lot like Trae Young, with a lot of the ball in his hands, plenty of decision making, and a plethora of pull-up jumpers. Expect him to look uncomfortable with mixed results, but it’ll be good for his long-term development.
+      KZ Okpala should join eventually, but expect him to look very raw. He’ll be an interesting long-term Miami project. Duncan Robinson, Yante Maten, and Charles Cooke are worth a stray eye. Miami is among the league’s best at development, so these guys could get there eventually.
+      Milwaukee Bucks ★
+      Sterling Brown and D.J. Wilson are on the team but played legit minutes this season so don’t expect them to see much time. Wilson has come a long way in two years, and it’d be nice to see him featured a few games.
+      Enjoy Fletcher Magee bombing threes. Otherwise there’s no real reason to tune in unless you’re a Notre Dame fan desperate to see Bonzie Colson and Matt Farrell play again.
+      Minnesota Timberwolves ★★★★
+      The new regime is prioritizing youth and development, a novel concept, and the Wolves have a bunch of interesting guys on the SL roster. Last year’s rookies Josh Okogie and Keita Bates-Diop are here but shouldn’t get a ton of time and should look very good if they do.
+      Jarrett Culver is the marquee name, after July 6. Culver had a disappointing finish to his NCAA tournament. Does his athletic ability pop at all on this stage? Can he finish at the rim or through contact? Is his shot more confident, and does it fall?
+      Jaylen Nowell will get buckets. Naz Reid will tantalize and frustrate. Barry Brown, Tyus Battle, and Jordan Murphy all have potential. There’s a lot of intrigue on this roster. Who stands out?
+      Jarrett Culver is already good. Can he be great?
+      Culver has it all — defense, creation, the mental game, and the intangibles. Does he have what it takes to be a star?
+      New Orleans Pelicans ★★★★★
+      ZION!! Need I say more? Zion plays R.J. Barrett in the Pelicans SL opener, and tickets are going for over $1000. Seriously.
+      Jaxson Hayes and Nickeil Alexander-Walker will join this talented young core after July 6. Hayes is super raw. How quickly will he use up his 10 fouls? How are his instincts and reaction time? Has he added strength on the boards or screens? What does NAW look like with the ball in his hands making decisions? How’s his range look from the NBA arc?
+      Frank Jackson is supposedly healthy again. We’ll see how that goes. He’s talented but another injury or two away from finding himself out of the league, and he could struggle to stick on a suddenly deep roster, but he also has some breakout potential.
+      Zylan Cheatham, Christian Wood, Kenrich Williams, Tony Carr, and Trevon Bluiett all have varying NBA potential. We’ll see what sticks.
+      New York Knicks ★★★★
+      The Knicks are going to be awful, but at least they’ll be interesting.
+      R.J. Barrett is the headliner. He should have some monster performances. Watch the decision making, the shooting, and the half-court offense.
+      Kevin Knox should look good since SL isn’t actually real basketball. He and Barrett are going to make Knicks fans’ heads explode in an open no-defense not-actually-basketball game. Over/under 1.5 games before Knicks fans say they never wanted KD and Kyrie anyway cuz they have Knox and R.J. now?
+      Mitchell Robinson is way too good for SL. He’s going to posterize some fools. And when he sits down, Kenny Wooten will pick up where he left off.
+      Iggy Brazdeikis will be a fan favorite. He plays with chutzpah at all times. Can he do more with the ball in his hands? Can he create a shot?
+      Minus one star for rostering Henry Ellenson. Sigh.
+      Why I’m out on R.J. Barrett as an elite NBA prospect
+      Barrett is one of the most naturally gifted players in the draft, so why is it so hard to see him as a star?
+      Oklahoma City Thunder ★★★
+      The guy to watch here is Darius Bazley, who we literally haven’t seen against NBA or even college talent yet. Bazley is a raw bundle of talent who dominated with athleticism in high school. How does he hold up physically? How is his decision making? Does he get pushed around or lost on defense? How far away does he look?
+      Hamidou Diallo could intrigue. He surprised last year after a raw career at Kentucky, so what improvements has he made this summer? Can he play offense, like at all? On a scale of awful to cover your eyes, how far along is the shot? You won’t believe this, but the Thunder still need an NBA shooting guard.
+      Luguentz Dort and Jawun Evans are the same non-NBA player with a good drive and unable to finish at the rim once they get there. Deonte Burton feels like a AAAA player.
+      Orlando Magic ★★
+      Mo Bamba has added significant muscle and is expected to play. How much stronger is he on the boards and setting screens? Do we get to see him shoot much? How are the defensive instincts (and fouls) coming along? Bamba could be a trade target now that the Magic have invested so heavily in Nikola Vucevic. Expect to see him sparingly.
+      There’s not much else to see. Chuma Okeke obviously won’t play as he rehabs his knee. DaQuan Jeffries was a first rounder on my board and gets his shot here as a UDFA. I’m not optimistic on one of the worst developing teams in the NBA.
+      Philadelphia 76ers ★★★
+      You know how college football teams recruit stud athletes that don’t really have a position and call them “weapons”? Welcome to the Philadelphia Weapons, Zhaire Smith and Matisse Thybulle. We have no idea if these guys are NBA players or what position they’ll play, but they’re crazy fun to watch. Thybulle was one of my favorite 2019 draft sleepers and absolutely wreaks havoc on defense. Zhaire is a nuclear athlete with great instincts and was my favorite 2018 draft sleeper. Has either of them even remotely learned how to shoot or do stuff on offense? Philly has a paper thin bench and needs both of them to play a real rotation role this season.
+      Philly needs shooters. Shake Milton and Marial Shayok do a lot of that.
+      Christ Koumadje is really tall.
+      Phoenix Suns ★★
+      Normally you’d get excited for a team with two first-round rookies, but normally first-round rookies aren’t as old as your grandfather when you combine their ages. We pretty much know what Cam Johnson and Ty Jerome are at this point. So that’s something, I suppose.
+      Elie Okobo and Jalen Lecque are extremely raw point guards vying for a developmental PG role on this team behind Rubio, Tyler Johnson, and Jerome. Jevon Carter could be in the mix now too. All three could be competing for one roster spot. Okobo has a pretty jumper. Lecque is a great athlete. Carter is a pit bull on defense. Can any of them do anything else?
+      Deandre Ayton and Mikal Bridges are apparently too good to play SL minutes. You know what? Let’s give the Suns this one.
+      DeAnthony Melton and Josh Jackson won’t be playing in Phoenix either, since they traded two picks to offload them in a salary dump for the cheapskate ownership groups. Bad teams stay bad for a reason.
+      Zion Williamson is already a top-10 NBA asset
+      Some NBA team is about to win a literal lottery…
+      Portland Trail Blazers ★★★
+      The Blazers SL team is always pretty competitive. Nassir Little headlines this year’s squad. He should excel in this wide-open format where he can freelance and play outside of UNC’s structure. How does Little’s physique and quickness compare to college? What’s the shot look like? How quick are his decisions? What happens when the game slows down?
+      Anfernee Simons and Gary Trent are last year’s rookies. Can Trent do anything more than shoot yet? How has Simons grown his game after a strong finish to the season? How’s the pull-up jumper looking? We know he can score; can he create anything for teammates yet?
+      Skal Labissiere and Jaylen Hoard are raw undersized big men Spiderman memes of each other. Mike Daum is literally the exact opposite, a record-breaking scorer from South Dakota State. Can Daum hang athletically? How far away are Skal and Hoard?
+      Sacramento Kings ★★
+      The Kings finally aren’t a marquee SL team. Marvin Bagley is on the roster but is not expected to play, and Harry Giles isn’t even on the roster. Is this team finally growing up?
+      Frank Mason may barely be holding onto his roster spot at this point. He’ll be fighting off second rounders Kyle Guy and Justin James. What else can Mason show that he didn’t do at Kansas? There’s just not much there. We’ll see if that’s true of Guy too, who has overcome his size at every level. Justin James is also a player that was taken with a second-round pick.
+      Minus points for having Semaj Christon, Wenyen Gabriel, and Caleb Swanigan on the roster. Nobody needs to see those guys ball ever again.
+      San Antonio Spurs ★★★
+      The Spurs are legendary at player development. Rest assured one or two of the guys growing up before your eyes on this roster will make an impact for San Antonio next spring. They’re always an interesting SL watch.
+      One breakout candidate is Lonnie Walker, who didn’t do much as a rookie after struggling with injuries. Walker is athletic but what basketball skills has he learned in his year off? Has he added some passing and dribble creation? Have the Spurs convinced him to play defense? And does he show any natural intuition or feel for the game yet?
+      My vote goes to Keldon Johnson, a frustrating player to scout at Kentucky, who might have been pigeonholed into a role he didn’t fit. What sort of role will KJ have with the Spurs? What’s he look like with the ball in his hands? Has he quickened the shot release? Does he still disappear for large stretches of the game, or can he put his stamp on the game?
+      Luka Samanic was the more surprising, higher draft pick. Samanic is a Euro four that traded the usual shooting and instincts in for athletic pop. Does he have any feel for the game or will it move too fast for him?
+      Quinndary Weatherspoon is another guy to keep an eye on. Q was a second-round pick and former top-100 recruit and brings a well-rounded profile without an elite talent, similar to Keldon Johnson.
+      Toronto Raptors ★
+      You found the single least watchable SL team. There’s nothing here. Pull up some championship highlights and check your Kawhi watch instead.
+      If you insist, I hope you liked blocked shots. Sagaba Konate, Dewan Hernandez, and Chris Boucher should throw quite a block party.
+      Utah Jazz ★★
+      In classic Jazz form, Utah has some intriguing deep prospects that will delight basketball nerds. But as loaded as the Jazz are now, these guys won’t be cracking the rotation anytime soon.
+      Tony Bradley is a former first rounder who was always going to take a few years to develop. How close does he look? Has his body filled out so he can bang physically and hold his own on the boards and in the post?
+      Justin Wright-Foreman got a lot of buckets at Hofstra. Can he get buckets at SL too? He has a path to backup PG minutes with only Mudiay and Exum in his path. Miye Oni and Jarrell Brantley are intriguing second rounders on the wing, smart developmental projects.
+      Washington Wizards ★★★
+      Who’s the second best Wizards player asset? Cuz unless you’re a believer in John Wall, the only other options are playing on this team.
+      Rui Hachimura comes with pedigree. This year’s #9 pick represents the biggest difference between the eye test and analytics. Hachimura has a great mid-range game in an old school 90s way, but can he pass or make his teammates better? Can he play defense? We may not find out at SL.
+      Troy Brown was one of the youngest and rawest draft picks last summer. He showed some passing acumen and is supposed to be a point forward. Where’s he at on the development curve?
+      Admiral Schofield has some real admirers, though I wonder if they’d like him as much if his name was John Jackson. Is there anything there?
+      Washington needs some help at guard. Justin Robinson and Corey Davis are intriguing UDFA that could be ready for low-end NBA minutes.
+      The 10 Biggest Takeaways from a Wild NBA Free Agency
+      The NBA has turned upside down. Let’s break it all down.
+      ',
+    author_id: user3.id
+  )
   story20.image.attach(io: file20, filename: 'story20.jpg')
 end
