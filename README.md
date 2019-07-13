@@ -29,6 +29,7 @@ The modal has an optional redirect link to direct you from the 'Sign Up' to 'Log
 * The splash page will generate stories based on who they follow.
 * Search feature.
 * Story topics.
+* Story text formatting.
 * Add Kaffeine.
 * Mobile friendly. Browser friendly.
 * Clean up seeding.
