@@ -11,9 +11,12 @@ const StoryIndexItems = (props) => {
       <div className="story-index-item-text">
         <Link to={`/stories/${props.story.id}`}>
           <h1 className="story-index-item-title">{props.story.title}</h1>
-          <h2 className="story-index-item-body">{props.story.body}</h2>
         </Link>
       
+        <Link to={`/stories/${props.story.id}`}>
+          <h2 className="story-index-item-body">{props.story.body}</h2>
+        </Link>
+
         <div className="story-index-item-info">
           <p className="story-index-item-author">
             <Link to={`/users/${props.story.author_id}`}>{props.story.author}</Link>

@@ -1871,7 +1871,9 @@ var StoryIndexItems = function StoryIndexItems(props) {
     to: "/stories/".concat(props.story.id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "story-index-item-title"
-  }, props.story.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.story.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/stories/".concat(props.story.id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "story-index-item-body"
   }, props.story.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "story-index-item-info"
