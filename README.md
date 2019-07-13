@@ -1,5 +1,5 @@
 # Meteor
-Welcome to the Meteor (Medium Clone) wiki! Meteor is a social media application that enables writers to create stories that can be liked by and commented on by other users.
+Welcome to the Meteor (Medium Clone) wiki! Medium is a social media application that enables writers to share stories that can be liked by and commented on by other users.
 
 ## Technologies
 * Ruby on Rails
@@ -9,6 +9,8 @@ Welcome to the Meteor (Medium Clone) wiki! Meteor is a social media application 
 * jQuery
 * PostgreSQL
 * CSS
+* AWS S3
+* Heroku
 
 ## Features and Functionality
 ### Log In/Sign Up
