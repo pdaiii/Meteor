@@ -2283,6 +2283,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.jsx");
+/* harmony import */ var _util_month_day_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/month_day_util */ "./frontend/util/month_day_util.js");
+/* harmony import */ var _util_time_to_read_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../util/time_to_read_util */ "./frontend/util/time_to_read_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2300,6 +2302,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -2386,9 +2390,9 @@ function (_React$Component) {
         className: "user-story-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "user-story-author"
-      }, this.props.story.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "user-story-create-date"
-      }, formattedDate))), userStoryBtns), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, this.props.story.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-story-date-time"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_4__["monthDay"])(this.props.story.created_at), " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_5__["timeToRead"])("".concat(this.props.story.body)), " min read")))), userStoryBtns), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/stories/".concat(this.props.story.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-story-img"

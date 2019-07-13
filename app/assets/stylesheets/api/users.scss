@@ -100,16 +100,23 @@
 .user-story-info{
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .user-story-author{
   font-size: 16px;
 }
 
-.user-story-create-date{
+.user-story-date-time{
+  display: flex;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.54);
 }
+
+// .user-story-create-date{
+//   font-size: 15px;
+//   color: rgba(0, 0, 0, 0.54);
+// }
 
 .user-story-btns{
   display: flex;

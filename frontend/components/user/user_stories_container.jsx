@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteStory } from '../../actions/story_actions';
+import { monthDay } from '../../util/month_day_util';
+import { timeToRead } from '../../util/time_to_read_util';
 
 const mapStateToProps = state => ({
   currentUserId: state.session.id
@@ -52,7 +54,10 @@ class UserStoryPost extends React.Component {
               </div>
               <div className="user-story-info">
                 <h2 className="user-story-author">{this.props.story.author}</h2>
-                <h2 className="user-story-create-date">{formattedDate}</h2>
+                <div className="user-story-date-time">
+                  <h2>{monthDay(this.props.story.created_at)} &#183;&nbsp;</h2>
+                  <h2>{timeToRead(`${this.props.story.body}`)} min read</h2>
+                </div>
               </div>
             </div>
             {userStoryBtns}
