@@ -39,7 +39,6 @@ Welcome to the Meteor wiki! Medium is a social media application inspired by Med
 * Mobile friendly. Browser friendly.
 * Smooth UI login/signup.
 
-
 ### Deployment Instructions
 * npm install
 * bundle install
