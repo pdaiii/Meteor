@@ -19,10 +19,16 @@ class SessionForm extends React.Component {
 
   handleDemoUser(event) {
     event.preventDefault();
-    this.props.processForm({
+
+    const demoUser = {
       username: "Guest User",
       password: "password"
-    }).then(this.props.closeModal);
+    };
+
+    this.setState({ username: demoUser.username });
+    this.setState({ password: demoUser.password });
+
+    this.props.processForm(demoUser).then(this.props.closeModal);
   }
     
   update(field) {
