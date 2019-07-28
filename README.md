@@ -43,5 +43,5 @@ Welcome to the Meteor wiki! Medium is a social media application inspired by Med
 ### Deployment Instructions
 * npm install
 * bundle install
-* rails s
 * rails db:setup
+* rails s
