@@ -26,7 +26,7 @@ Welcome to the Meteor wiki! Medium is a social media application inspired by Med
 * A list of most popular stories on the site are generated on the user's home page.
 
 ### Responses
-* A logged in user may leave responses on other user's stories.
+* A logged in user may leave responses on other users' stories.
 * A logged in user may delete their own responses.
 
 ## Future Implementations
@@ -37,7 +37,6 @@ Welcome to the Meteor wiki! Medium is a social media application inspired by Med
 * Story topics.
 * Story text formatting.
 * Mobile friendly. Browser friendly.
-* Smooth UI login/signup.
 
 ### Deployment Instructions
 * npm install
