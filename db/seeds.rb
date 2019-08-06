@@ -917,7 +917,7 @@ ApplicationRecord.transaction do
       Rajon Rondo, who also signed with Los Angeles Saturday, was on that 2017-18 team as well — though his role was much smaller. 
 
       Davis and Cousins have proved to be a dangerous frontcourt together, bringing out the best in each other. And now LeBron James will be in the mix as well. It’s not the big three the Lakers initially hoped for with Kawhi Leonard, but nonetheless they’ve still got three All-Star talents on the roster.',
-    author_id: 6
+    author_id: user6.id
   )
   story10.image.attach(io: file10, filename: 'story10.jpg')
 
