@@ -1,13 +1,14 @@
 import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import Modal from './modal';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './navbar/navbar_container';
 import CreateStoryFormContainer from './story/create_story_form_container';
 import StoryShowContainer from './story/story_show_container';
 import EditStoryFormContainer from './story/edit_story_form_container';
 import UserShowContainer from './user/user_show_container';
 import StoryIndexContainer from './story/story_index_container';
+import SearchBar from './navbar/search_bar';
 
 const App = () => (
   <div>
@@ -22,8 +23,10 @@ const App = () => (
       <AuthRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
       <Route path="/stories/:storyId" component={StoryShowContainer}/>
       <Route path="/users/:userId" component={UserShowContainer} />
-      <Route path="/" component={StoryIndexContainer}/>
-      <Redirect to="/" />
+      <Route exact path="/" component={StoryIndexContainer}/>
+       {/* Protect the Search  */}
+      <Route path="/search" component={SearchBar}/>
+      <Redirect to="/" component={StoryIndexContainer}/>
     </Switch>
   </div>
 );

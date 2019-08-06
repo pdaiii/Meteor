@@ -58,7 +58,6 @@ class UserShow extends React.Component {
       createStory = null;
     }
 
-
     return(
       <div>
         <div className="profile-page-container">

@@ -2,6 +2,7 @@ class Api::StoriesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def create
+    debugger
     @story = Story.new(story_params)
     @story.author_id = current_user.id
     if @story.save

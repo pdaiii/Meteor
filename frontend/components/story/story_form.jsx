@@ -16,11 +16,13 @@ class StoryForm extends React.Component {
   };
 
   handleImage(event) {
+    // Sets the image property to the file uploaded.
     this.setState({['image']: event.currentTarget.files[0]});
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    // Form Data for handling image files.
     const formData = new FormData();
     formData.append("story[title]", this.state.title);
     formData.append("story[body]", this.state.body);
@@ -36,7 +38,8 @@ class StoryForm extends React.Component {
           <input className="new-story-form-title" type="text" value={this.state.title} onChange={this.update('title')} 
             placeholder="Title"/>
           <textarea className="new-story-form-body" value={this.state.body} onChange={this.update('body')} 
-            placeholder="Tell your story..."></textarea>
+            placeholder="Tell your story...">
+          </textarea>
 
           <input type="file" onChange={this.handleImage}/>
 
@@ -45,7 +48,6 @@ class StoryForm extends React.Component {
               ? <input className="submit-button" type="submit" value="Update Story" />
               : <input className="submit-button" type="submit" value="Create Story" />}
           </div>
-          
         </form>
       </div>
     );
