@@ -10,6 +10,9 @@ require 'open-uri'
 ApplicationRecord.transaction do
   User.destroy_all
   Story.destroy_all
+  Response.destroy_all
+
+  puts "Trying to seed"
 
  user1 = User.create!(
     username: 'Guest User',
@@ -148,6 +151,7 @@ ApplicationRecord.transaction do
       Under the radar signings like RHJ, WCS, and Delon Wright could be some of the summer’s biggest bargains
       Which 2019 NBA free agents are really worth a max contract?
       The NBA silly season is here, but which free agents are really worth the max deal, and which ones will kill their…
+      
       1. The Brooklyn Nets won free agency
       Kyrie Irving and Kevin Durant are Nets. That is a real thing. It’s crazy how much of a footnote it felt by the end of the day since the Kyrie news was on lock for weeks and the Durant announcement was one of the first of the day. But it’s by far the biggest news of the day.
       In my free agency preview, I deemed only three veterans worthy of a full max contract. The Nets just got two of them, and they got them for less than the max too, since Kyrie and KD are apparently giving up some cash so their very fortunate buddy DeAndre Jordan can tag along in the least big Big Three yet.
@@ -166,6 +170,7 @@ ApplicationRecord.transaction do
       The Warriors will reload. Maybe they’ll flip DLo as an asset play once Klay returns. They’re not dead. But they are dead as we know them. RIP.
       The NBA Franchise HOPE Rankings
       Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?
+      
       3. The Lakers are ALL in on Kawhi Leonard.
       The Lakers never seem to have a Plan B. Lakers exceptionalism at its finest.
       So it’s all in on Kawhi Leonard.
@@ -174,12 +179,14 @@ ApplicationRecord.transaction do
       There is no Plan B. There’s no Plan C or D or E. If Kawhi doesn’t come, the Lakers might literally have to bring back Rajon Rondo and Kentavious Caldwell-Pope. They might have to absorb someone like Jeff Teague or Goran Dragic or themselves into Austin Rivers or Iman Shumpert. And this is their starting back court!! We haven’t even thought about building depth. And some of those names will probably be signed by the time you read this, too.
       L.A. didn’t even pony up to keep Reggie Bullock, their presumed de facto two, now gone to New York. Heck, even if Kawhi signs, the Lakers STILL don’t have any guards. They’ll have Kawhi, Bron, and Brow and it probably won’t matter, but still. They’re out of options.
       I don’t think it’s hit everyone just how bad this is all going to look for the Lakers if Kawhi doesn’t come and they strike out finding a star to play with LeBron a second straight summer in a wide open year.
+      
       4. Kawhi Leonard is the kingmaker.
       The Nets are a year away. The Warriors are dead. The Lakers are incomplete. The Bucks got worse. The Sixers reset. The Rockets hate each other. The league remains wide open, even with every free agent in their new home.
       And that means Kawhi Leonard is the kingmaker. Whoever gets Kawhi is the new favorite. If it’s the Lakers, duh. If it’s the Raptors, it means Danny Green too and running back a championship roster. Even if it’s the Clippers, it’s fair to like their chances now that we’ve seen what Kawhi can do with a strong supporting cast.
       The world is your oyster, Kawhi. We wait.
       The 20 Worst Contracts in the NBA
       Some players get injured. Some underperform. Some just get old. These are the worst 20 contracts in the NBA right now…
+      
       5. The 76ers are zigging with everyone zagging.
       Goodbye Jimmy Butler and J.J. Redick. Hello Al Horford and Josh Richardson. And get paid, Tobias Harris.
       I love the Horford contract and hate the Harris one, and I’d rather have Richardson on his current contract than Butler on a max. The Sixers remixed their lineup again, with an even bigger, more defensive starting five of Ben Simmons, JRich, Tobias, Horford, and Joel Embiid.
@@ -1385,4 +1392,6 @@ ApplicationRecord.transaction do
     author_id: user8.id
   )
   story20.image.attach(io: file20, filename: 'story20.jpg')
+
+  puts "Done seeding?"
 end

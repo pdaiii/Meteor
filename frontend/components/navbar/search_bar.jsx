@@ -83,7 +83,7 @@ class SearchBar extends React.Component{
       <div>
         <div className="user-story-container">
           <form onSubmit={this.handleSubmit}>
-            <input id="search-text" className="search-text" type="text" />
+            <input id="search-text" className="search-text" type="text"/>
           </form>
           <p className="search-story-txt">Stories</p>
           {top5}

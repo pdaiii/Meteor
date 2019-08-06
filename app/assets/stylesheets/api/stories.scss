@@ -60,7 +60,6 @@
 
 .story-show-position{
   display: flex;
-  text-align: center;
   justify-content: center;
   flex-direction: column;
 }
@@ -178,7 +177,6 @@
   font-weight: 600;
 }
 
-
 /// STORY INDEX ///
 .story-index-container{
   width: 1080px;
@@ -191,7 +189,6 @@
 
 .story-index{
   display: flex;
-  // justify-content: space-between;
   flex-direction: column;
   margin-bottom: 30px;
   margin-top: 30px;
