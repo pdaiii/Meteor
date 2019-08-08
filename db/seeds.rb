@@ -12,8 +12,6 @@ ApplicationRecord.transaction do
   Story.destroy_all
   Response.destroy_all
 
-  puts "Trying to seed"
-
  user1 = User.create!(
     username: 'Guest User',
     password: 'password'
@@ -236,25 +234,25 @@ ApplicationRecord.transaction do
   story3.image.attach(io: file3, filename: 'story3.jpg')
 
   response1 = Response.create!(
-    body: 'Go Warriors!!!',
+    body: 'If Deangelo Russell finds a way to fit into the Warriors offense the Warriors will still have one of the best backcourts in the NBA.',
     story_id: story3.id,
     author_id: user1.id
   )
 
   response2 = Response.create!(
-    body: 'Go Bucks!!!',
+    body: 'Signing Deangelo Russell was a good move for the Warrior despite losing Shaun Livingston, KD, and Andre Iguodola',
     story_id: story3.id,
     author_id: user2.id
   )
 
   response3 = Response.create!(
-    body: 'Go Rockets!!!',
+    body: 'Sad seeing Josh Richardson leave the Miami Heat, but Jimmy Butler is the star the Heat have been looking for.',
     story_id: story3.id,
     author_id: user3.id
   )
 
   response4 = Response.create!(
-    body: 'Go Sixers!!!',
+    body: 'With Jimmy Butler gone, it will be interesting to see how the Sixers manage late in the 4th quarter.',
     story_id: story3.id,
     author_id: user4.id
   )
@@ -335,27 +333,9 @@ ApplicationRecord.transaction do
   story4.image.attach(io: file4, filename: 'story4.jpg')
 
   response5 = Response.create!(
-    body: 'NOOOOOOOOOO',
+    body: 'How will OKC do without the likes of Paul George and Russell Westbrook?',
     story_id: story4.id,
     author_id: user1.id
-  )
-
-  response6 = Response.create!(
-    body: 'YESSSSSSSS',
-    story_id: story4.id,
-    author_id: user2.id
-  )
-
-  response7 = Response.create!(
-    body: 'YAAAAAAAAAAAA',
-    story_id: story4.id,
-    author_id: user3.id
-  )
-
-  response8 = Response.create!(
-    body: 'WE DID ITTTTTTT',
-    story_id: story4.id,
-    author_id: user4.id
   )
 
   file5 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-clippers-nba-free-agency.jpg')
@@ -457,25 +437,19 @@ ApplicationRecord.transaction do
   story5.image.attach(io: file5, filename: 'story5.jpg')
 
   response9 = Response.create!(
-    body: 'WHAT IT DOOOO BAYBEEEEE',
+    body: 'Huge changes this offseason..',
     story_id: story5.id,
     author_id: user1.id
   )
 
   response10 = Response.create!(
-    body: 'CLIPPERS ARE TAKING THE CHIP THIS YEAR',
+    body: 'Do the Clippers have enough to win the title this year?',
     story_id: story5.id,
     author_id: user2.id
   )
 
-  response11 = Response.create!(
-    body: 'LOL RAPTORS',
-    story_id: story5.id,
-    author_id: user5.id
-  )
-
   response12 = Response.create!(
-    body: 'Poor Raptors',
+    body: 'How will the Raptors defend the title without Kawhi?',
     story_id: story5.id,
     author_id: user4.id
   )
@@ -672,21 +646,15 @@ ApplicationRecord.transaction do
   story6.image.attach(io: file6, filename: 'story6.jpg')
 
   response13 = Response.create!(
-    body: 'Zion is a BUSTTTTTT',
+    body: 'Zion Williamson',
     story_id: story6.id,
     author_id: user1.id
   )
 
   response14 = Response.create!(
-    body: 'Did Zion just get injured?!?',
+    body: 'Did Zion get injured?',
     story_id: story6.id,
     author_id: user2.id
-  )
-
-  response15 = Response.create!(
-    body: 'RJ BARRRETETTETTETE',
-    story_id: story6.id,
-    author_id: user5.id
   )
 
   file7 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kd-kyrie-free-agency.jpg')
@@ -749,7 +717,7 @@ ApplicationRecord.transaction do
   story7.image.attach(io: file7, filename: 'story7.jpg')
 
   response15 = Response.create!(
-    body: 'IS DLO GOING BACK TO THE LAKERS?!?@',
+    body: 'Back to the Lakers?',
     story_id: story7.id,
     author_id: user5.id
   )
@@ -890,17 +858,13 @@ ApplicationRecord.transaction do
     body: 'Russell Westbrook’s 11-year tenure with the Oklahoma City Thunder came to an end on Thursday, as the former MVP was traded to the Houston Rockets in exchange for Chris Paul and draft capital.
       It’s truly the end of an era for Oklahoma City, and the news came with an unfortunate coincidence. At the time of Westbrook’s trade, the guard was hosting an actual comedy show in Tulsa.
       As you can imagine, some people had fun with that.
-
       Of course, it’s worth noting that Westbrook was hosting the show to benefit the “Light It Up Foundation, a non-profit founded by former Kansas State receiver and Tulsa native Tyler Lockett to help student-athletes reach college and provide Thanksgiving and Christmas meals to family.
-
       That Westbrook was busy running a charity event for an Oklahoma city more than 100 miles from his team’s arena while trade rumors flew should say a lot about what the state meant to Westbrook and vice versa. The city and mayor of Oklahoma City both thanked Westbrook when the news broke, as did Lockett.
-
       Oklahoma City Thunder guard Russell Westbrook slaps hands with fans as he leaves the floor after an NBA basketball game against the Milwaukee Bucks in which he tied the record for triple-doubles in a season in Oklahoma City, Tuesday, April 4, 2017. Oklahoma City won 110-79. (AP Photo/Sue Ogrocki)
       Russell Westbrook occupies an important place on Oklahoma City Thunder history. (AP Photo/Sue Ogrocki)
       More
       It should also say something that Westbrook still faced the crowd after the trade came to light. He took a moment to thank Oklahoma, according to Brandon ‘Scoop B’ Robinson of Heavy.
       Westbrook has a been a member of the Thunder for as long as the team has been in Oklahoma, and he won one MVP, two scoring titles, two assists titles, eight All-NBA selections and a record three seasons in which he averaged a triple-double during his 11 years there.
-
       He only got as far as the NBA Finals when Kevin Durant and James Harden were on the team, but that is still quite a ride.',
     author_id: user5.id
   )
@@ -910,19 +874,12 @@ ApplicationRecord.transaction do
   story10 = Story.create!(
     title: 'DeMarcus Cousins and AD Will Be Reunited Again',
     body: 'DeMarcus Cousins and Anthony Davis are set to play together again. And its a pairing that adds up in many ways.
-
       Cousins agreed to a one-year deal withe Los Angeles Lakers Saturday, reuniting the duo that played on the New Orleans Pelicans together in 2017-18, as well as part of the prior season.
-
       Up until Saturday’s deal, Cousins had been an afterthought in a hectic free agency period due to concerns over his health after only playing 30 regular-season games last season, as well as a lackluster postseason performance. But if there’s anyone for Cousins to play with to get back to his old self, it’s Davis. 
-
       When the pair played together in New Orleans, Cousins had one of the best years of his career. He averaged a career-high 12.9 rebounds and 5.4 assists, as well as 25.2 points a game. He also had his highest effective field goal percentage that season at 53.0. 
-
       Davis had a stellar season in 2017-18 as well, scoring 28.1 points a game — the highest average of his career. He also recorded his highest three-point percentage at 34 percent. 
-
       The chemistry could benefit the Lakers immensely. New Orleans finished with a 48-34 record and made it to the Western Conference semifinals for the first time since 2007-08 that season. While Cousins had  a season-ending Achilles tear in January of 2018 and therefore wasn’t part of the postseason run, his play with Davis was crucial to setting up the team to get to the playoffs after missing the mark the past two seasons.
-
       Rajon Rondo, who also signed with Los Angeles Saturday, was on that 2017-18 team as well — though his role was much smaller. 
-
       Davis and Cousins have proved to be a dangerous frontcourt together, bringing out the best in each other. And now LeBron James will be in the mix as well. It’s not the big three the Lakers initially hoped for with Kawhi Leonard, but nonetheless they’ve still got three All-Star talents on the roster.',
     author_id: user6.id
   )
@@ -1071,7 +1028,7 @@ ApplicationRecord.transaction do
   story11.image.attach(io: file11, filename: 'story11.jpg')
 
   response18 = Response.create!(
-    body: 'KOBE the GOAT',
+    body: 'KOBE',
     story_id: story11.id,
     author_id: user1.id
   )
@@ -1392,6 +1349,4 @@ ApplicationRecord.transaction do
     author_id: user8.id
   )
   story20.image.attach(io: file20, filename: 'story20.jpg')
-
-  puts "Done seeding?"
 end

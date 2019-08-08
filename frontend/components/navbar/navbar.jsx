@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class navBar extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -25,7 +25,7 @@ class navBar extends React.Component {
     });
   }
 
-  searchBar(){
+  searchBar() {
     if(this.props.location.pathname.slice(1).includes("search")){
       return null;
     }
