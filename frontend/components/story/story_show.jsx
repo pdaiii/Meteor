@@ -44,6 +44,18 @@ class StoryShow extends React.Component {
         )
       }
     })
+    var body_text = this.props.story.body;
+    var formatted_text_arr = body_text.split("\n");
+    let story_txt = formatted_text_arr.map(line => {
+      return(
+        <div>
+          {line}
+          <br></br>
+          <br></br>
+        </div>
+      )
+    });
+    debugger
     return (
       <div className="story-show">
         <div className="story-show-position">
@@ -73,7 +85,8 @@ class StoryShow extends React.Component {
               <img src={`${this.props.story.image}`} />
             </div>
 
-            <h2 className="story-show-body">{this.props.story.body}</h2>
+            {/* <h2 className="story-show-body">{this.props.story.body}</h2> */}
+            <h2 className="story-show-body">{story_txt}</h2>
 
             <footer className="story-show-footer">
               <p className="clap-icon">

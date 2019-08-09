@@ -2221,6 +2221,12 @@ function (_React$Component) {
           });
         }
       });
+      var body_text = this.props.story.body;
+      var formatted_text_arr = body_text.split("\n");
+      var story_txt = formatted_text_arr.map(function (line) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, line, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+      });
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2253,7 +2259,7 @@ function (_React$Component) {
         src: "".concat(this.props.story.image)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "story-show-body"
-      }, this.props.story.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+      }, story_txt), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "story-show-footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "clap-icon"
