@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     resources :stories, only: [:create, :show, :index, :update, :destroy] do
+      patch '/claps', to: 'stories#update_likes'
       resources :responses, only: [:index, :create]
     end
     resources :responses, only: [:destroy]

@@ -266,7 +266,7 @@ var signup = function signup(user) {
 /*!********************************************!*\
   !*** ./frontend/actions/story_actions.jsx ***!
   \********************************************/
-/*! exports provided: RECEIVE_ALL_STORIES, RECEIVE_STORY, DESTROY_STORY, fetchAllStories, fetchStory, createStory, updateStory, deleteStory */
+/*! exports provided: RECEIVE_ALL_STORIES, RECEIVE_STORY, DESTROY_STORY, fetchAllStories, fetchStory, createStory, updateStory, updateStoryLikes, deleteStory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -278,6 +278,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchStory", function() { return fetchStory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStory", function() { return createStory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStory", function() { return updateStory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStoryLikes", function() { return updateStoryLikes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteStory", function() { return deleteStory; });
 /* harmony import */ var _util_story_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/story_util */ "./frontend/util/story_util.js");
 
@@ -331,6 +332,13 @@ var createStory = function createStory(story) {
 var updateStory = function updateStory(story, story_id) {
   return function (dispatch) {
     return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["updateStory"](story, story_id).then(function (story) {
+      return dispatch(receiveStory(story));
+    });
+  };
+};
+var updateStoryLikes = function updateStoryLikes(story, story_id) {
+  return function (dispatch) {
+    return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["updateStoryLikes"](story, story_id).then(function (story) {
       return dispatch(receiveStory(story));
     });
   };
@@ -1715,7 +1723,6 @@ function (_React$Component) {
   }, {
     key: "handleImage",
     value: function handleImage(event) {
-      // Sets the image property to the file uploaded.
       this.setState(_defineProperty({}, 'image', event.currentTarget.files[0]));
     }
   }, {
@@ -2154,9 +2161,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2174,23 +2181,30 @@ var StoryShow =
 function (_React$Component) {
   _inherits(StoryShow, _React$Component);
 
-  function StoryShow() {
+  function StoryShow(props) {
+    var _this;
+
     _classCallCheck(this, StoryShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(StoryShow).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(StoryShow).call(this, props));
+    _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(StoryShow, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchStory(this.props.match.params.storyId);
-      this.props.fetchAllResponses(this.props.match.params.storyId);
-      window.scroll(0, 0);
+    key: "updateClapCounter",
+    value: function updateClapCounter(event) {
+      var formData = new FormData();
+      formData.append('story[title]', this.props.story.title);
+      formData.append('story[body]', this.props.story.body);
+      formData.append('story[image]', this.props.story.image);
+      formData.append('story[count]', this.props.story.count + 1);
+      this.props.updateStoryLikes(formData, this.props.story.id);
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       var creatingResponses;
       var responses;
@@ -2198,8 +2212,7 @@ function (_React$Component) {
 
       if (!this.props.story) {
         return null;
-      } // Render the write response form for logged in users.
-
+      }
 
       if (this.props.currentUserId) {
         creatingResponses = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -2207,17 +2220,16 @@ function (_React$Component) {
         });
       } else {
         creatingResponses = null;
-      } // Get all of the responses for this story.
-
+      }
 
       responses = Object.values(this.props.responses);
       storyResponses = responses.map(function (response) {
-        if (response.story_id === _this.props.story.id) {
+        if (response.story_id === _this2.props.story.id) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
             key: response.id,
             response: response,
-            deleteResponse: _this.props.deleteResponse,
-            currentUserId: _this.props.currentUserId
+            deleteResponse: _this2.props.deleteResponse,
+            currentUserId: _this2.props.currentUserId
           });
         }
       });
@@ -2226,7 +2238,6 @@ function (_React$Component) {
       var story_txt = formatted_text_arr.map(function (line) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, line, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
       });
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2261,11 +2272,16 @@ function (_React$Component) {
         className: "story-show-body"
       }, story_txt), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "story-show-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "clap-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "clap-btn",
+        onClick: this.updateClapCounter
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "clap-counter"
+      }, this.props.story.count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "media-icons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "twitter-icon"
@@ -2313,8 +2329,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var story = state.entities.stories[ownProps.match.params.storyId];
   return {
-    story: state.entities.stories[ownProps.match.params.storyId],
+    story: story,
+    count: story !== undefined ? state.entities.stories[ownProps.match.params.storyId].count : 0,
     responses: state.entities.responses,
     currentUserId: state.session.id
   };
@@ -2324,6 +2342,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchStory: function fetchStory(id) {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_2__["fetchStory"])(id));
+    },
+    updateStory: function updateStory(story, id) {
+      return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_2__["updateStory"])(story, id));
+    },
+    updateStoryLikes: function updateStoryLikes(story, id) {
+      return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_2__["updateStoryLikes"])(story, id));
     },
     fetchAllResponses: function fetchAllResponses(story_id) {
       return dispatch(Object(_actions_response_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllResponses"])(story_id));
@@ -2673,23 +2697,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.jsx");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _util_user_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/user_util */ "./frontend/util/user_util.js");
-/* harmony import */ var _util_story_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/story_util */ "./frontend/util/story_util.js");
-/* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/story_actions */ "./frontend/actions/story_actions.jsx");
-/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/session_api_util */ "./frontend/util/session_api_util.js");
-/* harmony import */ var _util_response_util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./util/response_util */ "./frontend/util/response_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
- // Testing purposes
-// import {signup, login, logout} from './actions/session_actions';
-
-
-
-
-
+ // import { fetchUser } from './util/user_util';
+// import { createStory, fetchStory} from './util/story_util';
+// import { fetchAllStories, deleteStory } from './actions/story_actions';
+// import * as AJAX from './util/session_api_util';
+// import { fetchAllResponses, createResponse } from './util/response_util';
 
 document.addEventListener('DOMContentLoaded', function () {
   var store;
@@ -2707,21 +2724,22 @@ document.addEventListener('DOMContentLoaded', function () {
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  }
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch; // User Auth Testing Tools
+  } // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // User Auth Testing Tools
   // window.signup = signup;
   // window.login = login;
   // window.logout = logout;
+  // window.signup = AJAX.signup;
+  // window.fetchUser = fetchUser;
+  // window.fetchAllStories = fetchAllStories;
+  // window.createStory = createStory;
+  // window.deleteStory = deleteStory;
+  // window.fetchStory = fetchStory;
+  // window.createResponse = createResponse;
+  // window.fetchAllResponses = fetchAllResponses;
 
-  window.signup = _util_session_api_util__WEBPACK_IMPORTED_MODULE_7__["signup"];
-  window.fetchUser = _util_user_util__WEBPACK_IMPORTED_MODULE_4__["fetchUser"];
-  window.fetchAllStories = _actions_story_actions__WEBPACK_IMPORTED_MODULE_6__["fetchAllStories"];
-  window.createStory = _util_story_util__WEBPACK_IMPORTED_MODULE_5__["createStory"];
-  window.deleteStory = _actions_story_actions__WEBPACK_IMPORTED_MODULE_6__["deleteStory"];
-  window.createResponse = _util_response_util__WEBPACK_IMPORTED_MODULE_8__["createResponse"];
-  window.fetchAllResponses = _util_response_util__WEBPACK_IMPORTED_MODULE_8__["fetchAllResponses"];
+
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
@@ -3287,7 +3305,7 @@ var logout = function logout() {
 /*!*************************************!*\
   !*** ./frontend/util/story_util.js ***!
   \*************************************/
-/*! exports provided: fetchAllStories, fetchStory, createStory, updateStory, deleteStory */
+/*! exports provided: fetchAllStories, fetchStory, createStory, updateStory, updateStoryLikes, deleteStory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3296,6 +3314,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchStory", function() { return fetchStory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStory", function() { return createStory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStory", function() { return updateStory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStoryLikes", function() { return updateStoryLikes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteStory", function() { return deleteStory; });
 var fetchAllStories = function fetchAllStories() {
   return $.ajax({
@@ -3337,6 +3356,15 @@ var updateStory = function updateStory(story, story_id) {
   return $.ajax({
     method: 'PATCH',
     url: "/api/stories/".concat(story_id),
+    data: story,
+    contentType: false,
+    processData: false
+  });
+};
+var updateStoryLikes = function updateStoryLikes(story, story_id) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/stories/".concat(story_id, "/claps"),
     data: story,
     contentType: false,
     processData: false

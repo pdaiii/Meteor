@@ -6,10 +6,18 @@ import { monthDay } from '../../util/month_day_util';
 import { timeToRead } from '../../util/time_to_read_util';
 
 class StoryShow extends React.Component {
-  componentDidMount() {
-    this.props.fetchStory(this.props.match.params.storyId);
-    this.props.fetchAllResponses(this.props.match.params.storyId);
-    window.scroll(0, 0);
+  constructor(props) {
+    super(props);
+    this.updateClapCounter = this.updateClapCounter.bind(this);
+  }
+
+  updateClapCounter(event) {
+    const formData = new FormData();
+    formData.append('story[title]', this.props.story.title);
+    formData.append('story[body]', this.props.story.body);
+    formData.append('story[image]', this.props.story.image);
+    formData.append('story[count]', this.props.story.count+1);
+    this.props.updateStoryLikes(formData, this.props.story.id);
   }
 
   render() {
@@ -19,8 +27,6 @@ class StoryShow extends React.Component {
     if(!this.props.story){
       return null;
     }
-
-    // Render the write response form for logged in users.
     if(this.props.currentUserId){
       creatingResponses = 
       <ResponseContainer
@@ -30,7 +36,6 @@ class StoryShow extends React.Component {
     else{
       creatingResponses = null;
     }
-    // Get all of the responses for this story.
     responses = Object.values(this.props.responses);
     storyResponses = responses.map(response => {
       if (response.story_id === this.props.story.id) {
@@ -55,7 +60,6 @@ class StoryShow extends React.Component {
         </div>
       )
     });
-    debugger
     return (
       <div className="story-show">
         <div className="story-show-position">
@@ -85,13 +89,14 @@ class StoryShow extends React.Component {
               <img src={`${this.props.story.image}`} />
             </div>
 
-            {/* <h2 className="story-show-body">{this.props.story.body}</h2> */}
             <h2 className="story-show-body">{story_txt}</h2>
-
             <footer className="story-show-footer">
-              <p className="clap-icon">
-                <button><i className='far fa-thumbs-up'></i></button>
-              </p>
+              
+              <div className="clap-icon">
+                <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button>
+                <p className="clap-counter">{this.props.story.count}</p>
+              </div>
+
               <div className="media-icons">
                 <div className="twitter-icon">
                   <button><i className="fa fa-twitter"></i></button>

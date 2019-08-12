@@ -2,13 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-// Testing purposes
-// import {signup, login, logout} from './actions/session_actions';
-import { fetchUser } from './util/user_util';
-import { createStory} from './util/story_util';
-import { fetchAllStories, deleteStory } from './actions/story_actions';
-import * as AJAX from './util/session_api_util';
-import { fetchAllResponses, createResponse } from './util/response_util';
+// import { fetchUser } from './util/user_util';
+// import { createStory, fetchStory} from './util/story_util';
+// import { fetchAllStories, deleteStory } from './actions/story_actions';
+// import * as AJAX from './util/session_api_util';
+// import { fetchAllResponses, createResponse } from './util/response_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -25,21 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
 
   // User Auth Testing Tools
   // window.signup = signup;
   // window.login = login;
   // window.logout = logout;
-  window.signup = AJAX.signup;
-  window.fetchUser = fetchUser;
-  window.fetchAllStories = fetchAllStories;
-  window.createStory = createStory;
-  window.deleteStory = deleteStory;
+  // window.signup = AJAX.signup;
+  // window.fetchUser = fetchUser;
+  // window.fetchAllStories = fetchAllStories;
+  // window.createStory = createStory;
+  // window.deleteStory = deleteStory;
+  // window.fetchStory = fetchStory;
 
-  window.createResponse = createResponse;
-  window.fetchAllResponses = fetchAllResponses;
+  // window.createResponse = createResponse;
+  // window.fetchAllResponses = fetchAllResponses;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

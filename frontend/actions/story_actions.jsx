@@ -49,6 +49,13 @@ export const updateStory = (story, story_id) => {
   };
 };
 
+export const updateStoryLikes = (story, story_id) => {
+  return dispatch => {
+    return APIStoryUtil.updateStoryLikes(story, story_id)
+      .then(story => dispatch(receiveStory(story)))
+  };
+};
+
 export const deleteStory = (id) => {
   return dispatch => {
     return APIStoryUtil.deleteStory(id)

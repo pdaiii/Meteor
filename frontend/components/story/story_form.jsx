@@ -16,7 +16,6 @@ class StoryForm extends React.Component {
   };
 
   handleImage(event) {
-    // Sets the image property to the file uploaded.
     this.setState({['image']: event.currentTarget.files[0]});
   }
 

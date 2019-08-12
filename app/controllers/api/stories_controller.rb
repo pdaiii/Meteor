@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::StoriesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
@@ -30,15 +32,24 @@ class Api::StoriesController < ApplicationController
     end
   end
 
+  def update_likes
+    @story = Story.find(params[:story_id])
+    if @story.update_attribute(:count, story_params[:count])
+      render 'api/stories/show'
+    else
+      render json: @story.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
     @story = Story.find(params[:id])
-    @story.destroy 
+    @story.destroy
     @stories = Story.all
     render 'api/stories/index'
   end
 
   private
   def story_params
-      params.require(:story).permit(:title, :body, :image)
+    params.require(:story).permit(:title, :body, :image, :count)
   end
 end

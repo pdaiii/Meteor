@@ -24,7 +24,6 @@ const App = () => (
       <Route path="/stories/:storyId" component={StoryShowContainer}/>
       <Route path="/users/:userId" component={UserShowContainer} />
       <Route exact path="/" component={StoryIndexContainer}/>
-       {/* Protect the Search  */}
       <Route path="/search" component={SearchBar}/>
       <Redirect to="/" component={StoryIndexContainer}/>
     </Switch>

@@ -49,6 +49,16 @@ export const updateStory = (story, story_id) => {
   })
 };
 
+export const updateStoryLikes = (story, story_id) => {
+  return $.ajax ({
+    method: 'PATCH',
+    url: `/api/stories/${story_id}/claps`,
+    data: story,
+    contentType: false,
+    processData: false
+  })
+}
+
 export const deleteStory = (id) => {
   return $.ajax ({
     method: 'DELETE',
