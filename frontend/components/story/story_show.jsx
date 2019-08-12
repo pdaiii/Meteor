@@ -11,6 +11,12 @@ class StoryShow extends React.Component {
     this.updateClapCounter = this.updateClapCounter.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchStory(this.props.match.params.storyId);
+    this.props.fetchAllResponses(this.props.match.params.storyId);
+    window.scroll(0, 0);
+  }
+
   updateClapCounter(event) {
     const formData = new FormData();
     formData.append('story[title]', this.props.story.title);

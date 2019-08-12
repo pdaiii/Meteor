@@ -2192,6 +2192,13 @@ function (_React$Component) {
   }
 
   _createClass(StoryShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchStory(this.props.match.params.storyId);
+      this.props.fetchAllResponses(this.props.match.params.storyId);
+      window.scroll(0, 0);
+    }
+  }, {
     key: "updateClapCounter",
     value: function updateClapCounter(event) {
       var formData = new FormData();
