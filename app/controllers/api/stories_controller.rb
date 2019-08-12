@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::StoriesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
@@ -15,7 +13,6 @@ class Api::StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
-    render 'api/stories/show'
   end
 
   def index
