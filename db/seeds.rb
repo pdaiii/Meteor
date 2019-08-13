@@ -106,63 +106,34 @@ ApplicationRecord.transaction do
   story2 = Story.create!(
     title: 'After the Lottery-Pick Apocalypse',
     body: 'Struggling NBA teams generally need one of two things in order to rebuild: an established star or high lottery picks. Just as wealth begets wealth, it takes a star — or the promise of future stars — to break a cycle of mediocrity, allowing teams to draw marquee free agents who can get paid anywhere and prefer destinations where championships are plausible.
-
       But when New Zealand basketball legend Sean Marks took over as general manager of the Brooklyn Nets last year, he had neither.
-
       Brook Lopez, Thaddeus Young, Joe Johnson, and Bojan Bogdanovic are all useful players, but none can be described as elite, or even elite-adjacent.
-
       The Nets are in a years-long talent trough that is the direct result of owner Mikhail Prokhorov’s brash promise, upon purchasing the team in 2010, to produce a championship within five years.
-
       His decisions following that pledge haunt the Nets to this day and threaten to keep them far behind the NBA’s elite teams until the end of the decade.
-
       Given a win-now mandate from Prokhorov, then–general manager Billy King traded precious assets for disappointments like Deron Williams, giving away lottery picks even for ancillary pieces like Gerald Wallace, before finally committing what may go down as the biggest atrocity in NBA transaction history.
-
       Seeing itself as a team on the precipice of true contention after a 49–33 season in 2012–13, the Nets traded for the fading Boston Celtics core duo of Paul Pierce and Kevin Garnett. In the massive 15-player deal, the Nets gave up their 2016 first-round pick, their 2018 first-round pick, and even swapped their 2017 pick for Boston’s.
-
       Failing to lottery-protect those picks went against NBA best practices of the time — say, if the pick landed in the top three or top five, the Nets could hold onto its thus far more valuable asset. King didn’t do that, not with any of them.
-
       And when Prokhorov pulled the plug on the Garnett-Pierce experiment by unexpectedly deciding against re-signing Pierce, the Nets were left with little present and no future.
-
       So Marks, along with his handpicked coach, Kenny Atkinson, understands that what they’ve signed up for isn’t easy or all that likely to yield success anytime soon.
-
       “That goes back to when I was first offered the job, or wanted to take the job,” Marks said last month, during the team’s media day in Brooklyn. “We knew the challenge that was laid out ahead of us, and none of us have looked back and said, oh, what if we had this or that—we didn’t bring it up. So, forget about it, move on. It’s certainly a challenge, but it’s a good challenge. It’s like, how do we get creative here?”
-
       The team Marks has assembled is a testament to the pursuit of stars through unconventional means.
-
       So Kevin Durant was never coming to Brooklyn when he reached free agency last summer, signing instead with the Warriors. Marks’ big acquisition via free agency was Jeremy Lin, acting under the reasonable assumption that the league had improperly valued Lin several seasons removed from his brief, spectacular star turn back in 2011–12 with the Knicks.
-
       Injuries limited Lin to just 36 games, many of them with minutes restrictions as he tried to work his way back from a hamstring tear.
-
       But Marks looks to have been right about Lin’s ability. He had worked with Atkinson during his Knicks tenure, when Atkinson was an assistant coach. Lin finished with a player efficiency rating of 19.2, just down from his 19.9 in New York, with an assist percentage of 35.5, good for 13th in the league had he played a full season.
-
       Lin is 29 and signed for another two years, yet the question was asked of Marks whether he considered Lin a mere mentor for the younger Nets.
-
       “Well, I would hope he’s far more than just a mentor,” Marks said. “And I know Jeremy wants far more than that, too. So I think when you talk about the face of the franchise, that’s not something that either Kenny or myself stand up here and go, Jeremy, you’re the face, D’Angelo, you’re the face, Trevor — we don’t do that. This is something that, ultimately, the fan base, the media, anoints these people, right or wrong, and for us, it’s always been about team. It’s the way he wants to play.”
-
       Lin is less someone the Nets are building around, and more of the prototype, a reality brought into sharp relief when Lin suffered a season-ending knee injury in the season opener. Like the huge deal this summer to trade longtime Net Brook Lopez to the Los Angeles Lakers for D’Angelo Russell. It was a no-brainer of a trade to make, with Lopez even older than Lin, and Russell not yet 22, two years removed from getting selected second overall in the 2015 NBA Draft.
-
       Russell clashed with his teammates to the point that the Lakers shipped him out. His size and skills are not in doubt, but he has yet to figure out how to play at an elite level, much less how to lead a team on the court.
-
       Marks acknowledged that such questions exist.
-
       “We’ve had candid conversations with D’Angelo, just like we’ve had with all of our guys,” Marks said. “And it’s Kenny and myself, it’s the coaching staff with him, and D’Angelo knows the expectations of him. He wants to come in; he has a chip on his shoulder. He knows that defensively, he’s got to get better. But he’s gotta get better in a lot of different things. His all-around game. We all know he makes players better, and he’s got a high basketball IQ. Now, how does he take that on the court here, with a new group of guys that he’s never played with before, and how do they develop trust together?”
-
       In the NBA, such would-be stars exist in droves and are usually known as role players. But sometimes a missing piece is added, and players reach new, higher ground. Isaiah Thomas. Draymond Green. Even Steph Curry.
-
       So, until the first-round picks return in 2019, and perhaps after that, the Nets are instead waiting for Rondae Hollis-Jefferson to develop a consistent jump shot, Caris LeVert to stay healthy and improve his three-pointer, Allen Crabbe to find a game around his three-pointer.
-
       In the meantime, the Nets are building a first-tier player development mechanism that has started to yield results — Lopez, for instance, became a dangerous perimeter force later in his career, and LaVert exceeded expectations as a rookie.
-
       “That progress throughout the year, I’m more excited about that than seeing a guy like Brook, for instance, no longer here, but a guy takes his game to a different level,” Marks said. “Adding an outside shot and so forth. And it’s not just things you see on the court; it’s things you see off the court. How do you develop those leadership skills? How do you mature and so forth. And that’s going to be a big part of what we’re trying to do with this group moving forward.”
-
       Marks knows he can’t control the length of the runway the owner will end up giving him for the rebuild. But he and Atkinson seem to be doing their best to maintain their good humor, or at least their sanity, in the meantime.
-
       “I think one way we do it is we spend an awful lot of time in each other’s office,” Marks said. “I think it’s important that [for] Kenny, our doors are open…and Kenny can come in there and vent to me about whatever is on his mind, or just ideas. I think when you find guys that are, like, basketball purists and really love the game, Kenny will come to me and say, ‘Hey, I was watching today, and I saw this,’ or, ‘I was watching this game, like, you’ve got Oklahoma City, like, what are you doing?’”
-
       Atkinson said that the distance provided by the GM role allows Marks to talk him “off the cliff” after games.
-
       While rumors persist that Prokhorov intends to sell the team, and no guarantee exists that a new owner will afford Atkinson and Marks the requisite time to wait out the transaction calamity that got the Nets here, they’ll continue the small-bore work of improving the team to achieve what Marks called “those small wins along the way.”
-
       “I think we’re so involved in—this sounds so cliché—the process, and just trying to find our little wins every day in every area of this organization, every corner of this facility,” Atkinson said. “When we go from Barclays Center we’re never like, ‘Hey man, could you imagine when we’re in the playoffs?’ There’s none of that talk.”',
       author_id: user2.id
   )
@@ -172,137 +143,71 @@ ApplicationRecord.transaction do
   story3 = Story.create!(
     title: 'The 10 Biggest Takeaways from a Wild Opening Day of NBA Free Agency',
     body: 'WELL, HOLY CRAP! 2019 NBA FREE AGENCY CAME IN LIKE A LION and roared for eight hours straight until darn near every free agent was signed before midnight struck and turned to the new league fiscal year. Kevin Durant and Kyrie Irving are Nets. Kemba Walker is a Celtic. Jimmy Butler is in Miami. Al Horford’s in Philly. And just about no one is in New York or L.A.
-
       It was one of the wildest days in NBA history, and the entire league looks different on July 1 than it did just one month ago. Almost everyone has signed other than the big kahuna, Kawhi Leonard, and even the minor characters are mostly gone. The NBA saw over $3 billion in contracts agreed to in its first 24 hours of free agency, which technically aren’t even over yet.
-
       Let’s bounce around the league and look at the 10 biggest takeaways of a wild opening day of 2019 NBA free agency…
-
-      1. The Brooklyn Nets won free agency
-      
+      1. The Brooklyn Nets won free agency      
       Kyrie Irving and Kevin Durant are Nets. That is a real thing. It’s crazy how much of a footnote it felt by the end of the day since the Kyrie news was on lock for weeks and the Durant announcement was one of the first of the day. But it’s by far the biggest news of the day.
-
       In my free agency preview, I deemed only three veterans worthy of a full max contract. The Nets just got two of them, and they got them for less than the max too, since Kyrie and KD are apparently giving up some cash so their very fortunate buddy DeAndre Jordan can tag along in the least big Big Three yet.
-
       The best NBA duos are now Lakers and Nets, and Brooklyn’s duo have both proven it on the biggest stage. Don’t underestimate how good the Nets already are. If Kevin Durant were healthy, this would be the immediate championship favorite. Everyone had fun smack talking Kyrie Irving but he remains one of the top 10 or 12 players in the league — Giannis, Kawhi, LeBron, Steph, and Harden in some order, followed by some mix of Dame, Brow, Jokic, Kyrie, Embiid, Butler, plus Durant somewhere along the way.
-
       Healthy KD and Kyrie are really good, like just as good as LeBron/Brow, like just as good as LeBron/Wade. Like championship-caliber good. And it’s not just those guys. DeAndre Jordan, Jarrett Allen, and Nic Claxton are good bigs. Caris LeVert was breaking out before his injury. Spencer Dinwiddie might have been their best player in 2018–19. Garrett Temple, Joe Harris, Taurean Waller-Prince, and Rodions Kurucs are quality, versatile rotation pieces.
-
       Now the Nets just need to get Kyrie and KD healthy. There’s a faint whiff of early 2000s Orlando Magic here, when Tracy McGrady and Grant Hill never got healthy on the same page, never made their run. Durant won’t be healthy this year, if he plays at all. Kyrie misses 15 or 20 games a season and has missed two playoff runs.
-
       If the Brooklyn Nets ever get to April healthy, they may be the title favorite. But they might also get only one or two chances, if they get one at all.
-
-      It’s a risk they had to take, certainly. But the team that wins free agency isn’t always the one that wins in June.
-      
-      2. The Warriors as we know them are dead.
-      
-      It wasn’t supposed to happen this way.
-      
-      Boogie’s quad. Durant’s Achilles. Klay’s ACL. There are no asterisks in sports, but we all know the playoffs would have played out differently with a full Warriors roster. Golden State never lost a playoff series with Steph, Klay, Draymond, and Durant healthy. And now they never will.
-      
-      Durant leaving was one thing. We knew all year that might be coming. But then, at the end of a wild night, the Warriors shocked the NBA by completing a sign-and-trade for D’Angelo Russell. His incoming max contract means the Ws are hard capped and immediately led to another move, with Golden State paying a mostly unprotected first to send Andre Iguodala to Memphis to clear salary. Shaun Livingston will be next, one way or another. Kevon Looney won’t be back. Boogie is gone. Even names like Quinn Cook and Jordan Bell will be elsewhere this fall.
-      
-      The Warriors as we know them are dead. They’ll enter this season with a three-man team of Curry, Draymond, and… D’Angelo Russell? It’s still so jarring. They’ll get Klay eventually, at which point they’ll have over $100 million committed to three guards that can’t play together. DLo wants the ball in his hands and is used to being the star, pretty much the antithesis of what made Warriors basketball so beautiful. Around those three it’ll be youngsters Jacob Evans, Jordan Poole, and Eric Paschall plus a new cast of veterans. That’s a 2.5-man team with little support in a deep, retooled West. Golden State might not even make the playoffs next season. And that’s not even taking into account the two first-round picks Golden State paid to do this or the max deal they’re giving to a guy that isn’t worth it right now.
-      
-      Losing Durant stings, but Iggy’s departure is the real death of these Warriors. His tenacity, leadership, intelligence, and defense was a key part of the best the Warriors had to offer in this run. He was part of every great Ws lineup. There’s no more Hamptons Five. No more Death Lineup. It’s over.
-      
-      The Warriors will reload. Maybe they’ll flip DLo as an asset play once Klay returns. They’re not dead. But they are dead as we know them. RIP.
-      
-      3. The Lakers are ALL in on Kawhi Leonard.
-      
-      The Lakers never seem to have a Plan B. Lakers exceptionalism at its finest.
-      
-      So it’s all in on Kawhi Leonard.
-      
-      Kawhi is the only one of this summer’s 12 marquee free agents standing — and reportedly hasn’t even taken a meeting yet. The Raptors, Clippers, and Lakers are waiting. Toronto either keeps him and runs it back or plays things out without him. The Clips either get him or run it back with a fun, young roster and plenty of avenues going forward. But the Lakers have a three-man team, a bunch of cap room they moved heaven and earth to drum up, and exactly one man left worth spending it on.
-      
-      We wondered if the Lakers might sign Kyrie or Kemba to play with LeBron and Anthony Davis. We thought it might be Butler or a run at DLo, or that they might split their cap room between veterans like Patrick Beverley, Cory Joseph, Rodney Hood, or Jeremy Lamb. Nope, nope, nope, and nope. Every one of those names is off the board.
-      
-      There is no Plan B. There’s no Plan C or D or E. If Kawhi doesn’t come, the Lakers might literally have to bring back Rajon Rondo and Kentavious Caldwell-Pope. They might have to absorb someone like Jeff Teague or Goran Dragic or themselves into Austin Rivers or Iman Shumpert. And this is their starting back court!! We haven’t even thought about building depth. And some of those names will probably be signed by the time you read this, too.
-      
-      L.A. didn’t even pony up to keep Reggie Bullock, their presumed de facto two, now gone to New York. Heck, even if Kawhi signs, the Lakers STILL don’t have any guards. They’ll have Kawhi, Bron, and Brow and it probably won’t matter, but still. They’re out of options.
-      
-      I don’t think it’s hit everyone just how bad this is all going to look for the Lakers if Kawhi doesn’t come and they strike out finding a star to play with LeBron a second straight summer in a wide open year.
-      
-      4. Kawhi Leonard is the kingmaker.
-      
-      The Nets are a year away. The Warriors are dead. The Lakers are incomplete. The Bucks got worse. The Sixers reset. The Rockets hate each other. The league remains wide open, even with every free agent in their new home.
-      
-      And that means Kawhi Leonard is the kingmaker. Whoever gets Kawhi is the new favorite. If it’s the Lakers, duh. If it’s the Raptors, it means Danny Green too and running back a championship roster. Even if it’s the Clippers, it’s fair to like their chances now that we’ve seen what Kawhi can do with a strong supporting cast.
-      
-      The world is your oyster, Kawhi. We wait.
-      
-      5. The 76ers are zigging with everyone zagging.
-      
-      Goodbye Jimmy Butler and J.J. Redick. Hello Al Horford and Josh Richardson. And get paid, Tobias Harris.
-      
-      I love the Horford contract and hate the Harris one, and I’d rather have Richardson on his current contract than Butler on a max. The Sixers remixed their lineup again, with an even bigger, more defensive starting five of Ben Simmons, JRich, Tobias, Horford, and Joel Embiid.
-      
-      And I like it.
-      
-      I like that Philly is doing something different when the league is increasingly going smaller, focusing on offense and spacing. This is interesting! Horford and Richardson are 37% shooters and add more spacing overall than Redick and Butler — two shooters are more than one, and Butler made under one 3 per game in Philadelphia. This also means more shots for Harris, who ought to be taking the most shots in Philly now. And it means more time with the ball for Simmons and a possible Giannis role driving into more space with four willing shooters around him.
-      
-      It just feels like everyone fits better. Richardson is the willing role-playing defender Butler once deigned himself to be. Horford will be a great high-low option with Embiid. Redick isn’t there to be hunted on defense anymore; now the weakest defensive link is Harris, a much bigger, more versatile defender. The offense will be more egalitarian. The defense will be more versatile.
-      
-      This is interesting!
-      
+      It’s a risk they had to take, certainly. But the team that wins free agency isn’t always the one that wins in June.      
+      2. The Warriors as we know them are dead.      
+      It wasn’t supposed to happen this way.      
+      Boogie’s quad. Durant’s Achilles. Klay’s ACL. There are no asterisks in sports, but we all know the playoffs would have played out differently with a full Warriors roster. Golden State never lost a playoff series with Steph, Klay, Draymond, and Durant healthy. And now they never will.      
+      Durant leaving was one thing. We knew all year that might be coming. But then, at the end of a wild night, the Warriors shocked the NBA by completing a sign-and-trade for D’Angelo Russell. His incoming max contract means the Ws are hard capped and immediately led to another move, with Golden State paying a mostly unprotected first to send Andre Iguodala to Memphis to clear salary. Shaun Livingston will be next, one way or another. Kevon Looney won’t be back. Boogie is gone. Even names like Quinn Cook and Jordan Bell will be elsewhere this fall.      
+      The Warriors as we know them are dead. They’ll enter this season with a three-man team of Curry, Draymond, and… D’Angelo Russell? It’s still so jarring. They’ll get Klay eventually, at which point they’ll have over $100 million committed to three guards that can’t play together. DLo wants the ball in his hands and is used to being the star, pretty much the antithesis of what made Warriors basketball so beautiful. Around those three it’ll be youngsters Jacob Evans, Jordan Poole, and Eric Paschall plus a new cast of veterans. That’s a 2.5-man team with little support in a deep, retooled West. Golden State might not even make the playoffs next season. And that’s not even taking into account the two first-round picks Golden State paid to do this or the max deal they’re giving to a guy that isn’t worth it right now.      
+      Losing Durant stings, but Iggy’s departure is the real death of these Warriors. His tenacity, leadership, intelligence, and defense was a key part of the best the Warriors had to offer in this run. He was part of every great Ws lineup. There’s no more Hamptons Five. No more Death Lineup. It’s over.      
+      The Warriors will reload. Maybe they’ll flip DLo as an asset play once Klay returns. They’re not dead. But they are dead as we know them. RIP.      
+      3. The Lakers are ALL in on Kawhi Leonard.      
+      The Lakers never seem to have a Plan B. Lakers exceptionalism at its finest.      
+      So it’s all in on Kawhi Leonard.      
+      Kawhi is the only one of this summer’s 12 marquee free agents standing — and reportedly hasn’t even taken a meeting yet. The Raptors, Clippers, and Lakers are waiting. Toronto either keeps him and runs it back or plays things out without him. The Clips either get him or run it back with a fun, young roster and plenty of avenues going forward. But the Lakers have a three-man team, a bunch of cap room they moved heaven and earth to drum up, and exactly one man left worth spending it on.      
+      We wondered if the Lakers might sign Kyrie or Kemba to play with LeBron and Anthony Davis. We thought it might be Butler or a run at DLo, or that they might split their cap room between veterans like Patrick Beverley, Cory Joseph, Rodney Hood, or Jeremy Lamb. Nope, nope, nope, and nope. Every one of those names is off the board.      
+      There is no Plan B. There’s no Plan C or D or E. If Kawhi doesn’t come, the Lakers might literally have to bring back Rajon Rondo and Kentavious Caldwell-Pope. They might have to absorb someone like Jeff Teague or Goran Dragic or themselves into Austin Rivers or Iman Shumpert. And this is their starting back court!! We haven’t even thought about building depth. And some of those names will probably be signed by the time you read this, too.      
+      L.A. didn’t even pony up to keep Reggie Bullock, their presumed de facto two, now gone to New York. Heck, even if Kawhi signs, the Lakers STILL don’t have any guards. They’ll have Kawhi, Bron, and Brow and it probably won’t matter, but still. They’re out of options.      
+      I don’t think it’s hit everyone just how bad this is all going to look for the Lakers if Kawhi doesn’t come and they strike out finding a star to play with LeBron a second straight summer in a wide open year.      
+      4. Kawhi Leonard is the kingmaker.      
+      The Nets are a year away. The Warriors are dead. The Lakers are incomplete. The Bucks got worse. The Sixers reset. The Rockets hate each other. The league remains wide open, even with every free agent in their new home.      
+      And that means Kawhi Leonard is the kingmaker. Whoever gets Kawhi is the new favorite. If it’s the Lakers, duh. If it’s the Raptors, it means Danny Green too and running back a championship roster. Even if it’s the Clippers, it’s fair to like their chances now that we’ve seen what Kawhi can do with a strong supporting cast.      
+      The world is your oyster, Kawhi. We wait.      
+      5. The 76ers are zigging with everyone zagging.      
+      Goodbye Jimmy Butler and J.J. Redick. Hello Al Horford and Josh Richardson. And get paid, Tobias Harris.      
+      I love the Horford contract and hate the Harris one, and I’d rather have Richardson on his current contract than Butler on a max. The Sixers remixed their lineup again, with an even bigger, more defensive starting five of Ben Simmons, JRich, Tobias, Horford, and Joel Embiid.      
+      And I like it.      
+      I like that Philly is doing something different when the league is increasingly going smaller, focusing on offense and spacing. This is interesting! Horford and Richardson are 37% shooters and add more spacing overall than Redick and Butler — two shooters are more than one, and Butler made under one 3 per game in Philadelphia. This also means more shots for Harris, who ought to be taking the most shots in Philly now. And it means more time with the ball for Simmons and a possible Giannis role driving into more space with four willing shooters around him.      
+      It just feels like everyone fits better. Richardson is the willing role-playing defender Butler once deigned himself to be. Horford will be a great high-low option with Embiid. Redick isn’t there to be hunted on defense anymore; now the weakest defensive link is Harris, a much bigger, more versatile defender. The offense will be more egalitarian. The defense will be more versatile.      
+      This is interesting!      
       Philly is back to being a wildcard. And they’re back to being fun now, too.
-
-      6. The East is wide open.
-      
-      Who’s your pick to win the East right now?
-      
-      The Bucks got worse, losing Malcolm Brogdon and Nikola Mirotic. The Celtics downgraded from Kyrie to Kemba and have no Horford replacement. The Pacers added Brogdon and get Oladipo back in January. The Heat got Heatier with the addition of Jimmy Butler. The Nets might be the 2021 favorite but not until we know KD is back. The Raptors are dependent on Kawhi. And the Sixers are on their umpteenth iteration in the last few seasons.
-      
-      Those are the seven teams. One of them will be in next year’s Finals. But your guess is as good as mine on which of the seven it’ll be.
-      
-      For the record, my pick right now is Philadelphia… at least until Kawhi and Danny re-sign in Toronto.
-      
-      7. The New York Knicks remain a laughingstock.
-      
-      The more things change, the more they stay the same.
-      
-      The Knicks traded Porzingis. They waived and stretched Joakim Noah. They cleared cap room and tanked all season for Zion, Kyrie, and Durant. But they didn’t win the draft lottery, and then they didn’t win the Kyrie or KD lottery either and, according to Ramon Shelburne, weren’t even willing to give Durant the full max.
-      
-      Listen, I literally wrote a whole article about the risk of signing KD off his Achilles injury. The risk is very real. But you’re the Knicks! You haven’t been relevant in 20 years!! Sometimes risk is good. Kevin Durant risk is good.
-      
-      Instead, New York “played it safe,” dropping $21 million a year on 6th-man, Julius Randle, then signing a bunch of 1+1 team-option vets in Bobby Portis, Taj Gibson, Reggie Bullock, Wayne Ellington, and Elfrid Payton. Those guys are all nice and will probably net New York some second-round picks at the deadline, and that’s fine. But not one move helps the team in any meaningful big picture way. If they weren’t going to give KD the max, at least use all that cap room to stockpile draft picks eating Andre Iguodala, Allen Crabbe, Goran Dragic, and other contracts teams. That’s four first-round picks right there the Knicks left on the table to sign a bunch of veterans just good enough to knock New York out of pole position for next #1 pick next summer.
-      
+      6. The East is wide open.      
+      Who’s your pick to win the East right now?      
+      The Bucks got worse, losing Malcolm Brogdon and Nikola Mirotic. The Celtics downgraded from Kyrie to Kemba and have no Horford replacement. The Pacers added Brogdon and get Oladipo back in January. The Heat got Heatier with the addition of Jimmy Butler. The Nets might be the 2021 favorite but not until we know KD is back. The Raptors are dependent on Kawhi. And the Sixers are on their umpteenth iteration in the last few seasons.      
+      Those are the seven teams. One of them will be in next year’s Finals. But your guess is as good as mine on which of the seven it’ll be.      
+      For the record, my pick right now is Philadelphia… at least until Kawhi and Danny re-sign in Toronto.      
+      7. The New York Knicks remain a laughingstock.      
+      The more things change, the more they stay the same.      
+      The Knicks traded Porzingis. They waived and stretched Joakim Noah. They cleared cap room and tanked all season for Zion, Kyrie, and Durant. But they didn’t win the draft lottery, and then they didn’t win the Kyrie or KD lottery either and, according to Ramon Shelburne, weren’t even willing to give Durant the full max.      
+      Listen, I literally wrote a whole article about the risk of signing KD off his Achilles injury. The risk is very real. But you’re the Knicks! You haven’t been relevant in 20 years!! Sometimes risk is good. Kevin Durant risk is good.      
+      Instead, New York “played it safe,” dropping $21 million a year on 6th-man, Julius Randle, then signing a bunch of 1+1 team-option vets in Bobby Portis, Taj Gibson, Reggie Bullock, Wayne Ellington, and Elfrid Payton. Those guys are all nice and will probably net New York some second-round picks at the deadline, and that’s fine. But not one move helps the team in any meaningful big picture way. If they weren’t going to give KD the max, at least use all that cap room to stockpile draft picks eating Andre Iguodala, Allen Crabbe, Goran Dragic, and other contracts teams. That’s four first-round picks right there the Knicks left on the table to sign a bunch of veterans just good enough to knock New York out of pole position for next #1 pick next summer.      
       New York Knickerbockers forever.
-
       8. The Mavericks and Timberwolves were quiet free agency losers.
-      
       Dallas thought they had a deal lined up with Miami in the Jimmy Butler sign-and-trade. Minnesota thought they were landing D’Angelo Russell and getting off one or two of their awful contracts. Then the music stopped and both were left holding their collective jockstraps.
-      
       Dallas is one of the few teams with a bunch of cap room, even after giving out a quietly dangerous max with no team protections to Kristaps Porzingis. But they didn’t even get a sniff from any of the big free agents and now, like the Lakers, have nothing to spend it on. Minnesota fans got hopes up for life after Wiggins and KAT spent all summer recruiting DLo. Instead it looks like another year with Wiggins, Gorgui Dieng, and Jeff Teague.
-      
       Both teams thought they had a big move lined up. Instead they got nothing while everyone around them got better. The Pelicans added J.J. Redick and Derrick Favors and look like a real playoff threat. So too the Kings, who added Trevor Ariza, Cory Joseph, and Dewayne Dedmon to their talented young core. The Clippers re-signed Patrick Beverley and might still get Kawhi. The Spurs are the Spurs. The Warriors, Thunder, Blazers, Lakers, Rockets, Nuggets, and Jazz are all clearly better. Minnesota and Dallas might be fighting for the West 12-seed, ahead of only the Suns and Grizzlies. Ouch.
-      
       9. Free agency is over before it even began.
-      
       And just like that, free agency is essentially over. In just a few hours, the entire NBA landscape changed. And there’s almost nothing left to figure out.
-      
       We’re still awaiting Kawhi’s decision, and Danny Green’s will follow. But the free agent pool dried up real fast after that. Boogie Cousins could still get a big short-term deal. There are other quality bigs like Kevon Looney, Kenneth Faried, and Willie Cauley-Stein. There’s a few intriguing restricted free agents like Delon Wright, Maxi Kleber, and Khem Birch. This is where we’re at already. It’s July 1st, and we’re already in talk-yourself-into-Jeff-Green range.
-      
       NEVER talk yourself into Jeff Green.
-
       10. We might look back on June 30, 2019, as the beginning of the end of the Giannis Antetokounmpo era in Milwaukee.
-      
       All we think about right now is the present.
-      
       What’s happening with Kawhi? Who will the Lakers sign? Did the 76ers get better? How good will the Nets be? Are the Jazz really the best starting five in the NBA, and did this dude really just write a 3000-word column on free agency without even mentioning them?
-      
       But one year from now, I wonder if we will ultimately look back on June 30, 2019, as the beginning of the end for the Giannis Antetokounmpo era in Milwaukee.
-      
       The Bucks got definitively worse. Malcolm Brogdon was really good for them, and though he’s now overpaid and netted a future first, he’s a big loss. Brogdon was Milwaukee’s second best player in the ECF. He’s the only Bucks player that does a little bit of everything, a 50/40/90 guy that played off ball and shot the lights out. Milwaukee also lost Nikola Mirotic to Spain, and they used a first-round pick to give away a solid rotation wing in Tony Snell for cap savings they ended up not using to keep their guys.
-      
       Milwaukee did pay to keep Khris Middleton… and paid way too much, like $100 million too much, a contract that is immediately one of the worst in the NBA. They kept Brook Lopez and George Hill, who was mostly out of the rotation until they had no other options. They already paid for Eric Bledsoe, a worse fit than Brogdon, glaringly so in the playoffs. They’ll have those four and Giannis, plus very little off the bench unless you’re a big believer in Pat Connaughton, Sterling Brown, Robin Lopez, or Ersan Ilyasova.
-      
-      Two things are undeniably true. The Bucks were not good enough this year. And they just got noticeably worse.
-      
-      There’s a third thing that’s true — Milwaukee is now locked into this roster for a long time. Middleton will be there at least four years. BroLo is signed for four. Bledsoe is, too. This is the team. This is the core. Except you know who’s not signed for four years? Giannis Antetokounmpo.
-      
+      Two things are undeniably true. The Bucks were not good enough this year. And they just got noticeably worse.      
+      There’s a third thing that’s true — Milwaukee is now locked into this roster for a long time. Middleton will be there at least four years. BroLo is signed for four. Bledsoe is, too. This is the team. This is the core. Except you know who’s not signed for four years? Giannis Antetokounmpo.     
       Giannis is under contract just two more years. What happens when the Bucks don’t win 60 games again next season? What if they don’t even make the Eastern Conference Finals? What happens when Giannis looks around and sees teammates that aren’t good enough again and sees an ownership group he now knows isn’t willing to go all-in to give him the best chance to win?
-      
       Two years from today, Giannis Antetokounmpo is a free agent. And the clock just started ticking. Loudly. ■',
       author_id: user3.id
   )
@@ -335,124 +240,65 @@ ApplicationRecord.transaction do
   file4 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/paul_george_saved_okc.jpg')
   story4 = Story.create!(
     title: 'The Paul George Trade Just Saved the Oklahoma City Thunder Franchise',
-    body: 'THE PAUL GEORGE TRADE SAVED THE OKLAHOMA CITY THUNDER FRANCHISE. Hyperbole? Maybe. But that doesn’t mean it isn’t true.
-      
-      Rewind one week and look at the OKC franchise. What were they?
-      
-      The Thunder had become as landlocked as Oklahoma. The team was locked into an overpriced core of Russell Westbrook Paul George, and Steven Adams, wayyy over the cap with no relief in sight. Denver and Utah have passed them by. The Lakers and Warriors had starrier stars. The Blazers and Rockets played in the last two Conference Finals. The Pelicans, Mavericks, and Kings are coming. Westbrook has never won a playoff series without Kevin Durant, and the team was locked into a 6-seed and a few more depressing first-round exits before George left for greener pastures and fans were left watching 34-year-old Russ putting up 33/14/11/13 (the last number is turnovers) for $47 million in 2023. They were locked into above-average-and-getting-worse, bad enough to never really contend, good enough to avoid great draft picks.
-      
-      And now, everything has changed. Literally overnight.
-      
+    body: 'THE PAUL GEORGE TRADE SAVED THE OKLAHOMA CITY THUNDER FRANCHISE. Hyperbole? Maybe. But that doesn’t mean it isn’t true.      
+      Rewind one week and look at the OKC franchise. What were they?      
+      The Thunder had become as landlocked as Oklahoma. The team was locked into an overpriced core of Russell Westbrook Paul George, and Steven Adams, wayyy over the cap with no relief in sight. Denver and Utah have passed them by. The Lakers and Warriors had starrier stars. The Blazers and Rockets played in the last two Conference Finals. The Pelicans, Mavericks, and Kings are coming. Westbrook has never won a playoff series without Kevin Durant, and the team was locked into a 6-seed and a few more depressing first-round exits before George left for greener pastures and fans were left watching 34-year-old Russ putting up 33/14/11/13 (the last number is turnovers) for $47 million in 2023. They were locked into above-average-and-getting-worse, bad enough to never really contend, good enough to avoid great draft picks.      
+      And now, everything has changed. Literally overnight.      
       The PG haul
-
-      The Thunder traded Paul George to the Los Angeles Clippers for a record haul, netting borderline All-Star Danilo Gallinari, star sophomore Shai Gilgeous-Alexander, two possible picks swaps, and a staggering five first-round picks.
-      
-      SGA looks like a potential franchise player, with some of basketball’s finest minds like ESPN’s Zach Lowe touting him as a future multiple-time All-Star. He is the franchise’s first legitimately exciting young player since Westbrook and Durant. Gallinari was the best player on a playoff team even before Tobias Harris got traded, always an efficient scorer when healthy. Westbrook, Gallinari, and Adams are still a legit playoff contender, even in the West.
-      
-      And what about those picks? Two of them are from Miami, an unprotected 2021 first and a lottery-protected pick in 2023. That 2021 pick has bounced around half the league now, and it’s no longer quite as juicy as it might have been with Jimmy Butler in tow. Those two picks look like they’ll fall in the 15-to-20 range, for now, but they could get juicier in time.
-      
-      The other three picks are from the Clippers in 2022, 2024, and 2026, each one unprotected. And while the Clips are championship favorites today, a lot can change in three years. After all, three years ago, these very Clippers were essentially the Thunder, a capped-out team committed to an expensive CP3/Blake/DJ core that wasn’t good enough and was only going to get worse. Three years ago Kevin Durant was still on the Thunder (for at least another day or two). A lot can change in three years, and in five years and seven years. In 2026, PG and Kawhi will be 36 and 35 years old. Each has already missed nearly an entire season to injury, Leonard’s played more than 66 games only twice in his career, and George is coming off a shoulder surgery that clearly hampered his play down the stretch.
-      
-      In the best case Clippers scenario, the team becomes a dynasty over the next three or four years. In that case, OKC might get two middling picks from the Heat and a late one from L.A. in 2022, but they’d still have tasty 2024 and 2026 picks to come after the dynasty washes away. Those picks are almost certain to be juicy, so too the 2025 pick-swap rights.
-      
-      But don’t count out the 2022 pick and 2023 swap, either. PG is only signed through 2021 right now (plus a player option for 2022), and if we’ve learned anything this offseason, it’s that contract length means nothing in the player empowerment era. The Clippers could be totally blown up before these future picks even kick in. The Thunder now own the rights to the entire Clippers draft from 2022 through 2026. If this goes south, that could easily turn into four or five lottery picks. And those Heat picks could get good, too. Some of these picks will be good. That’s just simple statistical odds.
-      
-      On ESPN’s The Jump this weekend, New Orleans GM David Griffin called this Paul George trade one of the best in NBA history, noting that no one has ever gotten value like this for one player. And David Griffin would know!! This is the dude that just traded Anthony Davis for like 17 young Lakers players and every future L.A. draft pick for the next decade, so if he thinks this was a huge return for Paul George, you know it’s big.
-      
-      For two years of Paul George production that would’ve capped out with a first- or second-round exit, the Thunder could get as many as six lottery picks if things bounce their way, plus Shai Gilgeous-Alexander, who would’ve easily been a top-5 pick had he been in this year’s class.
-      
-      If the Clippers or Heat go sour, this could be really good. If they both go south, this could be one of the greatest trade coups in NBA history. It’s possible someday we won’t refer to this as the PG trade anymore. Because if things go really south for the Clippers, this trade could be rated NC-17.
-      
+      The Thunder traded Paul George to the Los Angeles Clippers for a record haul, netting borderline All-Star Danilo Gallinari, star sophomore Shai Gilgeous-Alexander, two possible picks swaps, and a staggering five first-round picks.      
+      SGA looks like a potential franchise player, with some of basketball’s finest minds like ESPN’s Zach Lowe touting him as a future multiple-time All-Star. He is the franchise’s first legitimately exciting young player since Westbrook and Durant. Gallinari was the best player on a playoff team even before Tobias Harris got traded, always an efficient scorer when healthy. Westbrook, Gallinari, and Adams are still a legit playoff contender, even in the West.      
+      And what about those picks? Two of them are from Miami, an unprotected 2021 first and a lottery-protected pick in 2023. That 2021 pick has bounced around half the league now, and it’s no longer quite as juicy as it might have been with Jimmy Butler in tow. Those two picks look like they’ll fall in the 15-to-20 range, for now, but they could get juicier in time.      
+      The other three picks are from the Clippers in 2022, 2024, and 2026, each one unprotected. And while the Clips are championship favorites today, a lot can change in three years. After all, three years ago, these very Clippers were essentially the Thunder, a capped-out team committed to an expensive CP3/Blake/DJ core that wasn’t good enough and was only going to get worse. Three years ago Kevin Durant was still on the Thunder (for at least another day or two). A lot can change in three years, and in five years and seven years. In 2026, PG and Kawhi will be 36 and 35 years old. Each has already missed nearly an entire season to injury, Leonard’s played more than 66 games only twice in his career, and George is coming off a shoulder surgery that clearly hampered his play down the stretch.      
+      In the best case Clippers scenario, the team becomes a dynasty over the next three or four years. In that case, OKC might get two middling picks from the Heat and a late one from L.A. in 2022, but they’d still have tasty 2024 and 2026 picks to come after the dynasty washes away. Those picks are almost certain to be juicy, so too the 2025 pick-swap rights.      
+      But don’t count out the 2022 pick and 2023 swap, either. PG is only signed through 2021 right now (plus a player option for 2022), and if we’ve learned anything this offseason, it’s that contract length means nothing in the player empowerment era. The Clippers could be totally blown up before these future picks even kick in. The Thunder now own the rights to the entire Clippers draft from 2022 through 2026. If this goes south, that could easily turn into four or five lottery picks. And those Heat picks could get good, too. Some of these picks will be good. That’s just simple statistical odds.      
+      On ESPN’s The Jump this weekend, New Orleans GM David Griffin called this Paul George trade one of the best in NBA history, noting that no one has ever gotten value like this for one player. And David Griffin would know!! This is the dude that just traded Anthony Davis for like 17 young Lakers players and every future L.A. draft pick for the next decade, so if he thinks this was a huge return for Paul George, you know it’s big.      
+      For two years of Paul George production that would’ve capped out with a first- or second-round exit, the Thunder could get as many as six lottery picks if things bounce their way, plus Shai Gilgeous-Alexander, who would’ve easily been a top-5 pick had he been in this year’s class.      
+      If the Clippers or Heat go sour, this could be really good. If they both go south, this could be one of the greatest trade coups in NBA history. It’s possible someday we won’t refer to this as the PG trade anymore. Because if things go really south for the Clippers, this trade could be rated NC-17.      
       Up next: Russell Westbrook
-
       But wait! There’s more!
-
       There’s so much more. Because the Thunder aren’t done yet. Not even close.
-
-      Today OKC traded Jerami Grant for a 2020 Nuggets first-round pick. That one will be late, but it’s one more pick to add to the war chest. It’s also a clear signal that Thunder GM Sam Presti is nowhere near finished. He’s going to burn this thing all the way to the ground.
-      
-      Russell Westbrook is next.
-      
-      Zach Lowe agrees with me: Westbrook is the second worst contract in the NBA (until you factor in these new contracts, come on down, Tobias Harris and Khris Middleton!). But not everyone agrees with Zach and me, notably the Heat and Pistons. And that makes sense. Those teams are totally capped out, so there’s little downside in trading for Westbrook. They’re already all-in right now around aging stars, so they might as well push a few more chips in and at least improve from a 7-seed to a 3-seed. Pistons writer Mohamed Haji reports that Detroit is offering Reggie Jackson, Tony Snell, and two mostly unprotected picks for Westbrook. He also reports that Miami is offering Goran Dragic, James Johnson, Tyler Herro (this year’s #13 pick), and a future first.
-      
-      In both deals, the Thunder would get two lottery picks for Westbrook! I’ll be shocked if either of those deals is really on the table, but if they are, OKC makes out like bandits. And yes, the Heat do still have future picks to trade, including their ability to remove the protection off the 2023 pick they now owe the Thunder, if they so choose. Other Westbrook suitors could include the Knicks, Magic, or Timberwolves. Or, if Daryl Morey would have his way, maybe even the Rockets. That could mean him offering The Full PG, since he was rumored to have offered four firsts multiple times for Jimmy Butler.
-      
-      Russell Westbrook will not finish this season in a Thunder uniform. He may not even start it there. So if you’re keeping track, that’s now eight first-round picks for the Thunder: five from the PG trade, 1 from Jerami, and 2 from Russ.
-      
-      The Thunder have only just begun
-      
-      But we’re not done yet! Oklahoma City has only just begun.
-      
-      Danilo Gallinari is really good and on an expiring deal. He is absolutely getting traded for something valuable. Looking around the league, I can see him making sense for at least 10 different teams (in no particular order: BOS BKN GSW HOU MIA MIL MIN NOP PHX POR). Every team wants a stretch four, and Gallo is about as good a stretch four as you can hope for. Gallinari can probably be had for an expiring contract and a first, which by the way, makes the Tobias Harris, Harrison Barnes, and Bojan Bogdanovic overpays that much more egregious. I’d love to see Portland get their hands on Gallo, a much cheaper, much easier purchase than Kevin Love.
-      
-      Steven Adams is under contract two more years for $54 million. I’m not sure I see a home for Adams right now. He’s very good but expensive. But in a year, when Adams is expiring and the market is weak, he’ll absolutely net a first in a deal. Even Dennis Schröder could return a first-round pick on a moderately-priced expiring deal a year from now, though we won’t count on that.
-      
-      So now the Thunder have added first-round picks for Grant, Gallinari, and Adams, plus two for Westbrook, plus five more for PG. That’s as many as 10 first-round picks for this roster, and don’t forget about Shai Gilgeous-Alexander and the pick swaps too.
-      
-      The NBA Franchise HOPE Rankings
-      
-      Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?
-      
+      Today OKC traded Jerami Grant for a 2020 Nuggets first-round pick. That one will be late, but it’s one more pick to add to the war chest. It’s also a clear signal that Thunder GM Sam Presti is nowhere near finished. He’s going to burn this thing all the way to the ground.      
+      Russell Westbrook is next.      
+      Zach Lowe agrees with me: Westbrook is the second worst contract in the NBA (until you factor in these new contracts, come on down, Tobias Harris and Khris Middleton!). But not everyone agrees with Zach and me, notably the Heat and Pistons. And that makes sense. Those teams are totally capped out, so there’s little downside in trading for Westbrook. They’re already all-in right now around aging stars, so they might as well push a few more chips in and at least improve from a 7-seed to a 3-seed. Pistons writer Mohamed Haji reports that Detroit is offering Reggie Jackson, Tony Snell, and two mostly unprotected picks for Westbrook. He also reports that Miami is offering Goran Dragic, James Johnson, Tyler Herro (this year’s #13 pick), and a future first.      
+      In both deals, the Thunder would get two lottery picks for Westbrook! I’ll be shocked if either of those deals is really on the table, but if they are, OKC makes out like bandits. And yes, the Heat do still have future picks to trade, including their ability to remove the protection off the 2023 pick they now owe the Thunder, if they so choose. Other Westbrook suitors could include the Knicks, Magic, or Timberwolves. Or, if Daryl Morey would have his way, maybe even the Rockets. That could mean him offering The Full PG, since he was rumored to have offered four firsts multiple times for Jimmy Butler.      
+      Russell Westbrook will not finish this season in a Thunder uniform. He may not even start it there. So if you’re keeping track, that’s now eight first-round picks for the Thunder: five from the PG trade, 1 from Jerami, and 2 from Russ.      
+      The Thunder have only just begun      
+      But we’re not done yet! Oklahoma City has only just begun.      
+      Danilo Gallinari is really good and on an expiring deal. He is absolutely getting traded for something valuable. Looking around the league, I can see him making sense for at least 10 different teams (in no particular order: BOS BKN GSW HOU MIA MIL MIN NOP PHX POR). Every team wants a stretch four, and Gallo is about as good a stretch four as you can hope for. Gallinari can probably be had for an expiring contract and a first, which by the way, makes the Tobias Harris, Harrison Barnes, and Bojan Bogdanovic overpays that much more egregious. I’d love to see Portland get their hands on Gallo, a much cheaper, much easier purchase than Kevin Love.      
+      Steven Adams is under contract two more years for $54 million. I’m not sure I see a home for Adams right now. He’s very good but expensive. But in a year, when Adams is expiring and the market is weak, he’ll absolutely net a first in a deal. Even Dennis Schröder could return a first-round pick on a moderately-priced expiring deal a year from now, though we won’t count on that.      
+      So now the Thunder have added first-round picks for Grant, Gallinari, and Adams, plus two for Westbrook, plus five more for PG. That’s as many as 10 first-round picks for this roster, and don’t forget about Shai Gilgeous-Alexander and the pick swaps too.      
+      The NBA Franchise HOPE Rankings      
+      Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?      
       The other two picks OKC “traded” for
-
-      But we’re still not done!
-      
-      There’s two more first-round picks the Thunder quietly traded for in the PG deal — their own!! Oklahoma City owes its pick this year to Philadelphia, but it’s top-20 protected one time before turning into a pair of second rounders. The Thunder will easily pick inside the top 20 now, so that pick stays put. OKC also owes a 2022 pick to Atlanta that’s lottery-protected once before turning into 2s. Do you see this Thunder team making the playoffs in 2022? I don’t either. That pick stays too.
-      
-      And not only do those picks stay… they get good!
-      
-      Because that’s one last thing the Thunder just traded for. They just “traded up” from #20 to #12 in the draft the next few years, and once they dump Westbrook too, they’ll “trade up” again from #12 into the top-5. The West is loaded, and OKC is instantly the worst team in the conference once Russ is gone. Oklahoma City’s best assets now are their own draft picks, and every move that makes the team worse now helps them long-term.
-      
-      The Thunder didn’t just trade PG for a bunch of Clippers and Heat picks. They also traded for a few top-5 picks of their own.
-      
-      The Clippers traded all that for 2 players, not 1
-      
-      You’ll hear a lot of talk in the upcoming days about how this was all worth it for the Clippers. And make no mistake about it: it absolutely was.
-    
-      The Clippers are championship favorites now. If they win even one title, their first in franchise history, all of this was worth it. Every pick, every swap, all the future pain, it will all be worth it for just one title — just ask Toronto.
-    
-      And as every analyst will tell you, the Clippers didn’t just trade all that stuff for Paul George. They traded it for PG and Kawhi, cuz they weren’t getting Leonard without the second star. Five picks and two good players are too much for George, but it’s a veritable bargain when you’re getting Kawhi Leonard too. Leonard is a two-time Finals MVP with a real argument as the best player in the league. How much would you trade if Giannis or LeBron were available? There is no price too high. Heck, the Clippers would have given up even more future picks if the NBA didn’t have rules against it.
-    
-      Here’s the thing for OKC, though. The Clippers traded away their future for two players. But the Thunder only traded one.
-    
-      The Raptors and Lakers lost out on Kawhi Leonard, but he was never even in Oklahoma City’s picture. Sam Presti cost the Raps and Lakers Kawhi Leonard and then kept all the spoils for himself. Only three teams were in the running for Kawhi, but somehow Presti thrust himself into the conversation and essentially traded Kawhi Leonard to the Clippers himself.
-    
-      Think about that.
-    
-      A completely unrelated third party managed to butt himself into the middle and essentially trade a free agent he had literally nothing to do with.
-      
-      It’s astounding really.
-  
-      Behold, the magnificent Thunder rebuild
-  
-      Let’s tally up everything the Thunder are going to get in this rebuild-in-process one more time, just to behold its beauty:
-  
-      2021 and 2023 Heat first-round picks
-  
-      2022, 2024, and 2026 Clippers first-round picks
-  
-      2023 and 2025 Clippers first-round swap rights
-  
-      Shai Gilgeous-Alexander, a 2018 lottery pick
-  
-      2020 Nuggets first-round pick, in exchange for Jerami Grant
-  
-      Two future first-round picks for Westbrook
-  
-      A future first-round pick for Gallinari
-  
-      A future first-round pick for Adams
-  
-      Retaining their own 2020 and 2022 picks, against traded protections
-  
-      “Trading up” their own picks the next few years from #20 to top-5
-  
-      That is an absolute masterclass.
-  
-      It’s a staggering 12 first-round picks, a couple monster trade-ups, and a possible franchise point guard in Shai Gilgeous-Alexander, all of it in exchange for a roster that was going absolutely nowhere as the 6- or 7-seed out West the next few years. Maybe this PG trade will someday turn into the PG-13 trade — as in, PG for 13 first-round picks. Are we really going back to the same movie-ratings joke twice in one column? Yes, yes we R.
-  
-      You hear a lot of talk these days about “blowing it up,” every NBA fan’s dream when a team gets locked into that treadmill of mediocrity. The Thunder were just getting onto the treadmill, or maybe they’ve already been there a couple years. Things were going to get ugly in OKC. Think Washington Wizards or Charlotte Hornets ugly. Think can-this-team-even-survive-in-a-small-market-with-a-huge-tax-bill-and-no-talent-omg-are-they-headed-back-to-Seattle ugly.
-  
+      But we’re still not done!      
+      There’s two more first-round picks the Thunder quietly traded for in the PG deal — their own!! Oklahoma City owes its pick this year to Philadelphia, but it’s top-20 protected one time before turning into a pair of second rounders. The Thunder will easily pick inside the top 20 now, so that pick stays put. OKC also owes a 2022 pick to Atlanta that’s lottery-protected once before turning into 2s. Do you see this Thunder team making the playoffs in 2022? I don’t either. That pick stays too.      
+      And not only do those picks stay… they get good!      
+      Because that’s one last thing the Thunder just traded for. They just “traded up” from #20 to #12 in the draft the next few years, and once they dump Westbrook too, they’ll “trade up” again from #12 into the top-5. The West is loaded, and OKC is instantly the worst team in the conference once Russ is gone. Oklahoma City’s best assets now are their own draft picks, and every move that makes the team worse now helps them long-term.      
+      The Thunder didn’t just trade PG for a bunch of Clippers and Heat picks. They also traded for a few top-5 picks of their own.      
+      The Clippers traded all that for 2 players, not 1      
+      You’ll hear a lot of talk in the upcoming days about how this was all worth it for the Clippers. And make no mistake about it: it absolutely was.    
+      The Clippers are championship favorites now. If they win even one title, their first in franchise history, all of this was worth it. Every pick, every swap, all the future pain, it will all be worth it for just one title — just ask Toronto.    
+      And as every analyst will tell you, the Clippers didn’t just trade all that stuff for Paul George. They traded it for PG and Kawhi, cuz they weren’t getting Leonard without the second star. Five picks and two good players are too much for George, but it’s a veritable bargain when you’re getting Kawhi Leonard too. Leonard is a two-time Finals MVP with a real argument as the best player in the league. How much would you trade if Giannis or LeBron were available? There is no price too high. Heck, the Clippers would have given up even more future picks if the NBA didn’t have rules against it.    
+      Here’s the thing for OKC, though. The Clippers traded away their future for two players. But the Thunder only traded one.    
+      The Raptors and Lakers lost out on Kawhi Leonard, but he was never even in Oklahoma City’s picture. Sam Presti cost the Raps and Lakers Kawhi Leonard and then kept all the spoils for himself. Only three teams were in the running for Kawhi, but somehow Presti thrust himself into the conversation and essentially traded Kawhi Leonard to the Clippers himself.    
+      Think about that.    
+      A completely unrelated third party managed to butt himself into the middle and essentially trade a free agent he had literally nothing to do with.      
+      It’s astounding really.  
+      Behold, the magnificent Thunder rebuild  
+      Let’s tally up everything the Thunder are going to get in this rebuild-in-process one more time, just to behold its beauty:  
+      2021 and 2023 Heat first-round picks  
+      2022, 2024, and 2026 Clippers first-round picks  
+      2023 and 2025 Clippers first-round swap rights  
+      Shai Gilgeous-Alexander, a 2018 lottery pick  
+      2020 Nuggets first-round pick, in exchange for Jerami Grant  
+      Two future first-round picks for Westbrook  
+      A future first-round pick for Gallinari  
+      A future first-round pick for Adams  
+      Retaining their own 2020 and 2022 picks, against traded protections  
+      “Trading up” their own picks the next few years from #20 to top-5  
+      That is an absolute masterclass.  
+      It’s a staggering 12 first-round picks, a couple monster trade-ups, and a possible franchise point guard in Shai Gilgeous-Alexander, all of it in exchange for a roster that was going absolutely nowhere as the 6- or 7-seed out West the next few years. Maybe this PG trade will someday turn into the PG-13 trade — as in, PG for 13 first-round picks. Are we really going back to the same movie-ratings joke twice in one column? Yes, yes we R.  
+      You hear a lot of talk these days about “blowing it up,” every NBA fan’s dream when a team gets locked into that treadmill of mediocrity. The Thunder were just getting onto the treadmill, or maybe they’ve already been there a couple years. Things were going to get ugly in OKC. Think Washington Wizards or Charlotte Hornets ugly. Think can-this-team-even-survive-in-a-small-market-with-a-huge-tax-bill-and-no-talent-omg-are-they-headed-back-to-Seattle ugly.  
       Instead, with one overnight masterstroke, Sam Presti has set the rebuild forward a full five years and sent this team zooming into the future.',
       author_id: user3.id
   )
@@ -468,185 +314,95 @@ ApplicationRecord.transaction do
   story5 = Story.create!(
     title: 'Did the Los Angeles Clippers Just Save the Entire NBA?',
     body: 'THE LOS ANGELES CLIPPERS SENT SHOCK WAVES THROUGH THE NBA last weekend when they added two superstar wings literally overnight, signing Kawhi Leonard and trading for Paul George. And so ended a wild week-long Kawhi Watch in the craziest NBA free agency on record, with not one but two final exclamation marks.
-
       All week, fans frantically checked phones for updates as the Toronto Raptors battled both Los Angeles franchises for Kawhi’s signature, with the Lakers reportedly the favorite and the Clippers a distant third. But no one really knew how Kawhi was leaning, and in the end, his decision shocked the NBA and had seismic effects around the league.
-
       It may have even saved the entire NBA.
-
       The Paul George Trade Saved the Oklahoma City Thunder Franchise
-
       The PG trade is only the first step in what could net as many as 13 first-round picks in a masterclass rebuilding plan
-
       Really? The *Entire* NBA?
-
       Okay, well, maybe not the entire NBA.
-
       Two teams are obvious losers here: the Toronto Raptors and Los Angeles Lakers. Both hoped to secure Kawhi’s signature and instead walked away with nothing. Toronto is hardly a loser though, and the Larry O’Brien trophy is a lot more than nothing. The Toronto Raptors are NBA champions, and flags fly forever. Even optimistic Raps fans didn’t expect Kawhi to stick around forever, knowing the rebuild was coming sooner or later. It hurts to move on this early, but memories last a lifetime.
-
       The Lakers, though, were all-in on Kawhi. And sure, the Lakers have plenty of rings to their name, but they’re always pursuing #17 and haven’t even made the playoffs in six seasons. Last year was supposed to be different. LeBron James came, and everything was supposed to change. But it didn’t. LeBron was still very good, but the supporting cast wasn’t. The kids didn’t step up, the team couldn’t shoot or play much defense, and the players didn’t develop much chemistry. LeBron’s groin injury was the nail in the coffin, but the season was already lost.
-
       This summer everything was going to be different, again.
-
       The Lakers traded everything they had for Anthony Davis, including former number two picks Lonzo Ball and Brandon Ingram, first-round pick Josh Hart, and a handful of other future picks and swaps. They cleared enough cap space to add a third superstar, too. They eschewed stars like Kyrie, Kemba, Butler, and DLo, going all-in on the shiniest star of them all, Kawhi Leonard. As the Lakers waited confidently for Kawhi’s decision, every other option went by the wayside, every Plan B and C and F out the window. It was Kawhi or bust.
-
       Make no mistake about it: if the Lakers had gotten Kawhi’s signature on the dotted line, they would have ravaged through the NBA for the next few seasons like no team ever before.
-
       LeBron AND Kawhi AND Brow.
-
       It would have been absurd and easy and ridiculous. And boring. We just escaped five years of Warriors mania and four years of Heatles before that. And while dynasties are fun for awhile, they get old quickly. It’s only fun to root against the villain if you believe the villain can be defeated sometimes.
-
       LeBron, Kawhi, and Anthony Davis would’ve been invincible. That’s three of the seven most talented basketball players in the universe, and it wouldn’t have mattered one lick who played with them. The other starters could have been you and me, dear reader, and we’d have stormed through the playoffs casting off our opponents like the peons they were. Look how unbeatable the Warriors were with Steph and Durant. LeBron and Kawhi are just as good, and Brow is far more talented than the other Warriors. The healthy Ws were unbeaten in the playoffs, only even threatened in one series in three years.
-
       The Kawhi Lakers would have walked to the next three or four titles.
-
       All that exciting player movement from the last couple weeks? Meaningless. The intriguing young cores? Pointless. It would have just been Lakers, Lakers, Lakers, all exceptionalism, all day. It would’ve meant endless thinkpieces bemoaning the death of the NBA. LeBron would’ve passed Jordan in titles, all but ending the GOAT conversation. Players like Chris Paul, James Harden, Russell Westbrook, and Damian Lillard would have faded into obscurity, the end of their primes wasted while a superteam stormed through the league.
-
       Worse yet, the only solution would have been a second superteam in a second major market. In a couple years, Giannis Antetokounmpo and Joel Embiid would have gotten so frustrated with the lack of parity that they’d have left for greener pastures, joining the ̶K̶n̶i̶c̶k̶s̶ Nets in New York with Durant and Kyrie. The entire NBA would have been reduced to two franchises in the league’s biggest markets. We’d have waited all year for seven games in June and spent the other 358 days listening to Stephen A. Smith and Skip Bayless yell at each other from across the country, echoing from coast to coast.
-
       That’s what it would have meant if Kawhi had joined LeBron and Davis with the Los Angeles Lakers. It would have meant the end.
-
       Instead… it’s only the beginning.
-
       The 10 Biggest Takeaways from NBA Free Agency
-
       Kyrie and Durant are Nets. Kemba and Butler have new homes. The NBA has turned upside down. Let’s break it all down.
-
       Every team in the NBA other than the Lakers won last weekend
-
       Because the Lakers lost, every other team in the NBA won.
-
       The lack of one huge superteam favorite means every other team has a real chance now. The last nine years, that never seemed possible. And sure, it turned out to be, as long as the Warriors all got hurt or the Heat got old, then maybe that year, one other last team standing could win a title. But this is different. This is a wide open NBA.
-
       The Los Angeles franchises still look like favorites. But I count a whopping 10 other NBA fan bases that now have a legitimate shot at an NBA championship the next two years:
-
       Houston Rockets — closest to beating the Warriors the last two years, no more Warriors in their way
-
       Utah Jazz — added Mike Conley and Bojan Bogdanovic to their 2-time Defensive Player of the Year Rudy Gobert and Donovan Mitchell
-
       Denver Nuggets — a couple plays from the Western Conference Finals with a young core and a superstar in Nikola Jokic
-
       Portland Trail Blazers — actually made the WCF, brought back Dame and C.J., and added Hassan Whiteside and Kent Bazemore
-
       Golden State Warriors — don’t forget about them once Klay returns and they flip D’Angelo Russell for a better fit next to Steph and Draymond
-
       Philadelphia 76ers — Joel Embiid and Ben Simmons, a re-signed Tobias Harris, Al Horford and Josh Richardson in the league’s best starting five
-
       Milwaukee Bucks — Giannis Antetokounmpo and most of the core returning from the league’s only 60-win team
-
       Boston Celtics — Kemba replaces Kyrie, Hayward gets healthy, Tatum and Brown make the leap, and President Brad does the rest
-
       Brooklyn Nets — Kyrie and the supporting cast hang around long enough for Kevin Durant to return to full speed as the East’s top duo
-
       Miami Heat — Jimmy Butler in tow, South Beach, Pat Riley, and no state income tax mean a second star (Russ?!) is always on the way
-
       Add it all up and 12 NBA teams can legitimately win an NBA title the next two years. That’s a whopping 40% of the league! Compare that to the rest of the decade, where one team entered the season as better than 50% favorites by Vegas betting odds, with a few other teams fighting for more than a 5% chance should everything go their way.
-
       If Kawhi had teamed up with LeBron and Brow, they would have cleared those 50% odds with ease. Watch the contenders bounce off the list. Nuggets and Jazz? Cute, but you’re not beating that trio. Rockets? Not without a barrage of threes. Heat, Clippers, Blazers? Please. Boston? Not ready yet. Milwaukee? Not even Giannis is enough against those three.
-
       Golden State would have believed, once healthy. Brooklyn would’ve hoped for a chance. Philly might’ve had the best odds with the size and the defense. Everyone else would have been a pretender, like they have been for the past decade. They would’ve been reduced to a consolation run to the Western Conference Finals, like the Blazers this year. No one hangs Conference Finals banners. Few will even remember it was Portland that got there by this fall.
-
       Yet again, the NBA would have been reduced to one megadeath lineup and a couple weak challengers to the throne. Instead every one of those teams now sees an opening. The Lakers duo is still great. The Clippers pair might be even better. But neither looks unbeatable. Neither feels inevitable.
-
       The door is not just cracked. It has swung wide open.
-
       It’s good news for everyone else too. In a wide open race, there are a lot more buyers on the market, and sellers have been making a mint lately. Suddenly the Wizards might not feel so bad about trading Bradley Beal, and maybe the Cavs get the big Kevin Love deal they’ve been waiting on. Perhaps Victor Oladipo or Jrue Holiday is the perfect third star on one of these teams. The leftover Raptors and Thunder could net a few high picks. Blake Griffin and Nikola Vucevic might net big value for a team in need of a star big man. And with some of those teams weakened temporarily, young teams like the Wolves, Kings, and Mavs may have a path to the playoffs.
-
       In a wide open NBA arms race, everyone wins. Kawhi to the Clippers wasn’t just good for them. It may have saved the entire NBA the next few years.
-
-      Well, every franchise except one.
-      
-      The NBA Franchise HOPE Rankings
-      
-      Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?
-      
-      It’s a good thing the Lakers wear purple and gold, because they royally screwed themselves.
-      
-      Classic Lakers exceptionalism.
-      
-      The Lakers always have a plan. It usually mans simply being the Lakers, the sunniest locale with the celebrity fans and the history and the clout. The Lakers’ plan is to get the biggest stars because they always do. Even when they don’t, they do anyway. They got Kareem. They got Wilt. They got Shaq and Kobe. They got LeBron and Brow. They figured they’d get Kawhi too.
-      
-      So they put all their eggs in one Kawhi basket. And certainly it would have been a heck of a basket. It would have meant #17 and #18 and 19 and 20. But the basket turned up empty. And it did so in a summer with a whole lot of other wonderful championship-winning baskets out there.
-      
-      Instead of Kawhi, the Lakers used their cap space on… Danny Green? They ran it back with Kentavious Caldwell-Pope, JaVale McGee, and Rajon Rondo and took a flyer on DeMarcus Cousins. Basically they used cap space on Green and a bunch of guys that should’ve been available at the minimum, the same guys they could’ve signed to add with Kawhi. So they just got Danny instead of Kawhi. Woof. This was not Plan B. It wasn’t even Plan Z. It was Plan Wait-Kawhi-Didn’t-Pick-Us-But-That-Was-Our-Only-Plan-What-Do-We-Do-Now?! The Lakers never have a backup plan, because they never need one.
-      
-      Look at the alternate options the Lakers might have considered. They could’ve tried to pair LeBron with Kyrie again, a championship-winning duo, or gone after Kemba, DLo, or Brogdon. We know LeBron plays well with an attacking guard that can create and hit shots. The Lakers have no such players. They could’ve tried to sell Durant on L.A. or gone all in on Klay, recruiting him to his father’s team. They could’ve brought in Butler to lead the defensive charge or Middleton to carry the scoring load.
-      
-      If they didn’t want a max guy, the Lakers could’ve filled out the lineup with quality supporting players like Patrick Beverley, Trevor Ariza, Garrett Temple, Jeremy Lamb, J.J. Redick, Cory Joseph, Seth Curry, Thaddeus Young… the list goes on. With $30 million in cap room, the Lakers could’ve handpicked the best shooters and defenders to surround LeBron and Brow and build the lineup in the NBA, even without the Kawhi cheat code.
-      
-      What do they have instead?
-      
-      LeBron and Brow are studs. Green is a championship-caliber role player. But the other two starting spots are vacant. Kyle Kuzma is a nice bench scorer. So too Boogie Cousins at this point. The rest of the team is dreadful. Rondo, KCP, JaVale, and Caruso added nothing last year outside of a nice couple months from McGee. Jared Dudley is a nice veteran leader. Quinn Cook and Troy Daniels can shoot in an empty gym. The only rookie of note, Talen Horton-Tucker, is years away from contributing.
-      
-      That’s it. That’s the whole roster. And with the exception of Boogie, the Lakers overpaid to get all these guys. And this roster is sort of locked in at this point, so there may not be a third star on the way. There isn’t an obvious path to max space next summer and might not be a star available anyway, and the team has nothing left to trade other than Kuzma. Everyone else on the roster already got passed over by the rest of the league, and the Lakers can’t trade any of their picks through 2026. The asset cupboard is bare.
-      
-      Where is the defense on this team?
-      
-      Kuzma was the worst defender on the team last year. KCP is supposed to be 3-and-D but does neither. He was the team’s second worst defender. Rondo is the worst defender of the last six years, according to 538.com. Caruso, Cook, Daniels et al are not here to play defense. LeBron plays D for a few summer weeks but was checked out last season, and he’s no longer quick enough to stay with players consistently on the perimeter. Davis is coming off the best defensive season of his career after finally playing center all year, so naturally the Lakers moved him back to the four where he’s less impactful. JaVale is fine. The Lakers will do well enough protecting the rim, but their perimeter defense will be poor, the rotations weak, and the shots allowed abysmal.
-      
-      And where’s the shooting?
-      
-      Oh sure, the Lakers added Troy Daniels, Alex Caruso, and Quinn Cook, all over 40% for their careers. The thing about shooting is it only helps if the guys are on the floor actually taking shots. Shooting is about volume as much as percentage. Daniels plays 15 minutes a game. Cook is in a similar range and plays awful defense. Caruso’s taken under 100 threes in his career. None of these supposed shooters will make a difference because they’re all vying to be the 8th man in the rotation.
-      
-      As for the seven guys who will play ahead of them? All but Danny Green are under 35% threes for their career: Brow 31%, Boogie 33%, LeBron 34%, Kuzma 33%, Rondo 32%, KCP 34%. That’s the sort of shooting this team has. Green’s over 40% but notably dropped to 36% the previous three seasons before a huge spike this year. There’s little shooting efficiency and no volume on this team. Last year’s Lakers ranked 29th in the NBA on three-point percentage at 33%. Eight Lakers took more than three 3s a game; only LeBron, KCP, Rondo, and Kuzma remain. Even Green may not be open much. Why rotate off Danny when the other four defenders can just pack the paint and let the other Lakers fire away? I know you think Boogie and Brow can shoot, but their numbers say otherwise. Every time one of those two or LeBron shoots a three, it’s a win for the defense.
-      
-      That’s the roster the Lakers have chosen to build.
-      
-      Los Angeles began free agency tied in the bottom of the ninth with bases loaded and no outs. Instead of just trying to single or sacrifice the winning run home, they watched eight straight strikes go down the middle of the plate, took one ginormous grand slam swing that hooked foul at the last second, and struck out looking to end the game.
-      
-      Lakers fans will tell you Kawhi was worth the wait. But there were so many other avenues that would have left the Lakers sizable favorites into the new season, even in a world with Kawhi and PG sharing the Staples Center locker room. There was a Plan B and a Plan C and D, and all of them would’ve meant everyone in the NBA chasing LeBron yet again.
-      
-      But the Lakers swung for a grand slam when any old hit would do. They mortgaged their entire conceivable future on this window, and the Clippers just stole it out from under them.
-      
-      This is not the end. LeBron teams always look different in April than in August. There will be buyout players, and LeBron will trade for some new teammates. James has still only lost to the Warriors and Spurs the last eight years. He’ll have a chance; he always does. But he’s an underdog now, and he should have been the favorite.
-    
-      And it could go further south. What if LeBron can’t get back to elite status? What if Bron and Brow have nagging injuries all season? What if there’s little defense or shooting and the team looks a lot like last year? What if the weird coaching situation gets even weirder and the team doesn’t gel? Could the Lakers struggle to make the playoffs in a loaded West where all but a couple teams have a shot? Could the team be so dysfunctional yet again that their young superstar decides to walk as a free agent next summer?
-    
+      Well, every franchise except one.      
+      The NBA Franchise HOPE Rankings      
+      Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?      
+      It’s a good thing the Lakers wear purple and gold, because they royally screwed themselves.      
+      Classic Lakers exceptionalism.      
+      The Lakers always have a plan. It usually mans simply being the Lakers, the sunniest locale with the celebrity fans and the history and the clout. The Lakers’ plan is to get the biggest stars because they always do. Even when they don’t, they do anyway. They got Kareem. They got Wilt. They got Shaq and Kobe. They got LeBron and Brow. They figured they’d get Kawhi too.      
+      So they put all their eggs in one Kawhi basket. And certainly it would have been a heck of a basket. It would have meant #17 and #18 and 19 and 20. But the basket turned up empty. And it did so in a summer with a whole lot of other wonderful championship-winning baskets out there.      
+      Instead of Kawhi, the Lakers used their cap space on… Danny Green? They ran it back with Kentavious Caldwell-Pope, JaVale McGee, and Rajon Rondo and took a flyer on DeMarcus Cousins. Basically they used cap space on Green and a bunch of guys that should’ve been available at the minimum, the same guys they could’ve signed to add with Kawhi. So they just got Danny instead of Kawhi. Woof. This was not Plan B. It wasn’t even Plan Z. It was Plan Wait-Kawhi-Didn’t-Pick-Us-But-That-Was-Our-Only-Plan-What-Do-We-Do-Now?! The Lakers never have a backup plan, because they never need one.      
+      Look at the alternate options the Lakers might have considered. They could’ve tried to pair LeBron with Kyrie again, a championship-winning duo, or gone after Kemba, DLo, or Brogdon. We know LeBron plays well with an attacking guard that can create and hit shots. The Lakers have no such players. They could’ve tried to sell Durant on L.A. or gone all in on Klay, recruiting him to his father’s team. They could’ve brought in Butler to lead the defensive charge or Middleton to carry the scoring load.      
+      If they didn’t want a max guy, the Lakers could’ve filled out the lineup with quality supporting players like Patrick Beverley, Trevor Ariza, Garrett Temple, Jeremy Lamb, J.J. Redick, Cory Joseph, Seth Curry, Thaddeus Young… the list goes on. With $30 million in cap room, the Lakers could’ve handpicked the best shooters and defenders to surround LeBron and Brow and build the lineup in the NBA, even without the Kawhi cheat code.      
+      What do they have instead?      
+      LeBron and Brow are studs. Green is a championship-caliber role player. But the other two starting spots are vacant. Kyle Kuzma is a nice bench scorer. So too Boogie Cousins at this point. The rest of the team is dreadful. Rondo, KCP, JaVale, and Caruso added nothing last year outside of a nice couple months from McGee. Jared Dudley is a nice veteran leader. Quinn Cook and Troy Daniels can shoot in an empty gym. The only rookie of note, Talen Horton-Tucker, is years away from contributing.      
+      That’s it. That’s the whole roster. And with the exception of Boogie, the Lakers overpaid to get all these guys. And this roster is sort of locked in at this point, so there may not be a third star on the way. There isn’t an obvious path to max space next summer and might not be a star available anyway, and the team has nothing left to trade other than Kuzma. Everyone else on the roster already got passed over by the rest of the league, and the Lakers can’t trade any of their picks through 2026. The asset cupboard is bare.      
+      Where is the defense on this team?      
+      Kuzma was the worst defender on the team last year. KCP is supposed to be 3-and-D but does neither. He was the team’s second worst defender. Rondo is the worst defender of the last six years, according to 538.com. Caruso, Cook, Daniels et al are not here to play defense. LeBron plays D for a few summer weeks but was checked out last season, and he’s no longer quick enough to stay with players consistently on the perimeter. Davis is coming off the best defensive season of his career after finally playing center all year, so naturally the Lakers moved him back to the four where he’s less impactful. JaVale is fine. The Lakers will do well enough protecting the rim, but their perimeter defense will be poor, the rotations weak, and the shots allowed abysmal.      
+      And where’s the shooting?      
+      Oh sure, the Lakers added Troy Daniels, Alex Caruso, and Quinn Cook, all over 40% for their careers. The thing about shooting is it only helps if the guys are on the floor actually taking shots. Shooting is about volume as much as percentage. Daniels plays 15 minutes a game. Cook is in a similar range and plays awful defense. Caruso’s taken under 100 threes in his career. None of these supposed shooters will make a difference because they’re all vying to be the 8th man in the rotation.      
+      As for the seven guys who will play ahead of them? All but Danny Green are under 35% threes for their career: Brow 31%, Boogie 33%, LeBron 34%, Kuzma 33%, Rondo 32%, KCP 34%. That’s the sort of shooting this team has. Green’s over 40% but notably dropped to 36% the previous three seasons before a huge spike this year. There’s little shooting efficiency and no volume on this team. Last year’s Lakers ranked 29th in the NBA on three-point percentage at 33%. Eight Lakers took more than three 3s a game; only LeBron, KCP, Rondo, and Kuzma remain. Even Green may not be open much. Why rotate off Danny when the other four defenders can just pack the paint and let the other Lakers fire away? I know you think Boogie and Brow can shoot, but their numbers say otherwise. Every time one of those two or LeBron shoots a three, it’s a win for the defense.      
+      That’s the roster the Lakers have chosen to build.      
+      Los Angeles began free agency tied in the bottom of the ninth with bases loaded and no outs. Instead of just trying to single or sacrifice the winning run home, they watched eight straight strikes go down the middle of the plate, took one ginormous grand slam swing that hooked foul at the last second, and struck out looking to end the game.      
+      Lakers fans will tell you Kawhi was worth the wait. But there were so many other avenues that would have left the Lakers sizable favorites into the new season, even in a world with Kawhi and PG sharing the Staples Center locker room. There was a Plan B and a Plan C and D, and all of them would’ve meant everyone in the NBA chasing LeBron yet again.      
+      But the Lakers swung for a grand slam when any old hit would do. They mortgaged their entire conceivable future on this window, and the Clippers just stole it out from under them.      
+      This is not the end. LeBron teams always look different in April than in August. There will be buyout players, and LeBron will trade for some new teammates. James has still only lost to the Warriors and Spurs the last eight years. He’ll have a chance; he always does. But he’s an underdog now, and he should have been the favorite.    
+      And it could go further south. What if LeBron can’t get back to elite status? What if Bron and Brow have nagging injuries all season? What if there’s little defense or shooting and the team looks a lot like last year? What if the weird coaching situation gets even weirder and the team doesn’t gel? Could the Lakers struggle to make the playoffs in a loaded West where all but a couple teams have a shot? Could the team be so dysfunctional yet again that their young superstar decides to walk as a free agent next summer?    
       Think about that. The Lakers traded everything for Anthony Davis and failed to build anything useful around him. He could walk next summer.
-    
       For nothing!
-    
       The Lakers are in far worse shape now than they were ten days ago. And they are no longer the 2019–20 championship favorites.
-    
       The 20 Worst Contracts in the NBA
-    
       Some players get injured. Some underperform. Some just get old. These are the worst 20 contracts in the NBA right now…
-    
       The Los Angeles Clippers are championship favorites already, and they still have another move coming.
-    
       So remember all that jazzmatazz about the NBA being wide open and 12 teams having a chance and this being better for everyone? As it turns out, maybe not.
-    
       Because these Clippers are going to be really, really good.
-    
       They’ll start Patrick Beverley and Landry Shamet at guard, two sharpshooters that excel off the ball and play smart team defense. At center will probably be Ivica Zubac, a decent enough option. Kawhi and PG form one of the best forward combos in NBA history. And behold the best bench in the NBA: Lou Williams, Rodney McGruder, Moe Harkless, JaMychal Green, and Montrezl Harrell. That bench features the two-time defending Sixth Man of the Year plus a young big that was even better last season. That’s easily the best bench unit in the NBA and means plenty of load management for Kawhi and PG and that the Clippers will come at opponents in waves in the postseason.
-    
       The shooting and defense the Lakers lack? It’s here in droves. Kawhi and PG shoot 38% with plenty of volume. Beverley’s hit 40% three of the past four years and plays enough for that to matter. Shamet made 42% as a rookie. Lou makes 35% with volume, still better than any Laker not named Danny. That’s five regular rotation players that are good to great shooters.
-    
       And the defense is going to be absolutely filthy. Kawhi, PG, and PBev have made 11 All-Defense teams between them. Leonard’s won Defensive Player of the Year twice, and PG was a runner-up this year. If you’re a guard or wing, you could begin a play with Kawhi on you, call for a screen and get switched onto Beverley, and then have PG come over to help. This could be one of the greatest perimeter defensive teams in NBA history.
-    
       Look back at the last decade of NBA Finals. Think how valuable it’s been to have an elite lockdown perimeter defender to guard the LeBrons and Durants of the world. AND THE CLIPPERS HAVE TWO OF THEM.
-    
       No team has ever been more prepared to stop LeBron. Kawhi and PG can take turns, putting everything on Brow’s shoulders. The Bucks will have the same problem, but without Anthony Davis to balance. The Rockets have no shot. Beverley can bother CP3 while Kawhi and PG take turns smothering Harden. The Sixers are by far the most interesting matchup right now with no elite wings to guard and no one small enough to stick Beverley or Lou on.
-    
       We don’t properly value defense because it’s so hard to gauge, but this defense is going to be absolutely nasty under Doc Rivers, and the D alone puts them into the Conference Finals. Kawhi can do the rest from there.
-    
       Remember the Celtics formula we thought would dominate for a decade? Slot in Lou Williams as the guard scorer and Beverley as the defensive jackknife. Harrell isn’t exactly Horford but steps into the big man energy role. Now replace Jaylen and Jayson with Kawhi and PG. Whew.
-  
       There’s one other thing about this Clippers team many have not even realized.
-  
       They’re not done yet.
-  
       Did you notice how the Clips quietly picked up Mo Harkless on an expiring $11-million deal? Were you puzzled when L.A. overpaid McGruder and Zubac a bit on $5 and $7 million AAV contracts? That’s as close as this team gets to having bad money on its books. Kawhi and PG are worth every penny. Lou and Harrell make $14 million combined. Shamet is practically free.
-  
       Do you know why the Clippers went out and got some decent middling contracts? Because you need to match salary in a trade, and the Clippers are not done yet. Even after the PG trade, this team remarkably still has assets. A bunch of them.
-  
       You know how they gave up Shai Gilgeous-Alexander? They still have a young sharpshooter in Shamet. They have last year’s other first-round pick, scoring guard Jerome Robinson, and this year’s first rounder, a unicorn rim protector that shoots threes in Mfiondu Kabengele. And, somehow without anyone noticing, they managed to keep their own 2020 first rounder. They can still trade that one, and rest assured, they will.
-  
       The Clippers are already calling around. They can offer a team an expiring Harkless deal, a young player or two, and a first-round pick for a star that wants out. That’s pretty good! If the salaries don’t quite match, they can add McGruder or Zubac as perfectly fine middling contracts. Now they can trade for a player in the $25-million range. If the star they’re getting is good enough, they can even add in Lou or Harrell to push the deal over the top.
-  
       The third star is coming. Can I interest you in Bradley Beal or Jrue Holiday? How about a big man like Clint Capela, Steven Adams, Derrick Favors, or Myles Turner? All easily targetable adds for this team. They could go out and get Kyle Lowry or Marc Gasol at the trade deadline. Heck, they might even be able to get one of those two and then clear enough expiring salary to sign a frustrated Anthony Davis next summer. Okay, it probably won’t be Davis — though you have to admit, that’d be hilarious schaudenfreude — but there’s a third star out there coming, and they’ll be on this roster before the playoffs.
-  
       Even without that star, the Clippers are already bigger favorites than you think. Once the other shoe drops, it will be lights out for the rest of the NBA.
-  
       So much for an era without any superteams. The next one is already being formed right under out noses.',
     author_id: user3.id
   )
@@ -674,45 +430,25 @@ ApplicationRecord.transaction do
   story6 = Story.create!(
     title: '2019 NBA Vegas Summer League Blowout Preview',
     body: 'WELCOME TO THE DOG DAYS OF JULY! THE HOT DOGS ARE EATEN, the summer of soccer is nearly a wrap, even baseball is on a break. Enter NBA Summer League, which has caught on in a huge way the last few years. Every team is at Vegas Summer League (SL) again, and they’ll each play at least five games and, eventually, the NBA’s only knockout tournament.
-
       You don’t have time to watch all 95 games, but you might hop in for a few. But what exactly should you be watching for? Some general SL rules of thumb:
-
       DO watch for:
-      
       Process over results
-      
       Players that pop or stand out athletically (or struggle)
-      
       Flashes, talents, moments
-      
       Development of new skills
-      
       Who’s too good for SL? Who doesn’t look like they belong?
-      
       DON’T watch for:
-      
       Game scores or individual play results
-      
       Mistakes, as teams often purposely stretch players in unfamiliar roles
-      
       Defense, especially team defense
-      
       Scorers or energy bigs, always over-inflated in this setting
-      
       Raw shooting and scoring numbers on a small sample
-      
       Team chemistry in a me-first make-myself-look-good setting
-      
       When in doubt, always focus on process over results. Summer League doesn’t always tell us who can play, but it often shows us who can’t. Look past the highlights and the shooting numbers. What actual skills do you see?
-      
       Below I rank every team’s watchability from 1 to 5 stars and give you a few players and skills on each team to watch for. Keep this page bookmarked to reference as we work through NBA summer school, and check the bottom of the article for 10 games to set your DVR for. Class is now in session…
-    
       Ranking the 2019 NBA Draft Outcomes for All 30 Teams
-    
       The process behind all 30 NBA teams’ draft nights, ranking the outcomes from 30 to 1…
-    
       Everything you need to know on NBA Draft Day 2019
-      
       Upside & floor rankings, best fits, arbitrage plays, and best worst value plays…
       Summer League Watchability Rankings Cheat Sheet
       ★★★★★
@@ -974,7 +710,6 @@ ApplicationRecord.transaction do
       This could be the most competitive season in NBA history.
       With Durant injured, there are three unstoppable forces in the league (Giannis, Kawhi, LeBron) and a handful of teams with players who can slow those superstars down a little bit.
       With the way the talent has spread out, I could see any one of nine teams win the title. Here are the odds for eight of those teams.
-
       In the East, Milwaukee and Philadelphia look to be the class of the East this year, and the West could be insane, even to make the playoffs.
       So many teams appear to have excellent crunch time units (just my guesses here, a lot could change), although some teams will have far more depth:
       Clippers: Leonard-George-Beverly-Williams-Harrell
@@ -1491,6 +1226,7 @@ ApplicationRecord.transaction do
       Under the radar signings like RHJ, WCS, and Delon Wright could be some of the summer’s biggest bargains
       Which 2019 NBA free agents are really worth a max contract?
       The NBA silly season is here, but which free agents are really worth the max deal, and which ones will kill their…
+      
       1. The Brooklyn Nets won free agency
       Kyrie Irving and Kevin Durant are Nets. That is a real thing. It’s crazy how much of a footnote it felt by the end of the day since the Kyrie news was on lock for weeks and the Durant announcement was one of the first of the day. But it’s by far the biggest news of the day.
       In my free agency preview, I deemed only three veterans worthy of a full max contract. The Nets just got two of them, and they got them for less than the max too, since Kyrie and KD are apparently giving up some cash so their very fortunate buddy DeAndre Jordan can tag along in the least big Big Three yet.
@@ -1509,6 +1245,7 @@ ApplicationRecord.transaction do
       The Warriors will reload. Maybe they’ll flip DLo as an asset play once Klay returns. They’re not dead. But they are dead as we know them. RIP.
       The NBA Franchise HOPE Rankings
       Hope springs eternal… for some NBA franchises. Which teams have the best outlook, and who faces only despair and gloom?
+      
       3. The Lakers are ALL in on Kawhi Leonard.
       The Lakers never seem to have a Plan B. Lakers exceptionalism at its finest.
       So it’s all in on Kawhi Leonard.
@@ -1524,6 +1261,7 @@ ApplicationRecord.transaction do
       The world is your oyster, Kawhi. We wait.
       The 20 Worst Contracts in the NBA
       Some players get injured. Some underperform. Some just get old. These are the worst 20 contracts in the NBA right now…
+      
       5. The 76ers are zigging with everyone zagging.
       Goodbye Jimmy Butler and J.J. Redick. Hello Al Horford and Josh Richardson. And get paid, Tobias Harris.
       I love the Horford contract and hate the Harris one, and I’d rather have Richardson on his current contract than Butler on a max. The Sixers remixed their lineup again, with an even bigger, more defensive starting five of Ben Simmons, JRich, Tobias, Horford, and Joel Embiid.
@@ -1540,6 +1278,7 @@ ApplicationRecord.transaction do
       For the record, my pick right now is Philadelphia… at least until Kawhi and Danny re-sign in Toronto.
       Ranking the 2019 NBA Draft Outcomes for All 30 Teams
       A look at the process behind all 30 NBA teams’ draft nights, ranking the outcomes from 30 to 1…
+      
       7. The New York Knicks remain a laughingstock.
       The more things change, the more they stay the same.
       The Knicks traded Porzingis. They waived and stretched Joakim Noah. They cleared cap room and tanked all season for Zion, Kyrie, and Durant. But they didn’t win the draft lottery, and then they didn’t win the Kyrie or KD lottery either and, according to Ramon Shelburne, weren’t even willing to give Durant the full max.
@@ -1553,6 +1292,7 @@ ApplicationRecord.transaction do
       Both teams thought they had a big move lined up. Instead they got nothing while everyone around them got better. The Pelicans added J.J. Redick and Derrick Favors and look like a real playoff threat. So too the Kings, who added Trevor Ariza, Cory Joseph, and Dewayne Dedmon to their talented young core. The Clippers re-signed Patrick Beverley and might still get Kawhi. The Spurs are the Spurs. The Warriors, Thunder, Blazers, Lakers, Rockets, Nuggets, and Jazz are all clearly better. Minnesota and Dallas might be fighting for the West 12-seed, ahead of only the Suns and Grizzlies. Ouch.
       The Official 2018-19 NBA Awards
       Giannis or Harden for MVP? Trae or Luka for Rookie of the Year? Time to look back and give out some awards…
+      
       9. Free agency is over before it even began.
       And just like that, free agency is essentially over. In just a few hours, the entire NBA landscape changed. And there’s almost nothing left to figure out.
       We’re still awaiting Kawhi’s decision, and Danny Green’s will follow. But the free agent pool dried up real fast after that. Boogie Cousins could still get a big short-term deal. There are other quality bigs like Kevon Looney, Kenneth Faried, and Willie Cauley-Stein. There’s a few intriguing restricted free agents like Delon Wright, Maxi Kleber, and Khem Birch. This is where we’re at already. It’s July 1st, and we’re already in talk-yourself-into-Jeff-Green range.
