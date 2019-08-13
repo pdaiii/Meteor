@@ -100,7 +100,7 @@ class StoryShow extends React.Component {
               
               <div className="clap-icon">
                 <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button>
-                <p className="clap-counter">{this.props.story.count}</p>
+                <p className="clap-counter">{this.props.story.count} likes</p>
               </div>
 
               <div className="media-icons">

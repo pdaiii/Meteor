@@ -2288,7 +2288,7 @@ function (_React$Component) {
         className: "far fa-thumbs-up"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "clap-counter"
-      }, this.props.story.count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.story.count, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "media-icons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "twitter-icon"
