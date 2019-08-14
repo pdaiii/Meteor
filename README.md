@@ -30,12 +30,9 @@ Welcome to the Meteor wiki! Medium is a social media application inspired by Med
 * A logged in user may delete their own responses.
 
 ## Future Implementations
-* Users can add claps to stories and responses.
 * Users can follow other users.
 * The splash page will generate stories based on who they follow.
-* Search feature.
-* Story topics.
-* Story text formatting.
+* User profile.
 * Mobile friendly. Browser friendly.
 
 ### Deployment Instructions
