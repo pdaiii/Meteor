@@ -14,7 +14,6 @@ Welcome to the Meteor wiki! Medium is a social media application inspired by Med
 
 ## Screenshots
 ![User Sign Up](https://user-images.githubusercontent.com/7242067/61167686-2966ef80-a4f7-11e9-983f-61f191bd00f8.png)
-![User Stories](https://user-images.githubusercontent.com/7242067/61167685-2966ef80-a4f7-11e9-8963-78d8d35bc0dc.png)
 
 ## Features and Functionality
 ### Log In/Sign Up
