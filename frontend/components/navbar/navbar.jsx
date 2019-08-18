@@ -41,6 +41,11 @@ class navBar extends React.Component {
     }
   }
 
+  notifications() {
+    
+  }
+
+
   render() {
     const sessionLinks = () => (
       <nav className="login-signup">

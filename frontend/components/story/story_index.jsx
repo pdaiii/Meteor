@@ -31,6 +31,7 @@ class StoryIndex extends React.Component {
           />
         )
       });
+      // Sorting algorithm
       let sortedStories = stories.sort(compare);
       popularStories = sortedStories.slice(0,4);
       mostPopularStories = <PopularStories stories={popularStories} />
