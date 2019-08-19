@@ -42,10 +42,15 @@ class navBar extends React.Component {
   }
 
   notifications() {
-    // Make drop down notifications
+    // Bell when no notifications
+    // Make drop down notifications when at least 1.
+    let notifications = document.getElementsByClassName('notification-cnt');
+    
     return (
       <form action="">
         <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
+        {/* Need to track notifications per user */}
+        <p className="notification-cnt"></p>
       </form>
     )
   }
@@ -62,7 +67,7 @@ class navBar extends React.Component {
     const personalGreeting = () => (
       <hgroup className="logged-in-navbar">
         {this.searchBar()}
-        {this.notifications()}
+        {/* {this.notifications()} */}
         &nbsp;
         &nbsp;
         <h2 className="navbar-name">{this.props.currentUser.username}</h2>

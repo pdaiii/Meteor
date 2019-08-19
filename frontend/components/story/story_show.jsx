@@ -26,6 +26,13 @@ class StoryShow extends React.Component {
     this.props.updateStoryLikes(formData, this.props.story.id);
   }
 
+  // updateClaps(event) {
+  //   debugger
+  //   const formData = new FormData();
+  //   formData.append('story[count]', this.props.story.claps+1);
+  //   this.props.updateStoryLikes(formData, this.props.story.id);
+  // }
+
   render() {
     let creatingResponses;
     let responses;
@@ -100,7 +107,9 @@ class StoryShow extends React.Component {
               
               <div className="clap-icon">
                 <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button>
+                {/* <button className="clap-btn" onClick={this.updateClaps}><i className='far fa-thumbs-up'></i></button> */}
                 <p className="clap-counter">{this.props.story.count} likes</p>
+                {/* <p className="clap-counter">{this.props.story.claps} likes</p> */}
               </div>
 
               <div className="media-icons">

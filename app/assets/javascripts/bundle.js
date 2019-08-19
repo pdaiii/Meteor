@@ -625,14 +625,18 @@ function (_React$Component) {
   }, {
     key: "notifications",
     value: function notifications() {
-      // Make drop down notifications
+      // Bell when no notifications
+      // Make drop down notifications when at least 1.
+      var notifications = document.getElementsByClassName('notification-cnt');
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         action: ""
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navbar-notifications"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-bell"
-      })));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "notification-cnt"
+      }));
     }
   }, {
     key: "render",
@@ -658,7 +662,7 @@ function (_React$Component) {
       var personalGreeting = function personalGreeting() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
           className: "logged-in-navbar"
-        }, _this2.searchBar(), _this2.notifications(), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        }, _this2.searchBar(), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "navbar-name"
         }, _this2.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/users/".concat(_this2.props.currentUser.id),
@@ -2232,7 +2236,13 @@ function (_React$Component) {
       formData.append('story[image]', this.props.story.image);
       formData.append('story[count]', this.props.story.count + 1);
       this.props.updateStoryLikes(formData, this.props.story.id);
-    }
+    } // updateClaps(event) {
+    //   debugger
+    //   const formData = new FormData();
+    //   formData.append('story[count]', this.props.story.claps+1);
+    //   this.props.updateStoryLikes(formData, this.props.story.id);
+    // }
+
   }, {
     key: "render",
     value: function render() {
