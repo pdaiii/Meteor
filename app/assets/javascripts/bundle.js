@@ -433,10 +433,10 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
     path: "/stories/:storyId/edit",
     component: _story_edit_story_form_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
     path: "/stories/:storyId",
     component: _story_story_show_container__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
     path: "/users/:userId",
     component: _user_user_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -454,8 +454,7 @@ var App = function App() {
     to: "/",
     component: _welcome_page__WEBPACK_IMPORTED_MODULE_11__["default"]
   })));
-}; // );
-
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
@@ -603,7 +602,7 @@ function (_React$Component) {
   }, {
     key: "searchBar",
     value: function searchBar() {
-      if (this.props.location.pathname.slice(1).includes("search")) {
+      if (!this.props.currentUser) {
         return null;
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -622,15 +621,19 @@ function (_React$Component) {
           className: "fas fa-search"
         }))));
       }
-    } // notifications() {
-    //   // Make drop down notifications
-    //   return (
-    //     <form action="">
-    //       <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
-    //     </form>
-    //   )
-    // }
-
+    }
+  }, {
+    key: "notifications",
+    value: function notifications() {
+      // Make drop down notifications
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        action: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "navbar-notifications"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-bell"
+      })));
+    }
   }, {
     key: "render",
     value: function render() {
@@ -639,7 +642,7 @@ function (_React$Component) {
       var sessionLinks = function sessionLinks() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
           className: "login-signup"
-        }, _this2.searchBar(), "\xA0", "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "navbar-signin",
           onClick: function onClick() {
             return _this2.props.openModal('Sign in');
@@ -655,7 +658,7 @@ function (_React$Component) {
       var personalGreeting = function personalGreeting() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
           className: "logged-in-navbar"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        }, _this2.searchBar(), _this2.notifications(), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "navbar-name"
         }, _this2.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/users/".concat(_this2.props.currentUser.id),

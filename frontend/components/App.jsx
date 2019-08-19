@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import Modal from './modal/modal';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './navbar/navbar_container';
 import CreateStoryFormContainer from './story/create_story_form_container';
 import StoryShowContainer from './story/story_show_container';
@@ -25,8 +25,8 @@ const App = () => {
       <Switch>
         <AuthRoute path="/stories/new" component={CreateStoryFormContainer} />
         <AuthRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
-        <Route path="/stories/:storyId" component={StoryShowContainer} />
-        <Route path="/users/:userId" component={UserShowContainer} />
+        <AuthRoute path="/stories/:storyId" component={StoryShowContainer} />
+        <AuthRoute path="/users/:userId" component={UserShowContainer} />
         {/* <Route exact path="/" component={StoryIndexContainer}/> */}
         <Route exact path="/" component={WelcomePage} />
         <AuthRoute exact path="/index" component={StoryIndexContainer} />
@@ -38,6 +38,5 @@ const App = () => {
     </div>
   )
 };
-// );
 
 export default App;

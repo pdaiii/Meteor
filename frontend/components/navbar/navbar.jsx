@@ -26,7 +26,7 @@ class navBar extends React.Component {
   }
 
   searchBar() {
-    if(this.props.location.pathname.slice(1).includes("search")){
+    if(!this.props.currentUser){
       return null;
     }
     else{
@@ -41,22 +41,18 @@ class navBar extends React.Component {
     }
   }
 
-  // notifications() {
-  //   // Make drop down notifications
-  //   return (
-  //     <form action="">
-  //       <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
-  //     </form>
-  //   )
-  // }
+  notifications() {
+    // Make drop down notifications
+    return (
+      <form action="">
+        <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
+      </form>
+    )
+  }
 
   render() {
     const sessionLinks = () => (
       <nav className="login-signup">
-        {this.searchBar()}
-        &nbsp;
-        {/* {this.notifications()} */}
-        &nbsp;
         <button className="navbar-signin" onClick={() => this.props.openModal('Sign in')}>Sign in</button>
         &nbsp;
         <button className="navbar-signup" onClick={() => this.props.openModal('Sign up')}>Get Started</button>
@@ -65,6 +61,10 @@ class navBar extends React.Component {
 
     const personalGreeting = () => (
       <hgroup className="logged-in-navbar">
+        {this.searchBar()}
+        {this.notifications()}
+        &nbsp;
+        &nbsp;
         <h2 className="navbar-name">{this.props.currentUser.username}</h2>
         <Link to={`/users/${this.props.currentUser.id}`} className="navbar-profile">
           <i className="fas fa-user-circle"></i>
