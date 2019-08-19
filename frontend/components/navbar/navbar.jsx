@@ -41,19 +41,21 @@ class navBar extends React.Component {
     }
   }
 
-  notifications() {
-    
-  }
-
+  // notifications() {
+  //   // Make drop down notifications
+  //   return (
+  //     <form action="">
+  //       <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
+  //     </form>
+  //   )
+  // }
 
   render() {
     const sessionLinks = () => (
       <nav className="login-signup">
         {this.searchBar()}
         &nbsp;
-        <form action="">
-          <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
-        </form>
+        {/* {this.notifications()} */}
         &nbsp;
         <button className="navbar-signin" onClick={() => this.props.openModal('Sign in')}>Sign in</button>
         &nbsp;
@@ -67,6 +69,7 @@ class navBar extends React.Component {
         <Link to={`/users/${this.props.currentUser.id}`} className="navbar-profile">
           <i className="fas fa-user-circle"></i>
         </Link>
+        {/* <Link to="/"><button className="logout-button" onClick={() => this.props.logout()}> */}
         <Link to="/"><button className="logout-button" onClick={() => this.props.logout()}>
           Log Out</button>
         </Link>

@@ -26,6 +26,7 @@ class StoryForm extends React.Component {
     formData.append("story[title]", this.state.title);
     formData.append("story[body]", this.state.body);
     formData.append("story[image]", this.state.image);
+    
     this.props.submitStory(formData, this.state.id)
       .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
   }
