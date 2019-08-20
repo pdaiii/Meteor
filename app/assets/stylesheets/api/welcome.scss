@@ -2,11 +2,14 @@
   display: flex;
   height: 100vh;
   flex-direction: column;
+  background-image: url('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/LeBron-James-Stephen-Curry.jpg');
+  background-size: cover;
 }
 
 .welcome{
   text-align: center;
   margin: auto;
+  color: white;
 }
 
 .welcome-title{
