@@ -2323,21 +2323,7 @@ function (_React$Component) {
         className: "far fa-thumbs-up"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "clap-counter"
-      }, this.props.story.count, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "media-icons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "twitter-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-twitter"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "facebook-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-facebook-official"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "bookmark-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-bookmark-o"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.story.count, " likes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-response"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "responses-title"
@@ -32863,7 +32849,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

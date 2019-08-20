@@ -98,7 +98,8 @@ ApplicationRecord.transaction do
       “Look, this business is complicated,” Colangelo said. “Health and injuries are complicated. Roster building is complicated. Everything we do in this business, in this profession, obviously presents a challenge. A rebuilding team in a market that’s gone through a fairly highly visible process of reorganization and restructuring and change, that’s where we are right now. As I’ve always said, the process never ends. Everything is a process. Life is a process. Team building is a process. We are moving forward as an organization. Whatever has happened in the past is all in the past.
       “This is all about us moving forward. We’re looking forward to a positive season in a number of respects. The business is doing very well. We are virtually in a sold-out situation. We want to deliver on expectations what this marketplace has. Some of those are realistic. Some of them may be unrealistic.
       “I would tell you that we are really happy and pleased with where we are. Feels like we’re at a real true jumping-off point and have the ability to take a next step as an organization and the excitement around the organization amongst the players, in the back of house, with the fan base. It’s something that you don’t see very often, but it’s all built to this moment. Thus, we have a mantra. Our marketing slogan is ‘Welcome to the moment.’ It’s upon us. We need to act on it.”',
-    author_id: user2.id
+    author_id: user2.id,
+    count: 10
   )
   story1.image.attach(io: file1, filename: 'story1.jpg')
 
@@ -135,7 +136,8 @@ ApplicationRecord.transaction do
       Atkinson said that the distance provided by the GM role allows Marks to talk him “off the cliff” after games.
       While rumors persist that Prokhorov intends to sell the team, and no guarantee exists that a new owner will afford Atkinson and Marks the requisite time to wait out the transaction calamity that got the Nets here, they’ll continue the small-bore work of improving the team to achieve what Marks called “those small wins along the way.”
       “I think we’re so involved in—this sounds so cliché—the process, and just trying to find our little wins every day in every area of this organization, every corner of this facility,” Atkinson said. “When we go from Barclays Center we’re never like, ‘Hey man, could you imagine when we’re in the playoffs?’ There’s none of that talk.”',
-      author_id: user2.id
+      author_id: user2.id,
+      count: 200
   )
   story2.image.attach(io: file2, filename: 'story2.jpg')
 
@@ -209,7 +211,8 @@ ApplicationRecord.transaction do
       There’s a third thing that’s true — Milwaukee is now locked into this roster for a long time. Middleton will be there at least four years. BroLo is signed for four. Bledsoe is, too. This is the team. This is the core. Except you know who’s not signed for four years? Giannis Antetokounmpo.     
       Giannis is under contract just two more years. What happens when the Bucks don’t win 60 games again next season? What if they don’t even make the Eastern Conference Finals? What happens when Giannis looks around and sees teammates that aren’t good enough again and sees an ownership group he now knows isn’t willing to go all-in to give him the best chance to win?
       Two years from today, Giannis Antetokounmpo is a free agent. And the clock just started ticking. Loudly. ■',
-      author_id: user3.id
+      author_id: user3.id,
+      count: 250
   )
   story3.image.attach(io: file3, filename: 'story3.jpg')
 
@@ -300,7 +303,8 @@ ApplicationRecord.transaction do
       It’s a staggering 12 first-round picks, a couple monster trade-ups, and a possible franchise point guard in Shai Gilgeous-Alexander, all of it in exchange for a roster that was going absolutely nowhere as the 6- or 7-seed out West the next few years. Maybe this PG trade will someday turn into the PG-13 trade — as in, PG for 13 first-round picks. Are we really going back to the same movie-ratings joke twice in one column? Yes, yes we R.  
       You hear a lot of talk these days about “blowing it up,” every NBA fan’s dream when a team gets locked into that treadmill of mediocrity. The Thunder were just getting onto the treadmill, or maybe they’ve already been there a couple years. Things were going to get ugly in OKC. Think Washington Wizards or Charlotte Hornets ugly. Think can-this-team-even-survive-in-a-small-market-with-a-huge-tax-bill-and-no-talent-omg-are-they-headed-back-to-Seattle ugly.  
       Instead, with one overnight masterstroke, Sam Presti has set the rebuild forward a full five years and sent this team zooming into the future.',
-      author_id: user3.id
+      author_id: user3.id,
+      count: 50
   )
   story4.image.attach(io: file4, filename: 'story4.jpg')
 
@@ -404,7 +408,8 @@ ApplicationRecord.transaction do
       The third star is coming. Can I interest you in Bradley Beal or Jrue Holiday? How about a big man like Clint Capela, Steven Adams, Derrick Favors, or Myles Turner? All easily targetable adds for this team. They could go out and get Kyle Lowry or Marc Gasol at the trade deadline. Heck, they might even be able to get one of those two and then clear enough expiring salary to sign a frustrated Anthony Davis next summer. Okay, it probably won’t be Davis — though you have to admit, that’d be hilarious schaudenfreude — but there’s a third star out there coming, and they’ll be on this roster before the playoffs.
       Even without that star, the Clippers are already bigger favorites than you think. Once the other shoe drops, it will be lights out for the rest of the NBA.
       So much for an era without any superteams. The next one is already being formed right under out noses.',
-    author_id: user3.id
+    author_id: user3.id,
+    count: 40
   )
   story5.image.attach(io: file5, filename: 'story5.jpg')
 
@@ -613,7 +618,8 @@ ApplicationRecord.transaction do
       The 10 Biggest Takeaways from a Wild NBA Free Agency
       The NBA has turned upside down. Let’s break it all down.
       ',
-    author_id: user3.id
+    author_id: user3.id,
+    count: 100
   )
   story6.image.attach(io: file6, filename: 'story6.jpg')
 
@@ -684,7 +690,8 @@ ApplicationRecord.transaction do
       Fair value — 4 years $105 million
       Prediction — Full 4-year max $117 million
       Verdict — Probably worth the risk, with big potential surplus value',
-    author_id: user3.id
+    author_id: user3.id,
+    count: 10
   )
   story7.image.attach(io: file7, filename: 'story7.jpg')
 
@@ -813,7 +820,8 @@ ApplicationRecord.transaction do
       2016 — LeBron James and Kyrie Irving combine to make 14 of 26 three pointers to win games 5 and 6 and tie the series. They finally win a title for Cleveland as LeBron makes the signature play of the Finals on one end, blocking Iguodala’s breakaway layup, and Kyrie hits a game winning 25-foot three pointer on the other end. The Warriors miss 9 out of 10 three pointers in the 4th quarter.
       2017–2018 — Kevin Durant not only guards and outplays LeBron James, he hits game winning three pointers.
       2019 — Kawhi Leonard is the dominant player, the Warriors are decimated by injuries, and it still might not have mattered without Fred VanVleet making 13 of 27 three pointers in the last four games of the Finals, and 17 of 25 three pointers in the last three games of the Conference Finals.',
-    author_id: user4.id
+    author_id: user4.id,
+    count: 60
   )
   story8.image.attach(io: file8, filename: 'story8.jpg')
 
@@ -837,7 +845,8 @@ ApplicationRecord.transaction do
       It should also say something that Westbrook still faced the crowd after the trade came to light. He took a moment to thank Oklahoma, according to Brandon ‘Scoop B’ Robinson of Heavy.
       Westbrook has a been a member of the Thunder for as long as the team has been in Oklahoma, and he won one MVP, two scoring titles, two assists titles, eight All-NBA selections and a record three seasons in which he averaged a triple-double during his 11 years there.
       He only got as far as the NBA Finals when Kevin Durant and James Harden were on the team, but that is still quite a ride.',
-    author_id: user5.id
+    author_id: user5.id,
+    count: 70
   )
   story9.image.attach(io: file9, filename: 'story9.jpg')
 
@@ -852,7 +861,8 @@ ApplicationRecord.transaction do
       The chemistry could benefit the Lakers immensely. New Orleans finished with a 48-34 record and made it to the Western Conference semifinals for the first time since 2007-08 that season. While Cousins had  a season-ending Achilles tear in January of 2018 and therefore wasn’t part of the postseason run, his play with Davis was crucial to setting up the team to get to the playoffs after missing the mark the past two seasons.
       Rajon Rondo, who also signed with Los Angeles Saturday, was on that 2017-18 team as well — though his role was much smaller. 
       Davis and Cousins have proved to be a dangerous frontcourt together, bringing out the best in each other. And now LeBron James will be in the mix as well. It’s not the big three the Lakers initially hoped for with Kawhi Leonard, but nonetheless they’ve still got three All-Star talents on the roster.',
-    author_id: user6.id
+    author_id: user6.id,
+    count: 80
   )
   story10.image.attach(io: file10, filename: 'story10.jpg')
 
@@ -994,7 +1004,8 @@ ApplicationRecord.transaction do
       Let ‘er rip.
       I’ll most likely come out of retirement at some point,
       ',
-    author_id: user7.id
+    author_id: user7.id,
+    count: 90
   )
   story11.image.attach(io: file11, filename: 'story11.jpg')
 
@@ -1035,7 +1046,8 @@ ApplicationRecord.transaction do
       He could have have put himself in different situations. But many of the same people who say Anthony didn’t win enough also criticize Kevin Durant for taking an easy route to the title. It’s so hard to please that crowd.
       Anthony sounds generally satisfied with his career (at least until this last stretch). He played the role he wanted and made a lot of money. That matters.
       It’s easy to second-guess his contracts. But with different moves, we’d probably just be second-guessing a different set of circumstances.',
-    author_id: user9.id
+    author_id: user9.id,
+    count: 100
   )
   story12.image.attach(io: file12, filename: 'story12.jpg')
 
@@ -1053,7 +1065,8 @@ ApplicationRecord.transaction do
       ,LeVert is the most exciting running mate for Irving until Durant returns. The Michigan product was one of the NBA’s premier breakout players to start 2018-19 before a leg injury kept him out from Nov. 14 through January, leading Brooklyn with 19 points per game. LeVert is a strong isolation scorer with good feel in the pick-and-roll and impressive athleticism around the tin. Brooklyn averaged 110.1 points per 100 possessions with Allen and LeVert on the floor together last season, milking the two-man game with a pair of explosive athletes. LeVert will need to improve his jumper in 2019-20, but there remains the outline of a potential All-Star, especially in the weakened Eastern Conference. With LeVert, Dinwiddie and Allen (as well as stretchy swingman Taurean Prince and sharpshooter Joe Harris) Irving has plenty of pieces for a strong season with his third franchise in four years.
       Milwaukee and Philadelphia are still the presumed crop of the East in 2019-20, and rightfully so. Giannis Antetokounmpo is perhaps the best player in basketball, and the Sixers’ roster is among the most talented in the league, especially on the defensive end. But Brooklyn could sit right behind the top two in the East. Kawhi bolted from Toronto to join Paul George in Los Angeles, and Boston will have a difficult time replacing Al Horford. Perhaps the Pacers gain a boost from Malcolm Brogdon or the Heat earn homecourt in round one with Jimmy Butler in and Hassan Whiteside out.
       Regardless, no contender has truly emerged aside from Milwaukee and Philly. Brooklyn can fill the void. Irving is an upgrade over Russell and an emerging young core has remained intact. Atkinson is among one of the conference’s top coaches; he should bring the best out his star point guard. There are plenty of skeptics regarding Irving and the Nets, but the talent is in place for a 50-win campaign. The 2019-20 season won’t be a lost one in Brooklyn, even if Durant stays on the sidelines through the postseason.',
-    author_id: user10.id
+    author_id: user10.id,
+    count: 130
   )
   story13.image.attach(io: file13, filename: 'story13.jpg')
 
@@ -1070,7 +1083,8 @@ ApplicationRecord.transaction do
       Sharp: I agree with all of that. The one thing I would add is that Denver’s depth is probably better than what Utah would be bringing to the table next season. If you look at their bench, they have Ed Davis, the internets favorite back up big, they have Jeff Green who I actually saw jogging through D.C. the other day, then they got Royce O’Neal.
       I like Denver’s bench with Monte Morris a lot. I think ultimately the difference between these two teams is going to be decided by health and the progress made by Donovan Mitchell and Jamal Murray. If Murray can really take a step forward and become fringe all-star type guy or even slightly less than that and average like 21 points per game, five or six assists for that offense and just become a little bit more consistent than the guy he was yesterday, the Nuggets could be really good offensively and good enough to give any team problems in the West.
       By the same token, if Mitchell can smooth out the edges with his game and hopefully he would have to shoulder a lesser burden than he has to over the last few years. The Jazz match up great with most of the teams in the West. A lot is going to depend on what Gobert can do in the playoffs. This team is a real threat in the West.',
-    author_id: user11.id
+    author_id: user11.id,
+    count: 50
   )
   story14.image.attach(io: file14, filename: 'story14.jpg')
 
@@ -1212,7 +1226,8 @@ ApplicationRecord.transaction do
       Let ‘er rip.
       I’ll most likely come out of retirement at some point,
       ',
-    author_id: user7.id
+    author_id: user7.id,
+    count: 50
   )
   story15.image.attach(io: file15, filename: 'story15.jpg')
 
@@ -1308,7 +1323,8 @@ ApplicationRecord.transaction do
       There’s a third thing that’s true — Milwaukee is now locked into this roster for a long time. Middleton will be there at least four years. BroLo is signed for four. Bledsoe is, too. This is the team. This is the core. Except you know who’s not signed for four years? Giannis Antetokounmpo.
       Giannis is under contract just two more years. What happens when the Bucks don’t win 60 games again next season? What if they don’t even make the Eastern Conference Finals? What happens when Giannis looks around and sees teammates that aren’t good enough again and sees an ownership group he now knows isn’t willing to go all-in to give him the best chance to win?
       Two years from today, Giannis Antetokounmpo is a free agent. And the clock just started ticking. Loudly. ■',
-      author_id: user3.id
+      author_id: user3.id,
+      count: 80
   )
   story17.image.attach(io: file17, filename: 'story17.jpg')
 
@@ -1322,7 +1338,8 @@ ApplicationRecord.transaction do
       As for Kyrie, the key to his emersion with the team comes from Spencer Dinwiddie, who has been recruiting Kyrie for quite some time. The two players took a semester long seminar at Harvard Business School, developing a relationship that helped land Kyrie in Brooklyn. Spencer already knows the culture in Brooklyn, and knows his role on the team. He already played a similar role to D-Lo as a second key option in the backcourt. His friendship with Kyrie will be critical in making Kyrie feel comfortable in Brooklyn and helping Kyrie develop friendships with the rest of the Squad.
       Deandre Jordan’s presence is also a key factor for the Nets. Evidently, he has a strong friendship with KD and Kyrie. Deandre could be an X-factor on this team. He will be key to helping develop Claxton and Jarrett Allen. His mentorship will be extremely helpful. But his largest value-add will be as the adult in the room during the first year when KD is out. Clearly, he is someone that Kyrie respects and is friends with. Thus, if there are any spats with Kyrie, Deandre will in theory be able to help calm Kyrie down or talk to him rationally. Moreover, the largest swing factor in this entire Nets experiment is the relationship between both Kyrie and KD. If this falls to the ground, this can blow up in everyone’s faces. By having someone who is friends with both of them, there will hopefully be someone who can mediate any potential arguments. This is critically important as there may be a power struggle between KD and Kyrie since this will in essence be KD walking into Kyrie’s team since he is out for the first year.
       The final piece to this all working out is the Nets’ infrastructure. From the top, the ownership group of Joe Tsai and Prokorov is supportive of making these stars into worldwide icons. This is not something that many other franchsies can provide. The allure of being stars worldwide combined with making basketball in New York great and making the Barclay’s center buzz should be an exciting challenge for both KD and Kyrie. This shared goal, along with playing with friends, should be enough to keep things on the rails. Moreover, the Nets have strong leadership with both Marks and Atkinson. Although relatively unproven, this duo has proven in a short period of time that they can help build a winning culture in Brooklyn. Clearly, Marks has a strong relationships with the representatives of these players or else this would not have been able to come to fruition. There are also key pieces like Adam Harrington, a Nets assistant who used to be KD’s trainer. Overall, this is a well-run organization that will have high expectations (and thus media scrutiny), but not the expectations that would have come with playing for the Knicks in the Garden.',
-    author_id: user8.id
+    author_id: user8.id,
+    count: 90
   )
   story20.image.attach(io: file20, filename: 'story20.jpg')
 end

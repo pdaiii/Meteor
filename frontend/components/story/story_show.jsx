@@ -112,7 +112,7 @@ class StoryShow extends React.Component {
                 {/* <p className="clap-counter">{this.props.story.claps} likes</p> */}
               </div>
 
-              <div className="media-icons">
+              {/* <div className="media-icons">
                 <div className="twitter-icon">
                   <button><i className="fa fa-twitter"></i></button>
                 </div>
@@ -122,7 +122,7 @@ class StoryShow extends React.Component {
                 <div className="bookmark-icon">
                   <button><i className="fa fa-bookmark-o"></i></button>
                 </div>
-              </div>
+              </div> */}
             </footer>
 
             <div className="story-show-response">
