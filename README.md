@@ -35,6 +35,7 @@ Welcome to the Meteor wiki! Meteor is a social media application inspired by Med
 * Users can follow other users.
 * The feed page will generate stories based on who they follow.
 * User profile.
+* Notifications when there is activity from users you follow.
 
 ### Deployment Instructions
 * npm install
