@@ -1,15 +1,15 @@
 # Meteor
 [Live Site](https://meteor-fsp.herokuapp.com/#/)
 
-Welcome to the Meteor wiki! Medium is a social media application inspired by Medium that enables authors to create and share short stories. The site was designed with React.js and Redux on the front-end and Ruby on Rails with a PostgreSQL database on the back-end.
+Welcome to the Meteor wiki! Medium is a social media application inspired by Medium that enables authors to publicly share articles. Users can create articles with a title, body, and image. Users can also like and comment on other users' posts.
 
 ## List of Technologies Used
-* Ruby on Rails
 * React
 * Redux
+* Ruby on Rails
+* PostgreSQL
 * JavaScript
 * jQuery
-* PostgreSQL
 * HTML5
 * CSS3
 * AWS S3
@@ -33,9 +33,8 @@ Welcome to the Meteor wiki! Medium is a social media application inspired by Med
 
 ## Future Implementations
 * Users can follow other users.
-* The splash page will generate stories based on who they follow.
+* The feed page will generate stories based on who they follow.
 * User profile.
-* Mobile friendly. Browser friendly.
 
 ### Deployment Instructions
 * npm install
