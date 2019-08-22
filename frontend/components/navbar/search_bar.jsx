@@ -39,7 +39,9 @@ class SearchBar extends React.Component{
     let entries = [];
     let searchEntry = this.props.location.search.slice(3);
     stories.map(story => {
-      if (story.body.includes(searchEntry)) {
+      let body = story.body.toLowerCase();
+      let entry = searchEntry.toLowerCase();
+      if (body.includes(entry)) {
         entries.push(story);
       }
     });

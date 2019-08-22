@@ -26,7 +26,7 @@ class StoryForm extends React.Component {
     formData.append("story[title]", this.state.title);
     formData.append("story[body]", this.state.body);
     formData.append("story[image]", this.state.image);
-    
+    // submitStory looks for a story that fulfills the story url params
     this.props.submitStory(formData, this.state.id)
       .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
   }
@@ -40,9 +40,7 @@ class StoryForm extends React.Component {
           <textarea className="new-story-form-body" value={this.state.body} onChange={this.update('body')} 
             placeholder="Tell your story...">
           </textarea>
-
           <input type="file" onChange={this.handleImage}/>
-
           <div>
             {this.props.formType === 'Edit Story'
               ? <input className="submit-button" type="submit" value="Update Story" />

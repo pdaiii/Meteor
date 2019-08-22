@@ -15,24 +15,18 @@ const App = () => {
   return(
     <div>
       <header className="navBar">
-        {/* <Link to='/'><h1 className="logo">Meteor</h1></Link> */}
         <Link to='/index'><h1 className="logo">Meteor</h1></Link>
         <NavBarContainer />
       </header>
-
       <Modal />
-
       <Switch>
         <AuthRoute path="/stories/new" component={CreateStoryFormContainer} />
         <AuthRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
         <AuthRoute path="/stories/:storyId" component={StoryShowContainer} />
         <AuthRoute path="/users/:userId" component={UserShowContainer} />
-        {/* <Route exact path="/" component={StoryIndexContainer}/> */}
-        <Route exact path="/" component={WelcomePage} />
+        <ProtectedRoute exact path="/" component={WelcomePage} />
         <AuthRoute exact path="/index" component={StoryIndexContainer} />
         <Route path="/search" component={SearchBar} />
-        {/* <Redirect to="/" component={StoryIndexContainer}/> */}
-        {/* <Redirect to="/index" component={StoryIndexContainer} /> */}
         <Redirect to="/" component={WelcomePage} />
       </Switch>
     </div>

@@ -20,7 +20,6 @@ export const fetchStory = (id) => {
 //   })
 // };
 
-// Handle images
 export const createStory = (story) => {
   return $.ajax({
     method: 'POST',
