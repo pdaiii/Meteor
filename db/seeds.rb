@@ -216,30 +216,6 @@ ApplicationRecord.transaction do
   )
   story3.image.attach(io: file3, filename: 'story3.jpg')
 
-  response1 = Response.create!(
-    body: 'If Deangelo Russell finds a way to fit into the Warriors offense the Warriors will still have one of the best backcourts in the NBA.',
-    story_id: story3.id,
-    author_id: user1.id
-  )
-
-  response2 = Response.create!(
-    body: 'Signing Deangelo Russell was a good move for the Warrior despite losing Shaun Livingston, KD, and Andre Iguodola',
-    story_id: story3.id,
-    author_id: user2.id
-  )
-
-  response3 = Response.create!(
-    body: 'Sad seeing Josh Richardson leave the Miami Heat, but Jimmy Butler is the star the Heat have been looking for.',
-    story_id: story3.id,
-    author_id: user3.id
-  )
-
-  response4 = Response.create!(
-    body: 'With Jimmy Butler gone, it will be interesting to see how the Sixers manage late in the 4th quarter.',
-    story_id: story3.id,
-    author_id: user4.id
-  )
-
   file4 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/paul_george_saved_okc.jpg')
   story4 = Story.create!(
     title: 'The Paul George Trade Just Saved the Oklahoma City Thunder Franchise',
@@ -307,12 +283,6 @@ ApplicationRecord.transaction do
       count: 50
   )
   story4.image.attach(io: file4, filename: 'story4.jpg')
-
-  response5 = Response.create!(
-    body: 'How will OKC do without the likes of Paul George and Russell Westbrook?',
-    story_id: story4.id,
-    author_id: user1.id
-  )
 
   file5 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-clippers-nba-free-agency.jpg')
   story5 = Story.create!(
@@ -412,24 +382,6 @@ ApplicationRecord.transaction do
     count: 40
   )
   story5.image.attach(io: file5, filename: 'story5.jpg')
-
-  response9 = Response.create!(
-    body: 'Huge changes this offseason..',
-    story_id: story5.id,
-    author_id: user1.id
-  )
-
-  response10 = Response.create!(
-    body: 'Do the Clippers have enough to win the title this year?',
-    story_id: story5.id,
-    author_id: user2.id
-  )
-
-  response12 = Response.create!(
-    body: 'How will the Raptors defend the title without Kawhi?',
-    story_id: story5.id,
-    author_id: user4.id
-  )
 
   file6 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/2019_summer_league.jpg')
   story6 = Story.create!(
@@ -623,18 +575,6 @@ ApplicationRecord.transaction do
   )
   story6.image.attach(io: file6, filename: 'story6.jpg')
 
-  response13 = Response.create!(
-    body: 'Zion Williamson',
-    story_id: story6.id,
-    author_id: user1.id
-  )
-
-  response14 = Response.create!(
-    body: 'Did Zion get injured?',
-    story_id: story6.id,
-    author_id: user2.id
-  )
-
   file7 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kd-kyrie-free-agency.jpg')
   story7 = Story.create!(
     title: 'Which 2019 NBA free agents are really worth a max contract?',
@@ -694,12 +634,6 @@ ApplicationRecord.transaction do
     count: 10
   )
   story7.image.attach(io: file7, filename: 'story7.jpg')
-
-  response15 = Response.create!(
-    body: 'Back to the Lakers?',
-    story_id: story7.id,
-    author_id: user5.id
-  )
 
   file8 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/early_christmas.jpeg')
   story8 = Story.create!(
@@ -824,12 +758,6 @@ ApplicationRecord.transaction do
     count: 60
   )
   story8.image.attach(io: file8, filename: 'story8.jpg')
-
-  response16 = Response.create!(
-    body: 'WHERE IS KAWHI GOING?',
-    story_id: story8.id,
-    author_id: user3.id
-  )
 
   file9 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
   story9 = Story.create!(
@@ -1008,18 +936,6 @@ ApplicationRecord.transaction do
     count: 90
   )
   story11.image.attach(io: file11, filename: 'story11.jpg')
-
-  response18 = Response.create!(
-    body: 'KOBE',
-    story_id: story11.id,
-    author_id: user1.id
-  )
-
-  response19 = Response.create!(
-    body: 'GOAT',
-    story_id: story11.id,
-    author_id: user2.id
-  )
 
   file12 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/melo_on_the_bulls.jpg')
   story12 = Story.create!(

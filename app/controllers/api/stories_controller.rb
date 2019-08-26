@@ -11,8 +11,10 @@ class Api::StoriesController < ApplicationController
     end
   end
 
+  # Rendering a story show page.
   def show
     @story = Story.find(params[:id])
+    render 'api/stories/show'
   end
 
   def index

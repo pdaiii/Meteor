@@ -1761,12 +1761,12 @@ function (_React$Component) {
     value: function handleSubmit(event) {
       var _this3 = this;
 
-      event.preventDefault(); // Form Data for handling image files.
-
+      event.preventDefault();
       var formData = new FormData();
       formData.append("story[title]", this.state.title);
       formData.append("story[body]", this.state.body);
       formData.append("story[image]", this.state.image); // submitStory looks for a story that fulfills the story url params
+      // requires multiple properties to be passed; must use FormData
 
       this.props.submitStory(formData, this.state.id).then(function () {
         return _this3.props.history.push("/users/".concat(_this3.props.currentUserId));
@@ -1827,7 +1827,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _story_index_hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./story_index_hero */ "./frontend/components/story/story_index_hero.jsx");
 /* harmony import */ var _story_index_items__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./story_index_items */ "./frontend/components/story/story_index_items.jsx");
 /* harmony import */ var _popular_stories__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./popular_stories */ "./frontend/components/story/popular_stories.jsx");
-/* harmony import */ var _util_compare_responses_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/compare_responses_util */ "./frontend/util/compare_responses_util.js");
+/* harmony import */ var _util_compare_likes_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/compare_likes_util */ "./frontend/util/compare_likes_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1849,6 +1849,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+ // import { compare } from '../../util/compare_responses_util';
 
 
 
@@ -1874,8 +1875,7 @@ function (_React$Component) {
       var stories = Object.values(this.props.stories);
       var storyIndexHero;
       var heroStories;
-      var storyIndexItems; // Implement based on claps later. Based on responses now.
-
+      var storyIndexItems;
       var popularStories;
       var mostPopularStories; // Navigating from a show page. Or refreshing the splash page.
 
@@ -1891,9 +1891,8 @@ function (_React$Component) {
             key: story.id,
             story: story
           });
-        }); // Sorting algorithm
-
-        var sortedStories = stories.sort(_util_compare_responses_util__WEBPACK_IMPORTED_MODULE_4__["compare"]);
+        });
+        var sortedStories = stories.sort(_util_compare_likes_util__WEBPACK_IMPORTED_MODULE_4__["compare"]);
         popularStories = sortedStories.slice(0, 4);
         mostPopularStories = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_popular_stories__WEBPACK_IMPORTED_MODULE_3__["default"], {
           stories: popularStories
@@ -2227,6 +2226,7 @@ function (_React$Component) {
   _createClass(StoryShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // Render show page for story.
       this.props.fetchStory(this.props.match.params.storyId);
       this.props.fetchAllResponses(this.props.match.params.storyId);
       window.scroll(0, 0);
@@ -2407,6 +2407,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _user_stories_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_stories_container */ "./frontend/components/user/user_stories_container.jsx");
+/* harmony import */ var _util_user_profile_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/user_profile_util */ "./frontend/util/user_profile_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2424,6 +2425,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2479,6 +2481,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       if (!this.props.user) {
         return null;
       }
@@ -2505,8 +2509,13 @@ function (_React$Component) {
         className: "user-profile-user"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "user-profile-username"
-      }, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "user-profile-follow-btn"
+      }, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "follows"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Following \xA0\xA0 Followers")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "user-profile-follow-btn",
+        onClick: function onClick() {
+          return Object(_util_user_profile_util__WEBPACK_IMPORTED_MODULE_3__["followUser"])(_this2.props.user.id);
+        }
       }, "Follow")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2556,6 +2565,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchUser: function fetchUser(id) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(id));
     },
+    // updateUser: (id) => dispatch(updateUser(id)),
+    // followUser: (id) => dispatch(followUser(id)),
+    // unfollowUser: (id) => dispatch(unfollowUser(id)),
     fetchAllStories: function fetchAllStories() {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllStories"])());
     }
@@ -3171,10 +3183,10 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
-/***/ "./frontend/util/compare_responses_util.js":
-/*!*************************************************!*\
-  !*** ./frontend/util/compare_responses_util.js ***!
-  \*************************************************/
+/***/ "./frontend/util/compare_likes_util.js":
+/*!*********************************************!*\
+  !*** ./frontend/util/compare_likes_util.js ***!
+  \*********************************************/
 /*! exports provided: compare */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3183,8 +3195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compare", function() { return compare; });
 var compare = function compare(a, b) {
   var comparison = 0;
-  var responseLength1 = a['response_ids'].length;
-  var responseLength2 = b['response_ids'].length; // Longest response length stories in the front
+  var responseLength1 = a['count'];
+  var responseLength2 = b['count']; // Longest response length stories in the front
 
   if (responseLength1 < responseLength2) {
     comparison = 1;
@@ -3465,6 +3477,38 @@ var timeToRead = function timeToRead(text) {
   timeInMinutes = Math.floor(timeInSeconds / 60);
   if (timeInMinutes < 1) return 1;
   return timeInMinutes;
+};
+
+/***/ }),
+
+/***/ "./frontend/util/user_profile_util.js":
+/*!********************************************!*\
+  !*** ./frontend/util/user_profile_util.js ***!
+  \********************************************/
+/*! exports provided: followUser, unfollowUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "followUser", function() { return followUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unfollowUser", function() { return unfollowUser; });
+// export const updateUser = (id) => {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: `/api/user_profile/${id}`,
+//   })
+// };
+var followUser = function followUser(id) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/user_profile/".concat(id)
+  });
+};
+var unfollowUser = function unfollowUser(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/user_profile/".concat(id)
+  });
 };
 
 /***/ }),

@@ -21,12 +21,12 @@ class StoryForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // Form Data for handling image files.
     const formData = new FormData();
     formData.append("story[title]", this.state.title);
     formData.append("story[body]", this.state.body);
     formData.append("story[image]", this.state.image);
     // submitStory looks for a story that fulfills the story url params
+    // requires multiple properties to be passed; must use FormData
     this.props.submitStory(formData, this.state.id)
       .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
   }

@@ -12,6 +12,7 @@ class StoryShow extends React.Component {
   }
 
   componentDidMount() {
+    // Render show page for story.
     this.props.fetchStory(this.props.match.params.storyId);
     this.props.fetchAllResponses(this.props.match.params.storyId);
     window.scroll(0, 0);

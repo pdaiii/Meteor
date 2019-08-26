@@ -81,6 +81,11 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  # Method to check for whether current user follows user
+  def follows
+    
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64

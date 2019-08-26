@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserStoriesContainer from './user_stories_container';
+import { followUser, unfollowUser } from '../../util/user_profile_util';
 
 class UserShow extends React.Component {
   componentDidMount() {
@@ -65,7 +66,18 @@ class UserShow extends React.Component {
             <div className="user-profile-info">
               <div className="user-profile-user">
                 <h1 className="user-profile-username">{this.props.user.username}</h1>
-                <button className="user-profile-follow-btn">Follow</button>
+
+                <div className="follows">
+                  {/* <p className="following"> Following</p>
+                  &nbsp;&nbsp;
+                  <p className="followers"> Followers</p> */}
+                  <p>
+                    Following &nbsp;&nbsp; Followers
+                  </p>
+                </div>
+
+                <button className="user-profile-follow-btn" onClick={() => followUser(this.props.user.id)}>
+                  Follow</button>
               </div>
 
               <div className="user-profile-pic-icon">
