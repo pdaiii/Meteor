@@ -37,6 +37,11 @@ Welcome to the Meteor wiki! Meteor is a social media application inspired by Med
 * User profile.
 * Notifications when there is activity from users you follow.
 
+## Patches
+* Patch9.3.2019
+  * Search functionality no longer working.
+  * Home page background image alignment no longer working.
+
 ### Deployment Instructions
 * npm install
 * bundle install
