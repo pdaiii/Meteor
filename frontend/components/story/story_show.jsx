@@ -28,7 +28,6 @@ class StoryShow extends React.Component {
   }
 
   // updateClaps(event) {
-  //   debugger
   //   const formData = new FormData();
   //   formData.append('story[count]', this.props.story.claps+1);
   //   this.props.updateStoryLikes(formData, this.props.story.id);

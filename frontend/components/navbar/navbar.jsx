@@ -68,8 +68,7 @@ class navBar extends React.Component {
       <hgroup className="logged-in-navbar">
         {this.searchBar()}
         {/* {this.notifications()} */}
-        &nbsp;
-        &nbsp;
+        &nbsp;&nbsp;
         <h2 className="navbar-name">{this.props.currentUser.username}</h2>
         <Link to={`/users/${this.props.currentUser.id}`} className="navbar-profile">
           <i className="fas fa-user-circle"></i>

@@ -24,10 +24,8 @@ const App = () => {
         <AuthRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
         <AuthRoute path="/stories/:storyId" component={StoryShowContainer} />
         <AuthRoute path="/users/:userId" component={UserShowContainer} />
-
-        <ProtectedRoute exact path="/" component={WelcomePage} />
-        
-        <AuthRoute exact path="/index" component={StoryIndexContainer} />
+        <Route exact path="/" component={WelcomePage} />
+        <Route exact path="/index" component={StoryIndexContainer} />
         <Route path="/search" component={SearchBar} />
         <Redirect to="/" component={WelcomePage} />
       </Switch>

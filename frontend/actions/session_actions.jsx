@@ -39,20 +39,18 @@ export const login = (user) => {
 
 export const logout = () => {
   return dispatch => {
-    return SessionAPIUtil.logout().then(() => (
-      dispatch(logoutCurrentUser())
-    ), (err) => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
+    return SessionAPIUtil.logout()
+      .then(
+        () => (dispatch(logoutCurrentUser())),
+        (err) => (dispatch(receiveErrors(err.responseJSON))))
   };
 };
 
 export const signup = (user) => {
   return dispatch => {
-    return SessionAPIUtil.signup(user).then(user => (
-      dispatch(receiveCurrentUser(user))
-    ), (err) => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
+    return SessionAPIUtil.signup(user)
+      .then(
+        user => (dispatch(receiveCurrentUser(user))), 
+        (err) => (dispatch(receiveErrors(err.responseJSON))))
   };
 };

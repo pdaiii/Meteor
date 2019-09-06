@@ -9,14 +9,15 @@ export const signup = (user) => {
 export const login = (user) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/session',
+    url: '/api/sessions',
     data: {user}
   });
 };
 
+// Route looks for an id when logging out.
 export const logout = () => {
   return $.ajax({
     method: 'DELETE',
-    url: '/api/session'
+    url: '/api/sessions/123'
   });
 }
