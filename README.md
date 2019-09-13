@@ -20,7 +20,47 @@ Welcome to the Meteor wiki! Meteor is a social media application inspired by Med
 
 ## Features and Functionality
 ### Log In/Sign Up
-![image](https://user-images.githubusercontent.com/7242067/64880834-08616e80-d60e-11e9-83c8-1ed59906bc80.png)
+```
+import React from 'react';
+import { withRouter } from 'react-router';
+
+class SessionForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: ""
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoUser = this.handleDemoUser.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const user = Object.assign({}, this.state);
+    //* Sign in and sign up has no access through history using a modal *//
+    this.props.processForm(user)
+      .then(this.props.closeModal)
+      .then(() => this.props.history.push(`/index`));
+  }
+
+  handleDemoUser(event) {
+    event.preventDefault();
+
+    const demoUser = {
+      username: "Guest User",
+      password: "password"
+    };
+
+    this.setState({ username: demoUser.username });
+    this.setState({ password: demoUser.password });
+
+    //* Demoing user through modal has no access to history. *//
+    this.props.processForm(demoUser)
+      .then(this.props.closeModal)
+      .then(() => this.props.history.push(`/index`));
+  }
+```
 * Users can sign up or log in to gain access to logged in features. 
 * If a user wishes not to create an account, they may choose to use the Demo Login feature.
 
