@@ -45,7 +45,6 @@ class navBar extends React.Component {
     // Bell when no notifications
     // Make drop down notifications when at least 1.
     let notifications = document.getElementsByClassName('notification-cnt');
-    
     return (
       <form action="">
         <button className="navbar-notifications"><i className="fas fa-bell"></i></button>

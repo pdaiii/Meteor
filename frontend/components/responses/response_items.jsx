@@ -13,8 +13,7 @@ class ResponseItems extends React.Component {
 
   render() {
     let formattedDate = monthDay(this.props.response.created_at);
-
-    // Delete own comments 
+    // Delete own comments. Display delete icon when viewing own comments.
     let deleteOwnComments;
     if(this.props.response.author_id === this.props.currentUserId){
       deleteOwnComments =

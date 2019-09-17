@@ -20,6 +20,10 @@ Welcome to the Meteor wiki! Meteor is a social media application inspired by Med
 
 ## Features and Functionality
 ### Log In/Sign Up
+```
+
+```
+
 * Users can sign up or log in to gain access to logged in features. 
 * If a user wishes not to create an account, they may choose to use the Demo Login feature.
 

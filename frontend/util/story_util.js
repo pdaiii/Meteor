@@ -12,14 +12,7 @@ export const fetchStory = (id) => {
   })
 };
 
-// export const createStory = (story) => {
-//   return $.ajax ({
-//     method: 'POST',
-//     url: `/api/stories`,
-//     data: {story}
-//   })
-// };
-
+// Uploading image files to the backend server.
 export const createStory = (story) => {
   return $.ajax({
     method: 'POST',
@@ -30,14 +23,7 @@ export const createStory = (story) => {
   })
 };
 
-// export const updateStory = (story) => {
-//   return $.ajax ({
-//     method: 'PATCH',
-//     url: `/api/stories/${story.id}`,
-//     data: {story}
-//   })
-// };
-
+// Updating story details to the backend server. Handles image files.
 export const updateStory = (story, story_id) => {
   return $.ajax ({
     method: 'PATCH',
@@ -64,3 +50,19 @@ export const deleteStory = (id) => {
     url: `/api/stories/${id}`
   })
 };
+
+// export const createStory = (story) => {
+//   return $.ajax ({
+//     method: 'POST',
+//     url: `/api/stories`,
+//     data: {story}
+//   })
+// };
+
+// export const updateStory = (story) => {
+//   return $.ajax ({
+//     method: 'PATCH',
+//     url: `/api/stories/${story.id}`,
+//     data: {story}
+//   })
+// };

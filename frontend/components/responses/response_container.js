@@ -4,10 +4,9 @@ import { createResponse } from '../../actions/response_actions';
 import { fetchStory } from '../../actions/story_actions';
 import Response from './response';
 
-// WHERE ARE OWN PROPS COMING FROM??
 const mapStateToProps = (state, ownProps) => {
   return({
-    response: { body: '', story_id: ownProps.match.params.storyId},
+    response: { body: '', story_id: ownProps.match.params.storyId },
     story: state.entities.stories[ownProps.match.params.storyId]
   });
 };

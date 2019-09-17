@@ -7,10 +7,6 @@ class Response extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    // this.props.fetchStory(this.props.story.id);
-  }
-
   update(field) {
     return event => this.setState({
       [field]: event.currentTarget.value

@@ -732,7 +732,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllStories"])());
     }
   };
-};
+}; // Access to the props and history to redirect users on webpages.
+
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_navbar__WEBPACK_IMPORTED_MODULE_5__["default"])));
 
@@ -946,10 +947,6 @@ function (_React$Component) {
   }
 
   _createClass(Response, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// this.props.fetchStory(this.props.story.id);
-    }
-  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -1019,7 +1016,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // WHERE ARE OWN PROPS COMING FROM??
+
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
@@ -1109,7 +1106,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var formattedDate = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(this.props.response.created_at); // Delete own comments 
+      var formattedDate = Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(this.props.response.created_at); // Delete own comments. Display delete icon when viewing own comments.
 
       var deleteOwnComments;
 
@@ -1301,7 +1298,7 @@ function (_React$Component) {
       var _this2 = this;
 
       event.preventDefault();
-      var user = Object.assign({}, this.state); //* Sign in and sign up has no access through history using a modal *//
+      var user = Object.assign({}, this.state); // Sign in and sign up has no access through history using a modal.
 
       this.props.processForm(user).then(this.props.closeModal).then(function () {
         return _this2.props.history.push("/index");
@@ -1322,8 +1319,7 @@ function (_React$Component) {
       });
       this.setState({
         password: demoUser.password
-      }); //* Demoing user through modal has no access to history. *//
-
+      });
       this.props.processForm(demoUser).then(this.props.closeModal).then(function () {
         return _this3.props.history.push("/index");
       });
@@ -1755,7 +1751,8 @@ function (_React$Component) {
     key: "handleImage",
     value: function handleImage(event) {
       this.setState(_defineProperty({}, 'image', event.currentTarget.files[0]));
-    }
+    } // Uses FormData to pass multiple parameters to the backend. 
+
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
@@ -3173,14 +3170,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var _reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reducers/root_reducer */ "./frontend/reducers/root_reducer.js");
+ // Debugging on the console
 
+ // Implement asynchronous function calls
 
+ // Handles reducer for entire store
 
 
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], // Uploads preloadedState or persists the current user and session.
+  preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
@@ -3429,13 +3430,7 @@ var fetchStory = function fetchStory(id) {
     method: 'GET',
     url: "/api/stories/".concat(id)
   });
-}; // export const createStory = (story) => {
-//   return $.ajax ({
-//     method: 'POST',
-//     url: `/api/stories`,
-//     data: {story}
-//   })
-// };
+}; // Uploading image files to the backend server.
 
 var createStory = function createStory(story) {
   return $.ajax({
@@ -3445,13 +3440,7 @@ var createStory = function createStory(story) {
     contentType: false,
     processData: false
   });
-}; // export const updateStory = (story) => {
-//   return $.ajax ({
-//     method: 'PATCH',
-//     url: `/api/stories/${story.id}`,
-//     data: {story}
-//   })
-// };
+}; // Updating story details to the backend server. Handles image files.
 
 var updateStory = function updateStory(story, story_id) {
   return $.ajax({
@@ -3476,7 +3465,20 @@ var deleteStory = function deleteStory(id) {
     method: 'DELETE',
     url: "/api/stories/".concat(id)
   });
-};
+}; // export const createStory = (story) => {
+//   return $.ajax ({
+//     method: 'POST',
+//     url: `/api/stories`,
+//     data: {story}
+//   })
+// };
+// export const updateStory = (story) => {
+//   return $.ajax ({
+//     method: 'PATCH',
+//     url: `/api/stories/${story.id}`,
+//     data: {story}
+//   })
+// };
 
 /***/ }),
 

@@ -19,6 +19,7 @@ class StoryForm extends React.Component {
     this.setState({['image']: event.currentTarget.files[0]});
   }
 
+  // Uses FormData to pass multiple parameters to the backend. 
   handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();

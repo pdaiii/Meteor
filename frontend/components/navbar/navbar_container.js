@@ -16,4 +16,5 @@ const mapDispatchToProps = (dispatch) => ({
   fetchAllStories: () => dispatch(fetchAllStories())
 });
 
+// Access to the props and history to redirect users on webpages.
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(navBar));
