@@ -57,6 +57,7 @@ class User < ApplicationRecord
     through: :users_followed,
     source: :followee
 
+  # Checks if there is a valid username and password registered
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     if user
@@ -66,15 +67,18 @@ class User < ApplicationRecord
     end
   end
 
+  # BCrypts the password and assigns it as the password digest
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  # Checks the password given against the BCrypted password digest
   def valid_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
+  # Reassigns the session token using the SecureRandom and returns the session token
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64
     self.save!
@@ -87,6 +91,7 @@ class User < ApplicationRecord
   end
 
   private
+  # Return the session token if the user is logged in, else generate a randomized session token
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
