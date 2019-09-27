@@ -20,12 +20,21 @@ const App = () => {
       </header>
       <Modal />
       <Switch>
-        <AuthRoute path="/stories/new" component={CreateStoryFormContainer} />
+        {/* <AuthRoute path="/stories/new" component={CreateStoryFormContainer} />
         <AuthRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
         <AuthRoute path="/stories/:storyId" component={StoryShowContainer} />
         <AuthRoute path="/users/:userId" component={UserShowContainer} />
         <ProtectedRoute exact path="/" component={WelcomePage} />
         <AuthRoute exact path="/index" component={StoryIndexContainer} />
+        <Route path="/search" component={SearchBar} />
+        <Redirect to="/" component={WelcomePage} /> */}
+
+        <ProtectedRoute path="/stories/new" component={CreateStoryFormContainer} />
+        <ProtectedRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
+        <ProtectedRoute path="/stories/:storyId" component={StoryShowContainer} />
+        <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
+        <AuthRoute exact path="/" component={WelcomePage} />
+        <ProtectedRoute exact path="/index" component={StoryIndexContainer} />
         <Route path="/search" component={SearchBar} />
         <Redirect to="/" component={WelcomePage} />
       </Switch>
