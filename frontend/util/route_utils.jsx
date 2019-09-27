@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
@@ -14,11 +14,11 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
 
 const Protected = ({ component: Component, loggedIn, ...rest }) => (
   <Route {...rest} render={props =>
-      loggedIn ? (
+      !loggedIn ? (
         <Component {...props} />
       ) : (
-          // Redirect to the login page if the user is already authenticated
-          <Redirect to="/" />
+          // Redirect to the index page if the user is already authenticated
+          <Redirect to="/index" />
         )
     }
   />

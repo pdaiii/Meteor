@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import Modal from './modal/modal';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import NavBarContainer from './navbar/navbar_container';
 import CreateStoryFormContainer from './story/create_story_form_container';
 import StoryShowContainer from './story/story_show_container';
@@ -24,8 +24,8 @@ const App = () => {
         <AuthRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
         <AuthRoute path="/stories/:storyId" component={StoryShowContainer} />
         <AuthRoute path="/users/:userId" component={UserShowContainer} />
-        <Route exact path="/" component={WelcomePage} />
-        <Route exact path="/index" component={StoryIndexContainer} />
+        <ProtectedRoute exact path="/" component={WelcomePage} />
+        <AuthRoute exact path="/index" component={StoryIndexContainer} />
         <Route path="/search" component={SearchBar} />
         <Redirect to="/" component={WelcomePage} />
       </Switch>
