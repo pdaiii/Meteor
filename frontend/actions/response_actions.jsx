@@ -1,5 +1,4 @@
 import * as APIResponseUtil from '../util/response_util';
-
 export const RECEIVE_ALL_RESPONSES = 'RECEIVE_ALL_RESPONSES';
 export const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
 export const DESTROY_RESPONSE = 'DESTROY_RESPONSE';

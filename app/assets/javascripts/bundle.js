@@ -323,6 +323,7 @@ var fetchStory = function fetchStory(id) {
   };
 };
 var createStory = function createStory(story) {
+  debugger;
   return function (dispatch) {
     return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["createStory"](story).then(function (story) {
       return dispatch(receiveStory(story));
@@ -496,10 +497,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 function Modal(props) {
-  if (!props.modal) {
-    return null;
-  }
-
+  // Don't need this if the switch statement defaults to null. Used for closing modal.
+  // if(!props.modal) {
+  //   return null;
+  // }
   var component;
 
   switch (props.modal) {
@@ -513,7 +514,10 @@ function Modal(props) {
 
     default:
       return null;
-  }
+  } // How does the modal close?
+  // Sends an action creator of type 'CLOSE_MODAL', which the reducer reads and sends back the state
+  // of modal as null.
+
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-background",
@@ -602,6 +606,7 @@ function (_React$Component) {
   }, {
     key: "searchBar",
     value: function searchBar() {
+      // Render the search bar only when there is a currentUser logged in.
       if (!this.props.currentUser) {
         return null;
       } else {
@@ -1736,7 +1741,8 @@ function (_React$Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleImage = _this.handleImage.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // Setting state causes an automatic rerender of the page.
+
 
   _createClass(StoryForm, [{
     key: "update",
@@ -1749,9 +1755,10 @@ function (_React$Component) {
     }
   }, {
     key: "handleImage",
+    // Setting state causes an automatic rerender of the page.
     value: function handleImage(event) {
       this.setState(_defineProperty({}, 'image', event.currentTarget.files[0]));
-    } // Uses FormData to pass multiple parameters to the backend. 
+    } // Uses FormData to pass multiple parameters to the backend and formats the file data.
 
   }, {
     key: "handleSubmit",
@@ -1762,9 +1769,7 @@ function (_React$Component) {
       var formData = new FormData();
       formData.append("story[title]", this.state.title);
       formData.append("story[body]", this.state.body);
-      formData.append("story[image]", this.state.image); // submitStory looks for a story that fulfills the story url params
-      // requires multiple properties to be passed; must use FormData
-
+      formData.append("story[image]", this.state.image);
       this.props.submitStory(formData, this.state.id).then(function () {
         return _this3.props.history.push("/users/".concat(_this3.props.currentUserId));
       });
@@ -3018,13 +3023,12 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.jsx");
 
-
-var _nullUser = Object.freeze({
+var nullUser = Object.freeze({
   id: null
 });
 
 var sessionReducer = function sessionReducer() {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : nullUser;
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(oldState);
 
@@ -3035,7 +3039,7 @@ var sessionReducer = function sessionReducer() {
       };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
-      // return _nullUser;
+      // return nullUser;
       return {
         id: null
       };

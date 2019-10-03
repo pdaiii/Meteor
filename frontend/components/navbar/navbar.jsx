@@ -26,6 +26,7 @@ class navBar extends React.Component {
   }
 
   searchBar() {
+    // Render the search bar only when there is a currentUser logged in.
     if(!this.props.currentUser){
       return null;
     }

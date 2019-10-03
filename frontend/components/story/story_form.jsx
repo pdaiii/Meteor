@@ -9,25 +9,25 @@ class StoryForm extends React.Component {
     this.handleImage = this.handleImage.bind(this);
   }
 
+  // Setting state causes an automatic rerender of the page.
   update(field) {
     return event => {
       this.setState({ [field]: event.target.value })
     };
   };
 
+  // Setting state causes an automatic rerender of the page.
   handleImage(event) {
     this.setState({['image']: event.currentTarget.files[0]});
   }
 
-  // Uses FormData to pass multiple parameters to the backend. 
+  // Uses FormData to pass multiple parameters to the backend and formats the file data.
   handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
     formData.append("story[title]", this.state.title);
     formData.append("story[body]", this.state.body);
     formData.append("story[image]", this.state.image);
-    // submitStory looks for a story that fulfills the story url params
-    // requires multiple properties to be passed; must use FormData
     this.props.submitStory(formData, this.state.id)
       .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
   }
@@ -43,9 +43,9 @@ class StoryForm extends React.Component {
           </textarea>
           <input type="file" onChange={this.handleImage}/>
           <div>
-            {this.props.formType === 'Edit Story'
-              ? <input className="submit-button" type="submit" value="Update Story" />
-              : <input className="submit-button" type="submit" value="Create Story" />}
+            {this.props.formType === 'Edit Story' ? 
+              <input className="submit-button" type="submit" value="Update Story" /> : 
+              <input className="submit-button" type="submit" value="Create Story" />}
           </div>
         </form>
       </div>

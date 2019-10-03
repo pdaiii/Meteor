@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.createStory = createStory;
   // window.deleteStory = deleteStory;
   // window.fetchStory = fetchStory;
-
   // window.createResponse = createResponse;
   // window.fetchAllResponses = fetchAllResponses;
 
