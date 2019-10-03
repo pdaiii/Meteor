@@ -546,6 +546,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _notifications__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notifications */ "./frontend/components/navbar/notifications.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -563,6 +564,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -667,7 +669,7 @@ function (_React$Component) {
       var personalGreeting = function personalGreeting() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
           className: "logged-in-navbar"
-        }, _this2.searchBar(), "\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        }, _this2.searchBar(), _this2.notifications(), "\xA0\xA0\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "navbar-name"
         }, _this2.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/users/".concat(_this2.props.currentUser.id),
@@ -741,6 +743,33 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_navbar__WEBPACK_IMPORTED_MODULE_5__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/navbar/notifications.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/navbar/notifications.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Notifications(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "navbar-notifications"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-bell"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "notification-cnt"
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Notifications);
 
 /***/ }),
 
@@ -835,7 +864,9 @@ function (_React$Component) {
     value: function render() {
       var stories = Object.values(this.props.stories);
       if (stories.length === 0) return null;
-      var entries = [];
+      var entries = []; // Why are we slicing 3? Grabbing the query after the initial '?q='.
+
+      debugger;
       var searchEntry = this.props.location.search.slice(3);
       stories.map(function (story) {
         var body = story.body.toLowerCase();

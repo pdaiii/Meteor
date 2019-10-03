@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Notifications from './notifications';
 
 class navBar extends React.Component {
   constructor(props) {
@@ -67,13 +68,12 @@ class navBar extends React.Component {
     const personalGreeting = () => (
       <hgroup className="logged-in-navbar">
         {this.searchBar()}
-        {/* {this.notifications()} */}
-        &nbsp;&nbsp;
+        {this.notifications()}
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <h2 className="navbar-name">{this.props.currentUser.username}</h2>
         <Link to={`/users/${this.props.currentUser.id}`} className="navbar-profile">
           <i className="fas fa-user-circle"></i>
         </Link>
-        {/* <Link to="/"><button className="logout-button" onClick={() => this.props.logout()}> */}
         <Link to="/"><button className="logout-button" onClick={() => this.props.logout()}>
           Log Out</button>
         </Link>
