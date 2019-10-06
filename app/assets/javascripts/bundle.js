@@ -2584,17 +2584,26 @@ function (_React$Component) {
     _classCallCheck(this, UserShow);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserShow).call(this, props));
+    _this.state = _this.props.followButton;
     _this.follow = _this.follow.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // componentDidMount() {
+  //   this.props.fetchAllStories();
+  //   this.props.fetchUser(this.props.match.params.userId);
+  //   this.props.fetchAllFollowers(this.props.match.params.userId);
+  // }
+
 
   _createClass(UserShow, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "componentWillMount",
+    value: function componentWillMount() {
       this.props.fetchAllStories();
       this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchAllFollowers(this.props.match.params.userId);
-    }
+    } // componentDidUpdate() {
+    //   this.props.fetchAllFollowers(this.props.match.params.userId);
+    // }
+
   }, {
     key: "follow",
     value: function follow() {
@@ -2603,6 +2612,20 @@ function (_React$Component) {
       // this.props.createFollow(formData, this.props.user.id);
 
       this.props.createFollow(this.props.user.id);
+      var followState = 'Follow';
+      var that = this; // If you're following the user, the set the state to 'Unfollow'
+
+      Object.values(this.props.follows).forEach(function (follow) {
+        debugger;
+
+        if (follow.followee.id === that.props.user.id) {
+          followState = 'Unfollow';
+        }
+      });
+      debugger;
+      this.setState({
+        following: followState
+      });
     }
   }, {
     key: "getPosts",
@@ -2637,8 +2660,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
-
       if (!this.props.user) {
         return null;
       }
@@ -2653,27 +2674,17 @@ function (_React$Component) {
         }, "Create Story"));
       } else {
         createStory = null;
-      } // let followBtn = if(this.props.user.follow)
-
+      }
 
       var followBtn;
 
       if (this.props.match.params.userId === this.props.currentUserId) {
         followBtn = null;
       } else {
-        Object.values(this.props.follows).forEach(function (follow) {
-          if (follow.followee.id === _this3.props.match.params.userId) {
-            followBtn = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-              className: "user-profile-follow-btn",
-              onClick: _this3.follow
-            }, "Unfollow");
-          } else {
-            followBtn = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-              className: "user-profile-follow-btn",
-              onClick: _this3.follow
-            }, "Follow");
-          }
-        });
+        followBtn = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "user-profile-follow-btn",
+          onClick: this.follow
+        }, this.state.following);
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2728,11 +2739,20 @@ __webpack_require__.r(__webpack_exports__);
 // and the current user's id.
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var followState = 'Follow';
+  Object.values(state.entities.follows).forEach(function (follow) {
+    if (follow.followee.id === state.session.id) {
+      followState = 'Unfollow';
+    }
+  });
   return {
     user: state.entities.users[ownProps.match.params.userId],
     stories: state.entities.stories,
     follows: state.entities.follows,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    followButton: {
+      following: followState
+    }
   };
 };
 

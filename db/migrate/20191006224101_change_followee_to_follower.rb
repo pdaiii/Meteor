@@ -6,5 +6,6 @@ class ChangeFolloweeToFollower < ActiveRecord::Migration[5.2]
     add_column :follows, :follower_id, :integer, null: false
     add_column :follows, :created_at, :datetime, null: false
     add_column :follows, :updated_at, :datetime, null: false
+    add_index :follows, [:user_id, :follower_id], unique: true
   end
 end

@@ -6,14 +6,25 @@ class UserShow extends React.Component {
   // When do we need to have a constructor?
   constructor(props) {
     super(props);
+    this.state = this.props.followButton;
     this.follow = this.follow.bind(this);
   }
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   this.props.fetchAllStories();
+  //   this.props.fetchUser(this.props.match.params.userId);
+  //   this.props.fetchAllFollowers(this.props.match.params.userId);
+  // }
+
+  componentWillMount() {
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollowers(this.props.match.params.userId);
   }
+
+  // componentDidUpdate() {
+  //   this.props.fetchAllFollowers(this.props.match.params.userId);
+  // }
 
   follow() {
     event.preventDefault();
@@ -21,6 +32,17 @@ class UserShow extends React.Component {
     // formData.append('follow[user_id]', this.props.user.id);
     // this.props.createFollow(formData, this.props.user.id);
     this.props.createFollow(this.props.user.id);
+    let followState = 'Follow';
+    let that = this;
+    // If you're following the user, the set the state to 'Unfollow'
+    Object.values(this.props.follows).forEach(follow => {
+      debugger
+      if (follow.followee.id === that.props.user.id) {
+        followState = 'Unfollow';
+      }
+    })
+    debugger
+    this.setState({following: followState});
   }
 
   getPosts() {
@@ -72,20 +94,12 @@ class UserShow extends React.Component {
     else{
       createStory = null;
     }
-    // let followBtn = if(this.props.user.follow)
     let followBtn;
     if (this.props.match.params.userId === this.props.currentUserId) {
       followBtn = null;
     }
     else {
-      Object.values(this.props.follows).forEach(follow => {
-        if (follow.followee.id === this.props.match.params.userId) {
-          followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>Unfollow</button>
-        }
-        else {
-          followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>Follow</button>
-        }
-      })
+      followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>{this.state.following}</button>;
     }
 
     return(

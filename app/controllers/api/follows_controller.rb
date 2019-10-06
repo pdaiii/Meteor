@@ -1,6 +1,6 @@
 class Api::FollowsController < ApplicationController
   def create
-    debugger
+    # debugger
     # @follow = Follow.new(user_id: current_user.id, followee_id: params[:id]);
     # @follow = current_user.users_followed.create!(followee_id: params[:user_id]);
     # @follow = Follow.create!(user_id: current_user.id, followee_id: params[:id]);

@@ -7,11 +7,18 @@ import { createFollow, destroyFollow, fetchAllFollowers } from '../../actions/fo
 // Props used when rendering the user show page. Accessing the current user, all stories in the DB,
 // and the current user's id.
 const mapStateToProps = (state, ownProps) => {
+  let followState = 'Follow';
+  Object.values(state.entities.follows).forEach(follow => {
+    if(follow.followee.id === state.session.id) {
+      followState = 'Unfollow';
+    }
+  })
   return({
     user: state.entities.users[ownProps.match.params.userId],
     stories: state.entities.stories,
     follows: state.entities.follows,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    followButton: {following: followState}
   });
 };
 
