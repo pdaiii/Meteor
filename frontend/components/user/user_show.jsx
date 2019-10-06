@@ -1,12 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserStoriesContainer from './user_stories_container';
-import { followUser, unfollowUser } from '../../util/follow_util';
 
 class UserShow extends React.Component {
+  // When do we need to have a constructor?
+  constructor(props) {
+    super(props);
+    this.follow = this.follow.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchAllFollowers(this.props.match.params.userId);
+  }
+
+  follow() {
+    event.preventDefault();
+    // let formData = new FormData();
+    // formData.append('follow[user_id]', this.props.user.id);
+    // this.props.createFollow(formData, this.props.user.id);
+    this.props.createFollow(this.props.user.id);
   }
 
   getPosts() {
@@ -58,6 +72,21 @@ class UserShow extends React.Component {
     else{
       createStory = null;
     }
+    // let followBtn = if(this.props.user.follow)
+    let followBtn;
+    if (this.props.match.params.userId === this.props.currentUserId) {
+      followBtn = null;
+    }
+    else {
+      Object.values(this.props.follows).forEach(follow => {
+        if (follow.followee.id === this.props.match.params.userId) {
+          followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>Unfollow</button>
+        }
+        else {
+          followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>Follow</button>
+        }
+      })
+    }
 
     return(
       <div>
@@ -73,8 +102,11 @@ class UserShow extends React.Component {
                   </p>
                 </div>
 
-                <button className="user-profile-follow-btn" onClick={() => followUser(this.props.user.id)}>
-                  Follow</button>
+                {/* Render Follow/Unfollow depending on the state. */}
+                {/* Invoking the function onClick means when the function is being processed,
+                 that function is called*/}
+                {/* <button className="user-profile-follow-btn" onClick={this.follow}>Follow</button> */}
+                {followBtn}
               </div>
 
               <div className="user-profile-pic-icon">

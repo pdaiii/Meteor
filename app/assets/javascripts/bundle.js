@@ -86,6 +86,78 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/follow_actions.jsx":
+/*!*********************************************!*\
+  !*** ./frontend/actions/follow_actions.jsx ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_ALL_FOLLOWS, RECEIVE_FOLLOW, DESTROY_FOLLOW, receiveAllFollows, receiveFollow, removeFollow, fetchAllFollowers, createFollow, destroyFollow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_FOLLOWS", function() { return RECEIVE_ALL_FOLLOWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_FOLLOW", function() { return RECEIVE_FOLLOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DESTROY_FOLLOW", function() { return DESTROY_FOLLOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllFollows", function() { return receiveAllFollows; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveFollow", function() { return receiveFollow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFollow", function() { return removeFollow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllFollowers", function() { return fetchAllFollowers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFollow", function() { return createFollow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyFollow", function() { return destroyFollow; });
+/* harmony import */ var _util_follow_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/follow_util */ "./frontend/util/follow_util.js");
+
+var RECEIVE_ALL_FOLLOWS = 'RECEIVE_ALL_FOLLOWS';
+var RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
+var DESTROY_FOLLOW = 'DESTROY_FOLLOW';
+var receiveAllFollows = function receiveAllFollows(follows) {
+  return {
+    type: RECEIVE_ALL_FOLLOWS,
+    follows: follows
+  };
+};
+var receiveFollow = function receiveFollow(follow) {
+  return {
+    type: RECEIVE_FOLLOW,
+    follow: follow
+  };
+};
+var removeFollow = function removeFollow(id) {
+  return {
+    type: DESTROY_FOLLOW,
+    id: id
+  };
+};
+var fetchAllFollowers = function fetchAllFollowers(id) {
+  return function (dispatch) {
+    return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllFollowers"](id).then(function (follows) {
+      return dispatch(receiveAllFollows(follows));
+    });
+  };
+}; // export const createFollow = (user_id, id) => {
+//   debugger
+//   return dispatch => {
+//     return APIFollowUtil.followUser(user_id, id)
+//       .then(follow => dispatch(receiveFollow(follow)))
+//   }
+// };
+
+var createFollow = function createFollow(id) {
+  return function (dispatch) {
+    return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["followUser"](id).then(function (follow) {
+      return dispatch(receiveFollow(follow));
+    });
+  };
+};
+var destroyFollow = function destroyFollow(id) {
+  return function (dispatch) {
+    return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["unfollowUser"](id).then(function (id) {
+      return dispatch(removeFollow(follow));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/modal_actions.jsx":
 /*!********************************************!*\
   !*** ./frontend/actions/modal_actions.jsx ***!
@@ -323,7 +395,6 @@ var fetchStory = function fetchStory(id) {
   };
 };
 var createStory = function createStory(story) {
-  debugger;
   return function (dispatch) {
     return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["createStory"](story).then(function (story) {
       return dispatch(receiveStory(story));
@@ -642,7 +713,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-bell"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "notification-cnt"
+        className: "notifications"
       }));
     }
   }, {
@@ -757,17 +828,56 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-function Notifications(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "navbar-notifications"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-bell"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "notification-cnt"
-  }));
-}
+
+var Notifications =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Notifications, _React$Component);
+
+  function Notifications() {
+    _classCallCheck(this, Notifications);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Notifications).apply(this, arguments));
+  }
+
+  _createClass(Notifications, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {// fetchUserNotifications
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var notifications = [];
+      Object.values(this.props.notifications).forEach(function (notification) {
+        notifications.push(notification);
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "notifications-list"
+      }, notifications));
+    }
+  }]);
+
+  return Notifications;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Notifications);
 
@@ -1796,6 +1906,7 @@ function (_React$Component) {
     value: function handleSubmit(event) {
       var _this3 = this;
 
+      debugger;
       event.preventDefault();
       var formData = new FormData();
       formData.append("story[title]", this.state.title);
@@ -2439,7 +2550,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _user_stories_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_stories_container */ "./frontend/components/user/user_stories_container.jsx");
-/* harmony import */ var _util_follow_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/follow_util */ "./frontend/util/follow_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2450,14 +2560,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -2468,10 +2577,15 @@ var UserShow =
 function (_React$Component) {
   _inherits(UserShow, _React$Component);
 
-  function UserShow() {
+  // When do we need to have a constructor?
+  function UserShow(props) {
+    var _this;
+
     _classCallCheck(this, UserShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(UserShow).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UserShow).call(this, props));
+    _this.follow = _this.follow.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(UserShow, [{
@@ -2479,16 +2593,26 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchAllStories();
       this.props.fetchUser(this.props.match.params.userId);
+      this.props.fetchAllFollowers(this.props.match.params.userId);
+    }
+  }, {
+    key: "follow",
+    value: function follow() {
+      event.preventDefault(); // let formData = new FormData();
+      // formData.append('follow[user_id]', this.props.user.id);
+      // this.props.createFollow(formData, this.props.user.id);
+
+      this.props.createFollow(this.props.user.id);
     }
   }, {
     key: "getPosts",
     value: function getPosts() {
-      var _this = this;
+      var _this2 = this;
 
       // Grab all posts in the db
       var userStories = [];
       Object.values(this.props.stories).forEach(function (story) {
-        if (_this.props.user.id === story.author_id) {
+        if (_this2.props.user.id === story.author_id) {
           userStories.push(story);
         }
       });
@@ -2496,7 +2620,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_stories_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
           key: story.id,
           story: story,
-          user: _this.props.user
+          user: _this2.props.user
         });
       });
 
@@ -2513,7 +2637,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (!this.props.user) {
         return null;
@@ -2529,6 +2653,27 @@ function (_React$Component) {
         }, "Create Story"));
       } else {
         createStory = null;
+      } // let followBtn = if(this.props.user.follow)
+
+
+      var followBtn;
+
+      if (this.props.match.params.userId === this.props.currentUserId) {
+        followBtn = null;
+      } else {
+        Object.values(this.props.follows).forEach(function (follow) {
+          if (follow.followee.id === _this3.props.match.params.userId) {
+            followBtn = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+              className: "user-profile-follow-btn",
+              onClick: _this3.follow
+            }, "Unfollow");
+          } else {
+            followBtn = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+              className: "user-profile-follow-btn",
+              onClick: _this3.follow
+            }, "Follow");
+          }
+        });
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2543,12 +2688,7 @@ function (_React$Component) {
         className: "user-profile-username"
       }, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follows"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Following \xA0\xA0 Followers")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "user-profile-follow-btn",
-        onClick: function onClick() {
-          return Object(_util_follow_util__WEBPACK_IMPORTED_MODULE_3__["followUser"])(_this2.props.user.id);
-        }
-      }, "Follow")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Following \xA0\xA0 Followers")), followBtn), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
@@ -2579,15 +2719,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_show__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user_show */ "./frontend/components/user/user_show.jsx");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.jsx");
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.jsx");
+/* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/follow_actions */ "./frontend/actions/follow_actions.jsx");
 
 
 
 
+ // Props used when rendering the user show page. Accessing the current user, all stories in the DB,
+// and the current user's id.
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     user: state.entities.users[ownProps.match.params.userId],
     stories: state.entities.stories,
+    follows: state.entities.follows,
     currentUserId: state.session.id
   };
 };
@@ -2597,11 +2741,18 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchUser: function fetchUser(id) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(id));
     },
-    // updateUser: (id) => dispatch(updateUser(id)),
-    // followUser: (id) => dispatch(followUser(id)),
-    // unfollowUser: (id) => dispatch(unfollowUser(id)),
+    fetchAllFollowers: function fetchAllFollowers(id) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllFollowers"])(id));
+    },
     fetchAllStories: function fetchAllStories() {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllStories"])());
+    },
+    // createFollow: (user_id, id) => dispatch(createFollow(user_id, id)),
+    createFollow: function createFollow(id) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["createFollow"])(id));
+    },
+    destroyFollow: function destroyFollow(id) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["destroyFollow"])(id));
     }
   };
 };
@@ -2866,6 +3017,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _stories_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stories_reducer */ "./frontend/reducers/stories_reducer.js");
 /* harmony import */ var _responses_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./responses_reducer */ "./frontend/reducers/responses_reducer.jsx");
+/* harmony import */ var _follows_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./follows_reducer */ "./frontend/reducers/follows_reducer.jsx");
+
 
 
 
@@ -2873,7 +3026,8 @@ __webpack_require__.r(__webpack_exports__);
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   stories: _stories_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  responses: _responses_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  responses: _responses_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  follows: _follows_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2896,6 +3050,51 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/follows_reducer.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/follows_reducer.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/follow_actions */ "./frontend/actions/follow_actions.jsx");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var FollowsReducer = function FollowsReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var newState;
+
+  switch (action.type) {
+    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_FOLLOWS"]:
+      return action.follows;
+
+    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.follow.id, action.follow));
+      return newState;
+
+    case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["DESTROY_FOLLOW"]:
+      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState);
+      delete newState[action.id];
+      return newState;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FollowsReducer);
 
 /***/ }),
 
@@ -3253,23 +3452,43 @@ var compare = function compare(a, b) {
 /*!**************************************!*\
   !*** ./frontend/util/follow_util.js ***!
   \**************************************/
-/*! exports provided: followUser, unfollowUser */
+/*! exports provided: fetchAllFollowers, followUser, unfollowUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllFollowers", function() { return fetchAllFollowers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "followUser", function() { return followUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unfollowUser", function() { return unfollowUser; });
+var fetchAllFollowers = function fetchAllFollowers(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/users/".concat(id, "/follows")
+  });
+}; // Should have a fetch all followees as well.
+// export const followUser = (user_id, id) => {
+//   debugger
+//   return $.ajax({
+//     method: 'POST',
+//     url: `/api/users/${id}/follows`,
+//     data: user_id
+//   })
+// };
+
 var followUser = function followUser(id) {
   return $.ajax({
     method: 'POST',
-    url: "/api/users/".concat(id, "/follows")
+    url: "/api/users/".concat(id, "/follows"),
+    data: {
+      'follow[user_id]': id
+    }
   });
 };
 var unfollowUser = function unfollowUser(id) {
   return $.ajax({
     method: 'DELETE',
-    url: "/api/users/".concat(id, "/follows")
+    url: "/api/users/".concat(id, "/follows") // url: `/api/users/${id}/follows/${followId}
+
   });
 };
 

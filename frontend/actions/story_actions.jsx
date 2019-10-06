@@ -36,7 +36,6 @@ export const fetchStory = (id) => {
 };
 
 export const createStory = (story) => {
-  debugger
   return dispatch => {
     return APIStoryUtil.createStory(story)
       .then(story => dispatch(receiveStory(story)))

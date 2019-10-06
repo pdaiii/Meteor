@@ -9,7 +9,7 @@ class Api::ResponsesController < ApplicationController
     @response.author_id = current_user.id
     @response.story_id = params[:story_id]
     if @response.save
-      render '/api/responses/show'
+      render 'api/responses/show'
     else
       render json: @response.errors.full_messages, status: 422
     end
@@ -19,7 +19,7 @@ class Api::ResponsesController < ApplicationController
     @response = Response.find(params[:id])
     @response.destroy
     @responses = Response.all
-    render '/api/responses/index'
+    render 'api/responses/index'
   end
 
   private

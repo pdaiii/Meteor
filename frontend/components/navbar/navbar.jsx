@@ -51,7 +51,7 @@ class navBar extends React.Component {
       <form action="">
         <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
         {/* Need to track notifications per user */}
-        <p className="notification-cnt"></p>
+        <p className="notifications"></p>
       </form>
     )
   }

@@ -1,13 +1,25 @@
 import React from 'react';
 
-function Notifications(props) {
-  return (
-    <form>
-      <button className="navbar-notifications"><i className="fas fa-bell"></i></button>
-      {/* Need to track notifications per user */}
-      <p className="notification-cnt"></p>
-    </form>
-  )
+class Notifications extends React.Component {
+  componentWillMount() {
+    // fetchUserNotifications
+  }
+
+  render() {
+    let notifications = [];
+    Object.values(this.props.notifications).forEach( notification => {
+      notifications.push(notification);
+    })
+
+    return (
+      <div>
+        <div className="notifications-list">
+          {notifications}
+        </div>
+      </div>
+    )
+  }
+  
 }
 
 export default Notifications;

@@ -17,9 +17,7 @@ class Response extends React.Component {
     event.preventDefault();
     this.props.createResponse(this.state)
       .then(() => this.props.history.push(`/stories/${this.props.story.id}`));
-    this.setState({
-      body: ''
-    })
+    this.setState({body: ''})
   }
 
   render() {
