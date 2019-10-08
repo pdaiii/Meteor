@@ -7,6 +7,7 @@ import Root from './components/root';
 // import { fetchAllStories, deleteStory } from './actions/story_actions';
 // import * as AJAX from './util/session_api_util';
 // import { fetchAllResponses, createResponse } from './util/response_util';
+import {fetchAllFollowers} from './util/follow_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.fetchStory = fetchStory;
   // window.createResponse = createResponse;
   // window.fetchAllResponses = fetchAllResponses;
+  // window.fetchAllFollowers = fetchAllFollowers;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

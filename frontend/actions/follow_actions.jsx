@@ -40,9 +40,10 @@ export const createFollow = (id) => {
   }
 };
 
-export const destroyFollow = (id) => {
+export const destroyFollow = (id, followId) => {
+  // debugger
   return dispatch => {
-    return APIFollowUtil.unfollowUser(id)
-      .then(id => dispatch(removeFollow(follow)))
+    return APIFollowUtil.unfollowUser(id, followId)
+      .then(() => dispatch(removeFollow(followId)))
   }
 }

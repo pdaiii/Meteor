@@ -148,10 +148,11 @@ var createFollow = function createFollow(id) {
     });
   };
 };
-var destroyFollow = function destroyFollow(id) {
+var destroyFollow = function destroyFollow(id, followId) {
+  // debugger
   return function (dispatch) {
-    return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["unfollowUser"](id).then(function (id) {
-      return dispatch(removeFollow(follow));
+    return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["unfollowUser"](id, followId).then(function () {
+      return dispatch(removeFollow(followId));
     });
   };
 };
@@ -2384,12 +2385,7 @@ function (_React$Component) {
       formData.append('story[image]', this.props.story.image);
       formData.append('story[count]', this.props.story.count + 1);
       this.props.updateStoryLikes(formData, this.props.story.id);
-    } // updateClaps(event) {
-    //   const formData = new FormData();
-    //   formData.append('story[count]', this.props.story.claps+1);
-    //   this.props.updateStoryLikes(formData, this.props.story.id);
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -2577,7 +2573,7 @@ var UserShow =
 function (_React$Component) {
   _inherits(UserShow, _React$Component);
 
-  // When do we need to have a constructor?
+  // When do we need to have a constructor? Access to props
   function UserShow(props) {
     var _this;
 
@@ -2587,12 +2583,7 @@ function (_React$Component) {
     _this.state = _this.props.followButton;
     _this.follow = _this.follow.bind(_assertThisInitialized(_this));
     return _this;
-  } // componentDidMount() {
-  //   this.props.fetchAllStories();
-  //   this.props.fetchUser(this.props.match.params.userId);
-  //   this.props.fetchAllFollowers(this.props.match.params.userId);
-  // }
-
+  }
 
   _createClass(UserShow, [{
     key: "componentWillMount",
@@ -2600,29 +2591,43 @@ function (_React$Component) {
       this.props.fetchAllStories();
       this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchAllFollowers(this.props.match.params.userId);
-    } // componentDidUpdate() {
-    //   this.props.fetchAllFollowers(this.props.match.params.userId);
-    // }
+      this.setState({
+        following: this.state.following
+      });
+    } // If the props are modified before the initial constructor call, update the state.
+    // Used for updating Follow to Unfollow when current user is already following.
 
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.followButton.following !== this.props.followButton.following) {
+        this.setState({
+          following: nextProps.followButton.following
+        });
+      }
+    }
   }, {
     key: "follow",
     value: function follow() {
-      event.preventDefault(); // let formData = new FormData();
-      // formData.append('follow[user_id]', this.props.user.id);
-      // this.props.createFollow(formData, this.props.user.id);
+      var _this2 = this;
 
-      this.props.createFollow(this.props.user.id);
-      var followState = 'Follow';
+      event.preventDefault();
+      var followState;
       var that = this; // If you're following the user, the set the state to 'Unfollow'
 
       Object.values(this.props.follows).forEach(function (follow) {
-        debugger;
-
         if (follow.followee.id === that.props.user.id) {
-          followState = 'Unfollow';
+          followState = 'Follow';
+
+          _this2.props.destroyFollow(_this2.props.user.id, follow.id);
         }
       });
-      debugger;
+
+      if (this.state.following === 'Follow') {
+        followState = 'Unfollow';
+        this.props.createFollow(this.props.user.id);
+      }
+
       this.setState({
         following: followState
       });
@@ -2630,12 +2635,12 @@ function (_React$Component) {
   }, {
     key: "getPosts",
     value: function getPosts() {
-      var _this2 = this;
+      var _this3 = this;
 
       // Grab all posts in the db
       var userStories = [];
       Object.values(this.props.stories).forEach(function (story) {
-        if (_this2.props.user.id === story.author_id) {
+        if (_this3.props.user.id === story.author_id) {
           userStories.push(story);
         }
       });
@@ -2643,7 +2648,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_stories_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
           key: story.id,
           story: story,
-          user: _this2.props.user
+          user: _this3.props.user
         });
       });
 
@@ -2674,11 +2679,13 @@ function (_React$Component) {
         }, "Create Story"));
       } else {
         createStory = null;
-      }
+      } // Follow Button: If the current user is accessing his own page return null. Else, display
+      // the button.
+
 
       var followBtn;
 
-      if (this.props.match.params.userId === this.props.currentUserId) {
+      if (parseInt(this.props.match.params.userId) === this.props.currentUserId) {
         followBtn = null;
       } else {
         followBtn = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2687,6 +2694,19 @@ function (_React$Component) {
         }, this.state.following);
       }
 
+      var followers = 0;
+      var following = 0;
+      var that = this;
+      Object.values(this.props.follows).forEach(function (follow) {
+        if (follow.followee.id === parseInt(that.props.match.params.userId)) {
+          followers += 1;
+        }
+      });
+      Object.values(this.props.follows).forEach(function (follow) {
+        if (follow.follower.id === parseInt(that.props.match.params.userId)) {
+          following += 1;
+        }
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-page-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -2699,7 +2719,7 @@ function (_React$Component) {
         className: "user-profile-username"
       }, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follows"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Following \xA0\xA0 Followers")), followBtn), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, following, " Following \xA0\xA0 ", followers, " Followers")), followBtn), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-pic-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-user-circle"
@@ -2739,9 +2759,10 @@ __webpack_require__.r(__webpack_exports__);
 // and the current user's id.
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  // debugger
   var followState = 'Follow';
   Object.values(state.entities.follows).forEach(function (follow) {
-    if (follow.followee.id === state.session.id) {
+    if (follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
       followState = 'Unfollow';
     }
   });
@@ -2767,12 +2788,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchAllStories: function fetchAllStories() {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAllStories"])());
     },
-    // createFollow: (user_id, id) => dispatch(createFollow(user_id, id)),
     createFollow: function createFollow(id) {
       return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["createFollow"])(id));
     },
-    destroyFollow: function destroyFollow(id) {
-      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["destroyFollow"])(id));
+    destroyFollow: function destroyFollow(id, followId) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["destroyFollow"])(id, followId));
     }
   };
 };
@@ -2973,6 +2993,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.jsx");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_follow_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/follow_util */ "./frontend/util/follow_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -2983,6 +3004,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // import { fetchAllStories, deleteStory } from './actions/story_actions';
 // import * as AJAX from './util/session_api_util';
 // import { fetchAllResponses, createResponse } from './util/response_util';
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var store;
@@ -3014,6 +3036,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // window.fetchStory = fetchStory;
   // window.createResponse = createResponse;
   // window.fetchAllResponses = fetchAllResponses;
+  // window.fetchAllFollowers = fetchAllFollowers;
 
 
   var root = document.getElementById('root');
@@ -3101,10 +3124,12 @@ var FollowsReducer = function FollowsReducer() {
       return action.follows;
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
+      // debugger
       newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.follow.id, action.follow));
       return newState;
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["DESTROY_FOLLOW"]:
+      // debugger
       newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState);
       delete newState[action.id];
       return newState;
@@ -3496,6 +3521,7 @@ var fetchAllFollowers = function fetchAllFollowers(id) {
 // };
 
 var followUser = function followUser(id) {
+  // debugger
   return $.ajax({
     method: 'POST',
     url: "/api/users/".concat(id, "/follows"),
@@ -3504,11 +3530,11 @@ var followUser = function followUser(id) {
     }
   });
 };
-var unfollowUser = function unfollowUser(id) {
+var unfollowUser = function unfollowUser(id, followId) {
+  // debugger
   return $.ajax({
     method: 'DELETE',
-    url: "/api/users/".concat(id, "/follows") // url: `/api/users/${id}/follows/${followId}
-
+    url: "/api/users/".concat(id, "/follows/").concat(followId)
   });
 };
 

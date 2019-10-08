@@ -9,7 +9,6 @@ class Api::FollowsController < ApplicationController
     # When following a user, the current user must create a followee and the followee must add a new
     # follower.
     @follow = Follow.new(follow_params);
-    # @follow.followee_id = current_user.id;
     @follow.follower_id = current_user.id;
 
     if @follow.save 
@@ -26,10 +25,11 @@ class Api::FollowsController < ApplicationController
   end
 
   def destroy
-    debugger
+    # debugger
     @follow = Follow.find(params[:id]);
     @follow.destroy
-    render 'api/follows/show'
+    @follows = Follow.all
+    render 'api/follows/index'
   end
 
   private

@@ -3,45 +3,43 @@ import { Link } from 'react-router-dom';
 import UserStoriesContainer from './user_stories_container';
 
 class UserShow extends React.Component {
-  // When do we need to have a constructor?
+  // When do we need to have a constructor? Access to props
   constructor(props) {
     super(props);
     this.state = this.props.followButton;
     this.follow = this.follow.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchAllStories();
-  //   this.props.fetchUser(this.props.match.params.userId);
-  //   this.props.fetchAllFollowers(this.props.match.params.userId);
-  // }
-
   componentWillMount() {
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollowers(this.props.match.params.userId);
+    this.setState({following: this.state.following});
   }
 
-  // componentDidUpdate() {
-  //   this.props.fetchAllFollowers(this.props.match.params.userId);
-  // }
+  // If the props are modified before the initial constructor call, update the state.
+  // Used for updating Follow to Unfollow when current user is already following.
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.followButton.following !== this.props.followButton.following) {
+      this.setState({following: nextProps.followButton.following});
+    }
+  }
 
   follow() {
     event.preventDefault();
-    // let formData = new FormData();
-    // formData.append('follow[user_id]', this.props.user.id);
-    // this.props.createFollow(formData, this.props.user.id);
-    this.props.createFollow(this.props.user.id);
-    let followState = 'Follow';
+    let followState;
     let that = this;
     // If you're following the user, the set the state to 'Unfollow'
     Object.values(this.props.follows).forEach(follow => {
-      debugger
       if (follow.followee.id === that.props.user.id) {
-        followState = 'Unfollow';
+        followState = 'Follow';
+        this.props.destroyFollow(this.props.user.id, follow.id);
       }
     })
-    debugger
+    if (this.state.following === 'Follow') {
+      followState = 'Unfollow';
+      this.props.createFollow(this.props.user.id);
+    }
     this.setState({following: followState});
   }
 
@@ -94,13 +92,31 @@ class UserShow extends React.Component {
     else{
       createStory = null;
     }
+
+    // Follow Button: If the current user is accessing his own page return null. Else, display
+    // the button.
     let followBtn;
-    if (this.props.match.params.userId === this.props.currentUserId) {
+    if (parseInt(this.props.match.params.userId) === this.props.currentUserId) {
       followBtn = null;
     }
     else {
       followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>{this.state.following}</button>;
     }
+    
+    let followers = 0;
+    let following = 0;
+    let that = this;
+    Object.values(this.props.follows).forEach(follow => {
+      if(follow.followee.id === parseInt(that.props.match.params.userId)) {
+        followers += 1;
+      }
+    });
+
+    Object.values(this.props.follows).forEach(follow => {
+      if (follow.follower.id === parseInt(that.props.match.params.userId)) {
+        following += 1;
+      }
+    });
 
     return(
       <div>
@@ -112,7 +128,7 @@ class UserShow extends React.Component {
 
                 <div className="follows">
                   <p>
-                    Following &nbsp;&nbsp; Followers
+                    {following} Following &nbsp;&nbsp; {followers} Followers
                   </p>
                 </div>
 

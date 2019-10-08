@@ -1,5 +1,5 @@
 @follows.each do |follow|
   json.set! follow.id do
-    json.extract! follow, :followee, :follower 
+    json.extract! follow, :id, :followee, :follower 
   end
 end

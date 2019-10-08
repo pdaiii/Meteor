@@ -7,9 +7,10 @@ import { createFollow, destroyFollow, fetchAllFollowers } from '../../actions/fo
 // Props used when rendering the user show page. Accessing the current user, all stories in the DB,
 // and the current user's id.
 const mapStateToProps = (state, ownProps) => {
+  // debugger
   let followState = 'Follow';
   Object.values(state.entities.follows).forEach(follow => {
-    if(follow.followee.id === state.session.id) {
+    if(follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
       followState = 'Unfollow';
     }
   })
@@ -18,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
     stories: state.entities.stories,
     follows: state.entities.follows,
     currentUserId: state.session.id,
-    followButton: {following: followState}
+    followButton: { following: followState }
   });
 };
 
@@ -26,9 +27,8 @@ const mapDispatchToProps = dispatch => ({
   fetchUser: (id) => dispatch(fetchUser(id)),
   fetchAllFollowers: (id) => dispatch(fetchAllFollowers(id)),
   fetchAllStories: () => dispatch(fetchAllStories()),
-  // createFollow: (user_id, id) => dispatch(createFollow(user_id, id)),
   createFollow: (id) => dispatch(createFollow(id)),
-  destroyFollow: (id) => dispatch(destroyFollow(id)),
+  destroyFollow: (id, followId) => dispatch(destroyFollow(id, followId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserShow);
