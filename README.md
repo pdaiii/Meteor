@@ -72,8 +72,10 @@ class SessionForm extends React.Component {
 * A logged in user may leave responses on other users' stories.
 * A logged in user may delete their own responses.
 
+### Follows
+* Logged in users can follow/unfollow other users.
+
 ## Future Implementations
-* Users can follow other users.
 * The feed page will generate stories based on who they follow.
 * User profile.
 * Notifications when there is activity from users you follow.
