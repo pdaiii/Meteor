@@ -13,4 +13,3 @@ export const fetchUser = (id) => {
       .then(user => dispatch(receiveUser(user)))   
   };
 };
-

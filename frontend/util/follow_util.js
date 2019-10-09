@@ -5,7 +5,14 @@ export const fetchAllFollowers = (id) => {
   })
 }
 
-// Should have a fetch all followees as well.
+// Should have a fetch specific user's followers.
+// Route requires follow_id, but not used. Given random follow id.
+export const fetchUserFollowers = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${id}/follows/123`
+  })
+}
 
 // export const followUser = (user_id, id) => {
 //   debugger
@@ -17,16 +24,14 @@ export const fetchAllFollowers = (id) => {
 // };
 
 export const followUser = (id) => {
-  // debugger
   return $.ajax({
     method: 'POST',
     url: `/api/users/${id}/follows`,
     data: {'follow[user_id]': id}
   })
-}
+};
 
 export const unfollowUser = (id, followId) => {
-  // debugger
   return $.ajax({
     method: 'DELETE',
     url: `/api/users/${id}/follows/${followId}`

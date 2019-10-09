@@ -13,7 +13,8 @@ class UserShow extends React.Component {
   componentWillMount() {
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
-    this.props.fetchAllFollowers(this.props.match.params.userId);
+    // this.props.fetchAllFollowers(this.props.match.params.userId);
+    this.props.fetchUserFollowers(this.props.match.params.userId);
     this.setState({following: this.state.following});
   }
 
@@ -135,7 +136,6 @@ class UserShow extends React.Component {
                 {/* Render Follow/Unfollow depending on the state. */}
                 {/* Invoking the function onClick means when the function is being processed,
                  that function is called*/}
-                {/* <button className="user-profile-follow-btn" onClick={this.follow}>Follow</button> */}
                 {followBtn}
               </div>
 

@@ -44,7 +44,6 @@ class ResponseItems extends React.Component {
               </div>
               {deleteOwnComments}
             </nav>
-            
           </Link>
           <h2 className="response-items-body">{this.props.response.body}</h2>
           <p>

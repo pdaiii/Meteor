@@ -1,13 +1,5 @@
 class Api::FollowsController < ApplicationController
   def create
-    # debugger
-    # @follow = Follow.new(user_id: current_user.id, followee_id: params[:id]);
-    # @follow = current_user.users_followed.create!(followee_id: params[:user_id]);
-    # @follow = Follow.create!(user_id: current_user.id, followee_id: params[:id]);
-    # render 'api/user_profile/show'
-
-    # When following a user, the current user must create a followee and the followee must add a new
-    # follower.
     @follow = Follow.new(follow_params);
     @follow.follower_id = current_user.id;
 
@@ -24,8 +16,15 @@ class Api::FollowsController < ApplicationController
     render 'api/follows/index'
   end
 
+  def show
+    # @follows = Follow.find_by_sql("SELECT * FROM follows WHERE user_id = follow_params");
+    # sql = `SELECT * FROM follows WHERE user_id = ${follow_params}`
+    debugger
+    @follows = Follow.where(user_id: params[:user_id]);
+    render 'api/follows/index'
+  end
+
   def destroy
-    # debugger
     @follow = Follow.find(params[:id]);
     @follow.destroy
     @follows = Follow.all

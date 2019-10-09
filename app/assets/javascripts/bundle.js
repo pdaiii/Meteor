@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/follow_actions.jsx ***!
   \*********************************************/
-/*! exports provided: RECEIVE_ALL_FOLLOWS, RECEIVE_FOLLOW, DESTROY_FOLLOW, receiveAllFollows, receiveFollow, removeFollow, fetchAllFollowers, createFollow, destroyFollow */
+/*! exports provided: RECEIVE_ALL_FOLLOWS, RECEIVE_FOLLOW, DESTROY_FOLLOW, receiveAllFollows, receiveFollow, removeFollow, fetchAllFollowers, fetchUserFollowers, createFollow, destroyFollow */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102,6 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveFollow", function() { return receiveFollow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFollow", function() { return removeFollow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllFollowers", function() { return fetchAllFollowers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserFollowers", function() { return fetchUserFollowers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFollow", function() { return createFollow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyFollow", function() { return destroyFollow; });
 /* harmony import */ var _util_follow_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/follow_util */ "./frontend/util/follow_util.js");
@@ -133,14 +134,14 @@ var fetchAllFollowers = function fetchAllFollowers(id) {
       return dispatch(receiveAllFollows(follows));
     });
   };
-}; // export const createFollow = (user_id, id) => {
-//   debugger
-//   return dispatch => {
-//     return APIFollowUtil.followUser(user_id, id)
-//       .then(follow => dispatch(receiveFollow(follow)))
-//   }
-// };
-
+};
+var fetchUserFollowers = function fetchUserFollowers(id) {
+  return function (dispatch) {
+    return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserFollowers"](id).then(function (follows) {
+      return dispatch(receiveAllFollows(follows));
+    });
+  };
+};
 var createFollow = function createFollow(id) {
   return function (dispatch) {
     return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["followUser"](id).then(function (follow) {
@@ -149,7 +150,6 @@ var createFollow = function createFollow(id) {
   };
 };
 var destroyFollow = function destroyFollow(id, followId) {
-  // debugger
   return function (dispatch) {
     return _util_follow_util__WEBPACK_IMPORTED_MODULE_0__["unfollowUser"](id, followId).then(function () {
       return dispatch(removeFollow(followId));
@@ -2589,8 +2589,9 @@ function (_React$Component) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.props.fetchAllStories();
-      this.props.fetchUser(this.props.match.params.userId);
-      this.props.fetchAllFollowers(this.props.match.params.userId);
+      this.props.fetchUser(this.props.match.params.userId); // this.props.fetchAllFollowers(this.props.match.params.userId);
+
+      this.props.fetchUserFollowers(this.props.match.params.userId);
       this.setState({
         following: this.state.following
       });
@@ -2759,7 +2760,6 @@ __webpack_require__.r(__webpack_exports__);
 // and the current user's id.
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  // debugger
   var followState = 'Follow';
   Object.values(state.entities.follows).forEach(function (follow) {
     if (follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
@@ -2781,6 +2781,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchUser: function fetchUser(id) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(id));
+    },
+    fetchUserFollowers: function fetchUserFollowers(id) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["fetchUserFollowers"])(id));
     },
     fetchAllFollowers: function fetchAllFollowers(id) {
       return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllFollowers"])(id));
@@ -3497,12 +3500,13 @@ var compare = function compare(a, b) {
 /*!**************************************!*\
   !*** ./frontend/util/follow_util.js ***!
   \**************************************/
-/*! exports provided: fetchAllFollowers, followUser, unfollowUser */
+/*! exports provided: fetchAllFollowers, fetchUserFollowers, followUser, unfollowUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllFollowers", function() { return fetchAllFollowers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserFollowers", function() { return fetchUserFollowers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "followUser", function() { return followUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unfollowUser", function() { return unfollowUser; });
 var fetchAllFollowers = function fetchAllFollowers(id) {
@@ -3510,8 +3514,15 @@ var fetchAllFollowers = function fetchAllFollowers(id) {
     method: 'GET',
     url: "/api/users/".concat(id, "/follows")
   });
-}; // Should have a fetch all followees as well.
-// export const followUser = (user_id, id) => {
+}; // Should have a fetch specific user's followers.
+// Route requires follow_id, but not used. Given random follow id.
+
+var fetchUserFollowers = function fetchUserFollowers(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/users/".concat(id, "/follows/123")
+  });
+}; // export const followUser = (user_id, id) => {
 //   debugger
 //   return $.ajax({
 //     method: 'POST',
@@ -3521,7 +3532,6 @@ var fetchAllFollowers = function fetchAllFollowers(id) {
 // };
 
 var followUser = function followUser(id) {
-  // debugger
   return $.ajax({
     method: 'POST',
     url: "/api/users/".concat(id, "/follows"),
@@ -3531,7 +3541,6 @@ var followUser = function followUser(id) {
   });
 };
 var unfollowUser = function unfollowUser(id, followId) {
-  // debugger
   return $.ajax({
     method: 'DELETE',
     url: "/api/users/".concat(id, "/follows/").concat(followId)
