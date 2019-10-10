@@ -18,6 +18,7 @@ class StoryShow extends React.Component {
     window.scroll(0, 0);
   }
 
+  // Do not need to update all of the story details when updating the clap counter.
   updateClapCounter(event) {
     const formData = new FormData();
     formData.append('story[title]', this.props.story.title);
@@ -50,6 +51,7 @@ class StoryShow extends React.Component {
           <ResponseItems
             key={response.id}
             response={response}
+            updateResponseClaps={this.props.updateResponseClaps}
             deleteResponse={this.props.deleteResponse}
             currentUserId={this.props.currentUserId}
           />

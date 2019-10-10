@@ -15,6 +15,16 @@ class Api::ResponsesController < ApplicationController
     end
   end
 
+  def update_claps
+    @response = Response.find(params[:response_id])
+    if @response.update_attribute(:count, response_params[:count])
+      render 'api/responses/show'
+    else
+      render json: @response.errors.full_messages, status: 422
+    end
+  end
+
+
   def destroy
     @response = Response.find(params[:id])
     @response.destroy
@@ -24,6 +34,6 @@ class Api::ResponsesController < ApplicationController
 
   private
   def response_params
-    params.require(:response).permit(:body)
+    params.require(:response).permit(:body, :count)
   end
 end

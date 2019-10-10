@@ -19,7 +19,6 @@ class Api::FollowsController < ApplicationController
   def show
     # @follows = Follow.find_by_sql("SELECT * FROM follows WHERE user_id = follow_params");
     # sql = `SELECT * FROM follows WHERE user_id = ${follow_params}`
-    debugger
     @follows = Follow.where(user_id: params[:user_id]);
     render 'api/follows/index'
   end

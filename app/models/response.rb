@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  body       :string           not null
+#  count      :integer
 #  story_id   :integer          not null
 #  author_id  :integer          not null
 #  created_at :datetime         not null

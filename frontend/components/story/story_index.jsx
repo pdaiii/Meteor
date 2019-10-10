@@ -21,6 +21,20 @@ class StoryIndex extends React.Component {
     if(stories.length < 2) {
       return null;
     }else {
+
+      // Implement curated index hero
+      // Find the users that are following the current user. Go through the stories that those
+      // users have created.
+      // let followedUsers = [];
+      // Object.values(this.props.follows).forEach(follow => {
+      //   if(follow.followee.id === this.props.match.params.userId) {
+      //     followedUsers.push(follow);
+      //   }
+      // })
+      // Object.values(this.props.stories).forEach(follow)
+
+
+
       heroStories = stories.reverse().slice(0, 5);
       storyIndexHero = <StoryIndexHero stories={heroStories} />
       storyIndexItems = stories.reverse().map(story => {

@@ -4,11 +4,23 @@ import { monthDay } from '../../util/month_day_util';
 import { timeToRead } from '../../util/time_to_read_util';
 
 class ResponseItems extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateClapCounter = this.updateClapCounter.bind(this);
+  }
+
   handleDelete(){
     return event => {
       event.preventDefault();
       this.props.deleteResponse(this.props.response.id);
     }
+  }
+
+  // Response claps
+  updateClapCounter(event) {
+    const formData = new FormData();
+    formData.append('response[count]', this.props.response.count + 1);
+    this.props.updateResponseClaps(formData, this.props.response);
   }
 
   render() {
@@ -46,9 +58,17 @@ class ResponseItems extends React.Component {
             </nav>
           </Link>
           <h2 className="response-items-body">{this.props.response.body}</h2>
-          <p>
+          
+          {/* <p>
             <button><i className='far fa-thumbs-up'></i></button>
-          </p>
+          </p> */}
+
+          {/* From story claps. Need to add count to responses. */}
+          <div className="response-clap-icon">
+            <button className="response-clap" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button>
+            <p className="clap-counter">{this.props.response.count} likes</p>
+          </div>
+
         </div>
       </div>
     );

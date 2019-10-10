@@ -34,6 +34,13 @@ export const createResponse = (response) => {
   };
 };
 
+export const updateResponseClaps = (formData, response) => {
+  return dispatch => {
+    return APIResponseUtil.updateResponseClaps(formData, response)
+      .then(response => dispatch(receiveResponse(response)))
+  };
+};
+
 export const deleteResponse = (id) => {
   return dispatch => {
     return APIResponseUtil.deleteResponse(id)

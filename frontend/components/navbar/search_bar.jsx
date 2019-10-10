@@ -35,10 +35,11 @@ class SearchBar extends React.Component{
 
   render() {
     let stories = Object.values(this.props.stories);
-    if(stories.length === 0) return null;
+    if(stories.length === 0) {
+      return 'No stories found.';
+    }
     let entries = [];
     // Why are we slicing 3? Grabbing the query after the initial '?q='.
-    debugger
     let searchEntry = this.props.location.search.slice(3);
     stories.map(story => {
       let body = story.body.toLowerCase();
@@ -82,7 +83,9 @@ class SearchBar extends React.Component{
         </div>
       )
     })
-
+    if(top5.length === 0) {
+      top5 = 'No stories found.'
+    }
     return (
       <div>
         <div className="user-story-container">

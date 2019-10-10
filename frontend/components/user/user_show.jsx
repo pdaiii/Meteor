@@ -13,7 +13,6 @@ class UserShow extends React.Component {
   componentWillMount() {
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
-    // this.props.fetchAllFollowers(this.props.match.params.userId);
     this.props.fetchUserFollowers(this.props.match.params.userId);
     this.setState({following: this.state.following});
   }

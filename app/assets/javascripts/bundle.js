@@ -192,7 +192,7 @@ var closeModal = function closeModal() {
 /*!***********************************************!*\
   !*** ./frontend/actions/response_actions.jsx ***!
   \***********************************************/
-/*! exports provided: RECEIVE_ALL_RESPONSES, RECEIVE_RESPONSE, DESTROY_RESPONSE, fetchAllResponses, createResponse, deleteResponse */
+/*! exports provided: RECEIVE_ALL_RESPONSES, RECEIVE_RESPONSE, DESTROY_RESPONSE, fetchAllResponses, createResponse, updateResponseClaps, deleteResponse */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -202,6 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DESTROY_RESPONSE", function() { return DESTROY_RESPONSE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllResponses", function() { return fetchAllResponses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createResponse", function() { return createResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateResponseClaps", function() { return updateResponseClaps; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteResponse", function() { return deleteResponse; });
 /* harmony import */ var _util_response_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/response_util */ "./frontend/util/response_util.js");
 
@@ -240,6 +241,13 @@ var fetchAllResponses = function fetchAllResponses(story_id) {
 var createResponse = function createResponse(response) {
   return function (dispatch) {
     return _util_response_util__WEBPACK_IMPORTED_MODULE_0__["createResponse"](response).then(function (response) {
+      return dispatch(receiveResponse(response));
+    });
+  };
+};
+var updateResponseClaps = function updateResponseClaps(formData, response) {
+  return function (dispatch) {
+    return _util_response_util__WEBPACK_IMPORTED_MODULE_0__["updateResponseClaps"](formData, response).then(function (response) {
       return dispatch(receiveResponse(response));
     });
   };
@@ -974,10 +982,13 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var stories = Object.values(this.props.stories);
-      if (stories.length === 0) return null;
+
+      if (stories.length === 0) {
+        return 'No stories found.';
+      }
+
       var entries = []; // Why are we slicing 3? Grabbing the query after the initial '?q='.
 
-      debugger;
       var searchEntry = this.props.location.search.slice(3);
       stories.map(function (story) {
         var body = story.body.toLowerCase();
@@ -1023,6 +1034,11 @@ function (_React$Component) {
           className: "far fa-thumbs-up"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, entry.response_ids.length, " responses")));
       });
+
+      if (top5.length === 0) {
+        top5 = 'No stories found.';
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-story-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1215,9 +1231,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1233,22 +1249,34 @@ var ResponseItems =
 function (_React$Component) {
   _inherits(ResponseItems, _React$Component);
 
-  function ResponseItems() {
+  function ResponseItems(props) {
+    var _this;
+
     _classCallCheck(this, ResponseItems);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ResponseItems).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ResponseItems).call(this, props));
+    _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ResponseItems, [{
     key: "handleDelete",
     value: function handleDelete() {
-      var _this = this;
+      var _this2 = this;
 
       return function (event) {
         event.preventDefault();
 
-        _this.props.deleteResponse(_this.props.response.id);
+        _this2.props.deleteResponse(_this2.props.response.id);
       };
+    } // Response claps
+
+  }, {
+    key: "updateClapCounter",
+    value: function updateClapCounter(event) {
+      var formData = new FormData();
+      formData.append('response[count]', this.props.response.count + 1);
+      this.props.updateResponseClaps(formData, this.props.response);
     }
   }, {
     key: "render",
@@ -1290,9 +1318,16 @@ function (_React$Component) {
         className: "response-items-date-time"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, formattedDate, " \xB7\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_time_to_read_util__WEBPACK_IMPORTED_MODULE_3__["timeToRead"])("".concat(this.props.response.body)), " min read")))), deleteOwnComments)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "response-items-body"
-      }, this.props.response.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, this.props.response.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "response-clap-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "response-clap",
+        onClick: this.updateClapCounter
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
-      })))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "clap-counter"
+      }, this.props.response.count, " likes"))));
     }
   }]);
 
@@ -1537,7 +1572,7 @@ function (_React$Component) {
         className: "switch-account-access"
       }, "No account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleDemoUser
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Demo login")), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To make Meteor work, we log user data and share it with service providers. Click \u201C", this.props.formType, "\u201D above to accept Meteor\u2019s ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Terms of Service"), " & ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Privacy Policy."))));
+      }, "Demo login"), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To make Meteor work, we log user data and share it with service providers. Click \u201C", this.props.formType, "\u201D above to accept Meteor\u2019s ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Terms of Service"), " & ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Privacy Policy."))));
     }
   }]);
 
@@ -2027,6 +2062,16 @@ function (_React$Component) {
       if (stories.length < 2) {
         return null;
       } else {
+        // Implement curated index hero
+        // Find the users that are following the current user. Go through the stories that those
+        // users have created.
+        // let followedUsers = [];
+        // Object.values(this.props.follows).forEach(follow => {
+        //   if(follow.followee.id === this.props.match.params.userId) {
+        //     followedUsers.push(follow);
+        //   }
+        // })
+        // Object.values(this.props.stories).forEach(follow)
         heroStories = stories.reverse().slice(0, 5);
         storyIndexHero = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_story_index_hero__WEBPACK_IMPORTED_MODULE_1__["default"], {
           stories: heroStories
@@ -2375,7 +2420,8 @@ function (_React$Component) {
       this.props.fetchStory(this.props.match.params.storyId);
       this.props.fetchAllResponses(this.props.match.params.storyId);
       window.scroll(0, 0);
-    }
+    } // Do not need to update all of the story details when updating the clap counter.
+
   }, {
     key: "updateClapCounter",
     value: function updateClapCounter(event) {
@@ -2413,6 +2459,7 @@ function (_React$Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_items__WEBPACK_IMPORTED_MODULE_2__["default"], {
             key: response.id,
             response: response,
+            updateResponseClaps: _this2.props.updateResponseClaps,
             deleteResponse: _this2.props.deleteResponse,
             currentUserId: _this2.props.currentUserId
           });
@@ -2525,6 +2572,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteResponse: function deleteResponse(response_id) {
       return dispatch(Object(_actions_response_actions__WEBPACK_IMPORTED_MODULE_3__["deleteResponse"])(response_id));
+    },
+    updateResponseClaps: function updateResponseClaps(formData, response) {
+      return dispatch(Object(_actions_response_actions__WEBPACK_IMPORTED_MODULE_3__["updateResponseClaps"])(formData, response));
     }
   };
 };
@@ -2589,8 +2639,7 @@ function (_React$Component) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.props.fetchAllStories();
-      this.props.fetchUser(this.props.match.params.userId); // this.props.fetchAllFollowers(this.props.match.params.userId);
-
+      this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchUserFollowers(this.props.match.params.userId);
       this.setState({
         following: this.state.following
@@ -3523,7 +3572,6 @@ var fetchUserFollowers = function fetchUserFollowers(id) {
     url: "/api/users/".concat(id, "/follows/123")
   });
 }; // export const followUser = (user_id, id) => {
-//   debugger
 //   return $.ajax({
 //     method: 'POST',
 //     url: `/api/users/${id}/follows`,
@@ -3574,13 +3622,14 @@ var monthDay = function monthDay(creationTime) {
 /*!****************************************!*\
   !*** ./frontend/util/response_util.js ***!
   \****************************************/
-/*! exports provided: fetchAllResponses, createResponse, deleteResponse */
+/*! exports provided: fetchAllResponses, createResponse, updateResponseClaps, deleteResponse */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllResponses", function() { return fetchAllResponses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createResponse", function() { return createResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateResponseClaps", function() { return updateResponseClaps; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteResponse", function() { return deleteResponse; });
 var fetchAllResponses = function fetchAllResponses(story_id) {
   return $.ajax({
@@ -3595,6 +3644,15 @@ var createResponse = function createResponse(response) {
     data: {
       response: response
     }
+  });
+};
+var updateResponseClaps = function updateResponseClaps(formData, response) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/stories/".concat(response.story_id, "/responses/").concat(response.id, "/claps"),
+    data: formData,
+    contentType: false,
+    processData: false
   });
 };
 var deleteResponse = function deleteResponse(id) {

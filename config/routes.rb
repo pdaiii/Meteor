@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create, :destroy]
     resources :stories, only: [:create, :show, :index, :update, :destroy] do
       patch '/claps', to: 'stories#update_likes'
-      resources :responses, only: [:index, :create]
+      resources :responses, only: [:index, :update, :create] do
+        patch '/claps', to: 'responses#update_claps'
+      end
     end
     resources :responses, only: [:destroy]
   end

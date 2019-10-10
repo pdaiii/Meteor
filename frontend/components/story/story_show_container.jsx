@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import StoryShow from './story_show';
 import { fetchStory, updateStory, updateStoryLikes } from '../../actions/story_actions';
-import { fetchAllResponses, deleteResponse } 
+import { fetchAllResponses, deleteResponse, updateResponseClaps } 
   from '../../actions/response_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +19,8 @@ const mapDispatchToProps = dispatch => ({
   updateStory: (story, id) => dispatch(updateStory(story, id)),
   updateStoryLikes: (story, id) => dispatch(updateStoryLikes(story, id)),
   fetchAllResponses: (story_id) => dispatch(fetchAllResponses(story_id)),
-  deleteResponse: (response_id) => dispatch(deleteResponse(response_id))
+  deleteResponse: (response_id) => dispatch(deleteResponse(response_id)),
+  updateResponseClaps: (formData, response) => dispatch(updateResponseClaps(formData, response))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoryShow);
