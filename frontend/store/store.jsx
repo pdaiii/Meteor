@@ -11,7 +11,8 @@ const configureStore = (preloadedState = {}) => {
         rootReducer,
         // Uploads preloadedState or persists the current user and session.
         preloadedState,
-        applyMiddleware(thunk, logger)
+        // applyMiddleware(thunk, logger)
+        applyMiddleware(thunk)
     )
 };
 
