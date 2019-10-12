@@ -1480,8 +1480,7 @@ function (_React$Component) {
       var _this2 = this;
 
       event.preventDefault();
-      var user = Object.assign({}, this.state); // Sign in and sign up has no access through history using a modal.
-
+      var user = Object.assign({}, this.state);
       this.props.processForm(user).then(this.props.closeModal).then(function () {
         return _this2.props.history.push("/index");
       });
@@ -1577,7 +1576,8 @@ function (_React$Component) {
   }]);
 
   return SessionForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // withRouter to give access to the url/history.
+
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SessionForm));
 

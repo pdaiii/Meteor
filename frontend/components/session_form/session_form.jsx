@@ -15,7 +15,6 @@ class SessionForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = Object.assign({}, this.state);
-    // Sign in and sign up has no access through history using a modal.
     this.props.processForm(user)
       .then(this.props.closeModal)
       .then(() => this.props.history.push(`/index`));
@@ -103,4 +102,5 @@ class SessionForm extends React.Component {
   }
 }
 
+// withRouter to give access to the url/history.
 export default withRouter(SessionForm);
