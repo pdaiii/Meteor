@@ -1623,7 +1623,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       onClick: function onClick() {
         return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])('Sign in'));
       }
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Sign in")),
+    }, "Sign in"),
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["closeModal"])());
     }
@@ -2640,7 +2640,8 @@ function (_React$Component) {
     value: function componentWillMount() {
       this.props.fetchAllStories();
       this.props.fetchUser(this.props.match.params.userId);
-      this.props.fetchUserFollowers(this.props.match.params.userId);
+      this.props.fetchAllFollowers(this.props.match.params.userId); // this.props.fetchUserFollowers(this.props.match.params.userId);
+
       this.setState({
         following: this.state.following
       });
@@ -2744,6 +2745,7 @@ function (_React$Component) {
         }, this.state.following);
       }
 
+      debugger;
       var followers = 0;
       var following = 0;
       var that = this;
@@ -3512,8 +3514,8 @@ __webpack_require__.r(__webpack_exports__);
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], // Uploads preloadedState or persists the current user and session.
-  preloadedState, // applyMiddleware(thunk, logger)
-  Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]));
+  preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a) // applyMiddleware(thunk)
+  );
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

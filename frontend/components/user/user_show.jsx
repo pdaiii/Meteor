@@ -13,7 +13,8 @@ class UserShow extends React.Component {
   componentWillMount() {
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
-    this.props.fetchUserFollowers(this.props.match.params.userId);
+    this.props.fetchAllFollowers(this.props.match.params.userId);
+    // this.props.fetchUserFollowers(this.props.match.params.userId);
     this.setState({following: this.state.following});
   }
 
@@ -103,6 +104,7 @@ class UserShow extends React.Component {
       followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>{this.state.following}</button>;
     }
     
+    debugger
     let followers = 0;
     let following = 0;
     let that = this;
