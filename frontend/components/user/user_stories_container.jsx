@@ -4,21 +4,41 @@ import { Link } from 'react-router-dom';
 import { deleteStory } from '../../actions/story_actions';
 import { monthDay } from '../../util/month_day_util';
 import { timeToRead } from '../../util/time_to_read_util';
+import { updateStoryLikes } from '../../actions/story_actions';
 
-const mapStateToProps = state => ({
-  currentUserId: state.session.id
-});
+const mapStateToProps = state => {
+  return({
+    currentUserId: state.session.id
+  })
+}
 
 const mapDispatchToProps = dispatch => ({
-  deleteStory: (id) => dispatch(deleteStory(id))
+  deleteStory: (id) => dispatch(deleteStory(id)),
+  updateStoryLikes: (story, id) => dispatch(updateStoryLikes(story, id))
 });
 
 class UserStoryPost extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.updateClapCounter = this.updateClapCounter.bind(this);
+  }
+
+  // handleDelete() {
+  //   return event => {
+  //     event.preventDefault();
+  //     this.props.deleteStory(this.props.story.id);
+  //   };
+  // }
+
   handleDelete() {
-    return event => {
-      event.preventDefault();
-      this.props.deleteStory(this.props.story.id);
-    };
+    this.props.deleteStory(this.props.story.id);
+  }
+
+  updateClapCounter() {
+    const formData = new FormData();
+    formData.append('story[count]', this.props.story.count+1);
+    this.props.updateStoryLikes(formData, this.props.story.id);
   }
 
   render() {
@@ -36,7 +56,7 @@ class UserStoryPost extends React.Component {
         <Link to={`/stories/${this.props.story.id}/edit`} className="user-story-buttons">
           <i className="far fa-edit"></i>
         </Link>
-        <button className="user-story-buttons" onClick={this.handleDelete()}>
+        <button className="user-story-buttons" onClick={this.handleDelete}>
           <i className="fas fa-trash"></i>
         </button>
       </div>
@@ -72,7 +92,10 @@ class UserStoryPost extends React.Component {
           </Link>
 
           <footer className="user-story-footer">
-            <button><i className='far fa-thumbs-up'></i></button>
+            <div className="response-clap-icon">
+              <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button>
+              <p className="clap-counter">{this.props.story.count} likes</p>
+            </div>
             <p>{this.props.story.response_ids.length} responses</p>
           </footer>
         </div>

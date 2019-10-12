@@ -23,7 +23,6 @@ class StoryForm extends React.Component {
 
   // Uses FormData to pass multiple parameters to the backend and formats the file data.
   handleSubmit(event) {
-    debugger
     event.preventDefault();
     const formData = new FormData();
     formData.append("story[title]", this.state.title);

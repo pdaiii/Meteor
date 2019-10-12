@@ -1942,7 +1942,6 @@ function (_React$Component) {
     value: function handleSubmit(event) {
       var _this3 = this;
 
-      debugger;
       event.preventDefault();
       var formData = new FormData();
       formData.append("story[title]", this.state.title);
@@ -2656,7 +2655,8 @@ function (_React$Component) {
           following: nextProps.followButton.following
         });
       }
-    }
+    } // Deletes previous followers
+
   }, {
     key: "follow",
     value: function follow() {
@@ -2667,7 +2667,7 @@ function (_React$Component) {
       var that = this; // If you're following the user, the set the state to 'Unfollow'
 
       Object.values(this.props.follows).forEach(function (follow) {
-        if (follow.followee.id === that.props.user.id) {
+        if (follow.followee.id === that.props.user.id && follow.follower.id === that.props.currentUserId) {
           followState = 'Follow';
 
           _this2.props.destroyFollow(_this2.props.user.id, follow.id);
@@ -2745,7 +2745,6 @@ function (_React$Component) {
         }, this.state.following);
       }
 
-      debugger;
       var followers = 0;
       var following = 0;
       var that = this;
@@ -2881,13 +2880,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2906,6 +2906,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     deleteStory: function deleteStory(id) {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_3__["deleteStory"])(id));
+    },
+    updateStoryLikes: function updateStoryLikes(story, id) {
+      return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_3__["updateStoryLikes"])(story, id));
     }
   };
 };
@@ -2915,22 +2918,34 @@ var UserStoryPost =
 function (_React$Component) {
   _inherits(UserStoryPost, _React$Component);
 
-  function UserStoryPost() {
+  function UserStoryPost(props) {
+    var _this;
+
     _classCallCheck(this, UserStoryPost);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(UserStoryPost).apply(this, arguments));
-  }
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UserStoryPost).call(this, props));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this));
+    return _this;
+  } // handleDelete() {
+  //   return event => {
+  //     event.preventDefault();
+  //     this.props.deleteStory(this.props.story.id);
+  //   };
+  // }
+
 
   _createClass(UserStoryPost, [{
     key: "handleDelete",
     value: function handleDelete() {
-      var _this = this;
-
-      return function (event) {
-        event.preventDefault();
-
-        _this.props.deleteStory(_this.props.story.id);
-      };
+      this.props.deleteStory(this.props.story.id);
+    }
+  }, {
+    key: "updateClapCounter",
+    value: function updateClapCounter() {
+      var formData = new FormData();
+      formData.append('story[count]', this.props.story.count + 1);
+      this.props.updateStoryLikes(formData, this.props.story.id);
     }
   }, {
     key: "render",
@@ -2952,7 +2967,7 @@ function (_React$Component) {
           className: "far fa-edit"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "user-story-buttons",
-          onClick: this.handleDelete()
+          onClick: this.handleDelete
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-trash"
         })));
@@ -2990,9 +3005,16 @@ function (_React$Component) {
         className: "user-story-body"
       }, this.props.story.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "user-story-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "response-clap-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "clap-btn",
+        onClick: this.updateClapCounter
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.story.response_ids.length, " responses"))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "clap-counter"
+      }, this.props.story.count, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.story.response_ids.length, " responses"))));
     }
   }]);
 
@@ -3178,12 +3200,10 @@ var FollowsReducer = function FollowsReducer() {
       return action.follows;
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
-      // debugger
       newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.follow.id, action.follow));
       return newState;
 
     case _actions_follow_actions__WEBPACK_IMPORTED_MODULE_0__["DESTROY_FOLLOW"]:
-      // debugger
       newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState);
       delete newState[action.id];
       return newState;

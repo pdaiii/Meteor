@@ -26,13 +26,14 @@ class UserShow extends React.Component {
     }
   }
 
+  // Deletes previous followers
   follow() {
     event.preventDefault();
     let followState;
     let that = this;
     // If you're following the user, the set the state to 'Unfollow'
     Object.values(this.props.follows).forEach(follow => {
-      if (follow.followee.id === that.props.user.id) {
+      if (follow.followee.id === that.props.user.id && follow.follower.id === that.props.currentUserId) {
         followState = 'Follow';
         this.props.destroyFollow(this.props.user.id, follow.id);
       }
@@ -104,7 +105,6 @@ class UserShow extends React.Component {
       followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>{this.state.following}</button>;
     }
     
-    debugger
     let followers = 0;
     let following = 0;
     let that = this;
@@ -113,7 +113,6 @@ class UserShow extends React.Component {
         followers += 1;
       }
     });
-
     Object.values(this.props.follows).forEach(follow => {
       if (follow.follower.id === parseInt(that.props.match.params.userId)) {
         following += 1;
