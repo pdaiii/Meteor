@@ -37,10 +37,13 @@ class Followee extends React.Component {
       return (
         <div className="follow" key={follower.id}>
           <div className="follow-items">
-            <div className="user-profile-pic-icon">
+            <div className="follow-profile-pic-icon">
               <i className="fas fa-user-circle"></i>
             </div>
-            <p className="follow-username">{follower.followee.username}</p>
+            <div className="follow-profile">
+              <p className="follow-username">{follower.followee.username}</p>
+              <button className="follow-btn">Follow</button>
+            </div>
           </div>
         </div>
       )

@@ -14,8 +14,8 @@
 
 .follow-title {
   font-size: 18px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .follow {
@@ -36,9 +36,40 @@
 }
 
 .follow-username {
-  margin: 10px;
+  // margin: 10px;
+  padding: 5px;
 }
 
 .no-follows {
   font-size: 18px;
+}
+
+.follow-profile {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  // text-align: left;
+}
+
+.follow-profile-pic-icon {
+  font-size: 70px;
+  margin: 10px;
+  color: lightgrey;
+}
+
+.follow-btn {
+  // border-radius: 2px;
+  font-size: 16px;
+  // padding: 0 12px;
+  height: 20px;
+  width: 40px;
+  // border-top: 1px solid #02A87C;
+  // border-right: 1px solid #02A87C;
+  // border-bottom: 1px solid #02A87C;
+  // border-left: 1px solid #02A87C;
+  color: #02A87C;
+  // margin: 5px 0px;
+  padding: 5px;
 }

@@ -69,7 +69,7 @@ class UserShow extends React.Component {
       return (
         <div>
           <div className="user-show-stories-title">
-            <h3>Stories</h3>
+            <h3 className="story-title"><b>Stories</b></h3>
           </div>
           {stories}
         </div>

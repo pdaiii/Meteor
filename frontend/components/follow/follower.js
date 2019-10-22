@@ -38,7 +38,10 @@ class Follower extends React.Component {
             <div className="user-profile-pic-icon">
               <i className="fas fa-user-circle"></i>
             </div>
-            <p className="follow-username">{follower.follower.username}</p>
+            <div className="follow-profile">
+              <p className="follow-username">{follower.follower.username}</p>
+              <button className="follow-btn">Follow</button>
+            </div>
           </div>
         </div>
       )

@@ -642,12 +642,16 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "follow-items"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-profile-pic-icon"
+          className: "follow-profile-pic-icon"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-user-circle"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-profile"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "follow-username"
-        }, follower.followee.username)));
+        }, follower.followee.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "follow-btn"
+        }, "Follow"))));
       });
 
       if (followeeInfo.length > 0) {
@@ -771,9 +775,13 @@ function (_React$Component) {
           className: "user-profile-pic-icon"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-user-circle"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-profile"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "follow-username"
-        }, follower.follower.username)));
+        }, follower.follower.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "follow-btn"
+        }, "Follow"))));
       });
 
       if (followerInfo.length > 0) {
@@ -2971,7 +2979,9 @@ function (_React$Component) {
       if (userStories.length > 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-show-stories-title"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Stories")), stories);
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          className: "story-title"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Stories"))), stories);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-no-post-msg"
