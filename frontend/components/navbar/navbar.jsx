@@ -10,6 +10,7 @@ class navBar extends React.Component {
     
   componentDidMount() {
     this.props.fetchAllStories();
+    // Fetch User Notifications
   }
 
   clearForm() {

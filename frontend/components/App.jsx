@@ -10,6 +10,8 @@ import UserShowContainer from './user/user_show_container';
 import StoryIndexContainer from './story/story_index_container';
 import SearchBar from './navbar/search_bar';
 import WelcomePage from './welcome_page';
+import FollowerContainer from './follow/follower';
+import FolloweeContainer from './follow/followee';
 
 const App = () => {
   return(
@@ -32,11 +34,16 @@ const App = () => {
         <ProtectedRoute path="/stories/new" component={CreateStoryFormContainer} />
         <ProtectedRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
         <ProtectedRoute path="/stories/:storyId" component={StoryShowContainer} />
+
+        <ProtectedRoute exact path="/users/:userId/followers" component={FollowerContainer} />
+        <ProtectedRoute exact path="/users/:userId/followees" component={FolloweeContainer} />
+
         <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
         <AuthRoute exact path="/" component={WelcomePage} />
         <ProtectedRoute exact path="/index" component={StoryIndexContainer} />
         <Route path="/search" component={SearchBar} />
         <Redirect to="/" component={WelcomePage} />
+
       </Switch>
     </div>
   )

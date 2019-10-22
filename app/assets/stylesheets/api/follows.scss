@@ -1,3 +1,44 @@
 // Place all the styles related to the api/follows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-follows-container {
+  width: 600px;
+}
+
+.follow-title {
+  font-size: 18px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.follow {
+  display: flex;
+  border: 1px solid rgba(0,0,0,.09);
+  height: 70px;
+  margin: 0 0 10px;
+  width: 600px;
+  font-size: 18px;
+  padding: 15px 0;
+}
+
+.follow-items {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  padding-left: 10px;
+}
+
+.follow-username {
+  margin: 10px;
+}
+
+.no-follows {
+  font-size: 18px;
+}

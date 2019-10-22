@@ -14,12 +14,13 @@ class UserShow extends React.Component {
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollowers(this.props.match.params.userId);
-    // this.props.fetchUserFollowers(this.props.match.params.userId);
     this.setState({following: this.state.following});
   }
 
   // If the props are modified before the initial constructor call, update the state.
   // Used for updating Follow to Unfollow when current user is already following.
+  // If you refresh the page after following someone, the follow button will be set as 'Follow' instead of
+  // 'Unfollow' without this method.
   componentWillReceiveProps(nextProps) {
     if(nextProps.followButton.following !== this.props.followButton.following) {
       this.setState({following: nextProps.followButton.following});
@@ -128,8 +129,12 @@ class UserShow extends React.Component {
                 <h1 className="user-profile-username">{this.props.user.username}</h1>
 
                 <div className="follows">
-                  <p>
-                    {following} Following &nbsp;&nbsp; {followers} Followers
+                  <p className="following">
+                    {following} <Link to={`/users/${this.props.user.id}/followees`}>Following</Link>
+                  </p>
+                  <p>&nbsp; &nbsp;</p>
+                  <p className="followers">
+                    {followers} <Link to={`/users/${this.props.user.id}/followers`}>Followers</Link>
                   </p>
                 </div>
 

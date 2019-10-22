@@ -7,7 +7,7 @@ import Root from './components/root';
 // import { fetchAllStories, deleteStory } from './actions/story_actions';
 // import * as AJAX from './util/session_api_util';
 // import { fetchAllResponses, createResponse } from './util/response_util';
-import {fetchAllFollowers} from './util/follow_util';
+// import {fetchAllFollowers} from './util/follow_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

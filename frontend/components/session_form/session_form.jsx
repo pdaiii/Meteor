@@ -93,7 +93,7 @@ class SessionForm extends React.Component {
           <div className="switch-container">
             {this.props.formType === 'Sign up'
               ? <p className="switch-account-access">Already have an account? {this.props.otherForm}</p>
-              : <p className="switch-account-access">No account? <button onClick={this.handleDemoUser}>Demo login</button> </p>}
+              : <p className="switch-account-access">No account? <button onClick={this.handleDemoUser}><a>Demo login</a></button> </p>}
           </div>
           <p>To make Meteor work, we log user data and share it with service providers. Click “{this.props.formType}” above to accept Meteor’s <a>Terms of Service</a> & <a>Privacy Policy.</a></p>
         </form>
