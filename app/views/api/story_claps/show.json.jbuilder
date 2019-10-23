@@ -1,0 +1,1 @@
+json.partial! '/api/story_claps/story_clap', story_clap: @story_clap

@@ -2,7 +2,7 @@ import { RECEIVE_ALL_STORIES, RECEIVE_STORY, DESTROY_STORY }
   from '../actions/story_actions';
 import merge from 'lodash/merge';
 
-const storiesReducer = (oldState={}, action) => {
+const StoriesReducer = (oldState={}, action) => {
   Object.freeze(oldState);
   let newState;
   switch(action.type) {
@@ -20,4 +20,4 @@ const storiesReducer = (oldState={}, action) => {
   }
 };
 
-export default storiesReducer;
+export default StoriesReducer;

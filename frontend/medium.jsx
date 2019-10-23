@@ -8,6 +8,7 @@ import Root from './components/root';
 // import * as AJAX from './util/session_api_util';
 // import { fetchAllResponses, createResponse } from './util/response_util';
 // import {fetchAllFollowers} from './util/follow_util';
+import {createStoryClap, fetchStoryClaps, destroyStoryClap} from './util/story_clap_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -40,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.createResponse = createResponse;
   // window.fetchAllResponses = fetchAllResponses;
   // window.fetchAllFollowers = fetchAllFollowers;
+  window.createStoryClap = createStoryClap;
+  window.fetchStoryClaps = fetchStoryClaps;
+  window.destroyStoryClap = destroyStoryClap;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

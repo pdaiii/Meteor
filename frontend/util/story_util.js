@@ -42,7 +42,7 @@ export const updateStoryLikes = (story, story_id) => {
     contentType: false,
     processData: false
   })
-}
+};
 
 export const deleteStory = (id) => {
   return $.ajax ({

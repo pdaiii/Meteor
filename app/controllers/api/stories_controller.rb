@@ -33,6 +33,7 @@ class Api::StoriesController < ApplicationController
 
   def update_likes
     @story = Story.find(params[:story_id])
+    
     if @story.update_attribute(:count, story_params[:count])
       render 'api/stories/show'
     else

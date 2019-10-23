@@ -11,10 +11,33 @@ class UserShow extends React.Component {
   }
 
   componentWillMount() {
+    debugger
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollowers(this.props.match.params.userId);
+    debugger
+    // Object.values(this.props.stories).forEach(story => {
+    //   if(story.author_id === this.props.user.id) {
+    //     this.props.fetchAllStoryClaps(story.id);
+    //   }
+    // });
     this.setState({following: this.state.following});
+  }
+
+  componentDidMount() {
+    debugger
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    debugger
+    if(nextProps.stories !== this.props.stories) {
+      Object.values(this.props.stories).forEach(story => {
+        if(story.author_id === this.props.user.id) {
+          this.props.fetchAllStoryClaps(story.id);
+        }
+      });
+    }
   }
 
   // If the props are modified before the initial constructor call, update the state.
@@ -60,6 +83,7 @@ class UserShow extends React.Component {
         <UserStoriesContainer 
           key={story.id}
           story={story}
+          count={story.claps.length}
           user={this.props.user}
         />
       )
@@ -83,6 +107,7 @@ class UserShow extends React.Component {
   }
 
   render() {
+    debugger
     if(!this.props.user){
       return null;
     }

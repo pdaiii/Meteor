@@ -2,34 +2,53 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteStory } from '../../actions/story_actions';
+import { updateStoryLikes } from '../../actions/story_actions';
+import { fetchAllStoryClaps, createStoryClap, destroyStoryClap } from '../../actions/story_clap_actions';
+import { fetchAllStories } from '../../actions/story_actions';
 import { monthDay } from '../../util/month_day_util';
 import { timeToRead } from '../../util/time_to_read_util';
-import { updateStoryLikes } from '../../actions/story_actions';
 
 const mapStateToProps = state => {
-  return({
-    currentUserId: state.session.id
+  let likedState = false;
+  Object.values(state.entities.story_claps).forEach(story_clap => {
+    if(story_clap.clapper_id === state.session.id) {
+      likedState = true;
+    }
   })
-}
+
+  return({
+    currentUserId: state.session.id,
+    storyClaps: state.entities.story_claps,
+    userHasLiked: likedState
+    // userHasLiked: {likedState: likedState},
+    // clapCount: {count: count}
+  })
+};
 
 const mapDispatchToProps = dispatch => ({
   deleteStory: (id) => dispatch(deleteStory(id)),
-  updateStoryLikes: (story, id) => dispatch(updateStoryLikes(story, id))
+  updateStoryLikes: (story, id) => dispatch(updateStoryLikes(story, id)),
+  createStoryClap: (clap, id) => dispatch(createStoryClap(clap, id)),
+  fetchAllStoryClaps: (id) => dispatch(fetchAllStoryClaps(id)),
+  destroyStoryClap: (story_id, id) => dispatch(destroyStoryClap(story_id, id)),
+  fetchAllStories: () => dispatch(fetchAllStories())
 });
 
 class UserStoryPost extends React.Component {
   constructor(props) {
+    // debugger
     super(props);
+    // this.state = this.props.userHasLiked;
+    // this.state = this.props.storyClaps;
+    this.state = {count: props.story.claps.length, likeState: this.props.userHasLiked.likedState};
     this.handleDelete = this.handleDelete.bind(this);
     this.updateClapCounter = this.updateClapCounter.bind(this);
+    this.storyClap = this.storyClap.bind(this);
   }
 
-  // handleDelete() {
-  //   return event => {
-  //     event.preventDefault();
-  //     this.props.deleteStory(this.props.story.id);
-  //   };
-  // }
+  componentDidMount() {
+    this.props.fetchAllStoryClaps(this.props.story.id);
+  }
 
   handleDelete() {
     this.props.deleteStory(this.props.story.id);
@@ -39,6 +58,54 @@ class UserStoryPost extends React.Component {
     const formData = new FormData();
     formData.append('story[count]', this.props.story.count+1);
     this.props.updateStoryLikes(formData, this.props.story.id);
+  }
+
+  storyClap() {
+    // let clap;
+    // Object.values(this.props.story.claps).forEach(story_clap => {
+    //   if(story_clap.clapper_id === this.props.currentUserId) {
+    //     clap = story_clap;
+    //   }
+    // })
+    // if(this.state.likedState) {
+
+    if(this.state.likeState) {
+      let that = this;
+      Object.values(this.props.storyClaps).forEach(story_clap => {
+        if (story_clap.clapper_id === that.props.currentUserId) {
+          that.props.destroyStoryClap(that.props.story.id, story_clap.id);
+        }
+      })
+      // this.props.destroyStoryClap(this.props.story.id, clap.id);
+      // this.setState({
+      //   likedState: false
+      // });
+      // this.setState({
+      //   count: this.state.count--
+      // })
+      // this.props.userHasLiked = false;
+      this.setState({
+        count: this.state.count-=1,
+        likeState: false
+      })
+    }
+    else {
+      const formData = new FormData();
+      formData.append('story_clap[story_id]', this.props.story.id);
+      formData.append('story_clap[clapper_id]', this.props.currentUserId);
+      this.props.createStoryClap(formData, this.props.story.id);
+      // this.setState({
+      //   likedState: true
+      // });
+      // this.setState({
+      //   count: this.state.count++
+      // })
+      // this.props.userHasLiked = true;
+      this.setState({
+        count: this.state.count+=1,
+        likeState: true
+      })
+    }
   }
 
   render() {
@@ -64,6 +131,7 @@ class UserStoryPost extends React.Component {
     else{
       userStoryBtns = null;
     }
+
     return (
       <div className="user-story-container">
         <div className="user-story">
@@ -93,8 +161,9 @@ class UserStoryPost extends React.Component {
 
           <footer className="user-story-footer">
             <div className="response-clap-icon">
-              <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button>
-              <p className="clap-counter">{this.props.story.count} likes</p>
+              {/* <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button> */}
+              <button className="clap-btn" onClick={this.storyClap}><i className='far fa-thumbs-up'></i></button>
+              <p className="clap-counter">{this.state.count} likes</p>
             </div>
             <p>{this.props.story.response_ids.length} responses</p>
           </footer>

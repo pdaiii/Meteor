@@ -3,16 +3,24 @@ import UserShow from './user_show';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchAllStories } from '../../actions/story_actions';
 import { createFollow, destroyFollow, fetchAllFollowers, fetchUserFollowers } from '../../actions/follow_actions';
+import { fetchAllStoryClaps, createStoryClap, destroyStoryClap } from '../../actions/story_clap_actions';
 
 // Props used when rendering the user show page. Accessing the current user, all stories in the DB,
 // and the current user's id.
 const mapStateToProps = (state, ownProps) => {
+  debugger
   let followState = 'Follow';
   Object.values(state.entities.follows).forEach(follow => {
     if(follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
       followState = 'Unfollow';
     }
   })
+
+  // Object.values(state.entities.stories).forEach(story => {
+  //   if (story.author_id === ownProps.match.params.userId) {
+  //     this.props.fetchAllStoryClaps(story.id);
+  //   }
+  // });
   return({
     user: state.entities.users[ownProps.match.params.userId],
     stories: state.entities.stories,
@@ -28,7 +36,10 @@ const mapDispatchToProps = dispatch => ({
   fetchAllFollowers: (id) => dispatch(fetchAllFollowers(id)),
   fetchAllStories: () => dispatch(fetchAllStories()),
   createFollow: (id) => dispatch(createFollow(id)),
-  destroyFollow: (id, followId) => dispatch(destroyFollow(id, followId))
+  destroyFollow: (id, followId) => dispatch(destroyFollow(id, followId)),
+  fetchAllStoryClaps: (id) => dispatch(fetchAllStoryClaps(id)),
+  createStoryClap: (id) => dispatch(createStoryClap(id)),
+  destroyStoryClap: (id) => dispatch(destroyStoryClap(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserShow);

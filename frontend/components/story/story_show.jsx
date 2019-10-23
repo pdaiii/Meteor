@@ -38,6 +38,7 @@ class StoryShow extends React.Component {
     if(this.props.currentUserId){
       creatingResponses = 
       <ResponseContainer
+        key={this.props.story.id}
         story={this.props.story}
       />
     }
