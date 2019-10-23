@@ -8,19 +8,12 @@ import { fetchAllStoryClaps, createStoryClap, destroyStoryClap } from '../../act
 // Props used when rendering the user show page. Accessing the current user, all stories in the DB,
 // and the current user's id.
 const mapStateToProps = (state, ownProps) => {
-  debugger
   let followState = 'Follow';
   Object.values(state.entities.follows).forEach(follow => {
     if(follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
       followState = 'Unfollow';
     }
   })
-
-  // Object.values(state.entities.stories).forEach(story => {
-  //   if (story.author_id === ownProps.match.params.userId) {
-  //     this.props.fetchAllStoryClaps(story.id);
-  //   }
-  // });
   return({
     user: state.entities.users[ownProps.match.params.userId],
     stories: state.entities.stories,

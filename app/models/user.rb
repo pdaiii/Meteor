@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_many :responses,
     primary_key: :id,
     foreign_key: :author_id,
-    class_name: :Story
+    class_name: :Response
 
   has_many :response_claps,
     primary_key: :id,
@@ -48,6 +48,16 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :follower_id,
     class_name: :Follows
+
+  # has_many :follows,
+  #   primary_key: :id,
+  #   foreign_key: :follower_id,
+  #   class_name: :Follows
+
+  # has_many :users_followed,
+  #   primary_key: :id,
+  #   foreign_key: :user_id,
+  #   class_name: :Follows
   
   has_many :followers,
     through: :follows,

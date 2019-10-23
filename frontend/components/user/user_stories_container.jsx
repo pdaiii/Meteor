@@ -36,13 +36,10 @@ const mapDispatchToProps = dispatch => ({
 
 class UserStoryPost extends React.Component {
   constructor(props) {
-    // debugger
     super(props);
-    // this.state = this.props.userHasLiked;
-    // this.state = this.props.storyClaps;
-    this.state = {count: props.story.claps.length, likeState: this.props.userHasLiked.likedState};
+    this.state = {count: props.story.claps.length, likeState: this.props.userHasLiked};
     this.handleDelete = this.handleDelete.bind(this);
-    this.updateClapCounter = this.updateClapCounter.bind(this);
+    // this.updateClapCounter = this.updateClapCounter.bind(this);
     this.storyClap = this.storyClap.bind(this);
   }
 
@@ -54,21 +51,13 @@ class UserStoryPost extends React.Component {
     this.props.deleteStory(this.props.story.id);
   }
 
-  updateClapCounter() {
-    const formData = new FormData();
-    formData.append('story[count]', this.props.story.count+1);
-    this.props.updateStoryLikes(formData, this.props.story.id);
-  }
+  // updateClapCounter() {
+  //   const formData = new FormData();
+  //   formData.append('story[count]', this.props.story.count+1);
+  //   this.props.updateStoryLikes(formData, this.props.story.id);
+  // }
 
   storyClap() {
-    // let clap;
-    // Object.values(this.props.story.claps).forEach(story_clap => {
-    //   if(story_clap.clapper_id === this.props.currentUserId) {
-    //     clap = story_clap;
-    //   }
-    // })
-    // if(this.state.likedState) {
-
     if(this.state.likeState) {
       let that = this;
       Object.values(this.props.storyClaps).forEach(story_clap => {
@@ -76,14 +65,6 @@ class UserStoryPost extends React.Component {
           that.props.destroyStoryClap(that.props.story.id, story_clap.id);
         }
       })
-      // this.props.destroyStoryClap(this.props.story.id, clap.id);
-      // this.setState({
-      //   likedState: false
-      // });
-      // this.setState({
-      //   count: this.state.count--
-      // })
-      // this.props.userHasLiked = false;
       this.setState({
         count: this.state.count-=1,
         likeState: false
@@ -94,13 +75,6 @@ class UserStoryPost extends React.Component {
       formData.append('story_clap[story_id]', this.props.story.id);
       formData.append('story_clap[clapper_id]', this.props.currentUserId);
       this.props.createStoryClap(formData, this.props.story.id);
-      // this.setState({
-      //   likedState: true
-      // });
-      // this.setState({
-      //   count: this.state.count++
-      // })
-      // this.props.userHasLiked = true;
       this.setState({
         count: this.state.count+=1,
         likeState: true

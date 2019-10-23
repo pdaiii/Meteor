@@ -8,14 +8,48 @@ import { timeToRead } from '../../util/time_to_read_util';
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { count: this.props.count, likeState: this.props.userHasLiked };
     this.updateClapCounter = this.updateClapCounter.bind(this);
+    this.storyClap = this.storyClap.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     // Render show page for story.
     this.props.fetchStory(this.props.match.params.storyId);
     this.props.fetchAllResponses(this.props.match.params.storyId);
-    window.scroll(0, 0);
+    this.props.fetchAllStoryClaps(this.props.match.params.storyId);
+  }
+
+  // When the stories have been fetched, then update the state.
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.userHasLiked !== this.props.userHasLiked) {
+      this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
+    }
+  }
+
+  storyClap() {
+    if (this.state.likeState) {
+      let that = this;
+      Object.values(this.props.storyClaps).forEach(story_clap => {
+        if (story_clap.clapper_id === that.props.currentUserId) {
+          that.props.destroyStoryClap(that.props.story.id, story_clap.id);
+        }
+      })
+      this.setState({
+        count: this.state.count -= 1,
+        likeState: false
+      })
+    }
+    else {
+      const formData = new FormData();
+      formData.append('story_clap[story_id]', this.props.story.id);
+      formData.append('story_clap[clapper_id]', this.props.currentUserId);
+      this.props.createStoryClap(formData, this.props.story.id);
+      this.setState({
+        count: this.state.count += 1,
+        likeState: true
+      })
+    }
   }
 
   // Do not need to update all of the story details when updating the clap counter.
@@ -103,10 +137,9 @@ class StoryShow extends React.Component {
             <footer className="story-show-footer">
               
               <div className="clap-icon">
-                <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button>
-                {/* <button className="clap-btn" onClick={this.updateClaps}><i className='far fa-thumbs-up'></i></button> */}
-                <p className="clap-counter">{this.props.story.count} likes</p>
-                {/* <p className="clap-counter">{this.props.story.claps} likes</p> */}
+                {/* <button className="clap-btn" onClick={this.updateClapCounter}><i className='far fa-thumbs-up'></i></button> */}
+                <button className="clap-btn" onClick={this.storyClap}><i className='far fa-thumbs-up'></i></button>
+                <p className="clap-counter">{this.state.count} likes</p>
               </div>
 
               {/* <div className="media-icons">

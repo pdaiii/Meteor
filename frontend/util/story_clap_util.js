@@ -7,7 +7,6 @@ export const fetchStoryClaps = (story_id) => {
 
 // Illegal invocation
 export const createStoryClap = (story_clap, story_id) => {
-  debugger
   return $.ajax({
     method: 'POST',
     url: `/api/stories/${story_id}/story_claps`,
