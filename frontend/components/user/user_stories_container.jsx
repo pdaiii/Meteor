@@ -8,20 +8,28 @@ import { fetchAllStories } from '../../actions/story_actions';
 import { monthDay } from '../../util/month_day_util';
 import { timeToRead } from '../../util/time_to_read_util';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  debugger
   let likedState = false;
-  Object.values(state.entities.story_claps).forEach(story_clap => {
-    if(story_clap.clapper_id === state.session.id) {
-      likedState = true;
-    }
+  // Object.values(state.entities.story_claps).forEach(story_clap => {
+  //   if(story_clap.clapper_id === state.session.id) {
+  //     likedState = true;
+  //   }
+  // })
+  // const story = state.entities.stories[ownProps.story.id];
+  Object.values(state.entities.stories).forEach(story => {
+    story.claps.forEach(story_clap => {
+      if (story_clap.clapper_id === state.session.id) {
+        likedState = true;
+      }
+    })
   })
 
   return({
     currentUserId: state.session.id,
     storyClaps: state.entities.story_claps,
-    userHasLiked: likedState
-    // userHasLiked: {likedState: likedState},
-    // clapCount: {count: count}
+    userHasLiked: likedState,
+    count: ownProps.story !== undefined ? ownProps.story.claps.length : 0
   })
 };
 
@@ -36,15 +44,29 @@ const mapDispatchToProps = dispatch => ({
 
 class UserStoryPost extends React.Component {
   constructor(props) {
+    debugger
     super(props);
-    this.state = {count: props.story.claps.length, likeState: this.props.userHasLiked};
+    this.state = {count: this.props.count, likeState: this.props.userHasLiked};
     this.handleDelete = this.handleDelete.bind(this);
     // this.updateClapCounter = this.updateClapCounter.bind(this);
     this.storyClap = this.storyClap.bind(this);
   }
 
+  componentWillMount() {
+    this.props.fetchAllStories();
+  }
+
   componentDidMount() {
+    debugger
     this.props.fetchAllStoryClaps(this.props.story.id);
+  }
+
+  // Refetching all stories if claps are updated, using componentWillReceiveProps
+  componentWillReceiveProps(nextProps) {
+    debugger
+    if (nextProps.userHasLiked !== this.props.userHasLiked) {
+      this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
+    }
   }
 
   handleDelete() {

@@ -1,14 +1,18 @@
 import React from 'react';
 
 class Notifications extends React.Component {
-  componentWillMount() {
-    // fetchUserNotifications
-  }
-
   render() {
+    debugger
     let notifications = [];
-    Object.values(this.props.notifications).forEach( notification => {
-      notifications.push(notification);
+    Object.values(this.props.followers).forEach(follower => {
+      notifications.push(follower);
+    })
+    notifications.forEach(notification => {
+      return (
+        <div>
+          {notification.username}
+        </div>
+      )
     })
 
     return (
@@ -19,7 +23,6 @@ class Notifications extends React.Component {
       </div>
     )
   }
-  
 }
 
 export default Notifications;

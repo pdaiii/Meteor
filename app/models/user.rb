@@ -42,12 +42,12 @@ class User < ApplicationRecord
   has_many :follows,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Follows
+    class_name: :Follow
   
   has_many :users_followed,
     primary_key: :id,
     foreign_key: :follower_id,
-    class_name: :Follows
+    class_name: :Follow
 
   # has_many :follows,
   #   primary_key: :id,
@@ -93,11 +93,6 @@ class User < ApplicationRecord
     self.session_token = SecureRandom.urlsafe_base64
     self.save!
     self.session_token
-  end
-
-  # Method to check for whether current user follows user
-  def follows
-    
   end
 
   private

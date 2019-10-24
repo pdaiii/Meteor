@@ -10,7 +10,6 @@
 .logo {
   font-size: 31px;
   font-weight: bold;
-  padding: 10px;
 }
 
 .login-signup{
@@ -27,13 +26,13 @@
 .search-bar {
   border-radius: 5px;
   color: black;
+  display: none;
 }
 
 .search-submit-btn {
-  position: absolute;
-  bottom: 0px;
-  right: 5px;
+  position: relative;
   color: black;
+  padding-right: 10px;
 }
 
 .navbar-notifications {
@@ -89,4 +88,44 @@
   border-bottom: 1px solid #02A87C;
   border-left: 1px solid #02A87C;
   color: #02A87C;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 360px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.notification-profile {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.notification-date {
+  color: rgba(0,0,0,0.54);
+  font-size: 13px;
+}
+
+.notification-text {
+  font-size: 16px;
 }

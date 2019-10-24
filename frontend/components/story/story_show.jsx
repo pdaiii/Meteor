@@ -9,7 +9,7 @@ class StoryShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { count: this.props.count, likeState: this.props.userHasLiked };
-    this.updateClapCounter = this.updateClapCounter.bind(this);
+    // this.updateClapCounter = this.updateClapCounter.bind(this);
     this.storyClap = this.storyClap.bind(this);
   }
 
@@ -36,7 +36,7 @@ class StoryShow extends React.Component {
         }
       })
       this.setState({
-        count: this.state.count -= 1,
+        count: this.state.count-=1,
         likeState: false
       })
     }
@@ -46,21 +46,21 @@ class StoryShow extends React.Component {
       formData.append('story_clap[clapper_id]', this.props.currentUserId);
       this.props.createStoryClap(formData, this.props.story.id);
       this.setState({
-        count: this.state.count += 1,
+        count: this.state.count+=1,
         likeState: true
       })
     }
   }
 
   // Do not need to update all of the story details when updating the clap counter.
-  updateClapCounter(event) {
-    const formData = new FormData();
-    formData.append('story[title]', this.props.story.title);
-    formData.append('story[body]', this.props.story.body);
-    formData.append('story[image]', this.props.story.image);
-    formData.append('story[count]', this.props.story.count+1);
-    this.props.updateStoryLikes(formData, this.props.story.id);
-  }
+  // updateClapCounter(event) {
+  //   const formData = new FormData();
+  //   formData.append('story[title]', this.props.story.title);
+  //   formData.append('story[body]', this.props.story.body);
+  //   formData.append('story[image]', this.props.story.image);
+  //   formData.append('story[count]', this.props.story.count+1);
+  //   this.props.updateStoryLikes(formData, this.props.story.id);
+  // }
 
   render() {
     let creatingResponses;
@@ -69,6 +69,7 @@ class StoryShow extends React.Component {
     if(!this.props.story){
       return null;
     }
+    // debugger
     if(this.props.currentUserId){
       creatingResponses = 
       <ResponseContainer

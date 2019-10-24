@@ -8,11 +8,6 @@ import { fetchAllResponses, deleteResponse, updateResponseClaps }
 const mapStateToProps = (state, ownProps) => {
   const story = state.entities.stories[ownProps.match.params.storyId];
   let likedState = false;
-  // Object.values(state.entities.story_claps).forEach(story_clap => {
-  //   if (story_clap.clapper_id === state.session.id) {
-  //     likedState = true;
-  //   }
-  // })
   Object.values(state.entities.stories).forEach(story => {
     story.claps.forEach(story_clap => {
       if(story_clap.clapper_id === state.session.id) {
@@ -20,6 +15,11 @@ const mapStateToProps = (state, ownProps) => {
       }
     })
   })
+  // Object.values(state.entities.story_claps).forEach(story_clap => {
+  //   if (story_clap.clapper_id === state.session.id) {
+  //     likedState = true;
+  //   }
+  // })
 
   return ({
     story,

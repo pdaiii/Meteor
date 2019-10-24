@@ -964,7 +964,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _notifications__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notifications */ "./frontend/components/navbar/notifications.jsx");
+/* harmony import */ var _util_month_day_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/month_day_util */ "./frontend/util/month_day_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -998,23 +998,27 @@ function (_React$Component) {
     _classCallCheck(this, navBar);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(navBar).call(this, props));
+    _this.state = {
+      showMenu: false,
+      search: true
+    };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.openMenu = _this.openMenu.bind(_assertThisInitialized(_this));
+    _this.expandSearch = _this.expandSearch.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(navBar, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchAllStories(); // Fetch User Notifications
-    }
-  }, {
-    key: "clearForm",
-    value: function clearForm() {
-      document.getElementById('search-bar').value = "";
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.props.fetchAllStories();
+      this.props.fetchUser(this.props.currentUser.id);
+      this.props.fetchAllFollowers(this.props.currentUser.id);
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
+      debugger;
       event.preventDefault();
       var searchEntry = document.getElementById("search-bar").value;
       document.getElementById('search-bar').value = '';
@@ -1022,6 +1026,38 @@ function (_React$Component) {
         pathname: '/search',
         search: "?q=".concat(searchEntry)
       });
+    }
+  }, {
+    key: "openMenu",
+    value: function openMenu(event) {
+      event.preventDefault();
+
+      if (this.state.showMenu) {
+        this.setState({
+          showMenu: false
+        });
+      } else {
+        this.setState({
+          showMenu: true
+        });
+      }
+    }
+  }, {
+    key: "expandSearch",
+    value: function expandSearch(event) {
+      event.preventDefault();
+
+      if (this.state.search) {
+        document.getElementById('search-bar').setAttribute("style", "display: inline");
+        this.setState({
+          search: false
+        });
+      } else {
+        document.getElementById('search-bar').setAttribute("style", "display: none");
+        this.setState({
+          search: true
+        });
+      }
     }
   }, {
     key: "searchBar",
@@ -1034,39 +1070,46 @@ function (_React$Component) {
           className: "search-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          id: "search-bar",
-          className: "search-bar",
-          type: "text",
-          placeholder: "Search Meteor"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          id: "search",
+          onClick: this.expandSearch,
           className: "search-submit-btn",
           type: "submit"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-search"
-        }))));
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          id: "search-bar",
+          className: "search-bar",
+          type: "text",
+          placeholder: "Search Meteor"
+        })));
       }
     }
   }, {
     key: "notifications",
     value: function notifications() {
-      // Bell when no notifications
-      // Make drop down notifications when at least 1.
-      var notifications = document.getElementsByClassName('notification-cnt');
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: ""
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "navbar-notifications"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-bell"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "notifications"
-      }));
+      var _this2 = this;
+
+      var notifications = Object.values(this.props.currentUser.followers).map(function (follower) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "notification-item"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/users/".concat(_this2.props.currentUser.id),
+          className: "notification-profile"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-user-circle"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          className: "notification-text"
+        }, follower.username, " started following you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "notification-date"
+        }, Object(_util_month_day_util__WEBPACK_IMPORTED_MODULE_2__["monthDay"])(follower.created_at))));
+      });
+      return notifications;
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var sessionLinks = function sessionLinks() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -1074,12 +1117,12 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "navbar-signin",
           onClick: function onClick() {
-            return _this2.props.openModal('Sign in');
+            return _this3.props.openModal('Sign in');
           }
         }, "Sign in"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "navbar-signup",
           onClick: function onClick() {
-            return _this2.props.openModal('Sign up');
+            return _this3.props.openModal('Sign up');
           }
         }, "Get Started"));
       };
@@ -1087,10 +1130,20 @@ function (_React$Component) {
       var personalGreeting = function personalGreeting() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
           className: "logged-in-navbar"
-        }, _this2.searchBar(), _this2.notifications(), "\xA0\xA0\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        }, _this3.searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "dropdown"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "navbar-notifications",
+          onClick: _this3.openMenu
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-bell"
+        })), _this3.state.showMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "dropdown-menu",
+          id: "notification-dropdown"
+        }, _this3.notifications()) : null), "\xA0\xA0\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "navbar-name"
-        }, _this2.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/users/".concat(_this2.props.currentUser.id),
+        }, _this3.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/users/".concat(_this3.props.currentUser.id),
           className: "navbar-profile"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-user-circle"
@@ -1099,7 +1152,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "logout-button",
           onClick: function onClick() {
-            return _this2.props.logout();
+            return _this3.props.logout();
           }
         }, "Log Out")));
       };
@@ -1130,7 +1183,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.jsx");
 /* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/story_actions */ "./frontend/actions/story_actions.jsx");
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./navbar */ "./frontend/components/navbar/navbar.jsx");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.jsx");
+/* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/follow_actions */ "./frontend/actions/follow_actions.jsx");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./navbar */ "./frontend/components/navbar/navbar.jsx");
+
+
 
 
 
@@ -1155,78 +1212,18 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchAllStories: function fetchAllStories() {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllStories"])());
+    },
+    fetchUser: function fetchUser(id) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_5__["fetchUser"])(id));
+    },
+    fetchAllFollowers: function fetchAllFollowers(user_id) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_6__["fetchAllFollowers"])(user_id));
     }
   };
 }; // Access to the props and history to redirect users on webpages.
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_navbar__WEBPACK_IMPORTED_MODULE_5__["default"])));
-
-/***/ }),
-
-/***/ "./frontend/components/navbar/notifications.jsx":
-/*!******************************************************!*\
-  !*** ./frontend/components/navbar/notifications.jsx ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var Notifications =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Notifications, _React$Component);
-
-  function Notifications() {
-    _classCallCheck(this, Notifications);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Notifications).apply(this, arguments));
-  }
-
-  _createClass(Notifications, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {// fetchUserNotifications
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var notifications = [];
-      Object.values(this.props.notifications).forEach(function (notification) {
-        notifications.push(notification);
-      });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "notifications-list"
-      }, notifications));
-    }
-  }]);
-
-  return Notifications;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Notifications);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_navbar__WEBPACK_IMPORTED_MODULE_7__["default"])));
 
 /***/ }),
 
@@ -2749,8 +2746,8 @@ function (_React$Component) {
     _this.state = {
       count: _this.props.count,
       likeState: _this.props.userHasLiked
-    };
-    _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this));
+    }; // this.updateClapCounter = this.updateClapCounter.bind(this);
+
     _this.storyClap = _this.storyClap.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -2799,17 +2796,15 @@ function (_React$Component) {
         });
       }
     } // Do not need to update all of the story details when updating the clap counter.
+    // updateClapCounter(event) {
+    //   const formData = new FormData();
+    //   formData.append('story[title]', this.props.story.title);
+    //   formData.append('story[body]', this.props.story.body);
+    //   formData.append('story[image]', this.props.story.image);
+    //   formData.append('story[count]', this.props.story.count+1);
+    //   this.props.updateStoryLikes(formData, this.props.story.id);
+    // }
 
-  }, {
-    key: "updateClapCounter",
-    value: function updateClapCounter(event) {
-      var formData = new FormData();
-      formData.append('story[title]', this.props.story.title);
-      formData.append('story[body]', this.props.story.body);
-      formData.append('story[image]', this.props.story.image);
-      formData.append('story[count]', this.props.story.count + 1);
-      this.props.updateStoryLikes(formData, this.props.story.id);
-    }
   }, {
     key: "render",
     value: function render() {
@@ -2821,7 +2816,8 @@ function (_React$Component) {
 
       if (!this.props.story) {
         return null;
-      }
+      } // debugger
+
 
       if (this.props.currentUserId) {
         creatingResponses = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -2929,19 +2925,19 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var story = state.entities.stories[ownProps.match.params.storyId];
-  var likedState = false; // Object.values(state.entities.story_claps).forEach(story_clap => {
-  //   if (story_clap.clapper_id === state.session.id) {
-  //     likedState = true;
-  //   }
-  // })
-
+  var likedState = false;
   Object.values(state.entities.stories).forEach(function (story) {
     story.claps.forEach(function (story_clap) {
       if (story_clap.clapper_id === state.session.id) {
         likedState = true;
       }
     });
-  });
+  }); // Object.values(state.entities.story_claps).forEach(story_clap => {
+  //   if (story_clap.clapper_id === state.session.id) {
+  //     likedState = true;
+  //   }
+  // })
+
   return {
     story: story,
     // count: story !== undefined ? state.entities.stories[ownProps.match.params.storyId].count : 0,
@@ -3337,19 +3333,27 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
-  var likedState = false;
-  Object.values(state.entities.story_claps).forEach(function (story_clap) {
-    if (story_clap.clapper_id === state.session.id) {
-      likedState = true;
-    }
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  debugger;
+  var likedState = false; // Object.values(state.entities.story_claps).forEach(story_clap => {
+  //   if(story_clap.clapper_id === state.session.id) {
+  //     likedState = true;
+  //   }
+  // })
+  // const story = state.entities.stories[ownProps.story.id];
+
+  Object.values(state.entities.stories).forEach(function (story) {
+    story.claps.forEach(function (story_clap) {
+      if (story_clap.clapper_id === state.session.id) {
+        likedState = true;
+      }
+    });
   });
   return {
     currentUserId: state.session.id,
     storyClaps: state.entities.story_claps,
-    userHasLiked: likedState // userHasLiked: {likedState: likedState},
-    // clapCount: {count: count}
-
+    userHasLiked: likedState,
+    count: ownProps.story !== undefined ? ownProps.story.claps.length : 0
   };
 };
 
@@ -3386,9 +3390,10 @@ function (_React$Component) {
 
     _classCallCheck(this, UserStoryPost);
 
+    debugger;
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserStoryPost).call(this, props));
     _this.state = {
-      count: props.story.claps.length,
+      count: _this.props.count,
       likeState: _this.props.userHasLiked
     };
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this)); // this.updateClapCounter = this.updateClapCounter.bind(this);
@@ -3398,9 +3403,28 @@ function (_React$Component) {
   }
 
   _createClass(UserStoryPost, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.props.fetchAllStories();
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      debugger;
       this.props.fetchAllStoryClaps(this.props.story.id);
+    } // Refetching all stories if claps are updated, using componentWillReceiveProps
+
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      debugger;
+
+      if (nextProps.userHasLiked !== this.props.userHasLiked) {
+        this.setState({
+          count: nextProps.count,
+          likeState: nextProps.userHasLiked
+        });
+      }
     }
   }, {
     key: "handleDelete",

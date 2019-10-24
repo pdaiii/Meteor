@@ -1,5 +1,6 @@
 class Api::StoryClapsController < ApplicationController
   def create
+    # debugger
     @story_clap = StoryClap.new(story_clap_params);
 
     if @story_clap.save
@@ -16,6 +17,7 @@ class Api::StoryClapsController < ApplicationController
   end
 
   def destroy
+    # debugger
     @story_clap = StoryClap.find(params[:id])
     @story_clap.destroy
     @story_claps = StoryClap.all

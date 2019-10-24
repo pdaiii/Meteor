@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchAllStories } from '../../actions/story_actions';
+import { fetchUser } from '../../actions/user_actions';
+import { fetchAllFollowers } from '../../actions/follow_actions';
 import navBar from './navbar';
 
 const mapStateToProps = (state) => ({
@@ -13,7 +15,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   openModal: (modal) => dispatch(openModal(modal)),
-  fetchAllStories: () => dispatch(fetchAllStories())
+  fetchAllStories: () => dispatch(fetchAllStories()),
+  fetchUser: (id) => dispatch(fetchUser(id)),
+  fetchAllFollowers: (user_id) => dispatch(fetchAllFollowers(user_id))
 });
 
 // Access to the props and history to redirect users on webpages.
