@@ -1018,7 +1018,6 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
-      debugger;
       event.preventDefault();
       var searchEntry = document.getElementById("search-bar").value;
       document.getElementById('search-bar').value = '';

@@ -21,7 +21,6 @@ class navBar extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     event.preventDefault();
     let searchEntry = document.getElementById("search-bar").value;
     document.getElementById('search-bar').value = '';
