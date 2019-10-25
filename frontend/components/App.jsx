@@ -17,7 +17,7 @@ const App = () => {
   return(
     <div>
       <header className="navBar">
-        <Link to='/index'><h1 className="logo">Meteor</h1></Link>
+        <Link to='/index' style={{textDecoration: 'none'}}><h1 className="logo">Meteor</h1></Link>
         <NavBarContainer />
       </header>
       <Modal />
@@ -34,10 +34,8 @@ const App = () => {
         <ProtectedRoute path="/stories/new" component={CreateStoryFormContainer} />
         <ProtectedRoute path="/stories/:storyId/edit" component={EditStoryFormContainer} />
         <ProtectedRoute path="/stories/:storyId" component={StoryShowContainer} />
-
         <ProtectedRoute exact path="/users/:userId/followers" component={FollowerContainer} />
         <ProtectedRoute exact path="/users/:userId/followees" component={FolloweeContainer} />
-
         <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
         <AuthRoute exact path="/" component={WelcomePage} />
         <ProtectedRoute exact path="/index" component={StoryIndexContainer} />

@@ -66,12 +66,17 @@ class Followee extends React.Component {
   render() {
     if(!this.props.user) return null;
     return (
-      <div className="follow-container">
-        <div className="user-follows-container">
-          <p className="follow-title"><b>{this.props.user.username} is following</b></p>
-          {this.isFollowing()}
+      <div>
+
+
+        <div className="follow-container">
+          <div className="user-follows-container">
+            <p className="follow-title"><b>{this.props.user.username} is following</b></p>
+            {this.isFollowing()}
+          </div>
         </div>
       </div>
+
     )
   }
 }

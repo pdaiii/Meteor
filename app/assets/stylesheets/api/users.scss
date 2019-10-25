@@ -15,7 +15,7 @@
 .user-profile-info{
   display: flex;
   justify-content: space-between;
-  text-align: center;
+  text-align: left;
 }
 
 .user-profile-username {
@@ -25,15 +25,16 @@
 
 .follows {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   color: rgba(0, 0, 0, 0.54);
 }
 
 .user-profile-follow-btn {
   border-radius: 2px;
   font-size: 14px;
-  padding: 0 12px;
-  height: 20px;
+  padding: 0 16px;
+  height: 37px;
+  line-height: 37px;
   border-top: 1px solid #02A87C;
   border-right: 1px solid #02A87C;
   border-bottom: 1px solid #02A87C;
@@ -74,6 +75,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: left;
 }
 
 .user-story{

@@ -9,7 +9,6 @@ import { monthDay } from '../../util/month_day_util';
 import { timeToRead } from '../../util/time_to_read_util';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   let likedState = false;
   // Object.values(state.entities.story_claps).forEach(story_clap => {
   //   if(story_clap.clapper_id === state.session.id) {
@@ -44,7 +43,6 @@ const mapDispatchToProps = dispatch => ({
 
 class UserStoryPost extends React.Component {
   constructor(props) {
-    debugger
     super(props);
     this.state = {count: this.props.count, likeState: this.props.userHasLiked};
     this.handleDelete = this.handleDelete.bind(this);
@@ -57,13 +55,11 @@ class UserStoryPost extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchAllStoryClaps(this.props.story.id);
   }
 
   // Refetching all stories if claps are updated, using componentWillReceiveProps
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.userHasLiked !== this.props.userHasLiked) {
       this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
     }

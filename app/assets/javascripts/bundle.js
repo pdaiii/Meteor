@@ -490,7 +490,6 @@ var createStoryClap = function createStoryClap(clap, story_id) {
   };
 };
 var destroyStoryClap = function destroyStoryClap(story_id, id) {
-  debugger;
   return function (dispatch) {
     _util_story_clap_util__WEBPACK_IMPORTED_MODULE_0__["destroyStoryClap"](story_id, id).then(function () {
       return dispatch(removeStoryClap(story_id));
@@ -575,7 +574,10 @@ var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "navBar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/index"
+    to: "/index",
+    style: {
+      textDecoration: 'none'
+    }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "logo"
   }, "Meteor")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_4__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_utils__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
@@ -732,13 +734,13 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.user) return null;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "follow-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-follows-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "follow-title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, this.props.user.username, " is following")), this.isFollowing()));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, this.props.user.username, " is following")), this.isFollowing())));
     }
   }]);
 
@@ -1080,24 +1082,26 @@ function (_React$Component) {
           id: "search-bar",
           className: "search-bar",
           type: "text",
-          placeholder: "Search Meteor"
+          placeholder: "Search Meteor",
+          autoComplete: "off"
         })));
       }
     }
   }, {
     key: "notifications",
     value: function notifications() {
-      var _this2 = this;
-
       var notifications = Object.values(this.props.currentUser.followers).map(function (follower) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "notification-item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/users/".concat(_this2.props.currentUser.id),
-          className: "notification-profile"
+          to: "/users/".concat(follower.id),
+          className: "notification-profile",
+          style: {
+            textDecoration: 'none'
+          }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-user-circle"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "notification-text"
         }, follower.username, " started following you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "notification-date"
@@ -1108,7 +1112,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var sessionLinks = function sessionLinks() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -1116,12 +1120,12 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "navbar-signin",
           onClick: function onClick() {
-            return _this3.props.openModal('Sign in');
+            return _this2.props.openModal('Sign in');
           }
         }, "Sign in"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "navbar-signup",
           onClick: function onClick() {
-            return _this3.props.openModal('Sign up');
+            return _this2.props.openModal('Sign up');
           }
         }, "Get Started"));
       };
@@ -1129,21 +1133,24 @@ function (_React$Component) {
       var personalGreeting = function personalGreeting() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
           className: "logged-in-navbar"
-        }, _this3.searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, _this2.searchBar(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "navbar-notifications",
-          onClick: _this3.openMenu
+          onClick: _this2.openMenu
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-bell"
-        })), _this3.state.showMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        })), _this2.state.showMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-menu",
           id: "notification-dropdown"
-        }, _this3.notifications()) : null), "\xA0\xA0\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        }, _this2.notifications()) : null), "\xA0\xA0\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           className: "navbar-name"
-        }, _this3.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/users/".concat(_this3.props.currentUser.id),
-          className: "navbar-profile"
+        }, _this2.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/users/".concat(_this2.props.currentUser.id),
+          className: "navbar-profile",
+          style: {
+            textDecoration: 'none'
+          }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-user-circle"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1151,7 +1158,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "logout-button",
           onClick: function onClick() {
-            return _this3.props.logout();
+            return _this2.props.logout();
           }
         }, "Log Out")));
       };
@@ -2815,8 +2822,7 @@ function (_React$Component) {
 
       if (!this.props.story) {
         return null;
-      } // debugger
-
+      }
 
       if (this.props.currentUserId) {
         creatingResponses = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_responses_response_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -3237,7 +3243,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var followState = 'Follow';
   Object.values(state.entities.follows).forEach(function (follow) {
     if (follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
-      followState = 'Unfollow';
+      followState = 'Following';
     }
   });
   return {
@@ -3333,7 +3339,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  debugger;
   var likedState = false; // Object.values(state.entities.story_claps).forEach(story_clap => {
   //   if(story_clap.clapper_id === state.session.id) {
   //     likedState = true;
@@ -3389,7 +3394,6 @@ function (_React$Component) {
 
     _classCallCheck(this, UserStoryPost);
 
-    debugger;
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserStoryPost).call(this, props));
     _this.state = {
       count: _this.props.count,
@@ -3409,15 +3413,12 @@ function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       this.props.fetchAllStoryClaps(this.props.story.id);
     } // Refetching all stories if claps are updated, using componentWillReceiveProps
 
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      debugger;
-
       if (nextProps.userHasLiked !== this.props.userHasLiked) {
         this.setState({
           count: nextProps.count,

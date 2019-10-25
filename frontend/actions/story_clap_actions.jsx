@@ -33,7 +33,6 @@ export const createStoryClap = (clap, story_id) => {
 };
 
 export const destroyStoryClap = (story_id, id) => {
-  debugger
   return dispatch => {
     APIStoryClapUtil.destroyStoryClap(story_id, id)
       .then(() => dispatch(removeStoryClap(story_id)))

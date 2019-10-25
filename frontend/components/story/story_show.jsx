@@ -69,7 +69,6 @@ class StoryShow extends React.Component {
     if(!this.props.story){
       return null;
     }
-    // debugger
     if(this.props.currentUserId){
       creatingResponses = 
       <ResponseContainer

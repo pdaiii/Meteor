@@ -70,7 +70,7 @@ class navBar extends React.Component {
         <div className="search-container">
           <form onSubmit={this.handleSubmit}>
             <button id="search" onClick={this.expandSearch} className="search-submit-btn" type="submit"><i className="fas fa-search"></i></button>
-            <input id="search-bar" className="search-bar" type="text" placeholder="Search Meteor" />
+            <input id="search-bar" className="search-bar" type="text" placeholder="Search Meteor" autoComplete="off" />
           </form>
         </div>
       )
@@ -81,11 +81,11 @@ class navBar extends React.Component {
     let notifications = Object.values(this.props.currentUser.followers).map(follower => {
       return (
         <div className="notification-item">
-          <Link to={`/users/${this.props.currentUser.id}`} className="notification-profile">
+          <Link to={`/users/${follower.id}`} className="notification-profile" style={{textDecoration: 'none'}}>
             <i className="fas fa-user-circle"></i>
           </Link>
           <div>
-            <a className="notification-text">{follower.username} started following you</a>
+            <p className="notification-text">{follower.username} started following you</p>
             <p className="notification-date">{monthDay(follower.created_at)}</p>
           </div>
         </div>
@@ -116,7 +116,7 @@ class navBar extends React.Component {
           </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <h2 className="navbar-name">{this.props.currentUser.username}</h2>
-        <Link to={`/users/${this.props.currentUser.id}`} className="navbar-profile">
+        <Link to={`/users/${this.props.currentUser.id}`} className="navbar-profile" style={{textDecoration: 'none'}}>
           <i className="fas fa-user-circle"></i>
         </Link>
         <Link to="/"><button className="logout-button" onClick={() => this.props.logout()}>

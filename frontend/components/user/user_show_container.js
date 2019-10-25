@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   let followState = 'Follow';
   Object.values(state.entities.follows).forEach(follow => {
     if(follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
-      followState = 'Unfollow';
+      followState = 'Following';
     }
   })
   return({
