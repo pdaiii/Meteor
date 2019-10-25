@@ -1,7 +1,7 @@
 # Meteor
 [Live Site](https://meteor-fsp.herokuapp.com/#/)
 
-Welcome to the Meteor wiki! Meteor is a social media application inspired by Medium that enables authors to publicly share articles. Users can create articles with a title, body, and image. Users can also like and comment on other user's posts.
+Meteor is a social media application inspired by Medium that enables authors to publicly share articles. Users can create articles and like and comment on other user's posts.
 
 ## List of Technologies Used
 * React
