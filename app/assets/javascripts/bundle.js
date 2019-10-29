@@ -1013,13 +1013,14 @@ function (_React$Component) {
   _createClass(navBar, [{
     key: "componentWillMount",
     value: function componentWillMount() {
-      this.props.fetchAllStories();
-      this.props.fetchUser(this.props.currentUser.id);
-      this.props.fetchAllFollowers(this.props.currentUser.id);
+      // debugger
+      this.props.fetchAllStories(); // this.props.fetchUser(this.props.currentUser.id);
+      // this.props.fetchAllFollowers(this.props.currentUser.id);
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
+      // debugger
       event.preventDefault();
       var searchEntry = document.getElementById("search-bar").value;
       document.getElementById('search-bar').value = '';
@@ -2752,9 +2753,9 @@ function (_React$Component) {
     _this.state = {
       count: _this.props.count,
       likeState: _this.props.userHasLiked
-    }; // this.updateClapCounter = this.updateClapCounter.bind(this);
+    };
+    _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this)); // this.storyClap = this.storyClap.bind(this);
 
-    _this.storyClap = _this.storyClap.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2776,41 +2777,42 @@ function (_React$Component) {
           likeState: nextProps.userHasLiked
         });
       }
-    }
-  }, {
-    key: "storyClap",
-    value: function storyClap() {
-      if (this.state.likeState) {
-        var that = this;
-        Object.values(this.props.storyClaps).forEach(function (story_clap) {
-          if (story_clap.clapper_id === that.props.currentUserId) {
-            that.props.destroyStoryClap(that.props.story.id, story_clap.id);
-          }
-        });
-        this.setState({
-          count: this.state.count -= 1,
-          likeState: false
-        });
-      } else {
-        var formData = new FormData();
-        formData.append('story_clap[story_id]', this.props.story.id);
-        formData.append('story_clap[clapper_id]', this.props.currentUserId);
-        this.props.createStoryClap(formData, this.props.story.id);
-        this.setState({
-          count: this.state.count += 1,
-          likeState: true
-        });
-      }
-    } // Do not need to update all of the story details when updating the clap counter.
-    // updateClapCounter(event) {
-    //   const formData = new FormData();
-    //   formData.append('story[title]', this.props.story.title);
-    //   formData.append('story[body]', this.props.story.body);
-    //   formData.append('story[image]', this.props.story.image);
-    //   formData.append('story[count]', this.props.story.count+1);
-    //   this.props.updateStoryLikes(formData, this.props.story.id);
+    } // storyClap() {
+    //   if (this.state.likeState) {
+    //     let that = this;
+    //     Object.values(this.props.storyClaps).forEach(story_clap => {
+    //       if (story_clap.clapper_id === that.props.currentUserId) {
+    //         that.props.destroyStoryClap(that.props.story.id, story_clap.id);
+    //       }
+    //     })
+    //     this.setState({
+    //       count: this.state.count-=1,
+    //       likeState: false
+    //     })
+    //   }
+    //   else {
+    //     const formData = new FormData();
+    //     formData.append('story_clap[story_id]', this.props.story.id);
+    //     formData.append('story_clap[clapper_id]', this.props.currentUserId);
+    //     this.props.createStoryClap(formData, this.props.story.id);
+    //     this.setState({
+    //       count: this.state.count+=1,
+    //       likeState: true
+    //     })
+    //   }
     // }
+    // Do not need to update all of the story details when updating the clap counter.
 
+  }, {
+    key: "updateClapCounter",
+    value: function updateClapCounter(event) {
+      var formData = new FormData();
+      formData.append('story[title]', this.props.story.title);
+      formData.append('story[body]', this.props.story.body);
+      formData.append('story[image]', this.props.story.image);
+      formData.append('story[count]', this.props.story.count + 1);
+      this.props.updateStoryLikes(formData, this.props.story.id);
+    }
   }, {
     key: "render",
     value: function render() {
@@ -2888,12 +2890,14 @@ function (_React$Component) {
         className: "clap-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "clap-btn",
-        onClick: this.storyClap
+        onClick: function onClick() {
+          return _this2.updateClapCounter();
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "clap-counter"
-      }, this.state.count, " likes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.story.count, " claps"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "story-show-response"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "responses-title"
@@ -3034,21 +3038,21 @@ function (_React$Component) {
 
     _classCallCheck(this, UserShow);
 
+    // debugger
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserShow).call(this, props));
     _this.state = _this.props.followButton;
     _this.follow = _this.follow.bind(_assertThisInitialized(_this));
+    window.scrollTo(0, 0);
     return _this;
   }
 
   _createClass(UserShow, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // debugger
       this.props.fetchAllStories();
       this.props.fetchUser(this.props.match.params.userId);
-      this.props.fetchAllFollowers(this.props.match.params.userId);
-      this.setState({
-        following: this.state.following
-      });
+      this.props.fetchAllFollowers(this.props.match.params.userId); // this.setState({following: this.state.following});
     } // If stories get updated, fetch each story's number of claps
     // componentWillReceiveProps(nextProps) {
     //   if(nextProps.stories !== this.props.stories) {
@@ -3067,6 +3071,7 @@ function (_React$Component) {
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
+      // debugger
       if (nextProps.followButton.following !== this.props.followButton.following) {
         this.setState({
           following: nextProps.followButton.following
@@ -3124,9 +3129,7 @@ function (_React$Component) {
       if (userStories.length > 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-show-stories-title"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-          className: "story-title"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Stories"))), stories);
+        }), stories);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-no-post-msg"
@@ -3136,6 +3139,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       if (!this.props.user) {
         return null;
       }
@@ -3147,7 +3152,7 @@ function (_React$Component) {
           to: "/stories/new"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "user-profile-create-story-btn"
-        }, "Create Story"));
+        }, "Write Story"));
       } else {
         createStory = null;
       } // Follow Button: If the current user is accessing his own page return null. Else, display
@@ -3161,7 +3166,9 @@ function (_React$Component) {
       } else {
         followBtn = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "user-profile-follow-btn",
-          onClick: this.follow
+          onClick: function onClick() {
+            return _this4.follow();
+          }
         }, this.state.following);
       }
 
@@ -3204,7 +3211,17 @@ function (_React$Component) {
         className: "fas fa-user-circle"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-create-story"
-      }, createStory), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), this.getPosts()));
+      }, createStory), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-profile-navigation"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "user-navigation-tabs"
+      }, "Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "user-navigation-tabs"
+      }, "Claps"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "user-navigation-tabs"
+      }, "Highlights")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "featured"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Featured"))), this.getPosts()));
     }
   }]);
 
@@ -3240,6 +3257,7 @@ __webpack_require__.r(__webpack_exports__);
 // and the current user's id.
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  // debugger
   var followState = 'Follow';
   Object.values(state.entities.follows).forEach(function (follow) {
     if (follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
@@ -3399,9 +3417,9 @@ function (_React$Component) {
       count: _this.props.count,
       likeState: _this.props.userHasLiked
     };
-    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this)); // this.updateClapCounter = this.updateClapCounter.bind(this);
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this)); // this.storyClap = this.storyClap.bind(this);
 
-    _this.storyClap = _this.storyClap.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3430,37 +3448,38 @@ function (_React$Component) {
     key: "handleDelete",
     value: function handleDelete() {
       this.props.deleteStory(this.props.story.id);
-    } // updateClapCounter() {
-    //   const formData = new FormData();
-    //   formData.append('story[count]', this.props.story.count+1);
-    //   this.props.updateStoryLikes(formData, this.props.story.id);
+    }
+  }, {
+    key: "updateClapCounter",
+    value: function updateClapCounter() {
+      var formData = new FormData();
+      formData.append('story[count]', this.props.story.count + 1);
+      this.props.updateStoryLikes(formData, this.props.story.id);
+    } // storyClap() {
+    //   if(this.state.likeState) {
+    //     let that = this;
+    //     Object.values(this.props.storyClaps).forEach(story_clap => {
+    //       if (story_clap.clapper_id === that.props.currentUserId) {
+    //         that.props.destroyStoryClap(that.props.story.id, story_clap.id);
+    //       }
+    //     })
+    //     this.setState({
+    //       count: this.state.count-=1,
+    //       likeState: false
+    //     })
+    //   }
+    //   else {
+    //     const formData = new FormData();
+    //     formData.append('story_clap[story_id]', this.props.story.id);
+    //     formData.append('story_clap[clapper_id]', this.props.currentUserId);
+    //     this.props.createStoryClap(formData, this.props.story.id);
+    //     this.setState({
+    //       count: this.state.count+=1,
+    //       likeState: true
+    //     })
+    //   }
     // }
 
-  }, {
-    key: "storyClap",
-    value: function storyClap() {
-      if (this.state.likeState) {
-        var that = this;
-        Object.values(this.props.storyClaps).forEach(function (story_clap) {
-          if (story_clap.clapper_id === that.props.currentUserId) {
-            that.props.destroyStoryClap(that.props.story.id, story_clap.id);
-          }
-        });
-        this.setState({
-          count: this.state.count -= 1,
-          likeState: false
-        });
-      } else {
-        var formData = new FormData();
-        formData.append('story_clap[story_id]', this.props.story.id);
-        formData.append('story_clap[clapper_id]', this.props.currentUserId);
-        this.props.createStoryClap(formData, this.props.story.id);
-        this.setState({
-          count: this.state.count += 1,
-          likeState: true
-        });
-      }
-    }
   }, {
     key: "render",
     value: function render() {
@@ -3523,12 +3542,12 @@ function (_React$Component) {
         className: "response-clap-icon"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "clap-btn",
-        onClick: this.storyClap
+        onClick: this.updateClapCounter
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-thumbs-up"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "clap-counter"
-      }, this.state.count, " likes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.story.response_ids.length, " responses"))));
+      }, this.props.story.count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.story.response_ids.length, " responses"))));
     }
   }]);
 

@@ -15,12 +15,14 @@ class navBar extends React.Component {
   }
     
   componentWillMount() {
+    // debugger
     this.props.fetchAllStories();
-    this.props.fetchUser(this.props.currentUser.id);
-    this.props.fetchAllFollowers(this.props.currentUser.id);
+    // this.props.fetchUser(this.props.currentUser.id);
+    // this.props.fetchAllFollowers(this.props.currentUser.id);
   }
 
   handleSubmit(event) {
+    // debugger
     event.preventDefault();
     let searchEntry = document.getElementById("search-bar").value;
     document.getElementById('search-bar').value = '';

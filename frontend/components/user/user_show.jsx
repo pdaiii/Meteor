@@ -5,16 +5,19 @@ import UserStoriesContainer from './user_stories_container';
 class UserShow extends React.Component {
   // When do we need to have a constructor? Access to props
   constructor(props) {
+    // debugger
     super(props);
     this.state = this.props.followButton;
     this.follow = this.follow.bind(this);
+    window.scrollTo(0, 0);
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    // debugger
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollowers(this.props.match.params.userId);
-    this.setState({following: this.state.following});
+    // this.setState({following: this.state.following});
   }
 
   // If stories get updated, fetch each story's number of claps
@@ -33,6 +36,7 @@ class UserShow extends React.Component {
   // If you refresh the page after following someone, the follow button will be set as 'Follow' instead of
   // 'Unfollow' without this method.
   componentWillReceiveProps(nextProps) {
+    // debugger
     if(nextProps.followButton.following !== this.props.followButton.following) {
       this.setState({following: nextProps.followButton.following});
     }
@@ -81,7 +85,7 @@ class UserShow extends React.Component {
       return (
         <div>
           <div className="user-show-stories-title">
-            <h3 className="story-title"><b>Stories</b></h3>
+            {/* <p className="story-title">Featured</p> */}
           </div>
           {stories}
         </div>
@@ -101,7 +105,7 @@ class UserShow extends React.Component {
     let createStory;
     if(this.props.currentUserId === this.props.user.id){
       createStory = <Link to="/stories/new">
-        <button className="user-profile-create-story-btn">Create Story</button>
+        <button className="user-profile-create-story-btn">Write Story</button>
       </Link>;
     }
     else{
@@ -115,7 +119,7 @@ class UserShow extends React.Component {
       followBtn = null;
     }
     else {
-      followBtn = <button className="user-profile-follow-btn" onClick={this.follow}>{this.state.following}</button>;
+      followBtn = <button className="user-profile-follow-btn" onClick={() => this.follow()}>{this.state.following}</button>;
     }
     
     let followers = 0;
@@ -136,37 +140,53 @@ class UserShow extends React.Component {
       <div>
         <div className="profile-page-container">
           <nav className="user-profile-nav">
-            <div className="user-profile-info">
-              <div className="user-profile-user">
-                <h1 className="user-profile-username">{this.props.user.username}</h1>
 
-                <div className="follows">
-                  <p className="following">
-                    {following} <Link to={`/users/${this.props.user.id}/followees`}>Following</Link>
-                  </p>
-                  <p>&nbsp; &nbsp;</p>
-                  <p className="followers">
-                    {followers} <Link to={`/users/${this.props.user.id}/followers`}>Followers</Link>
-                  </p>
-                </div>
+            {/* <div className="user-navigation"> */}
+              <div className="user-profile-info">
+                <div className="user-profile-user">
+                  <h1 className="user-profile-username">{this.props.user.username}</h1>
 
-                {/* Render Follow/Unfollow depending on the state. */}
-                {/* Invoking the function onClick means when the function is being processed,
+                  <div className="follows">
+                    <p className="following">
+                      {following} <Link to={`/users/${this.props.user.id}/followees`}>Following</Link>
+                    </p>
+                    <p>&nbsp; &nbsp;</p>
+                    <p className="followers">
+                      {followers} <Link to={`/users/${this.props.user.id}/followers`}>Followers</Link>
+                    </p>
+                  </div>
+
+                  {/* Render Follow/Unfollow depending on the state. */}
+                  {/* Invoking the function onClick means when the function is being processed,
                  that function is called*/}
-                {followBtn}
+                  {followBtn}
+                </div>
+                <div className="user-profile-pic-icon">
+                  <i className="fas fa-user-circle"></i>
+                </div>
               </div>
-
-              <div className="user-profile-pic-icon">
-                <i className="fas fa-user-circle"></i>
-              </div>
-            </div>
+            {/* </div> */}
+            
 
             {/* If user is logged in, can see Create Story button */}
             <div className="user-profile-create-story">
               {createStory}
             </div>
+
+            <br/>
+            <br/>
+
+            <div className="user-profile-navigation">
+              <a className="user-navigation-tabs">Profile</a>
+              <a className="user-navigation-tabs">Claps</a>
+              <a className="user-navigation-tabs">Highlights</a>
+            </div>
             <hr />
+            <p className="featured"><b>Featured</b></p>
           </nav>
+
+          
+
           {this.getPosts()}
         </div>
       </div>

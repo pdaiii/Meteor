@@ -216,6 +216,9 @@ ApplicationRecord.transaction do
   )
   story3.image.attach(io: file3, filename: 'story3.jpg')
 
+  response1 = Response.create!(body: 'I don’t think this is at all like Toronto last summer. For Toronto, it was all or nothing. They were going nowhere but another early exit without Kawhi. These Lakers are not all or nothing. They are all or still having LeBron, Brow, and cap space to fill out the roster with a real team. Those two plus Kyrie or Kemba would’ve been the favorites by a mile. Heck even now they could still get Delon Wright and Danny Green and have a heck of a lineup even without Kawhi. Obviously Kawhi is worth the wait if he signs, but if he doesn’t, they’re going to be building a roster on the fly a second straight year when I think they could’ve just built a championship winner without him. With Kawhi, they break basketball and it’s a dynasty a few years. Without him, they probably could’ve won a few titles anyway with the right moves. Without him OR replacements, I’m not totally sure what they are. I will be forlorn if Kawhi does end up signing there just as a basketball fan. There’s not even any point the next few years if that’s the case, even worse and more inevitable than the Durant Warriors decision. I don’t blame Kawhi for making his own choice or the Lakers for offering it but I hope for basketball that it’s literally anything else.',
+   author_id: 1, story_id: 3);
+
   file4 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/paul_george_saved_okc.jpg')
   story4 = Story.create!(
     title: 'The Paul George Trade Just Saved the Oklahoma City Thunder Franchise',

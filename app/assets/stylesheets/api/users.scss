@@ -12,6 +12,10 @@
   width: 680px;
 }
 
+.user-navigation {
+  width: 680px;
+}
+
 .user-profile-info{
   display: flex;
   justify-content: space-between;
@@ -21,6 +25,21 @@
 .user-profile-username {
   font-size: 40px;
   font-weight: bold;
+}
+
+.user-profile-navigation {
+  text-align: left;
+}
+
+.user-navigation-tabs {
+  margin-right: 20px;
+}
+
+.featured {
+  font-size: 20px;
+  text-align: left;
+  padding-top: 30px;
+  // padding-bottom: 20px;
 }
 
 .follows {
@@ -176,13 +195,12 @@
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  // margin-top: auto;
   align-items: center;
-  // padding-bottom: 10px;
   border-bottom: 10px;
 }
 
 .story-title {
-  font-size: 50px;
+  font-size: 20px;
   margin: 10px 0px;
+  text-align: left;
 }
