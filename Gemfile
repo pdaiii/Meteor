@@ -3,13 +3,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+# Vulnerability
+gem "rubyzip", ">= 1.3.0"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+
+# Vulnerability
+gem "rake", ">= 12.3.3"
 # Use postgres as the database for Active Record
 gem 'pg'
 # gem 'pg', '~> 1.2', '>= 1.2.2'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+# Vulnerability
+gem "puma", ">= 3.12.4"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
