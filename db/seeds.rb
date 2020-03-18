@@ -101,7 +101,7 @@ ApplicationRecord.transaction do
     author_id: user2.id,
     count: 10
   )
-  story1.image.attach(io: file1, filename: 'story1.jpg')
+  # story1.image.attach(io: file1, filename: 'story1.jpg')
 
   file2 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/DeangeloRussell.png')
   story2 = Story.create!(
@@ -139,7 +139,7 @@ ApplicationRecord.transaction do
       author_id: user2.id,
       count: 200
   )
-  story2.image.attach(io: file2, filename: 'story2.jpg')
+  # story2.image.attach(io: file2, filename: 'story2.jpg')
 
   file3 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kevin-durant-kyrie-irving.jpg')
   story3 = Story.create!(
@@ -214,7 +214,7 @@ ApplicationRecord.transaction do
       author_id: user3.id,
       count: 250
   )
-  story3.image.attach(io: file3, filename: 'story3.jpg')
+  # story3.image.attach(io: file3, filename: 'story3.jpg')
 
   response1 = Response.create!(body: 'I don’t think this is at all like Toronto last summer. For Toronto, it was all or nothing. They were going nowhere but another early exit without Kawhi. These Lakers are not all or nothing. They are all or still having LeBron, Brow, and cap space to fill out the roster with a real team. Those two plus Kyrie or Kemba would’ve been the favorites by a mile. Heck even now they could still get Delon Wright and Danny Green and have a heck of a lineup even without Kawhi. Obviously Kawhi is worth the wait if he signs, but if he doesn’t, they’re going to be building a roster on the fly a second straight year when I think they could’ve just built a championship winner without him. With Kawhi, they break basketball and it’s a dynasty a few years. Without him, they probably could’ve won a few titles anyway with the right moves. Without him OR replacements, I’m not totally sure what they are. I will be forlorn if Kawhi does end up signing there just as a basketball fan. There’s not even any point the next few years if that’s the case, even worse and more inevitable than the Durant Warriors decision. I don’t blame Kawhi for making his own choice or the Lakers for offering it but I hope for basketball that it’s literally anything else.',
    author_id: user1.id, story_id: story3.id);
@@ -285,7 +285,7 @@ ApplicationRecord.transaction do
       author_id: user3.id,
       count: 50
   )
-  story4.image.attach(io: file4, filename: 'story4.jpg')
+  # story4.image.attach(io: file4, filename: 'story4.jpg')
 
   file5 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-clippers-nba-free-agency.jpg')
   story5 = Story.create!(
@@ -384,7 +384,7 @@ ApplicationRecord.transaction do
     author_id: user3.id,
     count: 40
   )
-  story5.image.attach(io: file5, filename: 'story5.jpg')
+  # story5.image.attach(io: file5, filename: 'story5.jpg')
 
   file6 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/2019_summer_league.jpg')
   story6 = Story.create!(
@@ -576,7 +576,7 @@ ApplicationRecord.transaction do
     author_id: user3.id,
     count: 100
   )
-  story6.image.attach(io: file6, filename: 'story6.jpg')
+  # story6.image.attach(io: file6, filename: 'story6.jpg')
 
   file7 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kd-kyrie-free-agency.jpg')
   story7 = Story.create!(
@@ -636,7 +636,7 @@ ApplicationRecord.transaction do
     author_id: user3.id,
     count: 10
   )
-  story7.image.attach(io: file7, filename: 'story7.jpg')
+  # story7.image.attach(io: file7, filename: 'story7.jpg')
 
   file8 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/early_christmas.jpeg')
   story8 = Story.create!(
@@ -760,7 +760,7 @@ ApplicationRecord.transaction do
     author_id: user4.id,
     count: 60
   )
-  story8.image.attach(io: file8, filename: 'story8.jpg')
+  # story8.image.attach(io: file8, filename: 'story8.jpg')
 
   file9 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/russell_westbrook_leaves_okc.jpg')
   story9 = Story.create!(
@@ -779,7 +779,7 @@ ApplicationRecord.transaction do
     author_id: user5.id,
     count: 70
   )
-  story9.image.attach(io: file9, filename: 'story9.jpg')
+  # story9.image.attach(io: file9, filename: 'story9.jpg')
 
   file10 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/anthony_davis_demarcus_cousins.jpg')
   story10 = Story.create!(
@@ -795,7 +795,7 @@ ApplicationRecord.transaction do
     author_id: user6.id,
     count: 80
   )
-  story10.image.attach(io: file10, filename: 'story10.jpg')
+  # story10.image.attach(io: file10, filename: 'story10.jpg')
 
   file11 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kobe_bryant.jpeg')
   story11= Story.create!(
@@ -938,7 +938,7 @@ ApplicationRecord.transaction do
     author_id: user7.id,
     count: 90
   )
-  story11.image.attach(io: file11, filename: 'story11.jpg')
+  # story11.image.attach(io: file11, filename: 'story11.jpg')
 
   file12 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/melo_on_the_bulls.jpg')
   story12 = Story.create!(
@@ -968,7 +968,7 @@ ApplicationRecord.transaction do
     author_id: user9.id,
     count: 100
   )
-  story12.image.attach(io: file12, filename: 'story12.jpg')
+  # story12.image.attach(io: file12, filename: 'story12.jpg')
 
   file13 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kyrie_to_the_nets.jpg')
   story13= Story.create!(
@@ -987,7 +987,7 @@ ApplicationRecord.transaction do
     author_id: user10.id,
     count: 130
   )
-  story13.image.attach(io: file13, filename: 'story13.jpg')
+  # story13.image.attach(io: file13, filename: 'story13.jpg')
 
   file14 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/jazz_win_title.jpg')
   story14= Story.create!(
@@ -1005,7 +1005,7 @@ ApplicationRecord.transaction do
     author_id: user11.id,
     count: 50
   )
-  story14.image.attach(io: file14, filename: 'story14.jpg')
+  # story14.image.attach(io: file14, filename: 'story14.jpg')
 
   file15 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/jamal_murray_not_playing.jpg')
   story15= Story.create!(
@@ -1148,7 +1148,7 @@ ApplicationRecord.transaction do
     author_id: user7.id,
     count: 50
   )
-  story15.image.attach(io: file15, filename: 'story15.jpg')
+  # story15.image.attach(io: file15, filename: 'story15.jpg')
 
   file17 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/kawhi-leonard-kevin-durant-kyrie-irving.jpg')
   story17 = Story.create!(
@@ -1245,7 +1245,7 @@ ApplicationRecord.transaction do
       author_id: user3.id,
       count: 80
   )
-  story17.image.attach(io: file17, filename: 'story17.jpg')
+  # story17.image.attach(io: file17, filename: 'story17.jpg')
 
   file18 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/durant_kyrie.jpg')
   story18 = Story.create!(
@@ -1260,5 +1260,5 @@ ApplicationRecord.transaction do
     author_id: user8.id,
     count: 90
   )
-  story18.image.attach(io: file18, filename: 'story18.jpg')
+  # story18.image.attach(io: file18, filename: 'story18.jpg')
 end
