@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     follows: state.entities.follows,
     user: state.entities.users[ownProps.match.params.userId]
-  })
+  });
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -67,8 +67,6 @@ class Followee extends React.Component {
     if(!this.props.user) return null;
     return (
       <div>
-
-
         <div className="follow-container">
           <div className="user-follows-container">
             <p className="follow-title"><b>{this.props.user.username} is following</b></p>

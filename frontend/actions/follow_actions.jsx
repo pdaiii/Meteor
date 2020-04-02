@@ -22,27 +22,27 @@ export const removeFollow = (id) => ({
 export const fetchAllFollowers = (id) => {
   return dispatch => {
     return APIFollowUtil.fetchAllFollowers(id)
-      .then(follows => dispatch(receiveAllFollows(follows)))
-  }
+      .then(follows => dispatch(receiveAllFollows(follows)));
+  };
 };
 
 export const fetchUserFollowers = (id) => {
   return dispatch => {
     return APIFollowUtil.fetchUserFollowers(id)
-      .then(follows => dispatch(receiveAllFollows(follows)))
-  }
+      .then(follows => dispatch(receiveAllFollows(follows)));
+  };
 };
 
 export const createFollow = (id) => {
   return dispatch => {
     return APIFollowUtil.followUser(id)
-      .then(follow => dispatch(receiveFollow(follow)))
-  }
+      .then(follow => dispatch(receiveFollow(follow)));
+  };
 };
 
 export const destroyFollow = (id, followId) => {
   return dispatch => {
     return APIFollowUtil.unfollowUser(id, followId)
-      .then(() => dispatch(removeFollow(followId)))
-  }
+      .then(() => dispatch(removeFollow(followId)));
+  };
 };
