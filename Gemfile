@@ -12,6 +12,9 @@ gem "rubyzip", ">= 1.3.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 
+# Vulnerability. Update to the latest actionview.
+gem "actionview", ">= 5.2.4.2"
+
 # Vulnerability
 gem "rake", ">= 12.3.3"
 # Use postgres as the database for Active Record
