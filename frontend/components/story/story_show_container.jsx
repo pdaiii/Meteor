@@ -13,8 +13,8 @@ const mapStateToProps = (state, ownProps) => {
       if(story_clap.clapper_id === state.session.id) {
         likedState = true;
       }
-    })
-  })
+    });
+  });
   // Object.values(state.entities.story_claps).forEach(story_clap => {
   //   if (story_clap.clapper_id === state.session.id) {
   //     likedState = true;
@@ -29,13 +29,13 @@ const mapStateToProps = (state, ownProps) => {
     storyClaps: state.entities.story_claps,
     responses: state.entities.responses,
     currentUserId: state.session.id
-  })
+  });
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchStory: (id) => dispatch(fetchStory(id)),
   updateStory: (story, id) => dispatch(updateStory(story, id)),
-  // updateStoryLikes: (story, id) => dispatch(updateStoryLikes(story, id)),
+  updateStoryLikes: (story, id) => dispatch(updateStoryLikes(story, id)),
   createStoryClap: (id) => dispatch(createStoryClap(id)),
   destroyStoryClap: (story_id, id) => dispatch(destroyStoryClap(story_id, id)),
   fetchAllStoryClaps: (id) => dispatch(fetchAllStoryClaps(id)),

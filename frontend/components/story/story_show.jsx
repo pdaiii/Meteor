@@ -92,7 +92,7 @@ class StoryShow extends React.Component {
           />
         )
       }
-    })
+    });
     var body_text = this.props.story.body;
     var formatted_text_arr = body_text.split("\n");
     let story_txt = formatted_text_arr.map(line => {
