@@ -29,7 +29,11 @@ class SearchBar extends React.Component{
     });
   }
 
-  componentWillMount() {
+  // componentWillMount() {
+  //   this.props.fetchAllStories();
+  // }
+
+  UNSAFE_componentWillMount() {
     this.props.fetchAllStories();
   }
 

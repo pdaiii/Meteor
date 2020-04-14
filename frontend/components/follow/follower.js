@@ -18,7 +18,12 @@ class Follower extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  // componentWillMount() {
+  //   this.props.fetchUser(this.props.match.params.userId)
+  //   this.props.fetchAllFollowers(this.props.match.params.userId);
+  // }
+
+  UNSAFE_componentWillMount() {
     this.props.fetchUser(this.props.match.params.userId)
     this.props.fetchAllFollowers(this.props.match.params.userId);
   }

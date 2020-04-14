@@ -14,7 +14,14 @@ class navBar extends React.Component {
     this.expandSearch = this.expandSearch.bind(this);
   }
     
-  componentWillMount() {
+  // componentWillMount() {
+  //   // debugger
+  //   this.props.fetchAllStories();
+  //   // this.props.fetchUser(this.props.currentUser.id);
+  //   // this.props.fetchAllFollowers(this.props.currentUser.id);
+  // }
+
+  UNSAFE_componentWillMount() {
     // debugger
     this.props.fetchAllStories();
     // this.props.fetchUser(this.props.currentUser.id);

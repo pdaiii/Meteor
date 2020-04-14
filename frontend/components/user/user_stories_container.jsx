@@ -50,7 +50,11 @@ class UserStoryPost extends React.Component {
     // this.storyClap = this.storyClap.bind(this);
   }
 
-  componentWillMount() {
+  // componentWillMount() {
+  //   this.props.fetchAllStories();
+  // }
+
+  UNSAFE_componentWillMount() {
     this.props.fetchAllStories();
   }
 
@@ -59,7 +63,13 @@ class UserStoryPost extends React.Component {
   }
 
   // Refetching all stories if claps are updated, using componentWillReceiveProps
-  componentWillReceiveProps(nextProps) {
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.userHasLiked !== this.props.userHasLiked) {
+  //     this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
+  //   }
+  // }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.userHasLiked !== this.props.userHasLiked) {
       this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
     }

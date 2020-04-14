@@ -11,9 +11,17 @@ class StoryShow extends React.Component {
     this.state = { count: this.props.count, likeState: this.props.userHasLiked };
     this.updateClapCounter = this.updateClapCounter.bind(this);
     // this.storyClap = this.storyClap.bind(this);
+    window.scrollTo(0, 0);
   }
 
-  componentWillMount() {
+  // componentWillMount() {
+  //   // Render show page for story.
+  //   this.props.fetchStory(this.props.match.params.storyId);
+  //   this.props.fetchAllResponses(this.props.match.params.storyId);
+  //   this.props.fetchAllStoryClaps(this.props.match.params.storyId);
+  // }
+
+  UNSAFE_componentWillMount() {
     // Render show page for story.
     this.props.fetchStory(this.props.match.params.storyId);
     this.props.fetchAllResponses(this.props.match.params.storyId);
@@ -21,7 +29,13 @@ class StoryShow extends React.Component {
   }
 
   // When the stories have been fetched, then update the state.
-  componentWillReceiveProps(nextProps) {
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.userHasLiked !== this.props.userHasLiked) {
+  //     this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
+  //   }
+  // }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if(nextProps.userHasLiked !== this.props.userHasLiked) {
       this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
     }

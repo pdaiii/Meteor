@@ -689,11 +689,15 @@ var Followee = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Followee);
 
     return _super.call(this, props);
-  }
+  } // componentWillMount() {
+  //   this.props.fetchUser(this.props.match.params.userId);
+  //   this.props.fetchAllFollowers(this.props.match.params.userId);
+  // }
+
 
   _createClass(Followee, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "UNSAFE_componentWillMount",
+    value: function UNSAFE_componentWillMount() {
       this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchAllFollowers(this.props.match.params.userId);
     }
@@ -823,11 +827,15 @@ var Follower = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Follower);
 
     return _super.call(this, props);
-  }
+  } // componentWillMount() {
+  //   this.props.fetchUser(this.props.match.params.userId)
+  //   this.props.fetchAllFollowers(this.props.match.params.userId);
+  // }
+
 
   _createClass(Follower, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "UNSAFE_componentWillMount",
+    value: function UNSAFE_componentWillMount() {
       this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchAllFollowers(this.props.match.params.userId);
     }
@@ -1020,11 +1028,17 @@ var navBar = /*#__PURE__*/function (_React$Component) {
     _this.openMenu = _this.openMenu.bind(_assertThisInitialized(_this));
     _this.expandSearch = _this.expandSearch.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // componentWillMount() {
+  //   // debugger
+  //   this.props.fetchAllStories();
+  //   // this.props.fetchUser(this.props.currentUser.id);
+  //   // this.props.fetchAllFollowers(this.props.currentUser.id);
+  // }
+
 
   _createClass(navBar, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "UNSAFE_componentWillMount",
+    value: function UNSAFE_componentWillMount() {
       // debugger
       this.props.fetchAllStories(); // this.props.fetchUser(this.props.currentUser.id);
       // this.props.fetchAllFollowers(this.props.currentUser.id);
@@ -1330,10 +1344,13 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
         pathname: '/search',
         search: "?q=".concat(searchEntry)
       });
-    }
+    } // componentWillMount() {
+    //   this.props.fetchAllStories();
+    // }
+
   }, {
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "UNSAFE_componentWillMount",
+    value: function UNSAFE_componentWillMount() {
       this.props.fetchAllStories();
     }
   }, {
@@ -2800,21 +2817,33 @@ var StoryShow = /*#__PURE__*/function (_React$Component) {
     };
     _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this)); // this.storyClap = this.storyClap.bind(this);
 
+    window.scrollTo(0, 0);
     return _this;
-  }
+  } // componentWillMount() {
+  //   // Render show page for story.
+  //   this.props.fetchStory(this.props.match.params.storyId);
+  //   this.props.fetchAllResponses(this.props.match.params.storyId);
+  //   this.props.fetchAllStoryClaps(this.props.match.params.storyId);
+  // }
+
 
   _createClass(StoryShow, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "UNSAFE_componentWillMount",
+    value: function UNSAFE_componentWillMount() {
       // Render show page for story.
       this.props.fetchStory(this.props.match.params.storyId);
       this.props.fetchAllResponses(this.props.match.params.storyId);
       this.props.fetchAllStoryClaps(this.props.match.params.storyId);
     } // When the stories have been fetched, then update the state.
+    // componentWillReceiveProps(nextProps) {
+    //   if(nextProps.userHasLiked !== this.props.userHasLiked) {
+    //     this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
+    //   }
+    // }
 
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
+    key: "UNSAFE_componentWillReceiveProps",
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       if (nextProps.userHasLiked !== this.props.userHasLiked) {
         this.setState({
           count: nextProps.count,
@@ -3101,8 +3130,9 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       // debugger
       this.props.fetchAllStories();
-      this.props.fetchUser(this.props.match.params.userId);
-      this.props.fetchAllFollowers(this.props.match.params.userId); // this.setState({following: this.state.following});
+      this.props.fetchUser(this.props.match.params.userId); // this.props.fetchAllFollowers(this.props.match.params.userId);
+
+      this.props.fetchUserFollowers(this.props.match.params.userId); // this.setState({following: this.state.following});
     } // If stories get updated, fetch each story's number of claps
     // componentWillReceiveProps(nextProps) {
     //   if(nextProps.stories !== this.props.stories) {
@@ -3117,10 +3147,16 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
     // Used for updating Follow to Unfollow when current user is already following.
     // If you refresh the page after following someone, the follow button will be set as 'Follow' instead of
     // 'Unfollow' without this method.
+    // componentWillReceiveProps(nextProps) {
+    //   // debugger
+    //   if(nextProps.followButton.following !== this.props.followButton.following) {
+    //     this.setState({following: nextProps.followButton.following});
+    //   }
+    // }
 
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
+    key: "UNSAFE_componentWillReceiveProps",
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       // debugger
       if (nextProps.followButton.following !== this.props.followButton.following) {
         this.setState({
@@ -3309,6 +3345,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   // debugger
   var followState = 'Follow';
+  debugger;
   Object.values(state.entities.follows).forEach(function (follow) {
     if (follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
       followState = 'Following';
@@ -3475,11 +3512,14 @@ var UserStoryPost = /*#__PURE__*/function (_React$Component) {
     _this.updateClapCounter = _this.updateClapCounter.bind(_assertThisInitialized(_this)); // this.storyClap = this.storyClap.bind(this);
 
     return _this;
-  }
+  } // componentWillMount() {
+  //   this.props.fetchAllStories();
+  // }
+
 
   _createClass(UserStoryPost, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "UNSAFE_componentWillMount",
+    value: function UNSAFE_componentWillMount() {
       this.props.fetchAllStories();
     }
   }, {
@@ -3487,10 +3527,15 @@ var UserStoryPost = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchAllStoryClaps(this.props.story.id);
     } // Refetching all stories if claps are updated, using componentWillReceiveProps
+    // componentWillReceiveProps(nextProps) {
+    //   if (nextProps.userHasLiked !== this.props.userHasLiked) {
+    //     this.setState({ count: nextProps.count, likeState: nextProps.userHasLiked });
+    //   }
+    // }
 
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
+    key: "UNSAFE_componentWillReceiveProps",
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       if (nextProps.userHasLiked !== this.props.userHasLiked) {
         this.setState({
           count: nextProps.count,
