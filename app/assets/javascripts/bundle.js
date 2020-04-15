@@ -3130,9 +3130,9 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       // debugger
       this.props.fetchAllStories();
-      this.props.fetchUser(this.props.match.params.userId); // this.props.fetchAllFollowers(this.props.match.params.userId);
-
-      this.props.fetchUserFollowers(this.props.match.params.userId); // this.setState({following: this.state.following});
+      this.props.fetchUser(this.props.match.params.userId);
+      this.props.fetchAllFollowers(this.props.match.params.userId); // this.props.fetchUserFollowers(this.props.match.params.userId);
+      // this.setState({following: this.state.following});
     } // If stories get updated, fetch each story's number of claps
     // componentWillReceiveProps(nextProps) {
     //   if(nextProps.stories !== this.props.stories) {
@@ -3345,7 +3345,6 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   // debugger
   var followState = 'Follow';
-  debugger;
   Object.values(state.entities.follows).forEach(function (follow) {
     if (follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
       followState = 'Following';

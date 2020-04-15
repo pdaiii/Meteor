@@ -10,7 +10,6 @@ import { fetchAllStoryClaps, createStoryClap, destroyStoryClap } from '../../act
 const mapStateToProps = (state, ownProps) => {
   // debugger
   let followState = 'Follow';
-  debugger;
   Object.values(state.entities.follows).forEach(follow => {
     if(follow.follower.id === state.session.id && follow.followee.id === parseInt(ownProps.match.params.userId)) {
       followState = 'Following';

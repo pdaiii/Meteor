@@ -12,13 +12,11 @@ class Api::FollowsController < ApplicationController
   end
 
   def index
-    debugger
     @follows = Follow.all
     render 'api/follows/index'
   end
 
   def show
-    debugger
     # @follows = Follow.find_by_sql("SELECT * FROM follows WHERE user_id = follow_params");
     # sql = `SELECT * FROM follows WHERE user_id = ${follow_params}`
     @follows = Follow.where(user_id: params[:user_id]);
