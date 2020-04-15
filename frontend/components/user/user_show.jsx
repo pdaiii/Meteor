@@ -5,7 +5,6 @@ import UserStoriesContainer from './user_stories_container';
 class UserShow extends React.Component {
   // When do we need to have a constructor? Access to props
   constructor(props) {
-    // debugger
     super(props);
     this.state = this.props.followButton;
     this.follow = this.follow.bind(this);
@@ -13,7 +12,6 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchAllStories();
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllFollowers(this.props.match.params.userId);

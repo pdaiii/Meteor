@@ -44,7 +44,7 @@ class navBar extends React.Component {
     if(this.state.showMenu) {
       this.setState({
         showMenu: false
-      })
+      });
     }
     else {
       this.setState({
@@ -59,13 +59,13 @@ class navBar extends React.Component {
       document.getElementById('search-bar').setAttribute("style", "display: inline");
       this.setState({
         search: false
-      })
+      });
     }
     else {
       document.getElementById('search-bar').setAttribute("style", "display: none");
       this.setState({
         search: true
-      })
+      });
     } 
   }
 
@@ -78,7 +78,8 @@ class navBar extends React.Component {
       return (
         <div className="search-container">
           <form onSubmit={this.handleSubmit}>
-            <button id="search" onClick={this.expandSearch} className="search-submit-btn" type="submit"><i className="fas fa-search"></i></button>
+            {/* <button id="search" onClick={this.expandSearch} className="search-submit-btn" type="submit"><i className="fas fa-search"></i></button> */}
+            <button id="search" className="search-submit-btn" type="submit"><i className="fas fa-search"></i></button>
             <input id="search-bar" className="search-bar" type="text" placeholder="Search Meteor" autoComplete="off" />
           </form>
         </div>

@@ -1100,7 +1100,6 @@ var navBar = /*#__PURE__*/function (_React$Component) {
           onSubmit: this.handleSubmit
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           id: "search",
-          onClick: this.expandSearch,
           className: "search-submit-btn",
           type: "submit"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -3117,7 +3116,6 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, UserShow);
 
-    // debugger
     _this = _super.call(this, props);
     _this.state = _this.props.followButton;
     _this.follow = _this.follow.bind(_assertThisInitialized(_this));
@@ -3128,7 +3126,6 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
   _createClass(UserShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
       this.props.fetchAllStories();
       this.props.fetchUser(this.props.match.params.userId);
       this.props.fetchAllFollowers(this.props.match.params.userId); // this.props.fetchUserFollowers(this.props.match.params.userId);
