@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { monthDay } from '../../util/month_day_util';
 import { timeToRead } from '../../util/time_to_read_util';
 import { fetchAllStories } from '../../actions/story_actions';
+// import UserStoriesContainer from '../user/user_stories_container';
 
 const mapStateToProps = state => ({
   stories: state.entities.stories
@@ -53,7 +54,9 @@ class SearchBar extends React.Component{
       }
     });
     if(searchEntry === '') entries = [];
-    let top5Entries = entries.sort();
+    // Take first 5 entries. Not sure how it is sorted.
+    let top5Entries = entries.sort().slice(0,5);
+    
     let top5 = top5Entries.map(entry => {
       return (
         <div className="user-story" key={entry.id}>
@@ -81,6 +84,8 @@ class SearchBar extends React.Component{
           </Link>
 
           <footer className="user-story-footer">
+
+            {/* Remove the option to like(thumbs up) stories resulting from the search */}
             <button><i className='far fa-thumbs-up'></i></button>
             <p>{entry.response_ids.length} responses</p>
           </footer>

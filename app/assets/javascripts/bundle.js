@@ -1302,7 +1302,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
+ // import UserStoriesContainer from '../user/user_stories_container';
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
@@ -1372,8 +1372,9 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
           entries.push(story);
         }
       });
-      if (searchEntry === '') entries = [];
-      var top5Entries = entries.sort();
+      if (searchEntry === '') entries = []; // Take first 5 entries. Not sure how it is sorted.
+
+      var top5Entries = entries.sort().slice(0, 5);
       var top5 = top5Entries.map(function (entry) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-story",
