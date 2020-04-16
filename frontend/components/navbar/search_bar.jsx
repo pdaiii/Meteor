@@ -87,7 +87,7 @@ class SearchBar extends React.Component{
 
             {/* Remove the option to like(thumbs up) stories resulting from the search */}
             <button><i className='far fa-thumbs-up'></i></button>
-            <p>{entry.response_ids.length} responses</p>
+            <p>{entry.response_ids.length} response</p>
           </footer>
         </div>
       )
@@ -96,12 +96,23 @@ class SearchBar extends React.Component{
       top5 = 'No stories found.'
     }
     return (
-      <div>
+      <div className="search-story-container">
         <div className="user-story-container">
           <form onSubmit={this.handleSubmit}>
-            <input id="search-text" className="search-text" type="text"/>
+            <input id="search-text" className="search-text" type="text" placeholder={searchEntry}/>
           </form>
-          <p className="search-story-txt">Stories</p>
+
+          <div className="search-links">
+            <a><b>Stories</b></a>
+            &nbsp; &nbsp; &nbsp;
+            <a>People</a>
+            &nbsp; &nbsp; &nbsp;
+            <a>Publications</a>
+            &nbsp; &nbsp; &nbsp;
+            <a>Tags</a>
+          </div>
+
+          <p className="search-story-txt">STORIES</p>
           {top5}
         </div>
       </div>
