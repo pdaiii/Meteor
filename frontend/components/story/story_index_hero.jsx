@@ -17,11 +17,16 @@ const StoryIndexHero = (props) => {
           <Link to={`stories/${props.stories[0].id}`}>
             <img src={`${props.stories[0].image}`} className="left-story-img" />
           </Link>
+
           <div className="left-story-text">
             <Link to={`stories/${props.stories[0].id}`}>
               <h1 className="left-story-title">{props.stories[0].title}</h1>
+            </Link>
+
+            <Link to={`stories/${props.stories[0].id}`}>
               <h2 className="left-story-body">{props.stories[0].body}</h2>
             </Link>
+
             <div className="left-story-info">
               <Link to={`users/${props.stories[0].author_id}`}>
                 <p className="left-story-author">{props.stories[0].author}</p>

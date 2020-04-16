@@ -2586,7 +2586,9 @@ var StoryIndexHero = function StoryIndexHero(props) {
     to: "stories/".concat(props.stories[0].id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "left-story-title"
-  }, props.stories[0].title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, props.stories[0].title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "stories/".concat(props.stories[0].id)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "left-story-body"
   }, props.stories[0].body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "left-story-info"
@@ -3648,7 +3650,7 @@ var UserStoryPost = /*#__PURE__*/function (_React$Component) {
         className: "far fa-thumbs-up"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "clap-counter"
-      }, this.props.story.count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.story.response_ids.length, " responses"))));
+      }, this.props.story.count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.story.response_ids.length, " response"))));
     }
   }]);
 

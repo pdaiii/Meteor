@@ -168,7 +168,7 @@ class UserStoryPost extends React.Component {
               {/* <p className="clap-counter">{this.state.count} likes</p> */}
               <p className="clap-counter">{this.props.story.count}</p>
             </div>
-            <p>{this.props.story.response_ids.length} responses</p>
+            <p>{this.props.story.response_ids.length} response</p>
           </footer>
         </div>
       </div>
