@@ -347,7 +347,7 @@ var signup = function signup(user) {
 /*!********************************************!*\
   !*** ./frontend/actions/story_actions.jsx ***!
   \********************************************/
-/*! exports provided: RECEIVE_ALL_STORIES, RECEIVE_STORY, DESTROY_STORY, fetchAllStories, fetchStory, createStory, updateStory, updateStoryLikes, deleteStory */
+/*! exports provided: RECEIVE_ALL_STORIES, RECEIVE_STORY, DESTROY_STORY, RECEIVE_STORY_ERRORS, CLEAR_STORY_ERRORS, clearErrors, fetchAllStories, fetchStory, createStory, updateStory, updateStoryLikes, deleteStory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -355,6 +355,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_STORIES", function() { return RECEIVE_ALL_STORIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_STORY", function() { return RECEIVE_STORY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DESTROY_STORY", function() { return DESTROY_STORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_STORY_ERRORS", function() { return RECEIVE_STORY_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_STORY_ERRORS", function() { return CLEAR_STORY_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearErrors", function() { return clearErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllStories", function() { return fetchAllStories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchStory", function() { return fetchStory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStory", function() { return createStory; });
@@ -365,7 +368,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_ALL_STORIES = 'RECEIVE_ALL_STORIES';
 var RECEIVE_STORY = 'RECEIVE_STORY';
-var DESTROY_STORY = 'DESTROY_STORY'; // Action Creators
+var DESTROY_STORY = 'DESTROY_STORY'; // STORY CREATE/EDIT ERRORS
+
+var RECEIVE_STORY_ERRORS = 'RECEIVE_STORY_ERRORS';
+var CLEAR_STORY_ERRORS = 'CLEAR_STORY_ERRORS'; // Action Creators
 
 var receiveAllStories = function receiveAllStories(stories) {
   return {
@@ -386,8 +392,22 @@ var removeStory = function removeStory(id) {
     type: DESTROY_STORY,
     id: id
   };
-}; // Thunk Action Creators
+}; // Errors
 
+
+var receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_STORY_ERRORS,
+    errors: errors
+  };
+};
+
+var clearErrors = function clearErrors() {
+  return {
+    type: CLEAR_STORY_ERRORS,
+    errors: []
+  };
+}; // Thunk Action Creators
 
 var fetchAllStories = function fetchAllStories() {
   return function (dispatch) {
@@ -402,18 +422,38 @@ var fetchStory = function fetchStory(id) {
       return dispatch(receiveStory(story));
     });
   };
-};
+}; // // Add Story Create Errors
+// export const createStory = (story) => {
+//   return dispatch => {
+//     return APIStoryUtil.createStory(story)
+//       .then(story => dispatch(receiveStory(story)))
+//   };
+// };
+// Add Story Create Errors
+
 var createStory = function createStory(story) {
   return function (dispatch) {
     return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["createStory"](story).then(function (story) {
       return dispatch(receiveStory(story));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
-};
+}; // // Add Story Edit Errors
+// export const updateStory = (story, story_id) => {
+//   return dispatch => {
+//     return APIStoryUtil.updateStory(story, story_id)
+//       .then(story => dispatch(receiveStory(story)))
+//   };
+// };
+// Add Story Edit Errors
+
 var updateStory = function updateStory(story, story_id) {
   return function (dispatch) {
     return _util_story_util__WEBPACK_IMPORTED_MODULE_0__["updateStory"](story, story_id).then(function (story) {
       return dispatch(receiveStory(story));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -2044,6 +2084,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    // Error logging
+    errors: state.errors.story,
     story: {
       title: "",
       body: "",
@@ -2056,6 +2098,9 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    clearErrors: function clearErrors() {
+      return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_1__["clearErrors"])());
+    },
     submitStory: function submitStory(story) {
       return dispatch(Object(_actions_story_actions__WEBPACK_IMPORTED_MODULE_1__["createStory"])(story));
     }
@@ -2352,6 +2397,20 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: "error-".concat(idx)
+        }, error);
+      }));
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearErrors();
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2373,7 +2432,7 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleImage
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType === 'Edit Story' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType === 'Edit Story' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "submit-button",
         type: "submit",
         value: "Update Story"
@@ -3806,10 +3865,15 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _story_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./story_errors_reducer */ "./frontend/reducers/story_errors_reducer.js");
+
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  // Account Access/Creation Errors
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  // Story Form Errors
+  story: _story_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
 
@@ -4135,6 +4199,42 @@ var StoryClapsReducer = function StoryClapsReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/story_errors_reducer.js":
+/*!***************************************************!*\
+  !*** ./frontend/reducers/story_errors_reducer.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_story_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/story_actions */ "./frontend/actions/story_actions.jsx");
+
+
+var storyErrorsReducer = function storyErrorsReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+
+  switch (action.type) {
+    case _actions_story_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_STORY_ERRORS"]:
+      return action.errors;
+
+    case _actions_story_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_STORY"]:
+      return [];
+
+    case _actions_story_actions__WEBPACK_IMPORTED_MODULE_0__["CLEAR_STORY_ERRORS"]:
+      return action.errors;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (storyErrorsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/ui_reducer.jsx":
 /*!******************************************!*\
   !*** ./frontend/reducers/ui_reducer.jsx ***!
@@ -4217,12 +4317,17 @@ __webpack_require__.r(__webpack_exports__);
 
  // Handles reducer for entire store
 
-
+ // const middlewares = [thunk];
+// if (process.env.NODE_ENV !== 'production') {
+//     middlewares.push(logger);
+// }
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], // Uploads preloadedState or persists the current user and session.
-  preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a) // applyMiddleware(thunk)
+  preloadedState, // Use logger only in production environments. Otherwise only use thunk.
+  Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a) // applyMiddleware(thunk)
+  // applyMiddleware(...middlewares)
   );
 };
 

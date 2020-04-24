@@ -1261,4 +1261,15 @@ ApplicationRecord.transaction do
     count: 90
   )
   story18.image.attach(io: file18, filename: 'story18.jpg')
+
+  file19 = open('https://meteor-app-seeds.s3-us-west-1.amazonaws.com/nba-covid.jpeg')
+  story19 = Story.create!(
+    title: 'NBA Shuts Down the 2020 Season Until Further Notice',
+    body: 'Because Utah Jazz player, Rudy Gobert tested positive for COVID-19, the NBA made a decision to suspend the NBA season until further notice.
+
+    This is a huge disappointment for NBA fans around the world. Kawhi Leaornard and Lebron James were just in the middle of battling for the NBA crown, and the playoffs were set to begin in about a month from today, April 18. We all wanted to see how far the Mavericks would go in the playoffs with Luka Dončić as their floor general, and he is playing the best basketball out of any 20 year old in NBA history. What should NBA fans do now?',
+    author_id: user1.id,
+    count: 100
+  )
+  story19.image.attach(io: file19, filename: 'story19.jpg')
 end

@@ -32,9 +32,26 @@ class StoryForm extends React.Component {
       .then(() => this.props.history.push(`/users/${this.props.currentUserId}`));
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map( (error, idx) => (
+          <li key={`error-${idx}`}>{error}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   render() {
     return (
       <div className="new-story-container">
+
+        
+
         <form className="new-story-form" onSubmit={this.handleSubmit}>
           <input className="new-story-form-title" type="text" value={this.state.title} onChange={this.update('title')} 
             placeholder="Title"/>
@@ -42,6 +59,10 @@ class StoryForm extends React.Component {
             placeholder="Tell your story...">
           </textarea>
           <input type="file" onChange={this.handleImage}/>
+
+          {/* Error logging */}
+          {this.renderErrors()}
+
           <div>
             {this.props.formType === 'Edit Story' ? 
               <input className="submit-button" type="submit" value="Update Story" /> : 
