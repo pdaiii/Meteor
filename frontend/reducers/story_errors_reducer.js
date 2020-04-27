@@ -6,7 +6,7 @@ const storyErrorsReducer = (oldState = [], action) => {
     case RECEIVE_STORY_ERRORS:
       return action.errors;
     case RECEIVE_STORY:
-        return [];
+      return [];
     case CLEAR_STORY_ERRORS:
       return action.errors;
     default:

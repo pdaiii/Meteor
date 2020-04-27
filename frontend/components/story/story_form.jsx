@@ -12,9 +12,9 @@ class StoryForm extends React.Component {
   // Setting state causes an automatic rerender of the page.
   update(field) {
     return event => {
-      this.setState({ [field]: event.target.value })
+      this.setState({ [field]: event.target.value });
     };
-  };
+  }
 
   // Setting state causes an automatic rerender of the page.
   handleImage(event) {
@@ -34,7 +34,9 @@ class StoryForm extends React.Component {
 
   renderErrors() {
     return (
+
       <ul>
+        <li> Please enter a valid image.</li>
         {this.props.errors.map( (error, idx) => (
           <li key={`error-${idx}`}>{error}</li>
         ))}
@@ -49,9 +51,6 @@ class StoryForm extends React.Component {
   render() {
     return (
       <div className="new-story-container">
-
-        
-
         <form className="new-story-form" onSubmit={this.handleSubmit}>
           <input className="new-story-form-title" type="text" value={this.state.title} onChange={this.update('title')} 
             placeholder="Title"/>

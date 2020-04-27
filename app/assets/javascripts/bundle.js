@@ -2374,10 +2374,10 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
       return function (event) {
         _this2.setState(_defineProperty({}, field, event.target.value));
       };
-    }
+    } // Setting state causes an automatic rerender of the page.
+
   }, {
     key: "handleImage",
-    // Setting state causes an automatic rerender of the page.
     value: function handleImage(event) {
       this.setState(_defineProperty({}, 'image', event.currentTarget.files[0]));
     } // Uses FormData to pass multiple parameters to the backend and formats the file data.
@@ -2399,7 +2399,7 @@ var StoryForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, idx) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, " Please enter a valid image."), this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "error-".concat(idx)
         }, error);

@@ -12,9 +12,10 @@
 #
 
 class Story < ApplicationRecord
-    validates :title, :body, :author_id, presence: true
-
     has_one_attached :image
+
+    validates :title, :body, :author_id, presence: true
+    # validates :image, presence: true
 
     belongs_to :author,
         primary_key: :id,
