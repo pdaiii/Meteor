@@ -18,6 +18,7 @@ class StoryForm extends React.Component {
 
   // Setting state causes an automatic rerender of the page.
   handleImage(event) {
+    debugger
     this.setState({['image']: event.currentTarget.files[0]});
   }
 
@@ -34,9 +35,7 @@ class StoryForm extends React.Component {
 
   renderErrors() {
     return (
-
       <ul>
-        <li> Please enter a valid image.</li>
         {this.props.errors.map( (error, idx) => (
           <li key={`error-${idx}`}>{error}</li>
         ))}

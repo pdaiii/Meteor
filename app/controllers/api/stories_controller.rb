@@ -2,13 +2,20 @@ class Api::StoriesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def create
-    @story = Story.new(story_params)
-    @story.author_id = current_user.id
-    if @story.save
-      render 'api/stories/show'
+    if story_params[:image] == "null"
+      new_story_params = story_params.except(:image)
+      render json: ["You must include an image"], status: 400
     else
-      render json: @story.errors.full_messages, status: 422
+      @story = Story.new(story_params)
+      @story.author_id = current_user.id
+      if @story.save
+        render 'api/stories/show'
+      else
+        render json: @story.errors.full_messages, status: 422
+      end
     end
+    # debugger
+
   end
 
   # Rendering a story show page.
