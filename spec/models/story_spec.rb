@@ -23,6 +23,7 @@ RSpec.describe Story, type: :model do
       io: image,
       filename: 'image.png'
     )
+    except(image_story.has_attribute?(:image))
     expect(image_story).to be_an_instance_of(ActiveStorage::Attachment::One)
   end
 

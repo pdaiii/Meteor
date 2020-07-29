@@ -2,6 +2,7 @@ import {RECEIVE_STORY_ERRORS, RECEIVE_STORY, CLEAR_STORY_ERRORS} from '../action
 
 const storyErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
+  debugger
   switch(action.type) {
     case RECEIVE_STORY_ERRORS:
       return action.errors;
