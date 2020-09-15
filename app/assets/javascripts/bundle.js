@@ -4216,6 +4216,7 @@ var storyErrorsReducer = function storyErrorsReducer() {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(oldState);
+  debugger;
 
   switch (action.type) {
     case _actions_story_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_STORY_ERRORS"]:
@@ -4318,18 +4319,20 @@ __webpack_require__.r(__webpack_exports__);
 
  // Handles reducer for entire store
 
- // const middlewares = [thunk];
-// if (process.env.NODE_ENV !== 'production') {
-//     middlewares.push(logger);
-// }
+
+var middlewares = [redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]];
+
+if (true) {
+  middlewares.push(redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a);
+}
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_3__["default"], // Uploads preloadedState or persists the current user and session.
   preloadedState, // Use logger only in production environments. Otherwise only use thunk.
-  Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a) // applyMiddleware(thunk)
-  // applyMiddleware(...middlewares)
-  );
+  // applyMiddleware(thunk, logger)
+  // applyMiddleware(thunk)
+  redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, middlewares));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
