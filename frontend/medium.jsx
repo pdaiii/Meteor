@@ -8,9 +8,23 @@ import Root from './components/root';
 // import * as AJAX from './util/session_api_util';
 // import { fetchAllResponses, createResponse } from './util/response_util';
 // import {fetchAllFollowers} from './util/follow_util';
+
+// Google Analytics
+import ReactGA from 'react-ga';
+
+
 import {createStoryClap, fetchStoryClaps, destroyStoryClap} from './util/story_clap_util';
 
+function initializeReactGA() {
+  ReactGA.initialize('UA-144735944-2');
+  ReactGA.pageview('/homepage');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  // Google Analytics
+  initializeReactGA();
+
   let store;
   if (window.currentUser) {
     const preloadedState = {
