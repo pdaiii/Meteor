@@ -12,7 +12,6 @@ import Root from './components/root';
 // Google Analytics
 import ReactGA from 'react-ga';
 
-
 import {createStoryClap, fetchStoryClaps, destroyStoryClap} from './util/story_clap_util';
 
 function initializeReactGA() {
