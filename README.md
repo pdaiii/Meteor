@@ -3,7 +3,6 @@
 
 Meteor is a social media application inspired by Medium that enables authors to publicly share articles. Users can create articles and like and comment on other user posts. The application utilizes Ruby on Rails and PostgreSQL on the backend with a React and Redux frontend.
 
-
 ## List of Technologies Used
 * React
 * Redux
